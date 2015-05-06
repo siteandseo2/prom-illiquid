@@ -7,71 +7,53 @@ var form = document.forms.registform,
 	inputPass = form.elements.password,
 	inputEmail = form.elements.email,
 	inputCompany = form.elements.company,
-	inputSubmit = form.elements.register;
+	inputSubmit = form.elements.register
 	
-// name
-inputName.addEventListener('keyup', function() {
-	var pattern = /[^a-zA-Zа-яА-Я]/gi;
-	validate( this, this.value, pattern );
+	namePattern = /[^a-zA-Zа-яА-Я]/gi,
+	passwordPattern = /[^a-zA-Zа-яА-Я0-9]/gi,
+	emailPattern = /\w+\@\w+\.\w+/,
 	
-	ifEveryIsValid();
-});
+	required = [inputName, inputPass, inputEmail, inputCompany];
+	
+	required.forEach(function(input) {
+		input.addEventListener('blur', function() {
+			validate( this, this.value );
+		});
+	});
 
-// password
-inputPass.addEventListener('keyup', function() {
-	var pattern = /[^a-zA-Zа-яА-Я0-9]/gi;
-	validate( this, this.value, pattern );
-	
-	ifEveryIsValid();
-});
 
-// email
-inputEmail.addEventListener('keyup', function() {
-	var pattern = /\w+\@\w+\.\w+/;
-	validate( this, this.value, pattern );
-	
-	ifEveryIsValid();
-});
-
-// company
-inputCompany.addEventListener('keyup', function() {
-	//var pattern = /[^a-zA-Zа-яА-Я0-9]/gi;
-	validate( this, this.value );
-	
-	ifEveryIsValid();
-});
-
+// Validation
 function validate( self, str, pattern ) {
 	
 	switch( self.getAttribute('name') ) {
 		case 'name':
-			if( !pattern.test( str ) && self.value.length ) {
+			if( !namePattern.test( str ) && self.value.length ) {
 				lightAccept();
 			} else {
 				lightDenied();
 			}
-		break;
+			break;
 		case 'password':
-			if( !pattern.test( str ) && self.value.length >= 8 ) {
+			if( !passwordPattern.test( str ) && self.value.length >= 8 ) {
 				lightAccept();
 			} else {
 				lightDenied();
 			}
-		break;
+			break;
 		case 'company':
 			if( self.value.length ) {
 				lightAccept();
 			} else {
 				lightDenied();
 			}
-		break;
+			break;
 		case 'email':
-			if( pattern.test( str ) && self.value.length ) {
+			if( emailPattern.test( str ) && self.value.length ) {
 				lightAccept();
 			} else {
 				lightDenied();
 			}
-		break;
+			break;
 		default:
 			break;
 	}
@@ -134,11 +116,22 @@ function validate( self, str, pattern ) {
 	
 };
 
-function ifEveryIsValid() {
-	if( inputName.classList.contains('validateInputTrue') && inputEmail.classList.contains('validateInputTrue') && inputCompany.classList.contains('validateInputTrue') && inputPass.classList.contains('validateInputTrue') ) {
-		inputSubmit.removeAttribute('disabled');
+inputSubmit.addEventListener('click', function() {
+	required.forEach(function(input) {
+		validate( input, input.value );
+	});
+	
+	var isAnyFalse = required.some(function(input) {
+		return input.classList.contains('validateInputFalse');
+	});
+	
+	if( isAnyFalse ) {
+		form.onsubmit = function() {
+			return false;
+		}
 	} else {
-		inputSubmit.setAttribute('disabled', '');
+		form.submit();
 	}
-}
+	
+});
 		
