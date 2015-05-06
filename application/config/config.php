@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= 'http://ci.loc/index.php/';
-$config['base_url']	= 'http://prom-illiquid/index.php';
+$config['base_url']	= 'http://ci.loc/index.php/';
+//$config['base_url']	= 'http://prom-illiquid/index.php';
 
 /*
 |--------------------------------------------------------------------------
