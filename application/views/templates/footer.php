@@ -163,6 +163,8 @@
             </div>
         </div>
     </div>
+	
+	<div class="overlay"></div>
 
 </footer>
 
@@ -181,6 +183,7 @@
 <script src="../../../js/jquery.fancybox.pack.js"></script>
 <script src="../../../js/autoComplete.js"></script>
 <script src="../../../js/main.js"></script>
+<script src="../../../js/ajax.js"></script>
 
 
 </body>

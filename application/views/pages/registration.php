@@ -66,35 +66,14 @@
                         </span>
                     </p>
                 </form>
-                
-				<script>
-					var registrForm = document.forms.registform;
-					registrForm.addEventListener('submit', function(ev) {
-						var data = new FormData(this);
-						
-						var xhr = new XMLHttpRequest();
-						xhr.open('POST', '/registration', true);
-						
-						xhr.onreadystatechange = function() {
-							if( xhr.readyState != 4 ) return;
-							
-							if( xhr.status == 200 ) {
-								callback( xhr.responseText );
-							} else {
-								console.error( '%s, : $s ', xhr.status, xhr.statusText );
-							}
-						}
-						
-						xhr.send(data);
-						
-						ev.preventDefault();
-					});
-					
-					function callback( data ) {
-						console.log( 'Response : ' + data );
-					}
-				</script>
             </div>
+					
+			<div class="registrResponse">
+				<h1></h1>
+				<div class="modalOk">
+					<span>Ok</span>
+				</div>
+			</div>
         </div>
 
         <hr>

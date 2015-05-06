@@ -131,6 +131,7 @@ inputSubmit.addEventListener('click', function() {
 		}
 	} else {
 		form.submit();
+		// go to ajax.js =>
 	}
 	
 });

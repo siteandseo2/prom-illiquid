@@ -31,7 +31,7 @@ class User extends CI_Controller {
 //        return $this->err;
 //    }
     function add_user() {
-        $this->load->view("templates/header");
+        
         if (isset($_POST['register'])) {
             $data['name'] = $_POST['name'];
             $data['email'] = $_POST['email'];
@@ -40,9 +40,12 @@ class User extends CI_Controller {
             $this->load->model('user_model');
             $this->user_model->add_user($data);            
         }
+		else {
+		$this->load->view("templates/header");
         $this->load->view("pages/registration");
         $this->load->view("templates/footer");
-    }
+		}
+	}
 
     function get_user() {
         $this->load->view("templates/header");
