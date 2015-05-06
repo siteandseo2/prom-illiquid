@@ -15,7 +15,7 @@
 |
 */
 //$config['base_url']	= 'http://ci.loc/index.php/';
-$config['base_url']	= '127.0.0.1';
+$config['base_url']	= 'http://prom-illiquid/index.php';
 
 /*
 |--------------------------------------------------------------------------
