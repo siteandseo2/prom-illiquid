@@ -62,13 +62,38 @@
 
                     <p>
                         <span class="form-submit">
-                            <input type="submit" name="register" value="Зарегистрироваться" disabled>
+                            <input type="submit" name="register" value="Зарегистрироваться">
                         </span>
                     </p>
                 </form>
-                <?php
-//                echo $user->err;
-                ?>
+                
+				<script>
+					var registrForm = document.forms.registform;
+					registrForm.addEventListener('submit', function(ev) {
+						var data = new FormData(this);
+						
+						var xhr = new XMLHttpRequest();
+						xhr.open('POST', '/registration', true);
+						
+						xhr.onreadystatechange = function() {
+							if( xhr.readyState != 4 ) return;
+							
+							if( xhr.status == 200 ) {
+								callback( xhr.responseText );
+							} else {
+								console.error( '%s, : $s ', xhr.status, xhr.statusText );
+							}
+						}
+						
+						xhr.send(data);
+						
+						ev.preventDefault();
+					});
+					
+					function callback( data ) {
+						console.log( 'Response : ' + data );
+					}
+				</script>
             </div>
         </div>
 
