@@ -1,0 +1,199 @@
+/* <= 1800 */
+
+
+@media (max-width: 1800px) {
+	.carousel-description {
+		padding-bottom: 8%;
+	}
+}
+
+
+/* <= 1600 */
+
+
+@media (max-width: 1600px) {
+	.carousel-description {
+		padding-bottom: 4%;
+		line-height: 22px;
+	}
+}
+
+/* <= 1500 */
+
+@media (max-width: 1500px) {
+	#main-carousel {
+		height: 580px;
+	}
+	#blur-overlay {
+		height: 514px;
+	}
+}
+
+/* <= 1400 */
+
+@media (max-width: 1400px) {
+	.carousel-description {
+		padding-bottom: 1%;
+		line-height: 20px;
+	}
+	#main-carousel {
+		height: 560px;
+	}
+	#blur-overlay {
+		height: 494px;
+	}
+}
+
+/* <= 1300 */
+
+@media (max-width: 1300px) {
+	#main-carousel {
+		height: 500px;
+	}
+	#blur-overlay {
+		height: 434px;
+	}
+	.carousel-description {
+		bottom: 60px;
+		line-height: 18px;
+		font-size: 13px;
+	}
+	#searching {
+		left: 10%;
+		right: 10%;
+		height: 90px;
+	}
+	.search-input,
+	#searching .search-block-button .btn-text	{
+		line-height: 60px;
+		height: 60px;
+	}
+	.search-input {
+		font-size: 1.3em;
+	}
+	#searching .search-block-button .btn-text {
+		font-size: 1.2em;
+	}
+	#searching .search-block-button {
+		height: 60px;
+	}
+	.carousel-contr {
+		top: 260px;
+	}
+}
+
+/* <= 1200 */
+
+@media (max-width: 1200px) {
+	#main-carousel {
+		height: 450px;
+	}
+	#blur-overlay {
+		height: 384px;
+	}
+	.tabs-buttons li a {
+		font-size: 1.6em;
+	}
+	.carousel-contr {
+		top: 210px;
+	}
+}
+
+/* <= 1030 */
+
+@media (max-width: 1030px) {
+	#main-carousel {
+		height: 410px;
+	}
+	#blur-overlay {
+		height: 344px;
+	}
+	.tabs-buttons li a {
+		font-size: 1.4em;
+	}
+	.tabs-buttons li {
+		padding: 15px 10px;
+	}
+	.tabs-content-category-list li a {
+		font-size: .9em;
+	}
+	.carousel-contr {
+		top: 150px;
+	}
+}
+
+/*  <= 930 */
+
+@media (max-width: 1030px) {
+	#main-carousel {
+		height: 370px;
+	}
+	#blur-overlay {
+		height: 304px;
+	}
+	.carousel-description {
+		visibility: hidden;
+	}
+	.tabs-buttons li a {
+		font-size: 1em;
+	}
+}
+
+/* <=830 */
+
+@media (max-width: 830px) {
+	#main-carousel {
+		height: 330px;
+	}
+	#blur-overlay {
+		height: 364px;
+	}
+	#searching {
+		top: 85px;
+	}
+	.carousel-contr {
+		top: 120px;
+	}
+	#searching .search-block-button .btn-text {
+		font-size: .9em;
+	}
+}
+
+/* <= 730 */
+
+@media (max-width: 730px) {
+	#main-carousel {
+		height: 290px;
+	}
+	#blur-overlay {
+		height: 324px;
+	}
+	.carousel-contr {
+		top: 100px;
+		font-size: 4em;
+	}
+}
+
+/* <= 630 */
+
+@media (max-width: 630px) {
+	#main-carousel {
+		height: 250px;
+	}
+	#blur-overlay {
+		height: 284px;
+	}
+	.search-input {
+		font-size: 1em;
+	}
+	.carousel-contr {
+		font-size: 3em;
+	}
+	#searching .search-block-button .btn-text {
+		font-size: .7em;
+	}
+}
+
+/* <= 530 */
+
+
