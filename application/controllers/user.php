@@ -39,11 +39,10 @@ class User extends CI_Controller {
             $data['company'] = $_POST['company'];
             $this->load->model('user_model');
             $this->user_model->add_user($data);            
-        }
-		else {
-		$this->load->view("templates/header");
-        $this->load->view("pages/registration");
-        $this->load->view("templates/footer");
+        } else {
+			$this->load->view("templates/header");
+			$this->load->view("pages/registration");
+			$this->load->view("templates/footer");
 		}
 	}
 

@@ -7,9 +7,9 @@ class user_model extends CI_Model {
 
     function add_user($data) {
         if($this->db->insert('user', $data)){
-            echo "OK";
+           // echo "OK";
         }else{
-            echo"FAIL";
+          //  echo"FAIL";
         }
     }
     

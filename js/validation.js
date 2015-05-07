@@ -9,7 +9,7 @@ var form = document.forms.registform,
 	inputCompany = form.elements.company,
 	inputSubmit = form.elements.register
 	
-	namePattern = /[^a-zA-Zа-яА-Я]/gi,
+	namePattern = /[^a-zA-Zа-яА-Я\s]/gi,
 	passwordPattern = /[^a-zA-Zа-яА-Я0-9]/gi,
 	emailPattern = /\w+\@\w+\.\w+/,
 	
@@ -130,9 +130,61 @@ inputSubmit.addEventListener('click', function() {
 			return false;
 		}
 	} else {
-		form.submit();
+		//form.submit();
 		// go to ajax.js =>
+		doAjax();
 	}
 	
 });
+
+/* ---------------------
+	Registration Form 
+------------------------ */
+
+//var registrForm = document.forms.registform;
+
+function doAjax() {
+	var data = new FormData( form );
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'index.php/registration', true);
+	
+	xhr.onreadystatechange = function() {
+		if( xhr.readyState != 4 ) return;
+		
+		if( xhr.status == 200 ) {
+			console.log( '200!' );
+			callback( true );
+		} else {
+			console.error(  xhr.status + ' : ' + xhr.statusText );
+			callback( false );
+		}
+	}
+	
+	xhr.send(data);
+
+}
+
+var registrResponse = document.querySelector('.registrResponse'),
+	registrResponseHead = document.querySelector('.registrResponse > h1'),
+	overlay = document.querySelector('.overlay');
+
+function callback( data ) {
+	registrResponse.style.display = 'block';
+	overlay.style.display = 'block';
+	
+	if( data ) {
+		registrResponseHead.classList.add('registrResponseSuccess');
+		registrResponseHead.innerHTML = 'Registration was succesful.<br>Thank You!';
+	} else {
+		registrResponseHead.classList.add('registrResponseFalse');
+		registrResponseHead.innerHTML = 'Such email already been registred.<br>Try someone else, please.';
+	}
+}
+
+var okBtn = document.querySelector('.modalOk');
+okBtn.onclick = function() {
+	registrResponse.style.display = 'none';
+	overlay.style.display = 'none';
+}
 		
