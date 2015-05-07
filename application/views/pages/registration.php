@@ -210,6 +210,5 @@
 
     </div>
 </div>
-<script src="../../../js/validation.js"></script>
 <!-- Main Content End -->
 

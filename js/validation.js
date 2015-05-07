@@ -130,8 +130,6 @@ inputSubmit.addEventListener('click', function() {
 			return false;
 		}
 	} else {
-		//form.submit();
-		// go to ajax.js =>
 		doAjax();
 	}
 	
@@ -141,10 +139,14 @@ inputSubmit.addEventListener('click', function() {
 	Registration Form 
 ------------------------ */
 
-//var registrForm = document.forms.registform;
-
 function doAjax() {
-	var data = new FormData( form );
+	
+	var data = JSON.stringify({
+		name: inputName.value,
+		pass: inputPass.value,
+		email: inputEmail.value,
+		company: inputCompany.value
+	});
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'registration', true);
@@ -186,5 +188,10 @@ var okBtn = document.querySelector('.modalOk');
 okBtn.onclick = function() {
 	registrResponse.style.display = 'none';
 	overlay.style.display = 'none';
+	
+	inputName.value = '';
+	inputPass.value = '';
+	inputEmail.value = '';
+	inputCompany.value = '';
 }
 		
