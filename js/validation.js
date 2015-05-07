@@ -147,7 +147,7 @@ function doAjax() {
 	var data = new FormData( form );
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'index.php/registration', true);
+	xhr.open('POST', 'registration', true);
 	
 	xhr.onreadystatechange = function() {
 		if( xhr.readyState != 4 ) return;
