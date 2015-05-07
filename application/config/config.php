@@ -14,9 +14,8 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= 'http://prom.loc/index.php/';
-//$config['base_url']	= 'http://prom-illiquid/index.php';
 
+$config['base_url']	= 'http://prom-illiquid/index.php';
 /*
 |--------------------------------------------------------------------------
 | Index File
