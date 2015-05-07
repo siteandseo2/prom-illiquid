@@ -195,3 +195,4 @@ okBtn.onclick = function() {
 	inputCompany.value = '';
 }
 		
+		
