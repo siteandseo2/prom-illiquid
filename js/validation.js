@@ -189,10 +189,11 @@ okBtn.onclick = function() {
 	registrResponse.style.display = 'none';
 	overlay.style.display = 'none';
 	
-	inputName.value = '';
-	inputPass.value = '';
-	inputEmail.value = '';
-	inputCompany.value = '';
+	[].forEach.call(required, function(input) {
+		input.value = '';
+		input.className = 'validate';
+		input.nextElementSibling.className = 'form-icon';
+	});
 }
 		
 		
