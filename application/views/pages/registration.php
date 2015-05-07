@@ -62,7 +62,7 @@
 
                     <p>
                         <span class="form-submit">
-                            <input type="submit" name="register" value="Зарегистрироваться">
+                            <input type="button" name="register" value="Зарегистрироваться">
                         </span>
                     </p>
                 </form>
@@ -210,6 +210,5 @@
 
     </div>
 </div>
-<script src="../../../js/validation.js"></script>
 <!-- Main Content End -->
 
