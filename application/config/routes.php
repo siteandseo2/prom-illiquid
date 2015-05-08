@@ -43,7 +43,7 @@ if (!defined('BASEPATH'))
 
 
 $route['default_controller'] = "main/index";
-$route['registration'] = 'user/add_user';
+ 
 $route['user/(:any)'] = 'user/add_user';
 $route['(:any)'] = 'main/index/$1';
 

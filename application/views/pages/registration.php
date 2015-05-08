@@ -1,11 +1,5 @@
 <!-- Page title -->
 
-<?php
-foreach ($user as $item){
-    echo $item['email'];
-}
-?> 
-
 <div class="page-title">
     <div class="wf-wrap">
 
