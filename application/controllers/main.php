@@ -12,9 +12,12 @@ class Main extends CI_Controller {
     /* Main Page */
 
     public function index($page = "default") {
-        $this->load->view("templates/header");        
+        $this->load->view("templates/header");
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php')) {
-            show_404();
+//            show_404();
+            if (!file_exists(APPPATH . '/models/' . $page . '.php')) {
+                show_404();
+            }
         } else {
             $this->load->view("pages/$page");
         }

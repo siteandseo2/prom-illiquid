@@ -1,5 +1,11 @@
 <!-- Page title -->
 
+<?php
+foreach ($user as $item){
+    echo $item['email'];
+}
+?> 
+
 <div class="page-title">
     <div class="wf-wrap">
 
@@ -27,7 +33,7 @@
 <!-- Main Content -->
 
 <div id="main">
-    
+
     <div class="container wf-wrap">
         <div class="row">
 
@@ -67,13 +73,13 @@
                     </p>
                 </form>
             </div>
-					
-			<div class="registrResponse">
-				<h1></h1>
-				<div class="modalOk">
-					<span>Ok</span>
-				</div>
-			</div>
+
+            <div class="registrResponse">
+                <h1></h1>
+                <div class="modalOk">
+                    <span>Ok</span>
+                </div>
+            </div>
         </div>
 
         <hr>
@@ -211,4 +217,5 @@
     </div>
 </div>
 <!-- Main Content End -->
+
 

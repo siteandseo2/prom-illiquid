@@ -141,15 +141,18 @@ inputSubmit.addEventListener('click', function() {
 
 function doAjax() {
 	
+                    /*
 	var data = JSON.stringify({
 		name: inputName.value,
 		pass: inputPass.value,
 		email: inputEmail.value,
 		company: inputCompany.value
-	});
+	});*/
+    
+                    var data = new FormData( form );
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'registration', true);
+	xhr.open('POST', 'user/add_user', true);
 	
 	xhr.onreadystatechange = function() {
 		if( xhr.readyState != 4 ) return;

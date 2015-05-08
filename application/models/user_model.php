@@ -6,14 +6,16 @@ if (!defined('BASEPATH'))
 class user_model extends CI_Model {
 
     function add_user($data) {
-        if ($this->db->insert('user', $data)) {
-            return true;
+        foreach ($data as $item) {
+            
         }
+//        if ($this->db->insert('user', $data)) {
+//            return true;
+//        }
     }
 
-    function get_user() {
-        $query = $this->db->get('user');
+    function get_user($email) {
+        $query = $this->db->query("SELECT * FROM user WHERE email='$email'");
         return $query->result_array();
     }
-
 }
