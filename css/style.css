@@ -2309,7 +2309,6 @@ body.no-bg {
 	display: none;
 }
 
-
 /* Cross browser hacks */
 
 @-moz-document url-prefix() {
