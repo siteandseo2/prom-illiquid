@@ -278,7 +278,7 @@
 	function createCategoryList( arr ) {
 		
 		try {
-			var catList = document.querySelector('.tabs-content-category-list');
+			var catList = document.querySelector('.tabs-content-category-listt');
 			catList.innerHTML = '';
 			
 			fill();

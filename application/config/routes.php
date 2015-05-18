@@ -42,10 +42,18 @@ if (!defined('BASEPATH'))
  */
 
 
+
 $route['default_controller'] = "main/index";
- 
+$route['admin'] = 'user/get_admin';
+$route['admin/(:any)'] = 'main/admin/$1';
 $route['user/(:any)'] = 'user/add_user';
 $route['(:any)'] = 'main/index/$1';
+$route['login'] = 'user/get_user';
+$route['exit_user'] = 'user/exit_user';
+$route['admin/exit_user'] = 'user/exit_user';
+$route['admin/blank-page'] = 'user/user_list';
+
+
 
 
 

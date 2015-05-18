@@ -5,13 +5,19 @@ if (!defined('BASEPATH'))
 
 class User extends CI_Controller {
 
+    function __construct() {
+        parent::__construct();
+    }
+
+    /* function Add user to database */
+
     function add_user() {
 
         if (isset($_POST)) {
-            // Получаем все пост данные
             foreach ($this->input->post() as $k => $v) {
                 $data[$k] = $v;
             }
+            $data['user_type'] = 'user';
             $email = $this->input->post('email');
             if (!empty($data[$k])) {
                 $this->load->model('user_model');
@@ -23,12 +29,88 @@ class User extends CI_Controller {
         }
     }
 
+    /* END function Add user to database */
+
+
+    /* function login user from database */
+
     function get_user() {
-        $this->load->view("templates/header");
-        $this->load->model('user_model');
-        $data['user'] = $this->user_model->get_user();
-        $this->load->view("pages/registration", $data);
-        $this->load->view("templates/footer");
+        if (isset($_POST['login'])) {
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+            $this->load->model('user_model');
+            $data['user'] = $this->user_model->login_user($email, $password);
+            if (!empty($data['user'])) {
+                foreach ($data['user'] as $item) {
+                    $session_data['id'] = $item['id'];
+                    $session_data['name'] = $item['name'];
+                    $session_data['email'] = $item['email'];
+                    $session_data['company'] = $item['company'];
+                    $session_data['password'] = $item['user_type'];
+                }
+                $this->session->set_userdata($session_data);
+                echo redirect(base_url('cabinet'));
+            } else {
+                redirect(base_url('registration'));
+            }
+        } else {
+            $this->load->view('templates/header');
+            $this->load->view('pages/login');
+            $this->load->view('templates/footer');
+        }
     }
 
+    /* END function login user from database  */
+
+
+    /*  function exit user  */
+
+    function exit_user() {
+        if (isset($_POST['logout'])) {
+            $this->session->unset_userdata('id');
+            $this->session->unset_userdata('name');
+            $this->session->unset_userdata('email');
+            $this->session->unset_userdata('company');
+            $this->session->unset_userdata('user_type');
+            redirect(base_url());
+        }
+    }
+
+    /* END function exit user  */
+
+
+    /*  function login admin  */
+
+    function get_admin() {
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
+        $this->load->model('user_model');
+        $data['user'] = $this->user_model->login_user($email, $password);
+        if (!empty($data['user'])) {
+            foreach ($data['user'] as $item) {
+                $session_data['name'] = $item['name'];
+                $session_data['email'] = $item['email'];
+                $session_data['user_type'] = $item['user_type'];
+            }
+            $this->session->set_userdata($session_data);
+            $this->load->view("admin/header");
+            $this->load->view("admin/index");
+        } else {
+            $this->load->view("pages/auth_admin");
+        }
+    }
+
+    /* END function login admin  */
+
+
+    /*  function user list  */
+
+    function user_list() {
+        $this->load->model('user_model');
+        $data['user'] = $this->user_model->get_user();
+        $this->load->view("admin/header");
+        $this->load->view("admin/blank-page", $data);
+    }
+
+    /* END function user list  */
 }
