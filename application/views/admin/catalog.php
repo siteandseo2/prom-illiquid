@@ -5,7 +5,7 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <div class="row">
+            <div class="row">               
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Категории
@@ -18,12 +18,18 @@
                         <li class="active">
                             <i class="fa fa-file"></i> Категории
                         </li>
-                    </ol>
-                </div>
+                    </ol>                    
+                </div>                 
             </div>
             <!-- /.row -->
-            <div class="col-lg-12">
-                <form action="edit_category" method="POST" class="form-submit">
+            <div class="pull-right col-lg-3 col-sm-auto">
+                <a href="#" class="btn btn-primary btn-labeled" style="width: 100%;">
+                    <span class="btn-label icon fa fa-plus"></span>
+                    Добавить категорию
+                </a>
+            </div>
+            <div class="col-lg-12 tab_margin_top">               
+                <form action="" method="POST" class="form-submit">
                     <table class='col-lg-12 table-bordered table-responsive table'>
                         <tbody>
                         <thead>
@@ -44,10 +50,10 @@
                         </thead>
                         <?php
                         foreach ($cat_list as $item) {
-                            if($item['type']=='enable'){
-                                $btn_name='<i class = "fa fa-eye-slash"></i> Скрыть';
-                            }else{
-                                $btn_name='<i class = "fa fa-eye"></i> Показать';
+                            if ($item['type'] == 'enable') {
+                                $btn_name = '<i class = "fa fa-eye-slash"></i> Скрыть';
+                            } else {
+                                $btn_name = '<i class = "fa fa-eye"></i> Показать';
                             }
                             ?>
                             <tr>
@@ -55,7 +61,7 @@
                                 <td><input class="form-control" type='text' name="cat[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>
                                 <td><button class="btn btn-success" type='submit' name="edit[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"><i class="fa fa-pencil"></i> Редактировать</button></td>
                                 <td><button class="btn btn-danger"type='submit' name="delete[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"><i class="fa fa-trash-o"></i> Удалить</button></td>
-                                <td><button class = "btn btn-default"type = 'submit' name = "type[<?= $item['id'] ?>]" value = "<?= $item['type'] ?>"><?=$btn_name?></button></td>   
+                                <td><button class = "btn btn-default"type = 'submit' name = "type[<?= $item['id'] ?>]" value = "<?= $item['type'] ?>"><?= $btn_name ?></button></td>   
                             </tr>
                             <?php
                         }
@@ -64,6 +70,7 @@
                     </table>
                 </form>
             </div>
+
         </div>
         <!-- /.container-fluid -->
 

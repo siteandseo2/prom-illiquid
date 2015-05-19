@@ -48,7 +48,7 @@ class User extends CI_Controller {
                     $session_data['company'] = $item['company'];
                     $session_data['password'] = $item['user_type'];
                 }
-                $this->session->set_userdata($session_data);
+                $this->session->set_userdata(array('user'=>$session_data));
                 echo redirect(base_url('cabinet'));
             } else {
                 redirect(base_url('registration'));
@@ -67,50 +67,11 @@ class User extends CI_Controller {
 
     function exit_user() {
         if (isset($_POST['logout'])) {
-            $this->session->unset_userdata('id');
-            $this->session->unset_userdata('name');
-            $this->session->unset_userdata('email');
-            $this->session->unset_userdata('company');
-            $this->session->unset_userdata('user_type');
+            $this->session->unset_userdata('user');                 
             redirect(base_url());
         }
     }
 
     /* END function exit user  */
-
-
-    /*  function login admin  */
-
-    function get_admin() {
-        $email = $this->input->post('email');
-        $password = $this->input->post('password');
-        $this->load->model('user_model');
-        $data['user'] = $this->user_model->login_user($email, $password);
-        if (!empty($data['user'])) {
-            foreach ($data['user'] as $item) {
-                $session_data['name'] = $item['name'];
-                $session_data['email'] = $item['email'];
-                $session_data['user_type'] = $item['user_type'];
-            }
-            $this->session->set_userdata($session_data);
-            $this->load->view("admin/header");
-            $this->load->view("admin/index");
-        } else {
-            $this->load->view("pages/auth_admin");
-        }
-    }
-
-    /* END function login admin  */
-
-
-    /*  function user list  */
-
-    function user_list() {
-        $this->load->model('user_model');
-        $data['user'] = $this->user_model->get_user();
-        $this->load->view("admin/header");
-        $this->load->view("admin/blank-page", $data);
-    }
-
-    /* END function user list  */
+    
 }
