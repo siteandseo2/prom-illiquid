@@ -18,7 +18,7 @@ if (!defined('BASEPATH'))
   |
  */
 
-$config['base_url'] = 'http://prom.loc/';
+$config['base_url'] = 'http://prom-illiquid/';
 /*
   |--------------------------------------------------------------------------
   | Index File
