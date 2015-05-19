@@ -52,6 +52,12 @@ $route['login'] = 'user/get_user';
 $route['exit_user'] = 'user/exit_user';
 $route['admin/exit_user'] = 'user/exit_user';
 $route['admin/blank-page'] = 'user/user_list';
+$route['admin/catalog'] = 'catalog/get_category';
+$route['admin/edit_category']='catalog/change_type';
+$route['admin/edit_category']='catalog/change_type';
+$route['admin/edit_category']='catalog/change_type';
+
+
 
 
 

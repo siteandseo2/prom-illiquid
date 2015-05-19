@@ -192,7 +192,7 @@
                             <a href="javascript:;" data-toggle="collapse" data-target="#item"><i class="fa fa-fw fa-arrows-v"></i> Товары <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="item" class="collapse">
                                 <li>
-                                    <a href="#">Категории</a>
+                                    <a href="<?= base_url(); ?>admin/catalog">Категории</a>
                                 </li>
                                 <li>
                                     <a href="#">Атрибуты</a>

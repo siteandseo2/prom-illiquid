@@ -113,11 +113,13 @@
                     <!-- Categories List -->
                     <div class="col-sm-3 tabs-category-container">
                         <ul class="tabs-content-category-list home-tab-list">
-                            <?php                            
+                            <?php
                             foreach ($list as $value) {
-                                echo '<li>';
-                                echo "<a href='categories'>".$value['name']."</a>";
-                                 echo '</li>';
+                                if ($value['type'] != 'disable') {
+                                    echo '<li>';
+                                    echo "<a href='categories'>" . $value['name'] . "</a>";
+                                    echo '</li>';
+                                }
                             }
                             ?>
                         </ul>

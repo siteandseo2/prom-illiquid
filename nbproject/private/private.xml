@@ -4,15 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/prom.loc/application/controllers/user.php</file>
-            <file>file:/var/www/prom.loc/application/views/admin/bootstrap-grid.php</file>
-            <file>file:/var/www/prom.loc/application/views/admin/blank-page.php</file>
-            <file>file:/var/www/prom.loc/application/views/admin/tables.php</file>
-            <file>file:/var/www/prom.loc/application/views/admin/bootstrap-elements.php</file>
-            <file>file:/var/www/prom.loc/application/views/admin/forms.php</file>
-            <file>file:/var/www/prom.loc/application/views/admin/charts.php</file>
-            <file>file:/var/www/prom.loc/application/views/admin/index-rtl.php</file>
+            <file>file:/var/www/prom.loc/application/config/routes.php</file>
+            <file>file:/var/www/prom.loc/application/views/admin/header.php</file>
+            <file>file:/var/www/prom.loc/application/models/catalog_m.php</file>
+            <file>file:/var/www/prom.loc/application/controllers/catalog.php</file>
+            <file>file:/var/www/prom.loc/application/views/admin/catalog.php</file>
+            <file>file:/var/www/prom.loc/application/models/user_model.php</file>
             <file>file:/var/www/prom.loc/application/controllers/main.php</file>
-            <file>file:/var/www/prom.loc/application/views/admin/index.php</file>
         </group>
     </open-files>
 </project-private>
