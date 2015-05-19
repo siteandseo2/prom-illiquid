@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Май 18 2015 г., 16:06
+-- Время создания: Май 19 2015 г., 16:44
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -29,25 +29,25 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) CHARACTER SET utf8 NOT NULL,
+  `type` varchar(10) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Отопление'),
-(2, 'Строительство'),
-(3, 'Промышленное оборудование'),
-(4, 'Оборудование для предоставления услуг'),
-(5, 'Электрооборудование'),
-(6, 'Инструмент'),
-(7, 'Сельхозпродукция и техника\r\n'),
-(8, 'Безопасность и защита'),
-(9, 'Грузовики, автобусы, спецтехника'),
-(10, 'Контрольно-измерительные приборы'),
-(11, 'Сырье и материалы');
+INSERT INTO `categories` (`id`, `name`, `type`) VALUES
+(1, 'Отопление', 'enable'),
+(2, 'Строительство', 'enable'),
+(3, 'Промышленное оборудование', 'enable'),
+(4, 'Оборудование для предоставления услуг', 'enable'),
+(5, 'Электрооборудование', 'enable'),
+(6, 'Инструмент', 'enable'),
+(7, 'Сельхозпродукция и техника\r\n', 'enable'),
+(8, 'Безопасность и защита', 'enable'),
+(9, 'Грузовики, автобусы, спецтехника', 'enable'),
+(10, 'Контрольно-измерительные приборы', 'enable');
 
 -- --------------------------------------------------------
 
@@ -69,8 +69,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('f3bf8d25b34c0052128df3b46a3d3c93', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36', 1431954347, 'a:5:{s:9:"user_data";s:0:"";s:8:"password";s:4:"user";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}'),
-('f6a6cccc43c3d2dbb3e6bbf96b871f73', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36', 1431943460, '');
+('4f71000fb3d160a22e7f9578fe3486db', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36', 1432042902, 'a:1:{s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
 
 -- --------------------------------------------------------
 
@@ -86,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `company` text NOT NULL,
   `user_type` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548240 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548241 ;
 
 --
 -- Дамп данных таблицы `user`
@@ -97,7 +96,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `company`, `user_type`) V
 (2, 'Admin', 'admin', 'prom_admin', 'Admin', 'admin'),
 (2548237, 'Maks', 'mprihodko92@gmail.com', 'qwer0987', 'siteandseo', 'user'),
 (2548238, 'Maks', 'm.prihodko@ukrods.com.ua', 'zazzazzaz', 'Siteandseo', 'user'),
-(2548239, 'qwerty', 'qqwwqeqw@dsgsd.dfusd', '12345678fdsgys', 'dfgdfgdffdgf', 'user');
+(2548239, 'qwerty', 'qqwwqeqw@dsgsd.dfusd', '12345678fdsgys', 'dfgdfgdffdgf', 'user'),
+(2548240, 'Maks', 'admin@max.com', '12345678', 'ajax', 'user');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -12,7 +12,8 @@ class Main extends CI_Controller {
     /* Main Page USER */
 
     public function index($page = "default") {
-        if (!empty(@$this->session->userdata('user'))) {
+		$a=$this->session->userdata('user');
+        if (!empty($a)) {
             $data['user'] = @$this->session->userdata('user');
             $this->load->view("templates/header_user", $data);
         } else {
