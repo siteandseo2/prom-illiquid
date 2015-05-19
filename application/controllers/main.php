@@ -25,7 +25,9 @@ class Main extends CI_Controller {
             if ($page == "default") {
                 $this->load->model('Catalog_m');
                 $data['list'] = $this->Catalog_m->category_list();
-            }
+            }else{
+				$data='';
+			}
             $this->load->view("pages/$page", $data);
         }
         $this->load->view("templates/footer");
