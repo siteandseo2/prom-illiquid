@@ -6,14 +6,14 @@ class Catalog extends CI_Controller {
         parent::__construct();
     }
 
-    function get_category() {
+    public function get_category() {
         $this->load->model('catalog_m');
         $data['cat_list'] = $this->catalog_m->category_list();
         $this->load->view("admin/header");
         $this->load->view("admin/catalog", $data);
     }
 
-    function edit_category() {
+    public function edit_category() {
         if (isset($_POST['edit'])) {
             foreach ($this->input->post('edit') as $val) {
                 $id = $val;
@@ -28,7 +28,7 @@ class Catalog extends CI_Controller {
         }
     }
 
-    function change_type() {
+    public function change_type() {
         if (isset($_POST['type'])) {
             foreach ($this->input->post('type') as $key => $val) {
                 if ($val == 'enable') {
@@ -39,9 +39,10 @@ class Catalog extends CI_Controller {
             }
             $this->load->view("admin/header");
             redirect(base_url('admin/catalog'));
-        }       
+        }
     }
-     function delete_category() {
+
+    public function delete_category() {
         if (isset($_POST['delete'])) {
             foreach ($this->input->post('delete') as $id) {
                 $this->db->where('id', $id)->delete('categories');
@@ -50,4 +51,15 @@ class Catalog extends CI_Controller {
             redirect(base_url('admin/catalog'));
         }
     }
+
+    function get_catalog() {
+        $this->load->model('catalog_m');
+        $data['cat_list'] = $this->catalog_m->category_list();
+        $this->load->view("admin/header");
+        $this->load->view("admin/catalog", $data);
+        $this->change_type();
+        $this->delete_category();
+        $this->edit_category();
+    }
+
 }

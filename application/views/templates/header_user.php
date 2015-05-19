@@ -46,7 +46,7 @@
                                     <div class="mini-login">
                                         <a href="<?= base_url(); ?>cabinet" class="submit">
                                             <i class="fa fa-sign-in"></i>
-                                            <span class="top-bar-icon-text"><?=$this->session->userdata('name');?></span>
+                                            <span class="top-bar-icon-text"><?= $user['name'];?></span>
                                         </a>
                                     </div>
 
@@ -104,7 +104,7 @@
                         <span class="cabinet-name">
                             <h3>Кабинет компании</h3>
                             <h4>
-                                <?=$this->session->userdata('company');?>
+                                <?=$user['company'];?>
                             </h4>
                         </span>
                     </div>
@@ -112,7 +112,7 @@
                     <div class="yoursId">
                         <span><b>Ваш id:</b> 
                             <?php
-                            $id=$this->session->userdata('id');
+                            $id=$user['id'];
                             if(strlen($id)<8){
                               for($i=0; $i<8-strlen($id);$i++){
                                   echo 0;

@@ -11,6 +11,7 @@
 
         <title>Prom Admin</title>
 
+        <link href="<?= base_url(); ?>../../../../css/admin_style.css" rel="stylesheet">
         <!-- Bootstrap Core CSS -->
         <link href="<?= base_url(); ?>../../../../css/bootstrap.min.css" rel="stylesheet">
 
@@ -60,7 +61,7 @@
                                             <img class="media-object" src="http://placehold.it/50x50" alt="">
                                         </span>
                                         <div class="media-body">
-                                            <h5 class="media-heading"><strong><?= $this->session->userdata('name') ?></strong>
+                                            <h5 class="media-heading"><strong><?= $admin['name'] ?></strong>
                                             </h5>
                                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -75,7 +76,7 @@
                                             <img class="media-object" src="http://placehold.it/50x50" alt="">
                                         </span>
                                         <div class="media-body">
-                                            <h5 class="media-heading"><strong><?= $this->session->userdata('name') ?></strong>
+                                            <h5 class="media-heading"><strong><?= $admin['name'] ?></strong>
                                             </h5>
                                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -90,7 +91,7 @@
                                             <img class="media-object" src="http://placehold.it/50x50" alt="">
                                         </span>
                                         <div class="media-body">
-                                            <h5 class="media-heading"><strong><?= $this->session->userdata('name') ?></strong>
+                                            <h5 class="media-heading"><strong><?= $admin['name'] ?></strong>
                                             </h5>
                                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -131,7 +132,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?= $this->session->userdata('name') ?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?= $admin['name'] ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="#"><i class="fa fa-fw fa-user"></i> Профиль</a>

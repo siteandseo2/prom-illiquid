@@ -12,8 +12,9 @@ class Main extends CI_Controller {
     /* Main Page USER */
 
     public function index($page = "default") {
-        if (!empty($this->session->userdata('email'))) {
-            $this->load->view("templates/header_user");
+        if (!empty(@$this->session->userdata('user'))) {
+            $data['user'] = @$this->session->userdata('user');
+            $this->load->view("templates/header_user", $data);
         } else {
             $this->load->view("templates/header");
         }
@@ -31,21 +32,6 @@ class Main extends CI_Controller {
 
     /* END Main Page USER */
 
+    
 
-    /* Main Page ADMIN */
-
-    public function admin($page = 'index') {
-        if ($this->session->userdata('user_type') == 'admin') {
-            if (!file_exists(APPPATH . '/views/admin/' . $page . '.php')) {
-                show_404();
-            } else {
-                $this->load->view("admin/header");
-                $this->load->view("admin/$page");
-            }
-        } else {
-            $this->load->view("pages/auth_admin");
-        }
-    }
-
-    /* END Main Page ADMIN */
 }
