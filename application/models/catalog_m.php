@@ -7,10 +7,20 @@ class Catalog_m extends CI_Model {
     }
 
     function category_list() {
-        $query = $this->db->query("SELECT id,name,type FROM categories");
+        $query = $this->db->query("SELECT id,name,status,link FROM categories");
         return $query->result_array();
     }
 
-    
+    function add_category($data) {
+        $this->db->insert('categories', $data);
+    }
+
+    function focus_product_list() {
+        $query = $this->db->query("SELECT id,name,status FROM focus_products");
+        return $query->result_array();
+    }
+    function add_focus_product($data){
+         $this->db->insert('focus_products', $data);
+    }
 
 }

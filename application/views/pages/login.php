@@ -191,9 +191,6 @@
 
     </div>
 </div>
-<?php
-//$a=new User();
-//$a->generateId();
-?>
+
 <!-- Main Content End -->
 

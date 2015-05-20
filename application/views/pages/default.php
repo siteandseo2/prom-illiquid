@@ -115,7 +115,7 @@
                         <ul class="tabs-content-category-list home-tab-list">
                             <?php
                             foreach ($list as $value) {
-                                if ($value['type'] != 'disable') {
+                                if ($value['status'] != 'disable') {
                                     echo '<li>';
                                     echo "<a href='categories'>" . $value['name'] . "</a>";
                                     echo '</li>';

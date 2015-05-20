@@ -19,6 +19,7 @@ if (!defined('BASEPATH'))
  */
 
 $config['base_url'] = 'http://illiquid/';
+
 /*
   |--------------------------------------------------------------------------
   | Index File
