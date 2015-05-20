@@ -1,0 +1,11 @@
+#sideBar a {
+	color: #9d9d9d;
+}
+
+#sideBar a:hover {
+	color: #fff;
+}
+
+.activeLink {
+	background: #000;
+}
