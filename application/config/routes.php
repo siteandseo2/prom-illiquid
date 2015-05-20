@@ -44,15 +44,19 @@ if (!defined('BASEPATH'))
 
 
 $route['default_controller'] = "main/index";
+
 $route['admin'] = 'admin/get_admin';
 $route['admin/(:any)'] = 'admin/admin_pages/$1';
+$route['user/add_user'] = 'user/add_user';
+$route['admin/add_category']='catalog/add_category';
+$route['admin/add_focus_product']='catalog/add_focus_product';
 
-$route['user/(:any)'] = 'user/add_user';
-$route['(:any)'] = 'main/index/$1';
 $route['login'] = 'user/get_user';
 $route['exit_user'] = 'user/exit_user';
 $route['admin/exit_user'] = 'admin/exit_user';
 $route['admin/catalog']='catalog/get_catalog';
+$route['admin/focus_product']='catalog/focus_product';
+$route['(:any)'] = 'main/index/$1';
 
 
 

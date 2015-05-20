@@ -2,15 +2,34 @@
 
 class Catalog extends CI_Controller {
 
-    function __construct() {
+    public $data;
+    public $data_db;
+
+    function __construct($page = 'index') {
         parent::__construct();
+        $this->load->model('catalog_m');
+        $this->data['admin'] = @$this->session->userdata('admin');
+        $this->load->view("admin/header", $this->data);
+
+
+        /* load categories */
+
+        $this->load->model('catalog_m');
+        $this->data['cat_list'] = $this->catalog_m->category_list();
+
+        /* load users */
+
+        $this->load->model('user_model');
+        $this->data['user'] = $this->user_model->get_user();
+
+        /* load focus product */
+
+        $this->data['fpl'] = $this->catalog_m->focus_product_list();
     }
 
     public function get_category() {
-        $this->load->model('catalog_m');
-        $data['cat_list'] = $this->catalog_m->category_list();
-        $this->load->view("admin/header");
-        $this->load->view("admin/catalog", $data);
+        $this->data['cat_list'] = $this->catalog_m->category_list();
+        $this->load->view("admin/catalog", $this->data);
     }
 
     public function edit_category() {
@@ -22,22 +41,27 @@ class Catalog extends CI_Controller {
                 if ($id == $key)
                     $name = $value;
             }
+            foreach ($this->input->post('link') as $key => $value) {
+                if ($id == $key)
+                    $link = $value;
+            }
             $this->db->query("UPDATE categories SET name='$name' WHERE id='$id'");
-            $this->load->view("admin/header");
+            $this->db->query("UPDATE categories SET link='$link'  WHERE id='$id'");
+
             redirect(base_url('admin/catalog'));
         }
     }
 
     public function change_type() {
-        if (isset($_POST['type'])) {
-            foreach ($this->input->post('type') as $key => $val) {
+        if (isset($_POST['status'])) {
+            foreach ($this->input->post('status') as $key => $val) {
                 if ($val == 'enable') {
-                    $this->db->query("UPDATE categories SET type='disable' WHERE id='$key'");
+                    $this->db->query("UPDATE categories SET status='disable' WHERE id='$key'");
                 } else {
-                    $this->db->query("UPDATE categories SET type='enable' WHERE id='$key'");
+                    $this->db->query("UPDATE categories SET status='enable' WHERE id='$key'");
                 }
             }
-            $this->load->view("admin/header");
+
             redirect(base_url('admin/catalog'));
         }
     }
@@ -47,19 +71,83 @@ class Catalog extends CI_Controller {
             foreach ($this->input->post('delete') as $id) {
                 $this->db->where('id', $id)->delete('categories');
             }
-            $this->load->view("admin/header");
+
             redirect(base_url('admin/catalog'));
         }
     }
 
-    function get_catalog() {
-        $this->load->model('catalog_m');
-        $data['cat_list'] = $this->catalog_m->category_list();
-        $this->load->view("admin/header");
-        $this->load->view("admin/catalog", $data);
+    function get_catalog() {        
+        $this->load->view("admin/catalog", $this->data);
         $this->change_type();
         $this->delete_category();
-        $this->edit_category();
+        $this->edit_category();        
+    }
+
+    function add_category() {
+        if (isset($_POST['add_category'])) {
+            $this->data_db['name'] = $this->input->post('name');
+            $this->data_db['link'] = strtolower($this->input->post('link'));
+            $this->data_db['status'] = strtolower($this->input->post('status'));
+            $this->catalog_m->add_category($this->data_db);
+        }
+        unset($this->data_db);
+        redirect(base_url('admin/catalog'));
+    }
+
+    function add_focus_product() {
+        if (isset($_POST['add_focus_product'])) {
+            $this->data_db['name'] = $this->input->post('name');
+            $this->data_db['status'] = strtolower($this->input->post('status'));
+            $this->catalog_m->add_focus_product($this->data_db);
+        }
+        redirect(base_url('admin/focus_product'));
+    }
+
+    public function edit_focus_product() {
+        if (isset($_POST['edit_fp'])) {
+            foreach ($this->input->post('edit_fp') as $val) {
+                $id = $val;
+            }
+            foreach ($this->input->post('fp') as $key => $value) {
+                if ($id == $key)
+                    $name = $value;
+            }           
+            $this->db->query("UPDATE focus_products SET name='$name' WHERE id='$id'");
+            
+
+            redirect(base_url('admin/focus_product'));
+        }
+    }
+
+    public function change_focus_product() {
+        if (isset($_POST['status'])) {
+            foreach ($this->input->post('status') as $key => $val) {
+                if ($val == 'enable') {
+                    $this->db->query("UPDATE focus_products SET status='disable' WHERE id='$key'");
+                } else {
+                    $this->db->query("UPDATE focus_products SET status='enable' WHERE id='$key'");
+                }
+            }
+
+            redirect(base_url('admin/focus_product'));
+        }
+    }
+
+    public function delete_focus_product() {
+        if (isset($_POST['delete'])) {
+            foreach ($this->input->post('delete') as $id) {
+                $this->db->where('id', $id)->delete('focus_products');
+            }
+
+            redirect(base_url('admin/focus_product'));
+        }
+    }
+
+    function focus_product() {
+        $this->load->view("admin/focus_product", $this->data);
+        $this->delete_focus_product();
+        $this->change_focus_product();
+        $this->edit_focus_product();
     }
 
 }

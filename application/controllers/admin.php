@@ -18,8 +18,8 @@ class Admin extends CI_Controller {
     function __construct($page = 'index') {
         parent::__construct();
         if (!empty(@$this->session->userdata('admin'))) {
-            $data['admin'] = @$this->session->userdata('admin');
-            $this->load->view("admin/header", $data);
+            $this->data['admin'] = @$this->session->userdata('admin');
+            $this->load->view("admin/header", $this->data);
         } else {
             $this->load->view("pages/auth_admin");
         }
@@ -34,6 +34,10 @@ class Admin extends CI_Controller {
         
         $this->load->model('user_model');
         $this->data['user'] = $this->user_model->get_user();
+        
+        /*load focus product */
+        
+        $this->data['fpl'] = $this->catalog_m->focus_product_list();
     }
 
     /*  function login admin  */
@@ -85,5 +89,5 @@ class Admin extends CI_Controller {
     }
 
     /* END function exit user  */
-  
+   
 }
