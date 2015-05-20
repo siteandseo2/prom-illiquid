@@ -50,7 +50,7 @@
 
                     <ul class="foot-accordion clearfix">
                         <li>
-                            <a href="<?= base_url(); ?>" class="text-primary">
+                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
                                 <span class="accor-toggle-icon">
                                     <i class="fa fa-angle-down"></i>
                                 </span>
@@ -61,7 +61,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>" class="text-primary">
+                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
                                 <span class="accor-toggle-icon">
                                     <i class="fa fa-angle-down"></i>
                                 </span>
@@ -72,7 +72,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>" class="text-primary">
+                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
                                 <span class="accor-toggle-icon">
                                     <i class="fa fa-angle-down"></i>
                                 </span>
@@ -83,7 +83,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>" class="text-primary">
+                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
                                 <span class="accor-toggle-icon">
                                     <i class="fa fa-angle-down"></i>
                                 </span>

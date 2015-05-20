@@ -1,46 +1,5 @@
 <div id="main-carousel" class="carousel slide normal-carousel" data-ride="carousel"> <!-- data-ride="carousel" -->
 
-    <!-- Search -->
-    <div id="searching" class="clearfix">
-
-        <div class="search-inner clearfix">
-            <input type="text" placeholder="Я хочу купить" class="search-input" autofocus>
-
-            <div class="btn-group s-butt">
-                <button type="button" class="btn btn-default search-block-button" id="location-select-button">
-                    <span class="btn-text">Вся Украина</span>
-                    <span class="search-select-icon">
-                        <i class="fa fa-angle-down"></i>
-                    </span>
-
-                    <div class="sub-nav">
-                        <input type="text" placeholder="Введите название города" name="searchCityName">
-                        <ul></ul>
-                    </div>
-                </button>
-
-                <a href="<?= base_url(); ?>categories" title="Искать на сайте">
-                    <button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
-                        <span class="btn-text">Поиск</span>
-                        <span class="search-select-icon">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </button>
-                </a>
-            </div>
-        </div>
-
-        <div class="search-inner clearfix">
-            <div class="s-butt">
-                <button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
-                    <span class="btn-text">Я хочу продать</span>
-                </button>
-            </div>
-        </div>
-
-    </div>
-    <!-- Search End --> 
-
     <!-- Carousel slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
