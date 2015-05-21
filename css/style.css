@@ -36,7 +36,6 @@ body {
 }
 
 body {
-    /*background: url(../img/general-boxed-bg-image.jpg) no-repeat fixed center center;*/
     background-size: cover;
 }
 
@@ -65,6 +64,11 @@ body.no-bg {
     width: 100%;
     -webkit-transition: all .4s;
     transition: all .4s;
+}
+
+.headHome {
+	padding-top: 15px;
+	padding-bottom: 35px;
 }
 
 .normal-header {
@@ -102,6 +106,7 @@ body.no-bg {
     color: #9e9e9e;
     margin-top: 0px;
     position: relative;
+	height: 47px;
 }
 
 #top-bar *,
@@ -122,7 +127,8 @@ body.no-bg {
 .wf-wrap {
     width: 1250px;
     max-width: 100%;
-    padding: 0 44px;
+    padding-left: 44px;
+	padding-right: 44px;
     margin: 0 auto;
     box-sizing: border-box;
     position: relative;
@@ -572,11 +578,7 @@ body.no-bg {
 /* Searching */
 
 #searching {
-    margin: 0 auto;
-    position: absolute;
-    top: 170px;
-    left: 5%;
-    right: 5%;
+    float: right;
     height: 110px;
     z-index: 20;
     box-sizing: border-box;
@@ -585,24 +587,22 @@ body.no-bg {
 
 .search-inner {
     box-sizing: border-box;
-    /* background: rgba(235, 235, 235, 0.3); */
     background: transparent;
-    padding: 15px;
+    padding: 16px 10px 0;
     display: inline-block;
-    margin: 0 10px;
 }
 
 .search-input {
-    min-width: 400px;
+    min-width: 300px;
     height: 80px;
     line-height: 80px;
     vertical-align: middle;
-    background: rgba(255, 255, 255, .8);
+    background: rgba(245, 245, 245, .8);
     float: left;
     z-index: 250;
     border: none;
-    font-size: 2em;
-    padding: 0 25px 0 15px;
+    font-size: 1.8em;
+    padding: 0 10px;
     outline: none;
     -webkit-transition: all .2s;
     transition: all .2s;
@@ -698,21 +698,17 @@ body.no-bg {
 }
 
 #buy-search-button {
-    background:rgba(245, 245, 245, .5);
+    background:rgba(235, 235, 235, .6);
 }
 #buy-search-button:hover {
     background: rgba(245, 245, 245, .8);
 }
 
 #sell-search-button {
-    background: rgba(5, 75, 171, .5);
+    background: rgba(5, 75, 171, .6);
 }
 #sell-search-button:hover {
     background:	rgba(5, 75, 171, .8);
-}
-
-#searching .search-block-button:hover .btn-text {
-    color: #fff;
 }
 
 #location-select-button .promptDiv {
@@ -763,8 +759,18 @@ body.no-bg {
 }
 
 .carousel-description {
-    padding-bottom: 10%;
+	bottom: 45%;
     color: #fff;
+}
+
+.carousel-description h1 {
+	font-size: 3.5em;
+	margin-bottom: 25px;
+}
+
+.carousel-description p {
+	font-size: 1.4em;
+	line-height: 1.3em;
 }
 
 .main-carousel-controll-link {

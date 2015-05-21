@@ -159,7 +159,20 @@
       collapsible: true
     });
 	
-	$('.foot-accordion a').click(function() {
+	// Styles
+	
+	$('.accor-content, .accor-link').css({
+		'background': 'transparent',
+		'border': 0
+	});
+	
+	$('.ui-accordion-header-icon').remove();
+	
+	// Arrow
+	
+	$('.foot-accordion a').click(function(ev) {
+		ev.preventDefault();
+		
 		if ( $( this ).find('.accor-toggle-icon i').hasClass('fa fa-angle-down') ) {
 			
 			$( this ).find('.accor-toggle-icon i').removeClass('fa fa-angle-down');
@@ -301,7 +314,7 @@
 	}
 	
 	// Default list
-	createCategoryList( ajaxCatList_Home );
+	//createCategoryList( ajaxCatList_Home );
 	
 	
 	

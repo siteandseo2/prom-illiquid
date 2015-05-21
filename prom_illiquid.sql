@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Май 18 2015 г., 16:06
+-- Время создания: Май 20 2015 г., 16:10
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -29,25 +29,27 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) CHARACTER SET utf8 NOT NULL,
+  `status` varchar(10) CHARACTER SET utf8 NOT NULL,
+  `link` varchar(50) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=13 ;
 
 --
 -- Дамп данных таблицы `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Отопление'),
-(2, 'Строительство'),
-(3, 'Промышленное оборудование'),
-(4, 'Оборудование для предоставления услуг'),
-(5, 'Электрооборудование'),
-(6, 'Инструмент'),
-(7, 'Сельхозпродукция и техника\r\n'),
-(8, 'Безопасность и защита'),
-(9, 'Грузовики, автобусы, спецтехника'),
-(10, 'Контрольно-измерительные приборы'),
-(11, 'Сырье и материалы');
+INSERT INTO `categories` (`id`, `name`, `status`, `link`) VALUES
+(1, 'Отопление', 'enable', 'otoplenie'),
+(2, 'Строительство', 'enable', 'stroitelstvo'),
+(3, 'Промышленное оборудование', 'enable', 'prom_machine'),
+(4, 'Оборудование для предоставления услуг', 'enable', 'service_machine'),
+(5, 'Электрооборудование', 'enable', 'electromachine'),
+(6, 'Инструмент', 'enable', 'tools'),
+(7, 'Сельхозпродукция и техника', 'enable', 'agricultural_product'),
+(8, 'Металл, пластик, резина', 'enable', 'metal_plastic_rubber'),
+(9, 'Безопасность и защита', 'enable', 'security&Protection'),
+(10, 'Контрольно-измерительные приборы', 'enable', 'test&Measurement'),
+(11, 'Сырье и материалы', 'enable', 'raw_materials');
 
 -- --------------------------------------------------------
 
@@ -69,8 +71,30 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('f3bf8d25b34c0052128df3b46a3d3c93', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36', 1431954347, 'a:5:{s:9:"user_data";s:0:"";s:8:"password";s:4:"user";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}'),
-('f6a6cccc43c3d2dbb3e6bbf96b871f73', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36', 1431943460, '');
+('b53b6c0ddb1ce1503d077ef850a1d965', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36', 1432127205, 'a:2:{s:9:"user_data";s:0:"";s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `focus_products`
+--
+
+CREATE TABLE IF NOT EXISTS `focus_products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(250) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Дамп данных таблицы `focus_products`
+--
+
+INSERT INTO `focus_products` (`id`, `name`, `status`) VALUES
+(1, 'Промышленные товары', 'enable'),
+(2, 'Потребительские товары', 'enable'),
+(3, 'Услуги', 'enable'),
+(5, 'Что то еще', 'enable');
 
 -- --------------------------------------------------------
 
@@ -86,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `company` text NOT NULL,
   `user_type` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548240 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548241 ;
 
 --
 -- Дамп данных таблицы `user`
@@ -97,7 +121,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `company`, `user_type`) V
 (2, 'Admin', 'admin', 'prom_admin', 'Admin', 'admin'),
 (2548237, 'Maks', 'mprihodko92@gmail.com', 'qwer0987', 'siteandseo', 'user'),
 (2548238, 'Maks', 'm.prihodko@ukrods.com.ua', 'zazzazzaz', 'Siteandseo', 'user'),
-(2548239, 'qwerty', 'qqwwqeqw@dsgsd.dfusd', '12345678fdsgys', 'dfgdfgdffdgf', 'user');
+(2548239, 'qwerty', 'qqwwqeqw@dsgsd.dfusd', '12345678fdsgys', 'dfgdfgdffdgf', 'user'),
+(2548240, 'Maks', 'admin@max.com', '12345678', 'ajax', 'user');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

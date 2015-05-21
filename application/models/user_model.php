@@ -12,7 +12,8 @@ class user_model extends CI_Model {
     function add_user($data, $email) {
 
         $query = $this->db->query("SELECT email FROM user WHERE email='$email'");
-        if (empty($query->num_rows() > 0)) {
+		$x = $query->num_rows();
+        if ($x > 0) {
             if ($this->db->insert('user', $data)) {
                 return "200";
             }
