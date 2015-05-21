@@ -4,8 +4,8 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Main extends CI_Controller {
-
-    function __construct() {
+    public $data='';
+            function __construct() {
         parent::__construct();
     }
 
@@ -13,8 +13,8 @@ class Main extends CI_Controller {
 
     public function index($page = "default") {
         if (!empty(@$this->session->userdata('user'))) {
-            $data['user'] = @$this->session->userdata('user');
-            $this->load->view("templates/header_user", $data);
+            $this->data['user'] = @$this->session->userdata('user');
+            $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
         }
@@ -23,9 +23,9 @@ class Main extends CI_Controller {
         } else {
             if ($page == "default") {
                 $this->load->model('Catalog_m');
-                $data['list'] = $this->Catalog_m->category_list();
+                $this->data['list'] = $this->Catalog_m->category_list();
             }
-            $this->load->view("pages/$page", $data);
+            $this->load->view("pages/$page", $this->data);
         }
         $this->load->view("templates/footer");
     }

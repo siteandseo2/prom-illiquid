@@ -45,6 +45,11 @@ class Catalog extends CI_Controller {
                 if ($id == $key)
                     $link = $value;
             }
+            foreach ($this->input->post('focus_product') as $key => $value) {
+                if ($id == $key)
+                    $fp_id = $value;
+            }
+            $this->db->query("UPDATE categories SET fp_id='$fp_id' WHERE id='$id'");
             $this->db->query("UPDATE categories SET name='$name' WHERE id='$id'");
             $this->db->query("UPDATE categories SET link='$link'  WHERE id='$id'");
 
@@ -76,17 +81,18 @@ class Catalog extends CI_Controller {
         }
     }
 
-    function get_catalog() {        
+    function get_catalog() {
         $this->load->view("admin/catalog", $this->data);
         $this->change_type();
         $this->delete_category();
-        $this->edit_category();        
+        $this->edit_category();
     }
 
     function add_category() {
         if (isset($_POST['add_category'])) {
             $this->data_db['name'] = $this->input->post('name');
             $this->data_db['link'] = strtolower($this->input->post('link'));
+            $this->data_db['fp_id'] = strtolower($this->input->post('focus_product'));
             $this->data_db['status'] = strtolower($this->input->post('status'));
             $this->catalog_m->add_category($this->data_db);
         }
@@ -111,9 +117,9 @@ class Catalog extends CI_Controller {
             foreach ($this->input->post('fp') as $key => $value) {
                 if ($id == $key)
                     $name = $value;
-            }           
+            }
             $this->db->query("UPDATE focus_products SET name='$name' WHERE id='$id'");
-            
+
 
             redirect(base_url('admin/focus_product'));
         }
