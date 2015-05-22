@@ -13,7 +13,7 @@ $( document ).ready(function() {
 		console.log( 'page ' + page );
 		
 		var xhr = new XMLHttpRequest();
-		xhr.open('GET', 'admin_pages?page=' + encodeURIComponent(page), true);
+		xhr.open('POST', 'admin_page', true);
 		
 		xhr.onreadystatechange = function() {
 			if( xhr.readyState != 4 ) return;
@@ -21,7 +21,7 @@ $( document ).ready(function() {
 			console.log( 'res status %s\nres text %s', xhr.status, xhr.statusText );
 		}
 		
-		xhr.send();
+		xhr.send(encodeURIComponent( page ));
 		
 		/*
 		for(var i = 0; i<links.length; i++) {
