@@ -7,7 +7,7 @@ class Catalog_m extends CI_Model {
     }
 
     function category_list() {
-        $query = $this->db->query("SELECT id,name,status,link FROM categories");
+        $query = $this->db->query("SELECT id,name,status,link,fp_id FROM categories");
         return $query->result_array();
     }
 

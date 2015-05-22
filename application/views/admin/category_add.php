@@ -25,17 +25,25 @@
                 </div>                 
             </div>
             <!-- /.row -->
-            
+
             <div class="col-lg-12 tab_margin_top">               
                 <form action="add_category" method="POST" class="form-submit">
                     <label>Направление</label>
-                    <!--<input class='form-control' name='link' placeholder="Например otoplenie (Максимум 50 символов)" type='text'/>-->
+                    <select class='form-control' name='focus_product'>
+                        <?php
+                        foreach ($fpl as $item) {
+                            ?>
+                        <option value="<?=$item['id']?>"><?=$item['name']?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
                     <label>Название</label>
                     <input class='form-control' name='name' placeholder="Например Отопление (Максимум 250 символов)" type='text'/>
                     <label>Ссылка</label>
                     <input class='form-control' name='link' placeholder="Например otoplenie (Максимум 50 символов)" type='text'/>
                     <label>Позиция</label>
-                    <input class='form-control' name='position' placeholder="<?= count($cat_list)+1?>" type='text' disabled=""/>
+                    <input class='form-control' name='position' placeholder="<?= count($cat_list) + 1 ?>" type='text' disabled=""/>
                     <label>Статус</label>
                     <select class='form-control ' name='status'>
                         <option value='enable'>Показывать</option>
@@ -45,7 +53,7 @@
                         <button class="btn btn-info" type='submit' name="add_category" value=""><i class="fa fa-save"></i> Сохранить</button>
                         <button class="btn btn-danger" type='reset' name="reset" value=""><i class="fa fa-remove"></i> Сбросить</button>
                     </div>
-                   
+
                 </form>
             </div>
 

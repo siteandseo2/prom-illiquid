@@ -56,15 +56,22 @@
 
             <div id="tabs-container">
                 <ul class="tabs-buttons clearfix">
-                    <li class="col-sm-4 activeTab" id="tab-home">
-                        <a href="<?= base_url(); ?>">Промышленные товары</a>
-                    </li>
-                    <li class="col-sm-4" id="tab-pages">
-                        <a href="<?= base_url(); ?>">Потребительские товары</a>
-                    </li>
-                    <li class="col-sm-4" id="tab-blog">
-                        <a href="<?= base_url(); ?>">Услуги</a>
-                    </li>
+                    <?php
+                    foreach ($group_list as $key => $item) {
+                        if ($key == 0) {
+                            $active = 'activeTab';
+                        } else {
+                            $active = '';
+                        }
+                        if ($item['status'] == 'enable') {
+                            ?>
+                            <li class="col-sm-4 <?= $active ?>" id="tab-home">
+                                <a href="<?= base_url(); ?>"><?= $item['name'] ?></a>
+                            </li>
+                            <?php
+                        }
+                    }
+                    ?>
                 </ul>
 
                 <div class="tabs-content clearfix">
@@ -74,7 +81,7 @@
                         <ul class="tabs-content-category-list home-tab-list">
                             <?php
                             foreach ($list as $value) {
-                                if ($value['status'] != 'disable') {
+                                if ($value['status'] != 'disable' && $value['fp_id'] == 1) {
                                     echo '<li>';
                                     echo "<a href='categories'>" . $value['name'] . "</a>";
                                     echo '</li>';

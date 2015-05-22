@@ -34,140 +34,140 @@
             <div class="col-md-3 col-sm-3 cat-content-row-item">
                 <article>
                     <div class="cat-item-img">
-                        <a href="<?= base_url(); ?>subcategories">
+                        <a href="<?= base_url(); ?>products">
                             <img src="../../../img/shop-item-1.jpg" alt="">
                         </a>
                     </div>
                     <div class="cat-item-title">
-                        <a href="<?= base_url(); ?>subcategories">
+                        <a href="<?= base_url(); ?>products">
                             <h3>
                                 Digital Goods
                                 <mark class="count">(3)</mark>
-                                <h3>
-                                    </a>
-                                    </div>
-                                    </article>
-                                    </div>
+                            </h3>
+                        </a>
+                    </div>
+                </article>
+            </div>
 
-                                    <div class="col-md-3 col-sm-3 cat-content-row-item">
-                                        <article>
-                                            <div class="cat-item-img">
-                                                <a href="<?= base_url(); ?>subcategories">
-                                                    <img src="../../../img/shop-item-2.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="cat-item-title">
-                                                <a href="<?= base_url(); ?>subcategories">
-                                                    <h3>
-                                                        Footwear
-                                                        <mark class="count">(3)</mark>
-                                                        <h3>
-                                                            </a>
-                                                            </div>
-                                                            </article>
-                                                            </div>
+<!--            <div class="col-md-3 col-sm-3 cat-content-row-item">
+                <article>
+                    <div class="cat-item-img">
+                        <a href="<?= base_url(); ?>products">
+                            <img src="../../../img/shop-item-2.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="cat-item-title">
+                        <a href="<?= base_url(); ?>products">
+                            <h3>
+                                Footwear
+                                <mark class="count">(3)</mark>
+                            </h3>
+                        </a>
+                    </div>
+                </article>
+            </div>
 
-                                                            <div class="col-md-3 col-sm-3 cat-content-row-item">
-                                                                <article>
-                                                                    <div class="cat-item-img">
-                                                                        <a href="<?= base_url(); ?>subcategories">
-                                                                            <img src="../../../img/shop-item-3.jpg" alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="cat-item-title">
-                                                                        <a href="<?= base_url(); ?>subcategories">
-                                                                            <h3>
-                                                                                Hoodies
-                                                                                <mark class="count">(7)</mark>
-                                                                                <h3>
-                                                                                    </a>
-                                                                                    </div>
-                                                                                    </article>
-                                                                                    </div>
+            <div class="col-md-3 col-sm-3 cat-content-row-item">
+                <article>
+                    <div class="cat-item-img">
+                        <a href="<?= base_url(); ?>products">
+                            <img src="../../../img/shop-item-3.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="cat-item-title">
+                        <a href="<?= base_url(); ?>products">
+                            <h3>
+                                Hoodies
+                                <mark class="count">(7)</mark>
+                            </h3>
+                        </a>
+                    </div>
+                </article>
+            </div>
 
-                                                                                    <div class="col-md-3 col-sm-3 cat-content-row-item">
-                                                                                        <article>
-                                                                                            <div class="cat-item-img">
-                                                                                                <a href="<?= base_url(); ?>subcategories">
-                                                                                                    <img src="../../../img/shop-item-4.jpg" alt="">
-                                                                                                </a>
-                                                                                            </div>
-                                                                                            <div class="cat-item-title">
-                                                                                                <a href="<?= base_url(); ?>subcategories">
-                                                                                                    <h3>
-                                                                                                        T-Shirts
-                                                                                                        <mark class="count">(7)</mark>
-                                                                                                        <h3>
-                                                                                                            </a>
-                                                                                                            </div>
-                                                                                                            </article>
-                                                                                                            </div>
+            <div class="col-md-3 col-sm-3 cat-content-row-item">
+                <article>
+                    <div class="cat-item-img">
+                        <a href="<?= base_url(); ?>products">
+                            <img src="../../../img/shop-item-4.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="cat-item-title">
+                        <a href="<?= base_url(); ?>products">
+                            <h3>
+                                T-Shirts
+                                <mark class="count">(7)</mark>
+                            </h3>
+                        </a>
+                    </div>
+                </article>
+            </div>
 
-                                                                                                            </div>
+        </div>
 
-                                                                                                            <!-- 2nd Row -->
-                                                                                                            <div class="row cat-row">
+         2nd Row 
+        <div class="row cat-row">
 
-                                                                                                                <div class="col-md-4 col-sm-4 cat-content-row-item">
-                                                                                                                    <article>
-                                                                                                                        <div class="cat-item-img">
-                                                                                                                            <a href="<?= base_url(); ?>subcategories">
-                                                                                                                                <img src="../../../img/shop-item-5.jpg" alt="">
-                                                                                                                            </a>
-                                                                                                                        </div>
-                                                                                                                        <div class="cat-item-title">
-                                                                                                                            <a href="<?= base_url(); ?>subcategories">
-                                                                                                                                <h3>
-                                                                                                                                    Footwear
-                                                                                                                                    <mark class="count">(3)</mark>
-                                                                                                                                    <h3>
-                                                                                                                                        </a>
-                                                                                                                                        </div>
-                                                                                                                                        </article>
-                                                                                                                                        </div>
+            <div class="col-md-4 col-sm-4 cat-content-row-item">
+                <article>
+                    <div class="cat-item-img">
+                        <a href="<?= base_url(); ?>products">
+                            <img src="../../../img/shop-item-5.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="cat-item-title">
+                        <a href="<?= base_url(); ?>products">
+                            <h3>
+                                Footwear
+                                <mark class="count">(3)</mark>
+                            </h3>
+                        </a>
+                    </div>
+                </article>
+            </div>
 
-                                                                                                                                        <div class="col-md-4 col-sm-4 cat-content-row-item">
-                                                                                                                                            <article>
-                                                                                                                                                <div class="cat-item-img">
-                                                                                                                                                    <a href="<?= base_url(); ?>subcategories">
-                                                                                                                                                        <img src="../../../img/shop-item-6.jpg" alt="">
-                                                                                                                                                    </a>
-                                                                                                                                                </div>
-                                                                                                                                                <div class="cat-item-title">
-                                                                                                                                                    <a href="<?= base_url(); ?>subcategories">
-                                                                                                                                                        <h3>
-                                                                                                                                                            Hoodies
-                                                                                                                                                            <mark class="count">(7)</mark>
-                                                                                                                                                            <h3>
-                                                                                                                                                                </a>
-                                                                                                                                                                </div>
-                                                                                                                                                                </article>
-                                                                                                                                                                </div>
+            <div class="col-md-4 col-sm-4 cat-content-row-item">
+                <article>
+                    <div class="cat-item-img">
+                        <a href="<?= base_url(); ?>products">
+                            <img src="../../../img/shop-item-6.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="cat-item-title">
+                        <a href="<?= base_url(); ?>products">
+                            <h3>
+                                Hoodies
+                                <mark class="count">(7)</mark>
+                            </h3>
+                        </a>
+                    </div>
+                </article>
+            </div>
 
-                                                                                                                                                                <div class="col-md-4 col-sm-4 cat-content-row-item">
-                                                                                                                                                                    <article>
-                                                                                                                                                                        <div class="cat-item-img">
-                                                                                                                                                                            <a href="<?= base_url(); ?>subcategories">
-                                                                                                                                                                                <img src="../../../img/shop-item-7.jpg" alt="">
-                                                                                                                                                                            </a>
-                                                                                                                                                                        </div>
-                                                                                                                                                                        <div class="cat-item-title">
-                                                                                                                                                                            <a href="<?= base_url(); ?>subcategories">
-                                                                                                                                                                                <h3>
-                                                                                                                                                                                    T-Shirts
-                                                                                                                                                                                    <mark class="count">(7)</mark>
-                                                                                                                                                                                    <h3>
-                                                                                                                                                                                        </a>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                        </article>
-                                                                                                                                                                                        </div>
+            <div class="col-md-4 col-sm-4 cat-content-row-item">
+                <article>
+                    <div class="cat-item-img">
+                        <a href="<?= base_url(); ?>products">
+                            <img src="../../../img/shop-item-7.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="cat-item-title">
+                        <a href="<?= base_url(); ?>products">
+                            <h3>
+                                T-Shirts
+                                <mark class="count">(7)</mark>
+                            </h3>
+                        </a>
+                    </div>
+                </article>
+            </div>-->
 
-                                                                                                                                                                                        </div>
+        </div>
 
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                        </div>
+    </div>
+</div>
 
 
 
-                                                                                                                                                                                        <!-- Main Content End -->
+<!-- Main Content End -->
 
