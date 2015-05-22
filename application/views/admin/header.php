@@ -193,13 +193,16 @@
                             <a href="javascript:;" data-toggle="collapse" data-target="#item"><i class="fa fa-fw fa-arrows-v"></i> Товары <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="item" class="collapse">
                                 <li>
-                                    <a href="<?= base_url(); ?>admin/focus_product">Направления товаров</a>
+                                    <a href="<?= base_url(); ?>admin/focus_product">Группы товаров</a>
+                                </li>                                
+                                <li>
+                                    <a href="<?= base_url(); ?>admin/catalog">Категории товаров</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url(); ?>admin/catalog">Категории</a>
+                                    <a href="<?= base_url(); ?>admin/subcategories">Подкатегории товаров</a>
                                 </li>
                                 <li>
-                                    <a href="#">Атрибуты</a>
+                                    <a href="#">Атрибуты товаров</a>
                                 </li>
                             </ul>
                         </li>  

@@ -8,15 +8,15 @@
             <div class="row">               
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Категории
-                        <small>Category</small>
+                        Категории товаров
+                        <small>Category products</small>
                     </h1>  
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/index">Главная</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Категории
+                            <i class="fa fa-file"></i> Категории товаров
                         </li>
                     </ol>                    
                 </div>                 
@@ -25,7 +25,7 @@
             <div class="pull-right col-lg-3 col-sm-auto">
                 <a href="<?= base_url('admin'); ?>/category_add" class="btn btn-primary btn-labeled" style="width: 100%;">
                     <span class="btn-label icon fa fa-plus"></span>
-                    Добавить категорию
+                    Добавить категорию 
                 </a>
             </div>
             <div class="col-lg-12 tab_margin_top">               
@@ -43,7 +43,7 @@
                             Ссылка <?= base_url('catalog') ?>/
                         </th>
                         <th class='col-lg-3'>
-                            Направление категории
+                            Группа товаров
                         </th>
                         <th class='col-lg-1'>
                             Редактировать
