@@ -18,7 +18,7 @@ class Admin extends CI_Controller {
     function __construct($page = 'index') {
         parent::__construct();
         if (!empty($this->session->userdata('admin'))) {
-            $this->data['admin'] = $this->session->userdata('admin');           
+            $this->data['admin'] = $this->session->userdata('admin');
             $this->load->view("admin/header", $this->data);
         } else {
             $this->load->view("pages/auth_admin");
