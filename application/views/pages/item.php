@@ -2,135 +2,136 @@
 
 <div class="page-title">
     <div class="wf-wrap">
+        <?php foreach ($product as $item) {
+            ?>            
+            <div class="wf-table">
+                <div class="wf-td hgroup">
+                    <h1><?= $item['name'] ?></h1>
+                </div>
+                <div class="wf-td">
+                    <ul class="breadcrumbs text-normal">
+                        <li>
+                            <a href="<?= base_url(); ?>default">Главная</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url(); ?>categories">Категории</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url(); ?>products"><?=$cat_name['0']['name']?></a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('product/' . $item['id']); ?>"><?= $item['name'] ?></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-        <div class="wf-table">
-            <div class="wf-td hgroup">
-                <h1>Продукт</h1>
-            </div>
-            <div class="wf-td">
-                <ul class="breadcrumbs text-normal">
-                    <li>
-                        <a href="<?= base_url(); ?>default">Главная</a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url(); ?>categories">Категории</a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url(); ?>subcategories">Подкатегория</a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url(); ?>product">Продукт</a>
-                    </li>
-                </ul>
-            </div>
         </div>
-
     </div>
-</div>
 
-<!-- Page title -->
+    <!-- Page title -->
 
 
-<!-- Main Content -->
+    <!-- Main Content -->
 
-<div id="main" class="cat-main">
-    <div class="container wf-wrap clearfix">
+    <div id="main" class="cat-main">
+        <div class="container wf-wrap clearfix">
 
-        <div id="content" class="content clearfix">
+            <div id="content" class="content clearfix">
 
-            <!-- Main Product Image -->
+                <!-- Main Product Image -->
 
-            <div class="images">
-                <a href="<?= base_url(); ?>">
-                    <img src="../../../img/product-1.jpg" alt="" width="700" height="850">
-                </a>
-                <div class="thumbnails clearfix">
-                    <div class="col-md-4 col-sm-4">
-                        <a href="<?= base_url(); ?>../../../img/big-1.jpg" class="fancy" data-fancybox-group="gallery">
-                            <img src="../../../img/thumb-1.jpg" alt="" width="400" height="400">
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <a href="<?= base_url(); ?>../../../img/big-2.jpg" class="fancy" data-fancybox-group="gallery"> 
-                            <img src="../../../img/thumb-2.jpg" alt="" width="400" height="400">
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <a href="<?= base_url(); ?>../../../img/big-3.jpg" class="fancy" data-fancybox-group="gallery">
-                            <img src="../../../img/thumb-3.jpg" alt="" width="400" height="400">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Summary -->
-
-            <div class="summary">
-
-                <p class="price">
-                    <span class="amount">$15.00</span>
-                </p>
-
-                <div class="rating clearfix">
-                    <div class="star-rating" title="Rated 5.00 of 5">
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <a href="<?= base_url(); ?>#reviews" class="review-link" rel="nofollow">
-                        ( <span class="ratingCount">1</span>
-                        customer review )
+                <div class="images">
+                    <a href="<?= base_url(); ?>">
+                        <img src="<?= $item['image_path'] ?>" alt="" width="700" height="850">
                     </a>
+                    <div class="thumbnails clearfix">
+                        <div class="col-md-4 col-sm-4">
+                            <a href="<?= base_url(); ?>../../../img/big-1.jpg" class="fancy" data-fancybox-group="gallery">
+                                <img src="../../../img/thumb-1.jpg" alt="" width="400" height="400">
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <a href="<?= base_url(); ?>../../../img/big-2.jpg" class="fancy" data-fancybox-group="gallery"> 
+                                <img src="../../../img/thumb-2.jpg" alt="" width="400" height="400">
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <a href="<?= base_url(); ?>../../../img/big-3.jpg" class="fancy" data-fancybox-group="gallery">
+                                <img src="../../../img/thumb-3.jpg" alt="" width="400" height="400">
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                        Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                        sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                        diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.
+                <!-- Summary -->
+
+                <div class="summary">
+
+                    <p class="price">
+                        <span class="amount">$<?= $item['price'] ?></span>
                     </p>
+
+                    <div class="rating clearfix">
+                        <div class="star-rating" title="Rated 5.00 of 5">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <a href="<?= base_url(); ?>#reviews" class="review-link" rel="nofollow">
+                            ( <span class="ratingCount">1</span>
+                            customer review )
+                        </a>
+                    </div>
+
+                    <div class="description">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
+                            Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
+                            sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
+                            diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.
+                        </p>
+                    </div>
+
+                    <div class="quantity clearfix">
+                        <input type="number" step="1" min="1" value="1" title="Change quantity" size="4">
+                        <div class="add2cart">Add to Cart</div>
+                    </div>
+
+                    <div class="product_meta">
+                        <span class="meta_id">
+                            ID:
+                            <span class="id"><?=$item['id']?></span>
+                        </span>
+                        <span class="posted_in">
+                            Category:
+                            <a href="<?= base_url(); ?>"><?=$cat_name['0']['name']?></a>
+                        </span>
+                        <span class="tagged_as">
+                            Tags:
+                            <a href="<?= base_url(); ?>">iphone</a>
+                            <a href="<?= base_url(); ?>">mockup</a>
+                            <a href="<?= base_url(); ?>">template</a>
+                            <a href="<?= base_url(); ?>">vector</a>
+                        </span>
+                    </div>
+
                 </div>
-
-                <div class="quantity clearfix">
-                    <input type="number" step="1" min="1" value="1" title="Change quantity" size="4">
-                    <div class="add2cart">Add to Cart</div>
-                </div>
-
-                <div class="product_meta">
-                    <span class="meta_id">
-                        ID:
-                        <span class="id">12345</span>
-                    </span>
-                    <span class="posted_in">
-                        Category:
-                        <a href="<?= base_url(); ?>">Digital goods</a>
-                    </span>
-                    <span class="tagged_as">
-                        Tags:
-                        <a href="<?= base_url(); ?>">iphone</a>
-                        <a href="<?= base_url(); ?>">mockup</a>
-                        <a href="<?= base_url(); ?>">template</a>
-                        <a href="<?= base_url(); ?>">vector</a>
-                    </span>
-                </div>
-
-            </div>
-
+            <?php } ?>
             <!-- Product Tabs -->
 
             <div class="product-tabs">
                 <ul class="tabs clearfix">
                     <li class="description_tab active">
-                        <a href="<?= base_url(); ?>">Description</a>
+                        <a href="#">Description</a>
                     </li>
                     <li class="add_info_tab">
-                        <a href="<?= base_url(); ?>">Additional Information</a>
+                        <a href="#">Additional Information</a>
                     </li>
                     <li class="reviews_tab">
-                        <a href="<?= base_url(); ?>">Reviews (1)</a>
+                        <a href="#">Reviews (1)</a>
                     </li>
                 </ul>
 
@@ -394,4 +395,5 @@
 
 
 <script src="../../../js/product_settings.js"></script>
+
 <!-- Main Content End -->

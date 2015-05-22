@@ -52,6 +52,9 @@ $route['admin/add_category']='catalog/add_category';
 $route['admin/add_focus_product']='catalog/add_focus_product';
 
 $route['login'] = 'user/get_user';
+//$route['categories']='';
+$route['products']='product/get_all_product';
+$route['products/item/(:any)']='product/get_product/$1';
 $route['exit_user'] = 'user/exit_user';
 $route['admin/exit_user'] = 'admin/exit_user';
 $route['admin/catalog']='catalog/get_catalog';

@@ -9,27 +9,26 @@ class Main extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-    }
-
-    /* Main Page USER */
-
-    public function index($page = "default") {
-
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
         }
+        $this->load->model('Catalog_m');
+        $this->data['list'] = $this->Catalog_m->category_list();
+        $this->data['group_list']=  $this->Catalog_m->focus_product_list();
+    }
+
+    /* Main Page USER */
+
+    public function index($page = "default") {
+
+
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php')) {
             show_404();
         } else {
-            if ($page == "default") {
-                $this->load->model('Catalog_m');
-                $this->data['list'] = $this->Catalog_m->category_list();
-            }
-            $this->load->view("pages/$page", $this->data);         
-            
+            $this->load->view("pages/$page", $this->data);
         }
         $this->load->view("templates/footer");
     }
