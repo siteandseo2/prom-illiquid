@@ -83,7 +83,7 @@
                             foreach ($list as $value) {
                                 if ($value['status'] != 'disable' && $value['fp_id'] == 1) {
                                     echo '<li>';
-                                    echo "<a href='categories'>" . $value['name'] . "</a>";
+                                    echo "<a href='".base_url()."subcategories'>" . $value['name'] . "</a>";
                                     echo '</li>';
                                 }
                             }

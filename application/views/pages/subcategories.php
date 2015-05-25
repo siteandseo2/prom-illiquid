@@ -11,7 +11,7 @@
                         <a href="<?= base_url(); ?>default">Главная</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>categories">Категории</a>
+                        <a href="<?= base_url(); ?>subcategories">Категории</a>
                     </li>
                 </ul>
             </div>

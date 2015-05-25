@@ -230,6 +230,6 @@
         </ul>
         <!-- Sidebar End -->
 
-        <script src="<?= base_url(); ?>../../../js/plugins/morris/raphael.min.js"></script>
+        
 
 

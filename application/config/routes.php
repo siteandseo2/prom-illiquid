@@ -54,7 +54,7 @@ $route['admin/add_focus_product']='catalog/add_focus_product';
 $route['admin/subcategories']='subcategories/get_subcat_list';
 
 $route['login'] = 'user/get_user';
-//$route['categories']='';
+//$route['subcategories']='subcategories/show_subcategories';
 $route['products']='product/get_all_product';
 $route['products/item/(:any)']='product/get_product/$1';
 $route['exit_user'] = 'user/exit_user';

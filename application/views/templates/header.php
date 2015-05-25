@@ -116,7 +116,7 @@
 									</div>
 								</button>
 
-								<a href="<?= base_url(); ?>categories" title="Искать на сайте">
+								<a href="<?= base_url(); ?>subcategories" title="Искать на сайте">
 									<button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
 										<span class="btn-text">Поиск</span>
 										<span class="search-select-icon">

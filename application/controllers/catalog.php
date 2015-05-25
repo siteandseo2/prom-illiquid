@@ -96,6 +96,7 @@ class Catalog extends CI_Controller {
         $this->change_type();
         $this->delete_category();
         $this->edit_category();
+        $this->load->view("admin/footer");
     }
 
     /* END function get_catalog */
@@ -195,6 +196,7 @@ class Catalog extends CI_Controller {
         $this->delete_focus_product();
         $this->change_focus_product();
         $this->edit_focus_product();
+        $this->load->view("admin/footer");
     }
 
     /* END  function focus_product */

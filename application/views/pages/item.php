@@ -14,7 +14,7 @@
                             <a href="<?= base_url(); ?>default">Главная</a>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>categories">Категории</a>
+                            <a href="<?= base_url(); ?>subcategories">Категории</a>
                         </li>
                         <li>
                             <a href="<?= base_url(); ?>products"><?=$cat_name['0']['name']?></a>
@@ -42,7 +42,7 @@
                 <!-- Main Product Image -->
 
                 <div class="images">
-                    <a href="<?= base_url(); ?>">
+                    <a href="#">
                         <img src="<?= $item['image_path'] ?>" alt="" width="700" height="850">
                     </a>
                     <div class="thumbnails clearfix">
@@ -152,9 +152,9 @@
                     <table class="shop_attributes">
                         <tbody>
                             <tr>
-                                <th>License</th>
+                                <th>License </th>
                                 <td>
-                                    <p>Pesonal</p>
+                                    <p>Pesonal <?=$item['id']?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -394,6 +394,6 @@
 </div>
 
 
-<script src="../../../js/product_settings.js"></script>
+
 
 <!-- Main Content End -->

@@ -101,6 +101,7 @@ class Subcategories extends CI_Controller {
         $this->delete_subcat();
         $this->change_type();
         $this->edit_subcat();
+        $this->load->view('admin/footer');
     }
 
 }
