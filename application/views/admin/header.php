@@ -157,36 +157,36 @@
         <!-- Sidebar -->
         <ul class="nav navbar-nav side-nav" id="sideBar">
             <li>
-                <a href="<?= base_url(); ?>admin/index" data-ajax="index">
+                <a href="<?= base_url(); ?>admin/index" data-ajax="index" class="ajax">
 					<i class="fa fa-fw fa-dashboard"></i> 
 					Главная
 				</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/charts"  data-ajax="charts">
+                <a href="<?= base_url(); ?>admin/charts"  data-ajax="charts" class="ajax">
 					<i class="fa fa-fw fa-bar-chart-o"></i> 
 					Графики
 				</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/tables"  data-ajax="tables">
+                <a href="<?= base_url(); ?>admin/tables"  data-ajax="tables" class="ajax">
 					<i class="fa fa-fw fa-table"></i> Таблицы
 				</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/forms"  data-ajax="forms">
+                <a href="<?= base_url(); ?>admin/forms"  data-ajax="forms" class="ajax">
 					<i class="fa fa-fw fa-edit"></i> 
 					Формы
 				</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/bootstrap-elements" data-ajax="bootstrap-elements">
+                <a href="<?= base_url(); ?>admin/bootstrap-elements" data-ajax="bootstrap-elements" class="ajax">
 					<i class="fa fa-fw fa-desktop"></i> 
 					Bootstrap Elements
 				</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/bootstrap-grid" data-ajax="bootstrap-grid">
+                <a href="<?= base_url(); ?>admin/bootstrap-grid" data-ajax="bootstrap-grid" class="ajax">
 					<i class="fa fa-fw fa-wrench"></i> 
 					Bootstrap Grid
 				</a>
@@ -197,13 +197,13 @@
 				</a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="#">Главная страница</a>
+                        <a href="#" class="ajax">Главная страница</a>
                     </li>
                     <li>
-                        <a href="#">Страницы</a>
+                        <a href="#" class="ajax">Страницы</a>
                     </li>
                     <li>
-                        <a href="#">Слайдер</a>
+                        <a href="#" class="ajax">Слайдер</a>
                     </li>
                 </ul>
             </li>  
@@ -211,25 +211,25 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#item"><i class="fa fa-fw fa-arrows-v"></i> Товары <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="item" class="collapse">
                     <li>
-                        <a href="<?= base_url(); ?>admin/focus_product" data-ajax="focus_product">Группа товаров</a>
+                        <a href="<?= base_url(); ?>admin/focus_product" data-ajax="focus_product" class="ajax">Группа товаров</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>admin/catalog" data-ajax="catalog">Категории</a>
+                        <a href="<?= base_url(); ?>admin/catalog" data-ajax="catalog" class="ajax">Категории</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>admin/catalog" data-ajax="subcategories">Подкатегории</a>
+                        <a href="<?= base_url(); ?>admin/subcategories" data-ajax="subcategories" class="ajax">Подкатегории</a>
                     </li>
                     <li>
-                        <a href="#">Атрибуты</a>
+                        <a href="#" >Атрибуты</a>
                     </li>
                 </ul>
             </li>  
             <li>
-                <a href="<?= base_url(); ?>admin/blank-page" data-ajax="blank-page"><i class="fa fa-fw fa-file"></i> Пользователи</a>
+                <a href="<?= base_url(); ?>admin/blank-page" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-file"></i> Пользователи</a>
             </li>                        
         </ul>
         <!-- Sidebar End -->
 
-        
+        <script src="<?= base_url(); ?>../../../js/plugins/morris/raphael.min.js"></script>
 
 

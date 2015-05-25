@@ -15,7 +15,7 @@ class Product extends CI_Controller {
 
     public $data = '';
     public $data_db = '';
-            public$cat_id = '';
+    public $subcat_id = '';
 
     function __construct() {
         parent::__construct();
@@ -38,7 +38,7 @@ class Product extends CI_Controller {
 
     function get_product($id) {
         $this->data_db['product'] = $this->product_m->get_product($id);
-        $this->data_db['cat_name'] = $this->product_m->get_product_cat($this->data_db['product']['0']['cat_id']);
+        $this->data_db['cat_name'] = $this->product_m->get_product_cat($this->data_db['product']['0']['subcat_id']);
         $this->load->view("pages/item", $this->data_db);
         $this->load->view("templates/footer");
     }

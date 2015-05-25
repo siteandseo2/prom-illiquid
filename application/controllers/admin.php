@@ -15,10 +15,11 @@ class Admin extends CI_Controller {
 
     public $data;
 
-    function __construct($page = 'index') {
+    function __construct() {
         parent::__construct();
         if (!empty($this->session->userdata('admin'))) {
             $this->data['admin'] = $this->session->userdata('admin');
+            $this->load->view("admin/header", $this->data);
         } else {
             $this->load->view("pages/auth_admin");
         }
@@ -73,6 +74,7 @@ class Admin extends CI_Controller {
                 show_404();
             } else {
                 $this->load->view("admin/$page", $this->data);
+                $this->load->view("admin/footer", $this->data);
             }
         } else {
             $this->load->view("pages/auth_admin");
@@ -80,20 +82,6 @@ class Admin extends CI_Controller {
     }
 
     /* END Main Page ADMIN */
-
-    function admin_page_ajax() {
-        $this->load->view("admin/header", $this->data);
-        if (isset($_GET)) {
-            foreach ($_GET as $link => $val) {
-                if (!file_exists(APPPATH . '/views/admin/' . $link . '.php')) {
-                    show_404();
-                } else {
-                    $this->load->view("admin/$link", $this->data);
-                }
-            }
-        } 
-        $this->load->view("admin/footer", $this->data);
-    }
 
     /*  function exit user  */
 

@@ -28,7 +28,7 @@ class Product_m extends CI_Model {
     }
    
      function get_product_cat($cat_id) {
-        $query = $this->db->where('id', $cat_id)->get('categories');
+        $query = $this->db->where('id', $cat_id)->get('subcategories');
         return $query->result_array();
     }
 }

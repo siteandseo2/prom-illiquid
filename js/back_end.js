@@ -2,7 +2,7 @@ $( document ).ready(function() {
 		
 	/* Sidebar hovers */
 	
-	var links = $('#sideBar a');
+	var links = $('.ajax');
 	
 	$( links ).click(function(ev) {
 		
