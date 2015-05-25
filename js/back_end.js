@@ -15,7 +15,14 @@ $( document ).ready(function() {
 			type: "GET",
 			url: "admin_page_ajax",
 			data: page,
-			dataType: 'text/plain'
+			dataType: 'text/plain',
+			success: function(data) {
+				if( data != '' ) {
+					$('body').html(data);
+				} else {
+					console.log( data );
+				}
+			}
 		});
 		
 	});

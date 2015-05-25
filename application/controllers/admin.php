@@ -88,7 +88,7 @@ class Admin extends CI_Controller {
                 if (!file_exists(APPPATH . '/views/admin/' . $link . '.php')) {
                     show_404();
                 } else {
-                   
+                   $this->load->view("admin/$link", $this->data);
                 }
             }
         } else {
