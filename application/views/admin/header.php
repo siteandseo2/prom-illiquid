@@ -35,9 +35,7 @@
 
     </head>
 
-    <body>
-
-        <!-- <div id="wrapper"> -->
+    <body>     
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -155,91 +153,32 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
-
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="<?= base_url(); ?>admin/index"><i class="fa fa-fw fa-dashboard"></i> Главная</a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url(); ?>admin/charts"><i class="fa fa-fw fa-bar-chart-o"></i> Графики</a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url(); ?>admin/tables"><i class="fa fa-fw fa-table"></i> Таблицы</a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url(); ?>admin/forms"><i class="fa fa-fw fa-edit"></i> Формы</a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url(); ?>admin/bootstrap-elements"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url(); ?>admin/bootstrap-grid"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Сайт <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Главная страница</a>
-                            </li>
-                            <li>
-                                <a href="#">Страницы</a>
-                            </li>
-                            <li>
-                                <a href="#">Слайдер</a>
-                            </li>
-                        </ul>
-                    </li>  
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#item"><i class="fa fa-fw fa-arrows-v"></i> Товары <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="item" class="collapse">
-                            <li>
-                                <a href="<?= base_url(); ?>admin/focus_product">Группы товаров</a>
-                            </li>                                
-                            <li>
-                                <a href="<?= base_url(); ?>admin/catalog">Категории товаров</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url(); ?>admin/subcategories">Подкатегории товаров</a>
-                            </li>
-                            <li>
-                                <a href="#">Атрибуты товаров</a>
-                            </li>
-                        </ul>
-                    </li>  
-                    <li>
-                        <a href="<?= base_url(); ?>admin/blank-page"><i class="fa fa-fw fa-file"></i> Пользователи</a>
-                    </li>                        
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+            </ul>        
         </nav>
-        <!-- </div> -->
+
 
         <!-- Sidebar -->
         <ul class="nav navbar-nav side-nav" id="sideBar">
             <li>
-                <a href="<?= base_url(); ?>admin/index"><i class="fa fa-fw fa-dashboard"></i> Главная</a>
+                <a href="<?= base_url(); ?>admin/index" data-ajax="index"><i class="fa fa-fw fa-dashboard"></i> Главная</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/charts"><i class="fa fa-fw fa-bar-chart-o"></i> Графики</a>
+                <a href="<?= base_url(); ?>admin/charts"  data-ajax="charts"><i class="fa fa-fw fa-bar-chart-o"></i> Графики</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/tables"><i class="fa fa-fw fa-table"></i> Таблицы</a>
+                <a href="<?= base_url(); ?>admin/tables"  data-ajax="tables"><i class="fa fa-fw fa-table"></i> Таблицы</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/forms"><i class="fa fa-fw fa-edit"></i> Формы</a>
+                <a href="<?= base_url(); ?>admin/forms"  data-ajax="forms"><i class="fa fa-fw fa-edit"></i> Формы</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/bootstrap-elements"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                <a href="<?= base_url(); ?>admin/bootstrap-elements" data-ajax="bootstrap-elements"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
             </li>
             <li>
-                <a href="<?= base_url(); ?>admin/bootstrap-grid"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                <a href="<?= base_url(); ?>admin/bootstrap-grid" data-ajax="bootstrap-grid"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Сайт <i class="fa fa-fw fa-caret-down"></i></a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo" ><i class="fa fa-fw fa-arrows-v"></i> Сайт <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li>
                         <a href="#">Главная страница</a>
@@ -256,10 +195,10 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#item"><i class="fa fa-fw fa-arrows-v"></i> Товары <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="item" class="collapse">
                     <li>
-                        <a href="<?= base_url(); ?>admin/focus_product">Направления товаров</a>
+                        <a href="<?= base_url(); ?>admin/focus_product" data-ajax="focus_product">Направления товаров</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>admin/catalog">Категории</a>
+                        <a href="<?= base_url(); ?>admin/catalog" data-ajax="catalog">Категории</a>
                     </li>
                     <li>
                         <a href="#">Атрибуты</a>
@@ -267,7 +206,7 @@
                 </ul>
             </li>  
             <li>
-                <a href="<?= base_url(); ?>admin/blank-page"><i class="fa fa-fw fa-file"></i> Пользователи</a>
+                <a href="<?= base_url(); ?>admin/blank-page" data-ajax="blank-page"><i class="fa fa-fw fa-file"></i> Пользователи</a>
             </li>                        
         </ul>
 
@@ -280,11 +219,10 @@
         <script src="<?= base_url(); ?>../../../js/bootstrap.min.js"></script>
 
         <!-- Morris Charts JavaScript -->
-        <!-- 
+
         <script src="<?= base_url(); ?>../../../js/plugins/morris/raphael.min.js"></script>
-        <script src="<?= base_url(); ?>../../../js/plugins/morris/morris.min.js"></script> 
-        <script src="<?= base_url(); ?>../../../js/plugins/morris/morris-data.js"></script>
-        -->
+        <!--<script src="<?= base_url(); ?>../../../js/plugins/morris/morris.min.js"></script>-->
+        <!--<script src="<?= base_url(); ?>../../../js/plugins/morris/morris-data.js"></script>-->
 
         <!-- Main Back Js -->
         <script src="<?= base_url(); ?>../../../js/back_end.js"></script>

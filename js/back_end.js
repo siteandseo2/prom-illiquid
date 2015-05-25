@@ -7,21 +7,35 @@ $( document ).ready(function() {
 	$( links ).click(function(ev) {
 		
 		ev.preventDefault();
+                
+                                        var target = $( ev.target );
+                                        
+                                        console.log( target );
 		
-		var page = this.textContent;
+		var page = $(target).attr('data-ajax');
+                
+                                        console.log( page );
+                                        
+                                        $.ajax({
+                                                    type: "GET",
+                                                    url: "admin_page_ajax",
+                                                    data: page,
+
+                                                    dataType: 'text/plain'
+});
 		
-		console.log( 'page ' + page );
-		
-		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'admin_page', true);
-		
-		xhr.onreadystatechange = function() {
-			if( xhr.readyState != 4 ) return;
-			
-			console.log( 'res status %s\nres text %s', xhr.status, xhr.statusText );
-		}
-		
-		xhr.send(encodeURIComponent( page ));
+//		console.log( 'page ' + page );
+//		
+//		var xhr = new XMLHttpRequest();
+//		xhr.open('POST', 'admin_page_ajax', true);
+//		
+//		xhr.onreadystatechange = function() {
+//			if( xhr.readyState != 4 ) return;
+//			
+//			console.log( 'res status %s\nres text %s', xhr.status, xhr.statusText );
+//		}
+//		
+//		xhr.send(encodeURIComponent( page ));
 		
 		/*
 		for(var i = 0; i<links.length; i++) {

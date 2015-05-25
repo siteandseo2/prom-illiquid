@@ -46,7 +46,7 @@ if (!defined('BASEPATH'))
 $route['default_controller'] = "main/index";
 
 $route['admin'] = 'admin/get_admin';
-$route['admin/(:any)'] = 'admin/admin_pages/$1';
+$route['admin/(:any)'] = 'admin/admin_page_ajax';
 $route['user/add_user'] = 'user/add_user';
 $route['admin/add_category']='catalog/add_category';
 $route['admin/add_focus_product']='catalog/add_focus_product';

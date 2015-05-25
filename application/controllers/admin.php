@@ -82,6 +82,19 @@ class Admin extends CI_Controller {
 
     /* END Main Page ADMIN */
 
+    function admin_page_ajax() {
+        if (isset($_GET)) {
+            foreach ($_GET as $link => $val) {
+                if (!file_exists(APPPATH . '/views/admin/' . $link . '.php')) {
+                    show_404();
+                } else {
+                   
+                }
+            }
+        } else {
+            echo '0';
+        }
+    }
 
     /*  function exit user  */
 
