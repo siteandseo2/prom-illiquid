@@ -1,6 +1,5 @@
 <?php
 $a = $_SERVER['REQUEST_URI'];
-echo $a;
 ?>
 <!-- jQuery -->
 <script src="<?= base_url(); ?>../../../js/jquery.js"></script>
@@ -26,7 +25,6 @@ echo $a;
 <?php } ?>
 
 <!-- Main Back Js -->
-<!--<script src="<?= base_url(); ?>../../../js/back_end.js"></script>-->
-</body>
+ <script src="<?= base_url(); ?>../../../js/back_end.js"></script>
 
 </html>

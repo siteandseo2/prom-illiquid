@@ -4,25 +4,26 @@ $( document ).ready(function() {
 	
 	var links = $('.ajax');
 	
-	$( links ).click(function(ev) {
+	var whereArr = window.location.href.split('/');
+	var where = whereArr[whereArr.length - 1];
+	
+	setActive( where );
+
+	function setActive( where ) {
 		
-		ev.preventDefault();
-                
-		var target = $( ev.target );
-		var page = $(target).attr('data-ajax');
-                
-		$.ajax({
-			type: "GET",
-			url: "admin_page_ajax",
-			data: page,
-			dataType: 'html',
-			success: function(data) {
-				console.log( 'success!' );
-				
-				$('body').html( data );
+		[].forEach.call(links, function(link) {
+			if( link.classList.contains('activeLink') ) {
+				link.classList.remove('activeLink')
 			}
 		});
 		
-	});
+		[].forEach.call(links, function(link) {
+			var hrefArr = link.getAttribute('href').split('/');
+			if( where == hrefArr[hrefArr.length - 1] ) {
+				link.classList.add('activeLink');
+			}
+		});
+		
+	}	
 	
 });
