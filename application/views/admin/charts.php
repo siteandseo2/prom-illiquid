@@ -208,6 +208,4 @@
 <script src="<?= base_url(); ?>../../../js/plugins/flot/jquery.flot.pie.js"></script>
 <script src="<?= base_url(); ?>../../../js/plugins/flot/flot-data.js"></script>
 
-</body>
 
-</html>

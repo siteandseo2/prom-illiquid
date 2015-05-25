@@ -281,6 +281,4 @@
 </div>
 <!-- /#wrapper -->
 
-</body>
 
-</html>

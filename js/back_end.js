@@ -24,6 +24,7 @@ $( document ).ready(function() {
                                                     dataType: 'text/plain'
 });
 		
+
 //		console.log( 'page ' + page );
 //		
 //		var xhr = new XMLHttpRequest();
@@ -36,7 +37,23 @@ $( document ).ready(function() {
 //		}
 //		
 //		xhr.send(encodeURIComponent( page ));
+
 		
+		
+		
+		/*
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'admin_page', true);
+		
+		xhr.onreadystatechange = function() {
+			if( xhr.readyState != 4 ) return;
+			
+			console.log( 'res status %s\nres text %s', xhr.status, xhr.statusText );
+		}
+		
+		xhr.send(encodeURIComponent( page ));
+		*/
+
 		/*
 		for(var i = 0; i<links.length; i++) {
 			if( $( links[i] ).is( ev.target ) ) {
@@ -70,8 +87,4 @@ $( document ).ready(function() {
 	//sessionStorage.clear();
 	
 	//console.log( $( links[0].parentNode ) );
-	
-	
-	
-	
 });

@@ -108,6 +108,17 @@
 	'Ровно', 'Сумы', 'Тернополь', 'Харьков', 'Херсон', 'Черкассы', 'Чернигов', 'Черновцы'
 	];
 	
+	/* Autocomplete */
+	
+	try {
+		var search = document.getElementsByName('searchCityName')[0];
+		autoComplete(search, cities);
+	} catch(e) {
+		console.log( e.type + ' ' + e.message );
+	}
+	
+	//
+	
 	(function fillInSearchDropDown() {
 		
 		try {
@@ -137,16 +148,6 @@
 		}
 		
 	})();
-	
-	/* Autocomplete */
-	
-	try {
-		var search = document.getElementsByName('searchCityName')[0];
-		autoComplete(search, cities);
-	} catch(e) {
-		console.log( e.type + ' ' + e.message );
-	}
-	
 	
 	/* Perfect scrollbar */
 	
