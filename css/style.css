@@ -396,7 +396,7 @@ body.no-bg {
     margin-top: 0;
 }
 
-.sub-nav ul {
+.sub-nav > ul {
     width: 210px;
     background: rgba(255,255,255,0.97);
     box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
@@ -672,7 +672,7 @@ body.no-bg {
     margin-bottom: 25px;
 }
 
-#location-select-button .sub-nav ul {
+#location-select-button .sub-nav > ul {
     width: auto;
     height: 175px;
     position: relative;
@@ -2316,7 +2316,7 @@ body.no-bg {
 }
 
 /* Cross browser hacks */
-
+/*
 @-moz-document url-prefix() {
     .tabs-buttons li:hover:not(.activeTab) a,
         #footer .foot-accordion a .color-primary:hover,
@@ -2324,16 +2324,48 @@ body.no-bg {
         color: #2578E9;
         background: transparent;
     }
+	
     #searching {
         top: 100px;
     }
 }
-.subm{
+*/
+
+.subm {
     background: none;
     display: inline-block;
     border: none;
 }
-.subm:focus{
+
+.subm:focus {
     border:none;
     outline: none;
+}
+
+/* Autocomplete */
+
+.divPrompt {
+	padding: 5px 10px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	background: #dedede;
+}
+
+.prompt-off {
+	display: none;
+}
+
+.ulPrompt {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ulPrompt li {
+	cursor: pointer;
+	text-align: left;
+}
+
+.ulPrompt li:hover {
+	text-decoration: underline;
 }

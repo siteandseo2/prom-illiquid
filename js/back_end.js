@@ -12,6 +12,9 @@ $( document ).ready(function() {
 		
 		console.log( 'page ' + page );
 		
+		
+		
+		/*
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', 'admin_page', true);
 		
@@ -22,7 +25,7 @@ $( document ).ready(function() {
 		}
 		
 		xhr.send(encodeURIComponent( page ));
-		
+		*/
 		/*
 		for(var i = 0; i<links.length; i++) {
 			if( $( links[i] ).is( ev.target ) ) {
@@ -56,8 +59,4 @@ $( document ).ready(function() {
 	//sessionStorage.clear();
 	
 	//console.log( $( links[0].parentNode ) );
-	
-	
-	
-	
 });
