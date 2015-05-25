@@ -21,10 +21,10 @@ $( document ).ready(function() {
 					$('body').html(data);
 				} else {
 					console.log( data );
-				}
+				}              
 			}
 		});
 		
-	});
+	}
 	
 });

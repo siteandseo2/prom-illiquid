@@ -8,24 +8,24 @@
             <div class="row">               
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Категории товаров
-                        <small>Category products</small>
+                        Подкатегории
+                        <small>Subcategories</small>
                     </h1>  
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/index">Главная</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Категории товаров
+                            <i class="fa fa-file"></i> Подкатегории
                         </li>
                     </ol>                    
                 </div>                 
             </div>
             <!-- /.row -->
             <div class="pull-right col-lg-3 col-sm-auto">
-                <a href="<?= base_url('admin'); ?>/category_add" class="btn btn-primary btn-labeled" style="width: 100%;">
+                <a href="<?= base_url('admin'); ?>/subcategories_add" class="btn btn-primary btn-labeled" style="width: 100%;">
                     <span class="btn-label icon fa fa-plus"></span>
-                    Добавить категорию 
+                    Добавить подкатегорию
                 </a>
             </div>
             <div class="col-lg-12 tab_margin_top">               
@@ -43,7 +43,7 @@
                             Ссылка <?= base_url('catalog') ?>/
                         </th>
                         <th class='col-lg-3'>
-                            Группа товаров
+                            Категория товаров
                         </th>
                         <th class='col-lg-1'>
                             Редактировать
@@ -55,7 +55,7 @@
                         </th>  
                         </thead>
                         <?php
-                        foreach ($cat_list as $item) {
+                        foreach ($subcategories_list as $item) {
                             if ($item['status'] == 'enable') {
                                 $btn_name = '<i class = "fa fa-eye-slash"></i> Скрыть';
                             } else {
@@ -67,17 +67,17 @@
                                 <td><input class="form-control" type='text' name="cat[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>
                                 <td><input class="form-control" type='text' name="link[<?= $item['id'] ?>]" value="<?= $item['link'] ?>"/></td>
                                 <td>
-                                    <select class='form-control' name='focus_product[<?= $item['id'] ?>]'>                                        
+                                    <select class='form-control' name='cat_product[<?= $item['id'] ?>]'>                                        
                                         <?php
-                                        foreach ($fpl as $items) {
-                                            if ($item['fp_id'] == $items['id']) {
+                                        foreach ($cat_list as $items) {
+                                            if ($item['cat_id'] == $items['id']) {
                                                 ?>
                                                 <option value="<?= $items['id'] ?>"><?= $items['name'] ?></option>
                                                 <?php
                                             }
                                         }
-                                        foreach ($fpl as $items) {
-                                            if ($item['fp_id'] != $items['id']) {
+                                        foreach ($cat_list as $items) {
+                                            if ($item['cat_id'] != $items['id']) {
                                                 ?>
                                                 <option value="<?= $items['id'] ?>"><?= $items['name'] ?></option>
                                                 <?php
@@ -112,3 +112,5 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?= base_url(); ?>../../../js/bootstrap.min.js"></script>
+
+
