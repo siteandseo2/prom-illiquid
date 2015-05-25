@@ -8,26 +8,26 @@
             <div class="row">               
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Направление товаров
-                        <small>Focus product</small>
+                         Группы товаров
+                        <small>Group product</small>
                     </h1>  
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/index">Главная</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Направление товаров
+                            <i class="fa fa-file"></i> Группы товаров
                         </li>
                     </ol>                    
                 </div>                 
             </div>
             <!-- /.row -->
-            <div class="pull-right col-lg-3 col-sm-auto">
+<!--            <div class="pull-right col-lg-3 col-sm-auto">
                 <a href="<?= base_url('admin'); ?>/focus_product_add" class="btn btn-primary btn-labeled" style="width: 100%;">
                     <span class="btn-label icon fa fa-plus"></span>
                     Добавить направление
                 </a>
-            </div>            
+            </div>            -->
             <div class="col-lg-12 tab_margin_top">               
                 <form action="" method="POST" class="form-submit">
                     <table class='col-lg-12 table-bordered table-responsive table'>

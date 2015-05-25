@@ -17,11 +17,6 @@ class Catalog extends CI_Controller {
         $this->load->model('catalog_m');
         $this->data['cat_list'] = $this->catalog_m->category_list();
 
-        /* load users */
-
-        $this->load->model('user_model');
-        $this->data['user'] = $this->user_model->get_user();
-
         /* load focus product */
 
         $this->data['fpl'] = $this->catalog_m->focus_product_list();
@@ -67,8 +62,10 @@ class Catalog extends CI_Controller {
             foreach ($this->input->post('status') as $key => $val) {
                 if ($val == 'enable') {
                     $this->db->query("UPDATE categories SET status='disable' WHERE id='$key'");
+                    $this->db->query("UPDATE subcategories SET status='disable' WHERE cat_id='$key'");
                 } else {
                     $this->db->query("UPDATE categories SET status='enable' WHERE id='$key'");
+                    $this->db->query("UPDATE subcategories SET status='enable' WHERE cat_id='$key'");
                 }
             }
 
@@ -206,12 +203,12 @@ class Catalog extends CI_Controller {
     /* function get_product_cat */
 
     function get_focus_product_list() {
-      
+        
     }
 
     /* END  function get_product_cat */
-    
+
     /**/
-    
+
     /**/
 }
