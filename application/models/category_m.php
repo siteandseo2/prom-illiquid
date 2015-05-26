@@ -25,7 +25,7 @@ class Category_m extends CI_Model {
     }
 
     function get_category_list($id) {
-        $query = $this->db->where('fp_id', $id)->select('name')->get('categories');
+        $query = $this->db->where('fp_id', $id)->where('status', 'enable')->select('name')->get('categories');
         return $query->result_array();
     }
 
