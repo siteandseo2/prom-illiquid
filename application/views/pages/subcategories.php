@@ -49,61 +49,7 @@
                 </article>
             </div>
 
-<!--            <div class="col-md-3 col-sm-3 cat-content-row-item">
-                <article>
-                    <div class="cat-item-img">
-                        <a href="<?= base_url(); ?>products">
-                            <img src="../../../img/shop-item-2.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="cat-item-title">
-                        <a href="<?= base_url(); ?>products">
-                            <h3>
-                                Footwear
-                                <mark class="count">(3)</mark>
-                            </h3>
-                        </a>
-                    </div>
-                </article>
-            </div>
 
-            <div class="col-md-3 col-sm-3 cat-content-row-item">
-                <article>
-                    <div class="cat-item-img">
-                        <a href="<?= base_url(); ?>products">
-                            <img src="../../../img/shop-item-3.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="cat-item-title">
-                        <a href="<?= base_url(); ?>products">
-                            <h3>
-                                Hoodies
-                                <mark class="count">(7)</mark>
-                            </h3>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-3 col-sm-3 cat-content-row-item">
-                <article>
-                    <div class="cat-item-img">
-                        <a href="<?= base_url(); ?>products">
-                            <img src="../../../img/shop-item-4.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="cat-item-title">
-                        <a href="<?= base_url(); ?>products">
-                            <h3>
-                                T-Shirts
-                                <mark class="count">(7)</mark>
-                            </h3>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-        </div>
 
          2nd Row 
         <div class="row cat-row">

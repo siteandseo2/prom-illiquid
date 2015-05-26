@@ -163,8 +163,8 @@
             </div>
         </div>
     </div>
-	
-	<div class="overlay"></div>
+
+    <div class="overlay"></div>
 
 </footer>
 
@@ -177,15 +177,16 @@
 
 
 <script src="../../../js/jquery-1.11.0.min.js"></script>
-
 <script src="../../../js/jquery-ui.js"></script>
 <script src="../../../js/bootstrap.js"></script>
-<script src="../../../js/perfect-scrollbar.jquery.js"></script> 
-<script src="../../../js/jquery.fancybox.pack.js"></script>
-<script src="../../../js/autoComplete.js"></script>
-<script src="../../../js/main.js"></script>
-<script src="../../../js/product_settings.js"></script>
-<!--<script src="../../../js/jquery.fancybox.pack.js" type="text/javascript"></script>-->
+<?php
+if (!empty($script))
+    print_r($script);
+?>
+
+
+
+
 
 
 </body>
