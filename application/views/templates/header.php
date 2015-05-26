@@ -87,235 +87,57 @@
 
                 <!-- Top Bar End -->
 
-                <!-- Branding & Navigation -->
-                <div class="wf-wrap clearfix">
-
+                <!-- Branding & Search -->
+                <div class="headHome wf-wrap clearfix">
+					
+					<!-- Branding -->
                     <div id="branding" class="wf-td">
                         <a href="<?= base_url(); ?>default">
                             <img src="../../../img/logo-regular.png" alt="Logo">
                         </a>
                     </div>
+					
+					 <!-- Search -->
+					<div id="searching" class="clearfix">
 
+						<div class="search-inner clearfix">
+							<input type="text" placeholder="Я хочу купить" class="search-input" autofocus>
 
-                    <nav id="navigation" class="wf-td">
-                        <!-- Mobile nav -->
-                        <div id="dl-menu">
-                            <a href="<?= base_url(); ?>" id="mobile-menu">
-                                <div class="mobile-button">
-                                    <span class="menu-open" style="display: inline;">Menu</span>
-                                    <span class="menu-back">Back</span>
-                                </div>
-                            </a>
-                            <div class="dl-container">
-                                <ul class="dl-menu">
-                                    <li class="act">
-                                        <a href="<?= base_url(); ?>" onclick="return false;">
-                                            <span class="dl-text">Home</span>
-                                            <span class="dl-icon">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url(); ?>" onclick="return false;">
-                                            <span class="dl-text">Pages</span>
-                                            <span class="dl-icon">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url(); ?>" onclick="return false;">
-                                            <span class="dl-text">Blog</span>
-                                            <span class="dl-icon">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url(); ?>" onclick="return false;">
-                                            <span class="dl-text">Portfolio</span>
-                                            <span class="dl-icon">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url(); ?>" onclick="return false;">
-                                            <span class="dl-text">Gallery</span>
-                                            <span class="dl-icon">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+							<div class="btn-group s-butt">
+								<button type="button" class="btn btn-default search-block-button" id="location-select-button">
+									<span class="btn-text">Вся Украина</span>
+									<span class="search-select-icon">
+										<i class="fa fa-angle-down"></i>
+									</span>
 
-                        <!-- Main Nav -->
-                        <ul id="main-nav" class="clearfix">
-                            <li class="act no-link">
-                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
-                                    <span>
-                                        Home
-                                    </span>
-                                </a>
-                                <div class="sub-nav out-level">
-                                    <ul>
-                                        <li>
-                                            <a href="<?= base_url(); ?>index.php" onclick="return false;">
-                                                <span>1. Business</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>index.php" onclick="return false;">
-                                                <span>2. Presentation</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>index.php" onclick="return false;">
-                                                <span>3. Creative</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>index.php" onclick="return false;">
-                                                <span>4. Photography</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="no-link">
-                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
-                                    <span>
-                                        Pages
-                                        <i class="underline"></i>
-                                    </span>
-                                </a>
-                                <div class="sub-nav out-level">
-                                    <ul>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>1. Business</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>2. Presentation</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>3. Creative</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>4. Photography</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="no-link">
-                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
-                                    <span>
-                                        Blog
-                                        <i class="underline"></i>
-                                    </span>
-                                </a>
-                                <div class="sub-nav out-level">
-                                    <ul>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>1. Business</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>2. Presentation</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>3. Creative</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>4. Photography</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="no-link">
-                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
-                                    <span>
-                                        Portfolio
-                                        <i class="underline"></i>
-                                    </span>
-                                </a>
-                                <div class="sub-nav out-level">
-                                    <ul>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>1. Business</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>2. Presentation</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>3. Creative</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>4. Photography</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="no-link">
-                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
-                                    <span>
-                                        Gallery
-                                        <i class="underline"></i>
-                                    </span>
-                                </a>
-                                <div class="sub-nav out-level">
-                                    <ul>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>1. Business</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>2. Presentation</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>3. Creative</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" onclick="return false;">
-                                                <span>4. Photography</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
+									<div class="sub-nav">
+										<input type="text" placeholder="Введите название города" name="searchCityName">
+										<ul></ul>
+									</div>
+								</button>
 
+								<a href="<?= base_url(); ?>subcategories" title="Искать на сайте">
+									<button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
+										<span class="btn-text">Поиск</span>
+										<span class="search-select-icon">
+											<i class="fa fa-search"></i>
+										</span>
+									</button>
+								</a>
+							</div>
+						</div>
+
+						<div class="search-inner clearfix">
+							<div class="s-butt">
+								<button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
+									<span class="btn-text">Я хочу продать</span>
+								</button>
+							</div>
+						</div>
+
+					</div>
+					<!-- Search End --> 
+					
                 </div>
                 <!-- Branding & Navigation End -->
 

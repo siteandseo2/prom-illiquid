@@ -44,15 +44,26 @@ if (!defined('BASEPATH'))
 
 
 $route['default_controller'] = "main/index";
+
 $route['admin'] = 'admin/get_admin';
 $route['admin/(:any)'] = 'admin/admin_pages/$1';
-
-$route['user/(:any)'] = 'user/add_user';
-$route['(:any)'] = 'main/index/$1';
+//$route['admin/(:any)'] = 'admin/admin_page_ajax';
+$route['user/add_user'] = 'user/add_user';
+$route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
+$route['admin/add_category']='category/add_category';
+$route['admin/add_focus_product']='category/add_focus_product';
+$route['admin/subcategories']='subcategories/get_subcat_list';
+$route['admin/add_subcategory']='subcategories/add_subcategory';
 $route['login'] = 'user/get_user';
+//$route['subcategories']='subcategories/show_subcategories';
+$route['products']='product/get_all_product';
+$route['products/item/(:any)']='product/get_product/$1';
 $route['exit_user'] = 'user/exit_user';
+//$route['admin/change_type'] = 'subcategories/change_type';
 $route['admin/exit_user'] = 'admin/exit_user';
-$route['admin/catalog']='catalog/get_catalog';
+$route['admin/category']='category/get_category';
+$route['admin/focus_product']='category/focus_product';
+$route['(:any)'] = 'main/index/$1';
 
 
 

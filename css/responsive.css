@@ -1,20 +1,19 @@
 /* <= 1800 */
 
-
+/*
 @media (max-width: 1800px) {
 	.carousel-description {
 		padding-bottom: 8%;
 	}
 }
-
+*/
 
 /* <= 1600 */
 
 
-@media (max-width: 1600px) {
+@media (max-width: 1700px) {
 	.carousel-description {
-		padding-bottom: 4%;
-		line-height: 22px;
+		bottom: 30%;
 	}
 }
 
@@ -32,9 +31,11 @@
 /* <= 1400 */
 
 @media (max-width: 1400px) {
-	.carousel-description {
-		padding-bottom: 1%;
-		line-height: 20px;
+	.carousel-description h1{
+		font-size: 3.2em;
+	}
+	.carousel-description p{
+		font-size: 1.2em;
 	}
 	#main-carousel {
 		height: 560px;
@@ -52,11 +53,6 @@
 	}
 	#blur-overlay {
 		height: 434px;
-	}
-	.carousel-description {
-		bottom: 60px;
-		line-height: 18px;
-		font-size: 13px;
 	}
 	#searching {
 		left: 10%;
@@ -80,6 +76,9 @@
 	.carousel-contr {
 		top: 260px;
 	}
+	.search-inner {
+		padding: 28px 10px 0;
+	}
 }
 
 /* <= 1200 */
@@ -99,9 +98,9 @@
 	}
 }
 
-/* <= 1030 */
+/* <= 1100 */
 
-@media (max-width: 1030px) {
+@media (max-width: 1100px) {
 	#main-carousel {
 		height: 410px;
 	}
@@ -120,80 +119,13 @@
 	.carousel-contr {
 		top: 150px;
 	}
-}
-
-/*  <= 930 */
-
-@media (max-width: 1030px) {
-	#main-carousel {
-		height: 370px;
-	}
-	#blur-overlay {
-		height: 304px;
-	}
-	.carousel-description {
-		visibility: hidden;
-	}
-	.tabs-buttons li a {
-		font-size: 1em;
-	}
-}
-
-/* <=830 */
-
-@media (max-width: 830px) {
-	#main-carousel {
-		height: 330px;
-	}
-	#blur-overlay {
-		height: 364px;
-	}
-	#searching {
-		top: 85px;
-	}
-	.carousel-contr {
-		top: 120px;
-	}
-	#searching .search-block-button .btn-text {
-		font-size: .9em;
-	}
-}
-
-/* <= 730 */
-
-@media (max-width: 730px) {
-	#main-carousel {
-		height: 290px;
-	}
-	#blur-overlay {
-		height: 324px;
-	}
-	.carousel-contr {
-		top: 100px;
-		font-size: 4em;
-	}
-}
-
-/* <= 630 */
-
-@media (max-width: 630px) {
-	#main-carousel {
-		height: 250px;
-	}
-	#blur-overlay {
-		height: 284px;
-	}
-	.search-input {
-		font-size: 1em;
-	}
-	.carousel-contr {
+	.carousel-description h1{
 		font-size: 3em;
 	}
-	#searching .search-block-button .btn-text {
-		font-size: .7em;
+	.carousel-description p{
+		font-size: 1em;
 	}
 }
 
-/* <= 530 */
 
 

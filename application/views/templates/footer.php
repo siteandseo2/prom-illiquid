@@ -50,7 +50,7 @@
 
                     <ul class="foot-accordion clearfix">
                         <li>
-                            <a href="<?= base_url(); ?>" class="text-primary">
+                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
                                 <span class="accor-toggle-icon">
                                     <i class="fa fa-angle-down"></i>
                                 </span>
@@ -61,7 +61,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>" class="text-primary">
+                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
                                 <span class="accor-toggle-icon">
                                     <i class="fa fa-angle-down"></i>
                                 </span>
@@ -72,7 +72,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>" class="text-primary">
+                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
                                 <span class="accor-toggle-icon">
                                     <i class="fa fa-angle-down"></i>
                                 </span>
@@ -83,7 +83,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>" class="text-primary">
+                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
                                 <span class="accor-toggle-icon">
                                     <i class="fa fa-angle-down"></i>
                                 </span>
@@ -163,8 +163,8 @@
             </div>
         </div>
     </div>
-	
-	<div class="overlay"></div>
+
+    <div class="overlay"></div>
 
 </footer>
 
@@ -179,11 +179,15 @@
 <script src="../../../js/jquery-1.11.0.min.js"></script>
 <script src="../../../js/jquery-ui.js"></script>
 <script src="../../../js/bootstrap.js"></script>
-<script src="../../../js/perfect-scrollbar.jquery.js"></script> 
-<script src="../../../js/jquery.fancybox.pack.js"></script>
-<script src="../../../js/autoComplete.js"></script>
-<script src="../../../js/main.js"></script>
-<script src="../../../js/validation.js"></script>
+<?php
+if (!empty($script))
+    print_r($script);
+?>
+
+
+
+
+
 
 </body>
 </html>

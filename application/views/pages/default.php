@@ -1,46 +1,5 @@
 <div id="main-carousel" class="carousel slide normal-carousel" data-ride="carousel"> <!-- data-ride="carousel" -->
 
-    <!-- Search -->
-    <div id="searching" class="clearfix">
-
-        <div class="search-inner clearfix">
-            <input type="text" placeholder="Я хочу купить" class="search-input" autofocus>
-
-            <div class="btn-group s-butt">
-                <button type="button" class="btn btn-default search-block-button" id="location-select-button">
-                    <span class="btn-text">Вся Украина</span>
-                    <span class="search-select-icon">
-                        <i class="fa fa-angle-down"></i>
-                    </span>
-
-                    <div class="sub-nav">
-                        <input type="text" placeholder="Введите название города" name="searchCityName">
-                        <ul></ul>
-                    </div>
-                </button>
-
-                <a href="<?= base_url(); ?>categories" title="Искать на сайте">
-                    <button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
-                        <span class="btn-text">Поиск</span>
-                        <span class="search-select-icon">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </button>
-                </a>
-            </div>
-        </div>
-
-        <div class="search-inner clearfix">
-            <div class="s-butt">
-                <button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
-                    <span class="btn-text">Я хочу продать</span>
-                </button>
-            </div>
-        </div>
-
-    </div>
-    <!-- Search End --> 
-
     <!-- Carousel slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
@@ -97,15 +56,22 @@
 
             <div id="tabs-container">
                 <ul class="tabs-buttons clearfix">
-                    <li class="col-sm-4 activeTab" id="tab-home">
-                        <a href="<?= base_url(); ?>">Промышленные товары</a>
-                    </li>
-                    <li class="col-sm-4" id="tab-pages">
-                        <a href="<?= base_url(); ?>">Потребительские товары</a>
-                    </li>
-                    <li class="col-sm-4" id="tab-blog">
-                        <a href="<?= base_url(); ?>">Услуги</a>
-                    </li>
+                    <?php
+                    foreach ($group_list as $key => $item) {
+                        if ($key == 0) {
+                            $active = 'activeTab';
+                        } else {
+                            $active = '';
+                        }
+                        if ($item['status'] == 'enable') {
+                            ?>
+                            <li class="col-sm-4 <?= $active ?>" id="tab-home" data-ajax="/<?= $item['id']; ?>">
+                                <a href="<?= base_url(); ?>"><?= $item['name'] ?></a>
+                            </li>
+                            <?php
+                        }
+                    }
+                    ?>
                 </ul>
 
                 <div class="tabs-content clearfix">
@@ -114,13 +80,13 @@
                     <div class="col-sm-3 tabs-category-container">
                         <ul class="tabs-content-category-list home-tab-list">
                             <?php
-                            foreach ($list as $value) {
-                                if ($value['type'] != 'disable') {
+                            /*foreach ($list as $value) {
+                                if ($value['status'] != 'disable' && $value['fp_id'] == 1) {
                                     echo '<li>';
-                                    echo "<a href='categories'>" . $value['name'] . "</a>";
+                                    echo "<a href='".base_url()."subcategories'>" . $value['name'] . "</a>";
                                     echo '</li>';
                                 }
-                            }
+                            }*/
                             ?>
                         </ul>
                     </div>

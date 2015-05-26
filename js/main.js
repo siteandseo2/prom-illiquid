@@ -108,6 +108,17 @@
 	'Ровно', 'Сумы', 'Тернополь', 'Харьков', 'Херсон', 'Черкассы', 'Чернигов', 'Черновцы'
 	];
 	
+	/* Autocomplete */
+	
+	try {
+		var search = document.getElementsByName('searchCityName')[0];
+		autoComplete(search, cities);
+	} catch(e) {
+		console.log( e.type + ' ' + e.message );
+	}
+	
+	//
+	
 	(function fillInSearchDropDown() {
 		
 		try {
@@ -138,16 +149,6 @@
 		
 	})();
 	
-	/* Autocomplete */
-	
-	try {
-		var search = document.getElementsByName('searchCityName')[0];
-		autoComplete(search, cities);
-	} catch(e) {
-		console.log( e.type + ' ' + e.message );
-	}
-	
-	
 	/* Perfect scrollbar */
 	
 	$('#location-select-button .sub-nav ul').perfectScrollbar();
@@ -159,7 +160,20 @@
       collapsible: true
     });
 	
-	$('.foot-accordion a').click(function() {
+	// Styles
+	
+	$('.accor-content, .accor-link').css({
+		'background': 'transparent',
+		'border': 0
+	});
+	
+	$('.ui-accordion-header-icon').remove();
+	
+	// Arrow
+	
+	$('.foot-accordion a').click(function(ev) {
+		ev.preventDefault();
+		
 		if ( $( this ).find('.accor-toggle-icon i').hasClass('fa fa-angle-down') ) {
 			
 			$( this ).find('.accor-toggle-icon i').removeClass('fa fa-angle-down');
@@ -207,70 +221,49 @@
 		
 		if( ev.target.tagName == 'LI' ) {
 			
-			switch( ev.target.id ) {
-				case 'tab-home':
-					changeTabTo( ev.target.id );
-					break;
-				case 'tab-pages':
-					changeTabTo( ev.target.id );
-					break;
-				case 'tab-blog':
-					changeTabTo( ev.target.id );
-					break;
-				default:
-					break;
-			}
+			var data_ajax = ev.target.getAttribute('data-ajax');
+			callForAjax( data_ajax );
 			
 		} else if ( ev.target.tagName == 'A' ) {
 			
-			switch( ev.target.parentNode.id ) {
-				case 'tab-home':
-					changeTabTo( ev.target.parentNode.id );
-					break;
-				case 'tab-pages':
-					changeTabTo( ev.target.parentNode.id );
-					break;
-				case 'tab-blog':
-					changeTabTo( ev.target.parentNode.id );
-					break;
-				default:
-					break;
-			}  
+			var data_ajax = ev.target.parentNode.getAttribute('data-ajax');
+			callForAjax( data_ajax );
 			
 		}
 	});
 	
-	
-	// AJAX
-	var ajaxCatList_Home = ['Отопление', 'Строительство', 'Промышленное оборудование', 'Оборудование для предоставления услуг', 'Электрооборудование',
-	'Инструмент', 'Сельхозпродукция и техника', 'Металл, пластик, резина', 'Безопасность и защита',
-	'Грузовики, автобусы, спецтехника', 'Контрольно-измерительные приборы', 'Сырье и материалы'];
-	
-	var ajaxCatList_Pages = ['Подарки на 8 марта', 'Купуй украинське', 'Одежда, обувь, аксессуары', 'Авто-, мото-',
-	'Техника и электроника', 'Мобильные телефоны, смартфоны', 'Товары для детей', 'Спорт', 'Развлечение', 'Хобби',
-	'Товары для дома', 'Мебель и фрунитура', 'Строительство'];
-	
-	var ajaxCatList_Blog = ['Инженерно-строительные услуги', 'Ремонт и обслуживание техники', 'Деловые услуги',
-	'Бытовые услуги', 'Услуги проката и аренды', 'Промышленные услуги', 'Услуги досуга и отдыха', 'Полиграфия и дизайн',
-	'Логистические и складские услуги', 'Медицина', 'Красота', 'Здоровье', 'Образование и тренинги'];
 
-	
-	
-	function changeTabTo( tab ) {
-	
-		switch( tab ) {
-			case 'tab-home':
-				createCategoryList( ajaxCatList_Home );
-				break;
-			case 'tab-pages':
-				createCategoryList( ajaxCatList_Pages );
-				break;
-			case 'tab-blog':
-				createCategoryList( ajaxCatList_Blog );
-				break;
-			default:
-				break;
+	function callForAjax( data ) {
+		
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open('GET', 'change_tabs' + data, true);
+		
+		xhr.onreadystatechange = function() {
+			if( xhr.readyState != 4 ) return;
+			
+			if( xhr.status != 200) {
+				
+				console.error( xhr.status + ' : ' + xhr.statusText );
+				
+			} else {
+				
+				var res = [];
+				
+				var valid = xhr.responseText.slice(1, -1);
+				var arr = valid.split(',');
+				
+				arr.forEach(function(li) {
+					var obj = ( JSON.parse( li ) );
+					res.push( obj['name'] );
+				});
+				
+				createCategoryList( res );
+				
+			}
 		}
+		
+		xhr.send();
 		
 	}
 	
@@ -278,7 +271,7 @@
 	function createCategoryList( arr ) {
 		
 		try {
-			var catList = document.querySelector('.tabs-content-category-listt');
+			var catList = document.querySelector('.tabs-content-category-list');
 			catList.innerHTML = '';
 			
 			fill();
@@ -301,7 +294,13 @@
 	}
 	
 	// Default list
-	createCategoryList( ajaxCatList_Home );
+	
+	(function() {
+		
+		var firstTab = document.querySelector('#tabs-container ul li:first-child');
+		callForAjax( firstTab.getAttribute('data-ajax') );
+		
+	}());
 	
 	
 	
