@@ -221,15 +221,18 @@
 		
 		if( ev.target.tagName == 'LI' ) {
 			
+			var id = ev.target.id;
+			var data_ajax = ev.target.getAttribute('data-ajax');
+			
 			switch( ev.target.id ) {
 				case 'tab-home':
-					changeTabTo( ev.target.id );
+					changeTabTo( id, data_ajax );
 					break;
 				case 'tab-pages':
-					changeTabTo( ev.target.id );
+					changeTabTo( id, data_ajax );
 					break;
 				case 'tab-blog':
-					changeTabTo( ev.target.id );
+					changeTabTo( id, data_ajax );
 					break;
 				default:
 					break;
@@ -237,15 +240,18 @@
 			
 		} else if ( ev.target.tagName == 'A' ) {
 			
+			var id = ev.target.parentNode.id;
+			var data_ajax = ev.target.parentNode.getAttribute('data-ajax');
+			
 			switch( ev.target.parentNode.id ) {
 				case 'tab-home':
-					changeTabTo( ev.target.parentNode.id );
+					changeTabTo( id, data_ajax );
 					break;
 				case 'tab-pages':
-					changeTabTo( ev.target.parentNode.id );
+					changeTabTo( id, data_ajax );
 					break;
 				case 'tab-blog':
-					changeTabTo( ev.target.parentNode.id );
+					changeTabTo( id, data_ajax );
 					break;
 				default:
 					break;
@@ -253,38 +259,32 @@
 			
 		}
 	});
-	
-	
-	// AJAX
-	var ajaxCatList_Home = ['Отопление', 'Строительство', 'Промышленное оборудование', 'Оборудование для предоставления услуг', 'Электрооборудование',
-	'Инструмент', 'Сельхозпродукция и техника', 'Металл, пластик, резина', 'Безопасность и защита',
-	'Грузовики, автобусы, спецтехника', 'Контрольно-измерительные приборы', 'Сырье и материалы'];
-	
-	var ajaxCatList_Pages = ['Подарки на 8 марта', 'Купуй украинське', 'Одежда, обувь, аксессуары', 'Авто-, мото-',
-	'Техника и электроника', 'Мобильные телефоны, смартфоны', 'Товары для детей', 'Спорт', 'Развлечение', 'Хобби',
-	'Товары для дома', 'Мебель и фрунитура', 'Строительство'];
-	
-	var ajaxCatList_Blog = ['Инженерно-строительные услуги', 'Ремонт и обслуживание техники', 'Деловые услуги',
-	'Бытовые услуги', 'Услуги проката и аренды', 'Промышленные услуги', 'Услуги досуга и отдыха', 'Полиграфия и дизайн',
-	'Логистические и складские услуги', 'Медицина', 'Красота', 'Здоровье', 'Образование и тренинги'];
 
+	function changeTabTo( id , data_ajax ) {
+		
+		console.log( id, data_ajax );
+		
+		var arr = callForAjax( data_ajax );
+		
+	}
 	
-	
-	function changeTabTo( tab ) {
-	
-		switch( tab ) {
-			case 'tab-home':
-				createCategoryList( ajaxCatList_Home );
-				break;
-			case 'tab-pages':
-				createCategoryList( ajaxCatList_Pages );
-				break;
-			case 'tab-blog':
-				createCategoryList( ajaxCatList_Blog );
-				break;
-			default:
-				break;
+	function callForAjax( data ) {
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open('GET', '', true);
+		
+		xhr.onreadystatechange = function() {
+			if( xhr.status != 200 ) {
+				console.log( xhr.status + ' : ' + xhr.statusText );
+			} else {
+				
+				console.log( 'success : ' + xhr.responseText );
+				console.log( typeof xhr.responseText );
+				
+			}
 		}
+		
+		xhr.send();
 		
 	}
 	
@@ -292,7 +292,7 @@
 	function createCategoryList( arr ) {
 		
 		try {
-			var catList = document.querySelector('.tabs-content-category-listt');
+			var catList = document.querySelector('.tabs-content-category-list');
 			catList.innerHTML = '';
 			
 			fill();

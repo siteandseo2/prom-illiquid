@@ -65,7 +65,7 @@
                         }
                         if ($item['status'] == 'enable') {
                             ?>
-                            <li class="col-sm-4 <?= $active ?>" id="tab-home">
+                            <li class="col-sm-4 <?= $active ?>" id="tab-home" data-ajax="<?= $item['id']; ?>">
                                 <a href="<?= base_url(); ?>"><?= $item['name'] ?></a>
                             </li>
                             <?php
@@ -80,13 +80,13 @@
                     <div class="col-sm-3 tabs-category-container">
                         <ul class="tabs-content-category-list home-tab-list">
                             <?php
-                            foreach ($list as $value) {
+                            /*foreach ($list as $value) {
                                 if ($value['status'] != 'disable' && $value['fp_id'] == 1) {
                                     echo '<li>';
                                     echo "<a href='".base_url()."subcategories'>" . $value['name'] . "</a>";
                                     echo '</li>';
                                 }
-                            }
+                            }*/
                             ?>
                         </ul>
                     </div>

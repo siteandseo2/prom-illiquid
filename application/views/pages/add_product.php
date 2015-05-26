@@ -15,7 +15,7 @@
                         <div class="sub-nav out-level">
                             <ul>
                                 <li>
-                                    <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                    <a href="<?= base_url(); ?>cabinet" class="clearfix">
                                         <span class="cabinet-nav-text">Главная</span>
                                     </a>
                                 </li>
@@ -420,6 +420,8 @@
 			
 			 <!-- Cabinet Content -->
             <section id="cabinet-content" class="clearfix">
+			
+				<h3 class="cabinetHead">Добавить позицию</h3> 
 
 				<form id="adding_new_product" action="" method="POST">
 					
