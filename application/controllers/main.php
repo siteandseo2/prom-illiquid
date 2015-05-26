@@ -19,7 +19,7 @@ class Main extends CI_Controller {
         $this->load->model('subcategories_m');
         $this->data['list'] = $this->category_m->category_list();
         $this->data['group_list'] = $this->category_m->focus_product_list();
-        $this->data['subcategories']=$this->subcategories_m->get_subcategories_list();
+        $this->data['subcategories'] = $this->subcategories_m->get_subcategories_list();
     }
 
     /* Main Page USER */
@@ -29,20 +29,20 @@ class Main extends CI_Controller {
 
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php')) {
             show_404();
-        } else {            
+        } else {
             switch ($page) {
                 case 'default':
-                    $this->data['script']="<script src='../../../js/autoComplete.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script>
+                    $this->data['script'] = "<script src='../../../js/autoComplete.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script>
 <script src='../../../js/main.js'></script>";
-                    break;             
+                    break;
                 case'registration':
-                    $this->data['script']="<script src='../../../js/validation.js'></script>";
-                    break;   
+                    $this->data['script'] = "<script src='../../../js/validation.js'></script>";
+                    break;
                 case'subcategories':
-                    $this->data['script']="";
-                    break;   
+                    $this->data['script'] = "";
+                    break;
                 default :
-                    $this->data['script']="<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
+                    $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
                     break;
             }
             $this->load->view("pages/$page", $this->data);
@@ -51,4 +51,7 @@ class Main extends CI_Controller {
     }
 
     /* END Main Page USER */
+
+    
+
 }

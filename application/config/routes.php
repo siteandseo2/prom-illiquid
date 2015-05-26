@@ -49,6 +49,7 @@ $route['admin'] = 'admin/get_admin';
 $route['admin/(:any)'] = 'admin/admin_pages/$1';
 //$route['admin/(:any)'] = 'admin/admin_page_ajax';
 $route['user/add_user'] = 'user/add_user';
+$route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
 $route['admin/add_category']='category/add_category';
 $route['admin/add_focus_product']='category/add_focus_product';
 $route['admin/subcategories']='subcategories/get_subcat_list';

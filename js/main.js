@@ -271,7 +271,7 @@
 	function callForAjax( data ) {
 		var xhr = new XMLHttpRequest();
 		
-		xhr.open('GET', '', true);
+		xhr.open('GET', 'change_tabs'+data, true);
 		
 		xhr.onreadystatechange = function() {
 			if( xhr.status != 200 ) {

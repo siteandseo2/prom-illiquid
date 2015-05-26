@@ -19,8 +19,14 @@ class Category_m extends CI_Model {
         $query = $this->db->query("SELECT id,name,status FROM focus_products");
         return $query->result_array();
     }
-    function add_focus_product($data){
-         $this->db->insert('focus_products', $data);
+
+    function add_focus_product($data) {
+        $this->db->insert('focus_products', $data);
+    }
+
+    function get_category_list($id) {
+        $query = $this->db->where('fp_id', $id)->select('name')->get('categories');
+        return $query->result_array();
     }
 
 }

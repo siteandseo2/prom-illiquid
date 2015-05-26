@@ -65,7 +65,7 @@
                         }
                         if ($item['status'] == 'enable') {
                             ?>
-                            <li class="col-sm-4 <?= $active ?>" id="tab-home" data-ajax="<?= $item['id']; ?>">
+                            <li class="col-sm-4 <?= $active ?>" id="tab-home" data-ajax="/<?= $item['id']; ?>">
                                 <a href="<?= base_url(); ?>"><?= $item['name'] ?></a>
                             </li>
                             <?php
