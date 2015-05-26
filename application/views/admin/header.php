@@ -216,7 +216,7 @@
                         <a href="<?= base_url(); ?>admin/focus_product" data-ajax="focus_product" class="dropped">Группа товаров</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>admin/catalog" data-ajax="catalog" class="dropped">Категории</a>
+                        <a href="<?= base_url(); ?>admin/category" data-ajax="category" class="dropped">Категории</a>
                     </li>
                     <li>
                         <a href="<?= base_url(); ?>admin/subcategories" data-ajax="subcategories" class="dropped">Подкатегории</a>

@@ -1,6 +1,6 @@
 <?php
 
-class Catalog_m extends CI_Model {
+class Category_m extends CI_Model {
 
     public function __construct() {
         parent::__construct();

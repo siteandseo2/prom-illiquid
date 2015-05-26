@@ -25,8 +25,8 @@ class Admin extends CI_Controller {
 
         /* load categories */
 
-        $this->load->model('catalog_m');
-        $this->data['cat_list'] = $this->catalog_m->category_list();
+        $this->load->model('category_m');
+        $this->data['cat_list'] = $this->category_m->category_list();
 
         /* load users */
 
@@ -35,7 +35,7 @@ class Admin extends CI_Controller {
 
         /* load focus product */
 
-        $this->data['fpl'] = $this->catalog_m->focus_product_list();
+        $this->data['fpl'] = $this->category_m->focus_product_list();
     }
 
     /*  function login admin  */

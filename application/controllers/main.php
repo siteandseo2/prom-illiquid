@@ -15,9 +15,11 @@ class Main extends CI_Controller {
         } else {
             $this->load->view("templates/header");
         }
-        $this->load->model('Catalog_m');
-        $this->data['list'] = $this->Catalog_m->category_list();
-        $this->data['group_list'] = $this->Catalog_m->focus_product_list();
+        $this->load->model('category_m');
+        $this->load->model('subcategories_m');
+        $this->data['list'] = $this->category_m->category_list();
+        $this->data['group_list'] = $this->category_m->focus_product_list();
+        $this->data['subcategories']=$this->subcategories_m->get_subcategories_list();
     }
 
     /* Main Page USER */

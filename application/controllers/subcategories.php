@@ -21,8 +21,8 @@ class Subcategories extends CI_Controller {
         $this->load->view("admin/header", $this->data);
         /* load categories */
 
-        $this->load->model('catalog_m');
-        $this->data['cat_list'] = $this->catalog_m->category_list();
+        $this->load->model('category_m');
+        $this->data['cat_list'] = $this->category_m->category_list();
 
         /* load model for subcategories */
 
