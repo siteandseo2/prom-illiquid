@@ -248,18 +248,13 @@
 				
 			} else {
 				
-				var res = [];
+				var obj = JSON.parse( xhr.responseText );
 				
-				var valid = xhr.responseText.slice(1, -1);
-				var arr = valid.split(',');
+				var names = obj['name'];
+				var links = obj['link'];
 				
-				arr.forEach(function(li) {
-					var obj = ( JSON.parse( li ) );
-					res.push( obj['name'] );
-				});
-				
-				createCategoryList( res );
-				
+				createCategoryList( names, links );
+
 			}
 		}
 		
@@ -267,8 +262,9 @@
 		
 	}
 	
-	
-	function createCategoryList( arr ) {
+	function createCategoryList( names, links ) {
+		
+		var host = 'http://' + window.location.host + '/';
 		
 		try {
 			var catList = document.querySelector('.tabs-content-category-list');
@@ -276,19 +272,24 @@
 			
 			fill();
 		} catch(err) {
+			
 			console.log( err.type + ' ' + err.message );
+			
 		}
 		
 		function fill() {
-			for(var i=0; i<arr.length; i++) {
+			
+			for(var i=0; i<names.length; i++) {
 				var li = document.createElement('li');
-				var link = document.createElement('a');
-				link.setAttribute('href', '#');
-				link.innerHTML = arr[i];
-				li.appendChild(link);
+				var link = document.createElement('a');	
 				
+				link.innerHTML = names[i];
+				link.setAttribute('href', host + links[i]);
+				
+				li.appendChild(link);
 				catList.appendChild( li );
 			}
+			
 		}
 		
 	}
