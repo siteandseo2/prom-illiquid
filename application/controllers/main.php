@@ -40,7 +40,7 @@ class Main extends CI_Controller {
                     $this->data['script']="";
                     break;   
                 default :
-                    $this->data['script']="<script src='../../../js/perfect-scrollbar.jquery.js'><script src='../../../js/main.js'></script>";
+                    $this->data['script']="<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
                     break;
             }
             $this->load->view("pages/$page", $this->data);
