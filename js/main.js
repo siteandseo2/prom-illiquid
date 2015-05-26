@@ -224,62 +224,46 @@
 			var id = ev.target.id;
 			var data_ajax = ev.target.getAttribute('data-ajax');
 			
-			switch( ev.target.id ) {
-				case 'tab-home':
-					changeTabTo( id, data_ajax );
-					break;
-				case 'tab-pages':
-					changeTabTo( id, data_ajax );
-					break;
-				case 'tab-blog':
-					changeTabTo( id, data_ajax );
-					break;
-				default:
-					break;
-			}
+			callForAjax( id, data_ajax );
 			
 		} else if ( ev.target.tagName == 'A' ) {
 			
 			var id = ev.target.parentNode.id;
 			var data_ajax = ev.target.parentNode.getAttribute('data-ajax');
 			
-			switch( ev.target.parentNode.id ) {
-				case 'tab-home':
-					changeTabTo( id, data_ajax );
-					break;
-				case 'tab-pages':
-					changeTabTo( id, data_ajax );
-					break;
-				case 'tab-blog':
-					changeTabTo( id, data_ajax );
-					break;
-				default:
-					break;
-			}  
+			callForAjax( id, data_ajax );
 			
 		}
 	});
-
-	function changeTabTo( id , data_ajax ) {
-		
-		console.log( id, data_ajax );
-		
-		var arr = callForAjax( data_ajax );
-		
-	}
 	
-	function callForAjax( data ) {
+	function callForAjax( id, data ) {
+		
 		var xhr = new XMLHttpRequest();
 		
-		xhr.open('GET', 'change_tabs'+data, true);
+		xhr.open('GET', 'change_tabs' + data, true);
 		
 		xhr.onreadystatechange = function() {
-			if( xhr.status != 200 ) {
-				console.log( xhr.status + ' : ' + xhr.statusText );
+			if( xhr.readyState != 4 ) return;
+			
+			if( xhr.status != 200) {
+				
+				console.error( xhr.status + ' : ' + xhr.statusText );
+				
 			} else {
 				
-				console.log( 'success : ' + xhr.responseText );
-				console.log( typeof xhr.responseText );
+				var res = [];
+				
+				var valid = xhr.responseText.slice(1, -1);
+				var arr = valid.split(',');
+				
+				console.log( valid );
+				
+				arr.forEach(function(li) {
+					var obj = ( JSON.parse( li ) );
+					res.push( obj['name'] );
+				});
+				
+				createCategoryList( res );
 				
 			}
 		}
