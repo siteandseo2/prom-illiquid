@@ -1330,8 +1330,47 @@ p  .form-submit {
 }
 
 #cabinet-content {
-    margin-top: 100px;
+    margin-top: 20px;
     display: block;
+}
+
+.cabinetHead {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+/* Adding new Product */
+
+.add-prod-name {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #eaeaea;
+	border-radius: 4px;
+}
+
+.required {
+	color: #f00;
+}
+
+.dashed, .dashed:hover {
+	text-decoration: none;
+}
+
+.dashed > span {
+	border-bottom: 1px dashed #2578e9;
+}
+
+.dashed > span:hover {
+	border-bottom: 0;
+}
+
+.setPrice .add-prod-name {
+	width: 25%;
+	margin-right: 15px;
+}
+
+.setPrice .separator {
+	margin-right: 10px;
 }
 
 /* Categories */
@@ -2364,36 +2403,3 @@ p  .form-submit {
 	text-decoration: underline;
 }
 
-/* Adding new Product */
-
-.add-prod-name {
-	width: 100%;
-	padding: 5px;
-	border: 1px solid #eaeaea;
-	border-radius: 4px;
-}
-
-.required {
-	color: #f00;
-}
-
-.dashed, .dashed:hover {
-	text-decoration: none;
-}
-
-.dashed > span {
-	border-bottom: 1px dashed #2578e9;
-}
-
-.dashed > span:hover {
-	border-bottom: 0;
-}
-
-.setPrice .add-prod-name {
-	width: 25%;
-	margin-right: 15px;
-}
-
-.setPrice .separator {
-	margin-right: 10px;
-}

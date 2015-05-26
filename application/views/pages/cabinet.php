@@ -15,7 +15,7 @@
                         <div class="sub-nav out-level">
                             <ul>
                                 <li>
-                                    <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                    <a href="<?= base_url(); ?>cabinet" class="clearfix">
                                         <span class="cabinet-nav-text">Главная</span>
                                     </a>
                                 </li>
@@ -420,6 +420,8 @@
 			
 			 <!-- Cabinet Content -->
             <section id="cabinet-content" class="clearfix">
+			
+				<h3 class="cabinetHead">Главная</h3>
 
 
                 <div class="col-sm-3" id="cabinet-content-left-aside"></div>
