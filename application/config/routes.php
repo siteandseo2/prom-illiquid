@@ -53,7 +53,7 @@ $route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
 $route['admin/add_category']='category/add_category';
 $route['admin/add_focus_product']='category/add_focus_product';
 $route['admin/subcategories']='subcategories/get_subcat_list';
-
+$route['admin/add_subcategory']='subcategories/add_subcategory';
 $route['login'] = 'user/get_user';
 //$route['subcategories']='subcategories/show_subcategories';
 $route['products']='product/get_all_product';

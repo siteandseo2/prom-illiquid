@@ -14,6 +14,7 @@
 class Subcategories extends CI_Controller {
 
     public $data;
+    public $data_db;
 
     function __construct() {
         parent::__construct();
@@ -96,12 +97,26 @@ class Subcategories extends CI_Controller {
 
     /* END  function delete_subcat  */
 
-    function get_subcat_list() {
+    public function get_subcat_list() {
         $this->load->view('admin/subcategories', $this->data);
         $this->delete_subcat();
         $this->change_type();
         $this->edit_subcat();
         $this->load->view('admin/footer');
     }
-
+    
+    /*function add subcategory */
+    public function add_subcategory(){
+         if (isset($_POST['add_subcategory'])) {
+            $this->data_db['name'] = $this->input->post('name');
+            $this->data_db['link'] = strtolower($this->input->post('link'));
+            $this->data_db['image_path'] = 'path';
+            $this->data_db['cat_id'] = strtolower($this->input->post('category'));
+            $this->data_db['status'] = strtolower($this->input->post('status'));
+            $this->subcategories_m->add_subcategory($this->data_db);
+        }
+        unset($this->data_db);
+        redirect(base_url('admin/subcategories'));
+    }
+/*END function add subcategory*/
 }

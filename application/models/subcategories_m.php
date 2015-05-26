@@ -26,5 +26,8 @@ class subcategories_m extends CI_Model {
         $catid = $this->db->query("SELECT cat_id FROM subcategories WHERE id='$id'");
         return $catid->num_rows();
     }
+    function add_subcategory($data){
+        $this->db->insert('subcategories', $data);
+    }
 
 }
