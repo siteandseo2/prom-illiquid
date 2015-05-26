@@ -131,7 +131,7 @@
                                     <div class="sub-nav inn-level">
                                         <ul>
                                             <li>
-                                                <a href="<?= base_url(); ?>cabinet/add_product.html">
+                                                <a href="<?= base_url(); ?>add_product">
                                                     <span>Добавить позицию</span>
                                                 </a>
                                             </li>

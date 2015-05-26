@@ -413,12 +413,6 @@ body.no-bg {
     background-color: rgba(58,58,58,0.07);
 }
 
-.sub-nav ul li:hover > a span {
-    /*background: -webkit-linear-gradient(left, #4d71da 32%, #35c4f4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;*/
-}
-
 .sub-nav > ul > li > a {
     font: normal 500 11px / 16px "Roboto", Helvetica, Arial, Verdana, sans-serif;
     text-transform: uppercase;
@@ -930,7 +924,7 @@ body.no-bg {
     display: block;
 }
 
-.form-container p  .form-submit {
+p  .form-submit {
     display: inline-block;
     padding-left: 12px;
     padding-right: 12px;
@@ -1336,7 +1330,7 @@ body.no-bg {
 }
 
 #cabinet-content {
-    margin-top: 20px;
+    margin-top: 100px;
     display: block;
 }
 
@@ -2368,4 +2362,38 @@ body.no-bg {
 
 .ulPrompt li:hover {
 	text-decoration: underline;
+}
+
+/* Adding new Product */
+
+.add-prod-name {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #eaeaea;
+	border-radius: 4px;
+}
+
+.required {
+	color: #f00;
+}
+
+.dashed, .dashed:hover {
+	text-decoration: none;
+}
+
+.dashed > span {
+	border-bottom: 1px dashed #2578e9;
+}
+
+.dashed > span:hover {
+	border-bottom: 0;
+}
+
+.setPrice .add-prod-name {
+	width: 25%;
+	margin-right: 15px;
+}
+
+.setPrice .separator {
+	margin-right: 10px;
 }
