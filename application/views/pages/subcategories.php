@@ -3,7 +3,7 @@
 
         <div class="wf-table">
             <div class="wf-td hgroup">
-                <h1>Категории</h1>
+                <h1>Подкатегории</h1>
             </div>
             <div class="wf-td">
                 <ul class="breadcrumbs text-normal">
@@ -11,7 +11,7 @@
                         <a href="<?= base_url(); ?>default">Главная</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>subcategories">Категории</a>
+                        <a href="<?= base_url(); ?>subcategories">Подкатегории</a>
                     </li>
                 </ul>
             </div>
