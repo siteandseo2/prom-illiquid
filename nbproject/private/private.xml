@@ -5,13 +5,13 @@
         <group>
             <file>file:/var/www/prom.loc/application/views/admin/subcategories.php</file>
             <file>file:/var/www/prom.loc/application/config/routes.php</file>
+            <file>file:/var/www/prom.loc/application/controllers/subcat_show.php</file>
+            <file>file:/var/www/prom.loc/application/views/admin/footer.php</file>
             <file>file:/var/www/prom.loc/application/views/admin/header.php</file>
-            <file>file:/var/www/prom.loc/application/models/subcategories_m.php</file>
             <file>file:/var/www/prom.loc/application/controllers/catalog.php</file>
-            <file>file:/var/www/prom.loc/application/controllers/admin.php</file>
-            <file>file:/var/www/prom.loc/application/config/database.php</file>
+            <file>file:/var/www/prom.loc/application/views/admin/charts.php</file>
+            <file>file:/var/www/prom.loc/application/views/pages/default.php</file>
             <file>file:/var/www/prom.loc/application/controllers/subcategories.php</file>
-            <file>file:/var/www/prom.loc/application/config/config.php</file>
         </group>
     </open-files>
 </project-private>
