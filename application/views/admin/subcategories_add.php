@@ -16,7 +16,7 @@
                             <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/index">Главная</a>
                         </li>
                         <li>
-                            <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/focus_product">Подкатегории</a>
+                            <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/subcategories">Подкатегории</a>
                         </li>
                         <li class="active">
                             <i class="fa fa-file"></i> Добавить подкатегорию
@@ -27,9 +27,9 @@
             <!-- /.row -->
             
             <div class="col-lg-12 tab_margin_top">               
-                <form action="add_category" method="POST" class="form-submit">
+                <form action="add_subcategory" method="POST" class="form-submit">
                     <label>Направление</label>
-                    <select class='form-control' name='focus_product'>
+                    <select class='form-control' name='category'>
                         <?php
                         foreach ($cat_list as $item) {
                             ?>
@@ -50,7 +50,7 @@
                         <option value='disable'>Скрывать</option>
                     </select>
                     <div class='tab_margin_top'>
-                        <button class="btn btn-info" type='submit' name="add_category" value=""><i class="fa fa-save"></i> Сохранить</button>
+                        <button class="btn btn-info" type='submit' name="add_subcategory" value=""><i class="fa fa-save"></i> Сохранить</button>
                         <button class="btn btn-danger" type='reset' name="reset" value=""><i class="fa fa-remove"></i> Сбросить</button>
                     </div>
 
