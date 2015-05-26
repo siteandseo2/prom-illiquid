@@ -232,6 +232,7 @@
 		}
 	});
 	
+
 	function callForAjax( data ) {
 		
 		var xhr = new XMLHttpRequest();
