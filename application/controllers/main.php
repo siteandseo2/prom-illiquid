@@ -9,16 +9,19 @@ class Main extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        /*load header*/
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
         }
+         /*load category_m*/
         $this->load->model('category_m');
-        $this->load->model('subcategories_m');
         $this->data['list'] = $this->category_m->category_list();
         $this->data['group_list'] = $this->category_m->focus_product_list();
+          /*load subcategories_m*/
+        $this->load->model('subcategories_m');  
         $this->data['subcategories'] = $this->subcategories_m->get_subcategories_list();
     }
 
