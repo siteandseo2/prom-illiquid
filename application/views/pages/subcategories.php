@@ -3,7 +3,7 @@
 
         <div class="wf-table">
             <div class="wf-td hgroup">
-                <h1>Подкатегории</h1>
+                <h1><?= $category ?></h1>
             </div>
             <div class="wf-td">
                 <ul class="breadcrumbs text-normal">
@@ -11,7 +11,7 @@
                         <a href="<?= base_url(); ?>default">Главная</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>subcategories">Подкатегории</a>
+                        <a href="<?= base_url(); ?>subcategories/<?= $link ?>"><?= $category ?></a>
                     </li>
                 </ul>
             </div>
@@ -31,28 +31,52 @@
         <!-- 1st Row -->
         <div class="row cat-row">
             <?php
-            foreach ($subcategories as $item) {
-                if ($item['status'] == 'enable') {
-                    ?>
-                    <div class="col-md-3 col-sm-3 cat-content-row-item">
-                        <article>
-                            <div class="cat-item-img">
-                                <a href="<?= base_url(); ?>products">
-                                    <img src="<?= $item['image_path'] ?>" alt="">
-                                </a>
-                            </div>
-                            <div class="cat-item-title">
-                                <a href="<?= base_url(); ?>products">
-                                    <h3>
-                                        <?=$item['name']?>
-                                        <mark class="count">(3)</mark>
-                                    </h3>
-                                </a>
-                            </div>
-                        </article>
-                    </div>
-                <?php }
-            } ?>
+            if (!empty($subcategories)) {
+                foreach ($subcategories as $item) {
+                    if ($item['status'] == 'enable') {
+                        ?>
+                        <div class="col-md-3 col-sm-3 cat-content-row-item">
+                            <article>
+                                <div class="cat-item-img">
+                                    <a href="<?= base_url(); ?>products/<?= $item['link'] ?>">
+                                        <img src="<?= $item['image_path'] ?>" alt="">
+                                    </a>
+                                </div>
+                                <div class="cat-item-title">
+                                    <a href="<?= base_url(); ?>products/<?= $item['link'] ?>">
+                                        <h3>
+                                            <?= $item['name'] ?>
+                                            <mark class="count">(<?= $count[$item['id']] ?>)</mark>
+                                        </h3>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                        <?php
+                    }
+                }
+            } else {
+                ?>
+                <div class="col-md-3 col-sm-3 cat-content-row-item">
+                    <article>
+                        <div class="cat-item-img">
+                            <a href="#">
+                                <img src="http://mr-stiher.ru/img/oops-404.png" alt="">
+                            </a>
+                        </div>
+                        <div class="cat-item-title">
+                            <a href="#">
+                                <h3>
+                                    В данной категории нет ни одного товара
+                                    <mark class="count"></mark>
+                                </h3>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                <?php
+            }
+            ?>
         </div>
 
 
@@ -105,14 +129,14 @@
                             </div>
                             <div class="cat-item-title">
                                 <a href="<?= base_url(); ?>products">
-                                    <h3>
-                                        T-Shirts
-                                        <mark class="count">(7)</mark>
-                                    </h3>
-                                </a>
-                            </div>
-                        </article>
-                    </div>-->
+                                <h3>
+                                    T-Shirts
+                                    <mark class="count">(7)</mark>
+                                </h3>
+                            </a>
+                        </div>
+                    </article>
+                </div>-->
 
         <!--        </div>-->
 

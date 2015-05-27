@@ -21,8 +21,8 @@ class Main extends CI_Controller {
         $this->data['list'] = $this->category_m->category_list();
         $this->data['group_list'] = $this->category_m->focus_product_list();
           /*load subcategories_m*/
-        $this->load->model('subcategories_m');  
-        $this->data['subcategories'] = $this->subcategories_m->get_subcategories_list();
+//        $this->load->model('subcategories_m');  
+//         = $this->subcategories_m->get_subcategories_list();
     }
 
     /* Main Page USER */

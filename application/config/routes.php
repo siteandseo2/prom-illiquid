@@ -49,6 +49,7 @@ $route['admin'] = 'admin/get_admin';
 $route['admin/(:any)'] = 'admin/admin_pages/$1';
 
 $route['user/add_user'] = 'user/add_user';
+$route['subcategories/(:any)'] = 'subcategories_front/get_subgategory/$1';
 $route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
 $route['admin/add_category']='category/add_category';
 $route['admin/add_focus_product']='category/add_focus_product';
@@ -58,6 +59,7 @@ $route['login'] = 'user/get_user';
 
 $route['products']='product/get_all_product';
 $route['products/item/(:any)']='product/get_product/$1';
+$route['products/(:any)']='product/get_products/$1';
 $route['exit_user'] = 'user/exit_user';
 
 $route['admin/exit_user'] = 'admin/exit_user';

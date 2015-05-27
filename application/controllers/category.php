@@ -201,13 +201,7 @@ class Category extends CI_Controller {
     /* END  function focus_product */
 
 
-    /* function get_product_cat */
 
-    function get_focus_product_list() {
-        
-    }
-
-    /* END  function get_product_cat */
 
     /**/
 

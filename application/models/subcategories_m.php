@@ -21,13 +21,23 @@ class subcategories_m extends CI_Model {
         $query = $this->db->get('subcategories');
         return $query->result_array();
     }
-
+/*????????????????????????*/
     function get_cat_id($id) {
         $catid = $this->db->query("SELECT cat_id FROM subcategories WHERE id='$id'");
         return $catid->num_rows();
     }
-    function add_subcategory($data){
+/*????????????????????????*/
+    function add_subcategory($data) {
         $this->db->insert('subcategories', $data);
+    }
+
+    function get_subcategories($name) {
+        $id = $this->db->where("link", $name)->select('id')->get('categories');
+        foreach ($id->result() as $row) {
+            $cat_id = $row->id;
+        }
+        $query = $this->db->where("cat_id", $cat_id)->get('subcategories');
+        return $query->result_array();
     }
 
 }

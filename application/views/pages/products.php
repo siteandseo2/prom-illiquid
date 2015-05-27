@@ -5,7 +5,7 @@
 
         <div class="wf-table">
             <div class="wf-td hgroup">
-                <h1>Товары</h1>
+                <h1><?=$subcat_name?></h1>
             </div>
             <div class="wf-td">
                 <ul class="breadcrumbs text-normal">
@@ -13,10 +13,10 @@
                         <a href="<?= base_url(); ?>default">Главная</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>subcategories">Категории</a>
+                        <a href="<?= base_url(); ?>subcategories/<?=$cat_name['0']['link']?>"><?=$cat_name['0']['name']?></a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>products">Товары</a>
+                        <a href="<?= base_url(); ?>products/<?=$link?>"><?=$subcat_name?></a>
                     </li>
                 </ul>
             </div>
@@ -35,21 +35,21 @@
 
         <div id="content" class="content">
 
-            <p class="cat-result-count">Showing all 6 result</p>
+            <p class="cat-result-count">Showing all <?=count($items)?> result</p>
 
             <div class="cat-ordering">
                 <select>
-                    <option value="pop">Sort by popularity</option>
-                    <option value="rate">Sort by average rating</option>
-                    <option value="date">Sort by newest</option>
-                    <option value="asc">Sort by price: low to high</option>
-                    <option value="desc">Sort by price: high to low</option>
+                    <option value="pop">Сортировка по популярности</option>
+                    <option value="rate">Сортировать по среднему рейтингу</option>
+                    <option value="date">Сортировать по новинкам</option>
+                    <option value="asc">Сортировать по цене : от низкой к высокой</option>
+                    <option value="desc">Сортировать по цене: от высокой к низкой</option>
                 </select>
             </div>
 
             <div class="row cat-row">
-                <?php
-                foreach ($products as $item) {
+                <?php 
+                foreach ($items as $item) {
                     if ($item['status'] == 'enable') {
                         ?>                
                         <div class="col-md-4 col-sm-4 cat-content-row-item">
