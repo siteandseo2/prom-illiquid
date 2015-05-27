@@ -29,4 +29,11 @@ class Category_m extends CI_Model {
         return $query->result_array();
     }
 
+    function get_category_name($name) {
+        $query = $this->db->where('link', $name)->select('name')->get('categories');
+        foreach ($query->result() as $row) {
+            return $row->name;
+        }
+    }
+
 }

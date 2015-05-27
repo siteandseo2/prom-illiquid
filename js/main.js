@@ -264,7 +264,7 @@
 	
 	function createCategoryList( names, links ) {
 		
-		var host = 'http://' + window.location.host + '/';
+		var host = 'http://' + window.location.host + '/subcategories/';
 		
 		try {
 			var catList = document.querySelector('.tabs-content-category-list');

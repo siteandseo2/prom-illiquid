@@ -2,7 +2,8 @@
 
 <div class="page-title">
     <div class="wf-wrap">
-        <?php foreach ($product as $item) {
+        <?php        
+        foreach ($product as $item) {
             ?>            
             <div class="wf-table">
                 <div class="wf-td hgroup">
@@ -14,10 +15,10 @@
                             <a href="<?= base_url(); ?>default">Главная</a>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>subcategories">Категории</a>
+                            <a href="<?= base_url(); ?>subcategories/<?=$subcat_name['0']['link']?>"><?=$subcat_name['0']['name']?></a>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>products"><?=$cat_name['0']['name']?></a>
+                            <a href="<?= base_url(); ?>products/<?=$cat_name['0']['link']?>"><?=$cat_name['0']['name']?></a>
                         </li>
                         <li>
                             <a href="<?= base_url('product/' . $item['id']); ?>"><?= $item['name'] ?></a>
