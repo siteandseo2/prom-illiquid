@@ -20,6 +20,7 @@ class Product_adm extends CI_Controller {
         $this->load->model('product_m');
         $this->load->model('subcategories_m');
         $this->load->model('category_m');
+        $this->data['category']=  $this->category_m->category_list();
          foreach ($this->product_m->get_all_product() as $k => $v) {
             $this->data['list'][$v['id']] = $v;
         }
