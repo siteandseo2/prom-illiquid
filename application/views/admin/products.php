@@ -21,53 +21,58 @@
                     </ol>                    
                 </div>                 
             </div>
-           
-			<!-- Menu -->
-			
-			<div class="row well" id="prod-nav-bar">
-			
-				<!-- Filters -->
-			
-				<div class="col-sm-9 prod-nav-filters">
-				
-					<h3 class="col-sm-2 prod-nav-head">Фильтры</h3>
-				
-					<div class="col-sm-4">
-						<h4>Категория</h4>
-						<select id="_prod_cat" class="form-control">
-							<option value="default">Выберите категорию</option>
-							<option value="one">One</option>
-							<option value="two">Two</option>
-						</select>
-					</div>
-					
-					<div class="col-sm-4">
-						<h4>Подкатегория</h4>
-						<select id="_prod_subcat" class="form-control">
-							<option value="default">Выберите категорию</option>
-							<option value="one">One</option>
-							<option value="two">Two</option>
-						</select>
-					</div>
-					
-					<div class="col-sm-2">
-						<input type="button" id="prod-nav-apply" class="btn btn-success" value="Применить"> 
-					</div>
-				
-				</div>
-			
-				
-				<div class="pull-right col-lg-3 col-sm-auto">
-					<a href="<?= base_url('admin'); ?>/product_add" class="btn btn-primary btn-labeled" style="width: 100%;">
-						<span class="btn-label icon fa fa-plus"></span>
-						Добавить товар
-					</a>
-				</div>
-			
-			</div>
-			
-			<!-- Menu end -->
-			
+
+            <!-- Menu -->
+
+            <div class="row well" id="prod-nav-bar">
+
+                <!-- Filters -->
+
+                <div class="col-sm-9 prod-nav-filters">
+
+                    <h3 class="col-sm-2 prod-nav-head">Фильтры</h3>
+
+                    <div class="col-sm-4">
+                        <h4>Категория</h4>
+                        <select id="_prod_cat" class="form-control">
+                            <option value="default">Выберите категорию</option>
+                            <?php
+                            foreach ($category as $item) {
+                                ?>
+                                <option value = "<?=$item['id']?>"><?=$item['name']?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <h4>Подкатегория</h4>
+                        <select id="_prod_subcat" class="form-control" disabled="disabled">
+                            <option value="default">Выберите категорию</option>
+                            <option value="one">One</option>
+                            <option value="two">Two</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="button" id="prod-nav-apply" class="btn btn-success" value="Применить"> 
+                    </div>
+
+                </div>
+
+
+                <div class="pull-right col-lg-3 col-sm-auto">
+                    <a href="<?= base_url('admin'); ?>/product_add" class="btn btn-primary btn-labeled" style="width: 100%;">
+                        <span class="btn-label icon fa fa-plus"></span>
+                        Добавить товар
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Menu end -->
+
             <div class="col-lg-12 tab_margin_top">               
                 <form action="" method="POST" class="form-submit">
                     <table class='col-lg-12 table-bordered table-responsive table'>
@@ -108,11 +113,11 @@
                             <tr>
                                 <td><?= $item['id'] ?> <input class="" type='checkbox' name="id[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"/></td>
                                 <td><input class="form-control" type='text' name="cat[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>
-                                <td><img src="<?=$item['image_path']?>" width="40"></td>
+                                <td><img src="<?= $item['image_path'] ?>" width="40"></td>
                                 <td><input class="form-control" type='text' name="link[<?= $item['id'] ?>]" value="<?= $item['link'] ?>"/></td>
                                 <td>
                                     <select class='form-control' name='subcat_product[<?= $item['id'] ?>]'>                                        
-                                        <?php                                        
+                                        <?php
                                         foreach ($subcat as $items) {
                                             if ($item['subcat_id'] == $items['id']) {
                                                 ?>
