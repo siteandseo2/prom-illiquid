@@ -33,7 +33,7 @@
                     <table class='col-lg-12 table-bordered table-responsive table'>
                         <tbody>
                         <thead>
-                        <th class='col-lg-1'>
+                        <th >
                             #id
                         </th>
                         <th class='col-lg-3'>

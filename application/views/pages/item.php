@@ -2,7 +2,7 @@
 
 <div class="page-title">
     <div class="wf-wrap">
-        <?php        
+        <?php
         foreach ($product as $item) {
             ?>            
             <div class="wf-table">
@@ -15,13 +15,13 @@
                             <a href="<?= base_url(); ?>default">Главная</a>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>subcategories/<?=$subcat_name['0']['link']?>"><?=$subcat_name['0']['name']?></a>
+                            <a href="<?= base_url(); ?>subcategories/<?= $subcat_name['0']['link'] ?>"><?= $subcat_name['0']['name'] ?></a>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>products/<?=$cat_name['0']['link']?>"><?=$cat_name['0']['name']?></a>
+                            <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
                         </li>
                         <li>
-                            <a href="<?= base_url('product/' . $item['id']); ?>"><?= $item['name'] ?></a>
+                            <a href="<?= base_url('products/item/' . $item['id']); ?>"><?= $item['name'] ?></a>
                         </li>
                     </ul>
                 </div>
@@ -89,33 +89,29 @@
 
                     <div class="description">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                            Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                            sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                            diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.
+                            <?= nl2br($item['s_description']) ?>
                         </p>
                     </div>
 
                     <div class="quantity clearfix">
                         <input type="number" step="1" min="1" value="1" title="Change quantity" size="4">
-                        <div class="add2cart">Add to Cart</div>
+                        <div class="add2cart">Купить</div>
                     </div>
 
                     <div class="product_meta">
                         <span class="meta_id">
                             ID:
-                            <span class="id"><?=$item['id']?></span>
+                            <span class="id"><?= $item['id'] ?></span>
                         </span>
                         <span class="posted_in">
-                            Category:
-                            <a href="<?= base_url(); ?>"><?=$cat_name['0']['name']?></a>
+                            Категория:
+                            <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
                         </span>
                         <span class="tagged_as">
-                            Tags:
-                            <a href="<?= base_url(); ?>">iphone</a>
-                            <a href="<?= base_url(); ?>">mockup</a>
-                            <a href="<?= base_url(); ?>">template</a>
-                            <a href="<?= base_url(); ?>">vector</a>
+                            Тэги:
+                            <a href="<?= base_url(); ?>products/item/<?= $item['id'] ?>"><?= $item['name'] ?></a>
+                            <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
+                            <a href="<?= base_url(); ?>subcategories/<?= $subcat_name['0']['link'] ?>"><?= $subcat_name['0']['name'] ?></a>                            
                         </span>
                     </div>
 
@@ -126,36 +122,29 @@
             <div class="product-tabs">
                 <ul class="tabs clearfix">
                     <li class="description_tab active">
-                        <a href="#">Description</a>
+                        <a href="#">Описание</a>
                     </li>
                     <li class="add_info_tab">
-                        <a href="#">Additional Information</a>
+                        <a href="#">Дополнительная информация</a>
                     </li>
                     <li class="reviews_tab">
-                        <a href="#">Reviews (1)</a>
+                        <a href="#">Отзывы (1)</a>
                     </li>
                 </ul>
 
                 <section id="description_panel">
-                    <h2>Product description</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                        Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                        sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                        diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                        Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                        sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                        diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
+                    <h2>Описание <?= $item['name'] ?></h2>
+                    <p> <?= nl2br($item['description']) ?></p>
                 </section>
 
                 <section id="add_info_panel" style="display: none;">
-                    <h2>Additional information</h2>
+                    <h2>Дополнительная информация</h2>
                     <table class="shop_attributes">
                         <tbody>
                             <tr>
                                 <th>License </th>
                                 <td>
-                                    <p>Pesonal <?=$item['id']?></p>
+                                    <p>Pesonal <?= $item['id'] ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -170,7 +159,7 @@
 
                 <section id="reviews_panel" style="display: none;">
                     <div id="comments">
-                        <h2>1 review for iPhone 6 mockup</h2>
+                        <h2>1 oтзыв o <?= $item['name'] ?></h2>
                         <ul class="commentslist">
                             <li class="comment" id="comment-1">
                                 <div class="comment-container">
@@ -299,7 +288,7 @@
                 </section>
 
                 <section class="widget-product-search">
-                    <div class="widget-title">SEARCH</div>
+                    <div class="widget-title">Поиск</div>
                     <form role="search" method="get" action="">
                         <input type="search" class="search-field" placeholder="Search Products.." value="" name="S" title="Search for..">
                         <input type="submit" value="search">
@@ -310,44 +299,42 @@
                 </section>
 
                 <section class="widget-product-categories">
-                    <div class="widget-title">CATEGORIES</div>
-                    <ul class="product-cat">
-                        <li class="cat-item cat-parent">
-                            <a href="<?= base_url(); ?>">Clothes and Footwear</a>
-                            <span class="count">(17)</span>
-                            <ul class="children">
-                                <li>
-                                    <a href="<?= base_url(); ?>">Footwear</a>
-                                    <span class="count">(3)</span>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url(); ?>">Hoodies</a>
-                                    <span class="count">(7)</span>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url(); ?>">T-Shirts</a>
-                                    <span class="count">(7)</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="cat-item cat-parent">
-                            <a href="<?= base_url(); ?>">Digital goods</a>
-                            <span class="count">(21)</span>
-                            <ul class="children">
-                                <li>
-                                    <a href="<?= base_url(); ?>">Smartphones</a>
-                                    <span class="count">(3)</span>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url(); ?>">Laptops</a>
-                                    <span class="count">(7)</span>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url(); ?>">PC's</a>
-                                    <span class="count">(7)</span>
-                                </li>
-                            </ul>
-                        </li>
+                    <div class="widget-title">Категории</div>
+                    <ul class="product-cat">                        
+                        <?php
+                        foreach ($cat_list as $cat) {
+                            ?>                        
+                            <li class="cat-item cat-parent">
+                                <a href="<?= base_url(); ?>subcategories/<?= $cat['link'] ?>"><?= $cat['name'] ?></a>
+                                <span class="count">()</span>
+                                <ul class="children">                                                                 
+                                            <li>
+                                                <a href="<?= base_url(); ?>products/"></a>
+                                                <span class="count"></span>
+                                            </li>                                                               
+                                </ul>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                        <!--                        <li class="cat-item cat-parent">
+                                                    <a href="<?= base_url(); ?>">Digital goods</a>
+                                                    <span class="count">(21)</span>
+                                                    <ul class="children">
+                                                        <li>
+                                                            <a href="<?= base_url(); ?>">Smartphones</a>
+                                                            <span class="count">(3)</span>
+                                                        </li>
+                                                        <li>
+                                                            <a href="<?= base_url(); ?>">Laptops</a>
+                                                            <span class="count">(7)</span>
+                                                        </li>
+                                                        <li>
+                                                            <a href="<?= base_url(); ?>">PC's</a>
+                                                            <span class="count">(7)</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>-->
                     </ul>
                 </section>
 

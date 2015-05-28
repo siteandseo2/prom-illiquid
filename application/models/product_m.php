@@ -53,7 +53,7 @@ class Product_m extends CI_Model {
         foreach ($query->result() as $row) {
             $cat_id = $row->cat_id;
         }
-        $query = $this->db->where('id', $cat_id)->select('name, link')->get('categories');
+        $query = $this->db->where('id', $cat_id)->select('id, name, link')->get('categories');
         return $query->result_array();
     }
 
@@ -62,6 +62,9 @@ class Product_m extends CI_Model {
         foreach ($query->result() as $row) {
             return $row->name;
         }
+    }
+    function add_product($data){
+        $this->db->insert('product', $data);
     }
 
 }

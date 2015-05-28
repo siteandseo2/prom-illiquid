@@ -8,24 +8,24 @@
             <div class="row">               
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Категории товаров
-                        <small>Category products</small>
+                        Товары
+                        <small>Products</small>
                     </h1>  
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/index">Главная</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Категории товаров
+                            <i class="fa fa-file"></i> Товары
                         </li>
                     </ol>                    
                 </div>                 
             </div>
             <!-- /.row -->
             <div class="pull-right col-lg-3 col-sm-auto">
-                <a href="<?= base_url('admin'); ?>/category_add" class="btn btn-primary btn-labeled" style="width: 100%;">
+                <a href="<?= base_url('admin'); ?>/product_add" class="btn btn-primary btn-labeled" style="width: 100%;">
                     <span class="btn-label icon fa fa-plus"></span>
-                    Добавить категорию 
+                    Добавить товар
                 </a>
             </div>
             <div class="col-lg-12 tab_margin_top">               
@@ -33,32 +33,32 @@
                     <table class='col-lg-12 table-bordered table-responsive table'>
                         <tbody>
                         <thead>
-                        <th class='col-lg-1'>
+                        <th >
                             #id
                         </th>
-                        <th class='col-lg-2'>
+                        <th class='col-lg-5'>
                             Название
                         </th>
-                        <th class='col-lg-2'>
+                        <th class=''>
                             Фото
                         </th>
-                        <th class='col-lg-2'>
+                        <th class='col-lg-3'>
                             Ссылка <?= base_url('catalog') ?>/
                         </th>
-                        <th class='col-lg-2'>
+                        <th class='col-lg-4'>
                             Подкатегория товаров
                         </th>
-                        <th class='col-lg-1'>
+                        <th class=''>
                             Редактировать
                         </th>  
-                        <th class='col-lg-1'>
+                        <th class=''>
                             Удалить
-                        <th class='col-lg-1'>                    
+                        <th class=''>                    
                             Скрыть
                         </th>  
                         </thead>
                         <?php
-                        foreach ($cat_list as $item) {
+                        foreach ($list as $item) {
                             if ($item['status'] == 'enable') {
                                 $btn_name = '<i class = "fa fa-eye-slash"></i> Скрыть';
                             } else {
@@ -68,20 +68,20 @@
                             <tr>
                                 <td><?= $item['id'] ?> <input class="" type='checkbox' name="id[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"/></td>
                                 <td><input class="form-control" type='text' name="cat[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>
-                                <td><img src=""></td>
+                                <td><img src="<?=$item['image_path']?>" width="40"></td>
                                 <td><input class="form-control" type='text' name="link[<?= $item['id'] ?>]" value="<?= $item['link'] ?>"/></td>
                                 <td>
-                                    <select class='form-control' name='focus_product[<?= $item['id'] ?>]'>                                        
-                                        <?php
-                                        foreach ($fpl as $items) {
-                                            if ($item['fp_id'] == $items['id']) {
+                                    <select class='form-control' name='subcat_product[<?= $item['id'] ?>]'>                                        
+                                        <?php                                        
+                                        foreach ($subcat as $items) {
+                                            if ($item['subcat_id'] == $items['id']) {
                                                 ?>
                                                 <option value="<?= $items['id'] ?>"><?= $items['name'] ?></option>
                                                 <?php
                                             }
                                         }
-                                        foreach ($fpl as $items) {
-                                            if ($item['fp_id'] != $items['id']) {
+                                        foreach ($subcat as $items) {
+                                            if ($item['subcat_id'] != $items['id']) {
                                                 ?>
                                                 <option value="<?= $items['id'] ?>"><?= $items['name'] ?></option>
                                                 <?php

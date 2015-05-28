@@ -48,7 +48,7 @@ class Subcategories extends CI_Controller {
                 if ($id == $key)
                     $link = $value;
             }
-            foreach ($this->input->post('focus_product') as $key => $value) {
+            foreach ($this->input->post('cat_product') as $key => $value) {
                 if ($id == $key)
                     $fp_id = $value;
             }
@@ -70,8 +70,9 @@ class Subcategories extends CI_Controller {
             foreach ($this->input->post('status') as $key => $val) {
                 if ($val == 'enable') {
                     $this->db->query("UPDATE subcategories SET status='disable' WHERE id='$key'");
+                    $this->db->query("UPDATE product SET status='disable' WHERE subcat_id='$key'");
                 } else {
-                    $cat_id = $this->subcategories_m->get_cat_id($key);
+                    $cat_id = $this->subcategories_m->get_cat_id($key);                   
                     $this->db->query("UPDATE subcategories SET status='enable' WHERE id='$key'");
                     $this->db->query("UPDATE categories SET status='enable' WHERE id='$cat_id'");
                 }

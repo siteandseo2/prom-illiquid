@@ -5,7 +5,7 @@
 
         <div class="wf-table">
             <div class="wf-td hgroup">
-                <h1><?=$subcat_name?></h1>
+                <h1><?= @$subcat_name ?></h1>
             </div>
             <div class="wf-td">
                 <ul class="breadcrumbs text-normal">
@@ -13,10 +13,10 @@
                         <a href="<?= base_url(); ?>default">Главная</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>subcategories/<?=$cat_name['0']['link']?>"><?=$cat_name['0']['name']?></a>
+                        <a href="<?= base_url(); ?>subcategories/<?= @$cat_name['0']['link'] ?>"><?= @$cat_name['0']['name'] ?></a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>products/<?=$link?>"><?=$subcat_name?></a>
+                        <a href="<?= base_url(); ?>products/<?= @$link ?>"><?= @$subcat_name ?></a>
                     </li>
                 </ul>
             </div>
@@ -35,7 +35,7 @@
 
         <div id="content" class="content">
 
-            <p class="cat-result-count">Showing all <?=count($items)?> result</p>
+            <p class="cat-result-count">Найдено <?= @count($items) ?> позиции</p>
 
             <div class="cat-ordering">
                 <select>
@@ -48,43 +48,67 @@
             </div>
 
             <div class="row cat-row">
-                <?php 
-                foreach ($items as $item) {
-                    if ($item['status'] == 'enable') {
-                        ?>                
-                        <div class="col-md-4 col-sm-4 cat-content-row-item">
-                            <article>
-                                <div class="cat-item-img">
-                                    <a href="<?= base_url('products/' . $item['link']); ?>" class="cat-item-hover-effect"><!--link-->
-                                        <img src="<?= $item['image_path'] ?>" alt=""><!--img-->
-                                    </a>
-                                </div>
-                                <div class="cat-item-title">
-                                    <a href="<?= base_url('products/' . $item['link']); ?>item"><!--link-->
-                                        <h4>
-                                            <?= $item['name'] ?><!--name-->
-                                        </h4>
-                                        <span class="price">
-                                            <span class="amount">$<?= $item['price'] ?></span><!--cost-->
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="hover-over-btns">
-                                    <a href="<?= base_url('products/' . $item['link']); ?>" title="В корзину">
-                                        <div class="buy-it">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </div>
-                                    </a>
-                                    <a href="<?= base_url('products/' . $item['link']); ?>" title="К товару">
-                                        <div class="show-it">
-                                            <i class="fa fa-share"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </article>
-                        </div>
-                    <?php
+                <?php
+                if (!empty($items)) {
+                    foreach ($items as $item) {
+                        if ($item['status'] == 'enable') {
+                            ?>                
+                            <div class="col-md-4 col-sm-4 cat-content-row-item">
+                                <article>
+                                    <div class="cat-item-img">
+                                        <a href="<?= base_url('products/' . $item['link']); ?>" class="cat-item-hover-effect"><!--link-->
+                                            <img src="<?= $item['image_path'] ?>" alt=""><!--img-->
+                                        </a>
+                                    </div>
+                                    <div class="cat-item-title">
+                                        <a href="<?= base_url('products/' . $item['link']); ?>item"><!--link-->
+                                            <h4>
+                                                <?= $item['name'] ?><!--name-->
+                                            </h4>
+                                            <span class="price">
+                                                <span class="amount">$<?= $item['price'] ?></span><!--cost-->
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="hover-over-btns">
+                                        <a href="<?= base_url('products/' . $item['link']); ?>" title="В корзину">
+                                            <div class="buy-it">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </div>
+                                        </a>
+                                        <a href="<?= base_url('products/' . $item['link']); ?>" title="К товару">
+                                            <div class="show-it">
+                                                <i class="fa fa-share"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+                            <?php
+                        }
                     }
+                } else {
+                    ?>
+                    <div class="col-md-12 col-sm-12 cat-content-row-item">
+                        <article>
+                            <div class="cat-item-img">
+                                <a href="#">
+                                    <img src="http://mr-stiher.ru/img/oops-404.png" alt=""><!--img-->
+                                </a>
+                            </div>
+                            <div class="cat-item-title">
+                                <a href="#">
+                                    <h4>Не найдено ни одного товара
+                                      
+                                    </h4>
+                                    <span class="price">
+                                        <span class="amount"></span>
+                                    </span>
+                                </a>
+                            </div>                           
+                        </article>
+                    </div>
+                    <?php
                 }
                 ?>
                 <!--                <div class="col-md-4 col-sm-4 cat-content-row-item">

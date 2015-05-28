@@ -14,6 +14,7 @@ class Category extends CI_Controller {
         /* load categories */
 
         $this->load->model('category_m');
+        $this->load->model('subcategories_m');
         $this->data['cat_list'] = $this->category_m->category_list();
 
         /* load focus product */
@@ -60,8 +61,11 @@ class Category extends CI_Controller {
         if (isset($_POST['status'])) {
             foreach ($this->input->post('status') as $key => $val) {
                 if ($val == 'enable') {
+                    $id=$this->subcategories_m->get_subcategory_by_cat_id($key);
                     $this->db->query("UPDATE categories SET status='disable' WHERE id='$key'");
                     $this->db->query("UPDATE subcategories SET status='disable' WHERE cat_id='$key'");
+                    $this->db->query("UPDATE product SET status='disable' WHERE subcat_id='$id'");
+                    
                 } else {
                     $this->db->query("UPDATE categories SET status='enable' WHERE id='$key'");
                     $this->db->query("UPDATE subcategories SET status='enable' WHERE cat_id='$key'");

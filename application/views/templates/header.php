@@ -89,59 +89,58 @@
 
                 <!-- Branding & Search -->
                 <div class="headHome wf-wrap clearfix">
-					
-					<!-- Branding -->
+
+                    <!-- Branding -->
                     <div id="branding" class="wf-td">
                         <a href="<?= base_url(); ?>default">
                             <img src="../../../img/logo-regular.png" alt="Logo">
                         </a>
                     </div>
-					
-					 <!-- Search -->
-					<div id="searching" class="clearfix">
 
-						<div class="search-inner clearfix">
-							<input type="text" placeholder="Я хочу купить" class="search-input" autofocus>
+                    <!-- Search -->
+                    <div id="searching" class="clearfix">
 
-							<div class="btn-group s-butt">
-								<button type="button" class="btn btn-default search-block-button" id="location-select-button">
-									<span class="btn-text">Вся Украина</span>
-									<span class="search-select-icon">
-										<i class="fa fa-angle-down"></i>
-									</span>
+                        <div class="search-inner clearfix">
+                            <input type="text" placeholder="Я хочу купить" class="search-input" autofocus>
 
-									<div class="sub-nav">
-										<input type="text" placeholder="Введите название города" name="searchCityName">
-										<ul></ul>
-									</div>
-								</button>
+                            <div class="btn-group s-butt">
+                                <button type="button" class="btn btn-default search-block-button" id="location-select-button">
+                                    <span class="btn-text">Вся Украина</span>
+                                    <span class="search-select-icon">
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
 
-								<a href="<?= base_url(); ?>subcategories" title="Искать на сайте">
-									<button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
-										<span class="btn-text">Поиск</span>
-										<span class="search-select-icon">
-											<i class="fa fa-search"></i>
-										</span>
-									</button>
-								</a>
-							</div>
-						</div>
+                                    <div class="sub-nav">
+                                        <input type="text" placeholder="Введите название города" name="searchCityName">
+                                        <ul></ul>
+                                    </div>
+                                </button>
 
-						<div class="search-inner clearfix">
-							<div class="s-butt">
-								<button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
-									<span class="btn-text">Я хочу продать</span>
-								</button>
-							</div>
-						</div>
+                                <a href="#" title="Искать на сайте">
+                                    <button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
+                                        <span class="btn-text">Поиск</span>
+                                        <span class="search-select-icon">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
 
-					</div>
-					<!-- Search End --> 
-					
+                        <div class="search-inner clearfix">
+                            <div class="s-butt">
+                                <button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
+                                    <span class="btn-text">Я хочу продать</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Search End --> 
+
                 </div>
                 <!-- Branding & Navigation End -->
 
             </header>
 
             <!-- Header End -->
-            

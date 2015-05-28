@@ -3,7 +3,7 @@
 
         <div class="wf-table">
             <div class="wf-td hgroup">
-                <h1><?= $category ?></h1>
+                <h1><?= @$category ?></h1>
             </div>
             <div class="wf-td">
                 <ul class="breadcrumbs text-normal">
@@ -11,7 +11,7 @@
                         <a href="<?= base_url(); ?>default">Главная</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>subcategories/<?= $link ?>"><?= $category ?></a>
+                        <a href="<?= base_url(); ?>subcategories/<?= @$link ?>"><?= @$category ?></a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +57,9 @@
                 }
             } else {
                 ?>
-                <div class="col-md-3 col-sm-3 cat-content-row-item">
+            <div class="col-md-3 col-sm-3 cat-content-row-item">                
+            </div>
+                <div class="col-md-6 col-sm-6 cat-content-row-item">
                     <article>
                         <div class="cat-item-img">
                             <a href="#">
@@ -74,6 +76,8 @@
                         </div>
                     </article>
                 </div>
+            <div class="col-md-3 col-sm-3 cat-content-row-item">                
+            </div>
                 <?php
             }
             ?>

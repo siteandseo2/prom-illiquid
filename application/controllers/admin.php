@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
         if (!empty($this->session->userdata('admin'))) {
             $this->data['admin'] = $this->session->userdata('admin');
             $this->load->view("admin/header", $this->data);
-        } 
+        }
 
 
         /* load categories */
@@ -36,6 +36,11 @@ class Admin extends CI_Controller {
         /* load focus product */
 
         $this->data['fpl'] = $this->category_m->focus_product_list();
+
+        /* load subcategories list */
+        $this->load->model('subcategories_m');
+
+        $this->data['list'] = $this->subcategories_m->get_subcategories_list();
     }
 
     /*  function login admin  */
