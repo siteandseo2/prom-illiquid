@@ -67,7 +67,7 @@ $route['exit_user'] = 'user/exit_user';
 $route['admin/exit_user'] = 'admin/exit_user';
 $route['admin/category'] = 'category/get_category';
 $route['admin/focus_product'] = 'category/focus_product';
-$route['(:any)'] = 'main/index/$1';
+//$route['(:any)'] = 'main/index/$1';
 
 
 
