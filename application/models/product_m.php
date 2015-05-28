@@ -34,7 +34,7 @@ class Product_m extends CI_Model {
     function get_product($id) {
         $query = $this->db->where('id', $id)->get('product');
         return $query->result_array();
-       
+
 //        $a= $this->foreachByKey($a, $id);
     }
 
@@ -63,8 +63,14 @@ class Product_m extends CI_Model {
             return $row->name;
         }
     }
-    function add_product($data){
+
+    function add_product($data) {
         $this->db->insert('product', $data);
+    }
+
+    function get_product_by_subcat_id($id) {
+        $query = $this->db->where('subcat_id', $id)->get('product');
+        return $query->result_array();
     }
 
 }

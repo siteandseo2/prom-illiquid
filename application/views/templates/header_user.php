@@ -52,7 +52,7 @@
 
                                     <div class="mini-login">
                                         <a href="#" class="submit">
-                                            <form action="exit_user" method="POST">
+                                            <form action="<?= base_url(); ?>exit_user" method="POST">
                                                 <i class="fa fa-pencil"></i><input onfocus="this.blur();" type="submit" id="exit" name="logout" value="Выйти" class="top-bar-icon-text subm" >
                                             </form>                                
                                         </a>
