@@ -48,4 +48,28 @@ $( document ).ready(function() {
 		if( ev.target.tagName == 'A' ) clear();
 	});
 	
+	/* Product page filters */
+	
+	var prodSel = $('#_prod_cat');
+	
+	$( prodSel ).change(function() {
+		
+		var data = $( this ).val();
+		
+		$.ajax({
+			type: 'GET',
+			url: 'ajax/filter_by_category',
+			data: data,
+			success: function( content ) {
+				getSubCat( content );
+			}
+		});
+		
+	});
+	
+	function getSubCat( data ) {
+		console.log( data );
+		console.log( typeof data );
+	}
+	
 });

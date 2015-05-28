@@ -30,9 +30,11 @@
 
                 <div class="col-sm-9 prod-nav-filters">
 
-                    <h3 class="col-sm-2 prod-nav-head">Фильтры</h3>
-
-                    <div class="col-sm-4">
+					<div class="col-sm-12">
+						<h2 class="col-sm-12 prod-nav-head">Фильтры</h2>
+					</div>
+                    
+                    <div class="col-sm-5">
                         <h4>Категория</h4>
                         <select id="_prod_cat" class="form-control">
                             <option value="default">Выберите категорию</option>
@@ -46,7 +48,7 @@
                         </select>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <h4>Подкатегория</h4>
                         <select id="_prod_subcat" class="form-control" disabled="disabled">
                             <option value="default">Выберите категорию</option>
