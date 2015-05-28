@@ -50,7 +50,8 @@ $( document ).ready(function() {
 	
 	/* Product page filters */
 	
-	var prodSel = $('#_prod_cat');
+	var prodSel = $('#_prod_cat'),
+		prodSubCat = document.getElementById('_prod_subcat');
 	
 	$( prodSel ).change(function() {
 		
@@ -68,8 +69,30 @@ $( document ).ready(function() {
 	});
 	
 	function getSubCat( data ) {
-		console.log( data );
-		console.log( typeof data );
+		
+		var parent = prodSubCat;
+		parent.innerHTML = '';
+		
+		var obj = JSON.parse( data );
+		
+		var id = obj['id'];
+		var name = obj['name'];
+		
+		if( !obj['name'] ) {
+			return;
+		}
+		
+		parent.removeAttribute('disabled');
+		
+		for(var i = 0; i<name.length; i++) {
+			var option = document.createElement('option');
+			option.setAttribute('value', id[i]);
+			option.innerHTML = name[i];
+			
+			parent.appendChild( option );
+		}
+		
+		
 	}
 	
 });

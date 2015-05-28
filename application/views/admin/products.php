@@ -51,9 +51,9 @@
                     <div class="col-sm-5">
                         <h4>Подкатегория</h4>
                         <select id="_prod_subcat" class="form-control" disabled="disabled">
-                            <option value="default">Выберите категорию</option>
+                           |<!--  <option value="default">Выберите категорию</option>
                             <option value="one">One</option>
-                            <option value="two">Two</option>
+                            <option value="two">Two</option> -->
                         </select>
                     </div>
 
