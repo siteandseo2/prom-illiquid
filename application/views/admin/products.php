@@ -21,13 +21,53 @@
                     </ol>                    
                 </div>                 
             </div>
-            <!-- /.row -->
-            <div class="pull-right col-lg-3 col-sm-auto">
-                <a href="<?= base_url('admin'); ?>/product_add" class="btn btn-primary btn-labeled" style="width: 100%;">
-                    <span class="btn-label icon fa fa-plus"></span>
-                    Добавить товар
-                </a>
-            </div>
+           
+			<!-- Menu -->
+			
+			<div class="row well" id="prod-nav-bar">
+			
+				<!-- Filters -->
+			
+				<div class="col-sm-9 prod-nav-filters">
+				
+					<h3 class="col-sm-2 prod-nav-head">Фильтры</h3>
+				
+					<div class="col-sm-4">
+						<h4>Категория</h4>
+						<select id="_prod_cat" class="form-control">
+							<option value="default">Выберите категорию</option>
+							<option value="one">One</option>
+							<option value="two">Two</option>
+						</select>
+					</div>
+					
+					<div class="col-sm-4">
+						<h4>Подкатегория</h4>
+						<select id="_prod_subcat" class="form-control">
+							<option value="default">Выберите категорию</option>
+							<option value="one">One</option>
+							<option value="two">Two</option>
+						</select>
+					</div>
+					
+					<div class="col-sm-2">
+						<input type="button" id="prod-nav-apply" class="btn btn-success" value="Применить"> 
+					</div>
+				
+				</div>
+			
+				
+				<div class="pull-right col-lg-3 col-sm-auto">
+					<a href="<?= base_url('admin'); ?>/product_add" class="btn btn-primary btn-labeled" style="width: 100%;">
+						<span class="btn-label icon fa fa-plus"></span>
+						Добавить товар
+					</a>
+				</div>
+			
+			</div>
+			
+			<!-- Menu end -->
+			
             <div class="col-lg-12 tab_margin_top">               
                 <form action="" method="POST" class="form-submit">
                     <table class='col-lg-12 table-bordered table-responsive table'>

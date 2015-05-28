@@ -77,3 +77,20 @@
 .activeLink {
     background: #000;
 }
+
+/* Product page */
+
+#prod-nav-bar {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.prod-nav-head {
+	display: inline-block;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.prod-nav-filters {
+	border-right: 1px solid #cdcdcd;
+}
