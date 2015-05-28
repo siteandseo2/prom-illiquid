@@ -58,7 +58,7 @@ $( document ).ready(function() {
 		
 		$.ajax({
 			type: 'GET',
-			url: 'ajax/filter_by_category',
+			url: 'products/filter_by_category',
 			data: data,
 			success: function( content ) {
 				getSubCat( content );
