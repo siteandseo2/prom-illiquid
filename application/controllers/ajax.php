@@ -23,7 +23,7 @@ class Ajax extends CI_Controller {
     }
     public function filter_by_category(){
         $id=$_GET['id'];
-        $subcat_list=$this->subcategories_m->get_subcategories_list_by_category($id);
+        $subcat_list=$this->subcategories_m->get_subcategories_by_category($id);
         $json=array();
         foreach ($subcat_list as $num => $column){             
             foreach($column as $name =>$value){
