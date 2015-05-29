@@ -51,13 +51,7 @@
                             <span class="form-icon">
                                 <i class="fa"></i>
                             </span>
-                        </span>
-                        <span class="form-name">
-                            <input type="text" class="validate" placeholder="Название компании *" name="company" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>
+                        </span>                        
                         <span class="form-name">
                             <input type="text" class="validate" placeholder="Фамилия *" name="surname" value="">
                             <span class="form-icon">
@@ -76,13 +70,36 @@
                                 <i class="fa"></i>
                             </span>
                         </span>
+                        <span class="form-name">
+                            <input type="text" class="validate" placeholder="Название компании *" name="company" value="">
+                            <span class="form-icon">
+                                <i class="fa"></i>
+                            </span>
+                        </span>                        
+                    </div>   
+                    <div class="form-fields col-lg-12 col-md-12 col-sm-12">
                         
-                    </div>
-
+                        <span class="form-inline col-lg-3 col-md-3 col-sm-3">                            
+                            <input type="radio" class="radio" name="usercat" value="seller">
+                            <label>Как продавец</label>
+                            <span class="form-icon">
+                                <i class="fa"></i>
+                            </span>
+                        </span> 
+                        <div class=""></div>
+                        <span class="form-inline col-lg-3 col-md-3 col-sm-3">                            
+                            <input type="radio" class="radio"  name="usercat" value="buyer"> 
+                            <label>Как покупатель</label>
+                            <span class="form-icon">
+                                <i class="fa"></i>
+                            </span>
+                        </span> 
+                     
+                    </div> 
                     <p>
                         <span class="form-submit">
-                            <input type="button" name="register" value="Зарегистрироваться">
-                        </span>
+                            <input type="button" name="register" value="Зарегистрироваться">                            
+                        </span>                        
                     </p>
                 </form>
             </div>

@@ -37,7 +37,7 @@ class Main extends CI_Controller {
             switch ($page) {
                 case 'default':
                     $this->data['script'] = "<script src='../../../js/autoComplete.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script>
-<script src='../../../js/main.js'></script>";
+<script src='../../../js/main.js'></script><script src='../../js/main_tabs.js'></script>";
                     break;
                 case'registration':
                     $this->data['script'] = "<script src='../../../js/validation.js'></script>";
@@ -59,3 +59,4 @@ class Main extends CI_Controller {
     
 
 }
+
