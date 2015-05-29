@@ -85,10 +85,7 @@
                         </th>
                         <th class=''>
                             Фото
-                        </th>
-                        <th class='col-lg-3'>
-                            Ссылка <?= base_url('catalog') ?>/
-                        </th>
+                        </th>                        
                         <th class='col-lg-4'>
                             Подкатегория товаров
                         </th>
@@ -112,8 +109,7 @@
                             <tr>
                                 <td><?= $item['id'] ?> <input class="" type='checkbox' name="id[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"/></td>
                                 <td><input class="form-control" type='text' name="cat[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>
-                                <td><img src="<?= $item['image_path'] ?>" width="40"></td>
-                                <td><input class="form-control" type='text' name="link[<?= $item['id'] ?>]" value="<?= $item['link'] ?>"/></td>
+                                <td><img src="<?= $item['image_path'] ?>" width="40"></td>                                
                                 <td>
                                     <select class='form-control' name='subcat_product[<?= $item['id'] ?>]'>                                        
                                         <?php

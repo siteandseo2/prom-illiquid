@@ -507,7 +507,14 @@
 
                             <p>
                                 <label for="prod_description">
-                                    Описание <span class="required">*</span>
+                                    Краткое описание <span class="required">*</span>
+                                </label>
+                                <textarea class="add-prod-name" name="prod_description" id="prod_description" cols="15" rows="4"></textarea>
+                            </p>
+                            
+                            <p>
+                                <label for="prod_description">
+                                    Полное описание <span class="required">*</span>
                                 </label>
                                 <textarea class="add-prod-name" name="prod_description" id="prod_description" cols="15" rows="4"></textarea>
                             </p>

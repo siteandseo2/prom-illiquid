@@ -80,13 +80,13 @@
                     <div class="col-sm-3 tabs-category-container">
                         <ul class="tabs-content-category-list home-tab-list">
                             <?php
-                            /*foreach ($list as $value) {
-                                if ($value['status'] != 'disable' && $value['fp_id'] == 1) {
-                                    echo '<li>';
-                                    echo "<a href='".base_url()."subcategories'>" . $value['name'] . "</a>";
-                                    echo '</li>';
-                                }
-                            }*/
+                            /* foreach ($list as $value) {
+                              if ($value['status'] != 'disable' && $value['fp_id'] == 1) {
+                              echo '<li>';
+                              echo "<a href='".base_url()."subcategories'>" . $value['name'] . "</a>";
+                              echo '</li>';
+                              }
+                              } */
                             ?>
                         </ul>
                     </div>
@@ -95,166 +95,22 @@
 
                     <!-- Home tab Grid -->
                     <div class="col-sm-9 clearfix tabs-content-grid home-tab-grid">
-
-                        <!-- 1st row -->
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
+                        <?php foreach ($list as $item) {
+                            ?>
+                            <!-- 1st row -->
+                            <div class="col-md-3 col-sm-4 tabs-grid-item">
+                                <div class="inner-item">
+                                    <a href="<?= base_url(); ?>/products/<?=$item['link']?>" class="item-link">
+                                        <div class="photo-frame">
+                                            <img src="<?=$item['image_path']?>" alt="<?=$item['name']?>">
+                                        </div>
+                                        <div class="item-title">
+                                            <span><?=$item['name']?></span>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 2nd row -->
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 3rd row -->
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-4 tabs-grid-item">
-                            <div class="inner-item">
-                                <a href="<?= base_url(); ?>" class="item-link">
-                                    <div class="photo-frame">
-                                        <img src="../../../img/iphone.jpg" alt="Iphone">
-                                    </div>
-                                    <div class="item-title">
-                                        <span>Iphone 5s</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
+                        <?php } ?>
                     </div>
                     <!-- Home tab grid End -->
 
