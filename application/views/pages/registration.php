@@ -58,6 +58,25 @@
                                 <i class="fa"></i>
                             </span>
                         </span>
+                        <span class="form-name">
+                            <input type="text" class="validate" placeholder="Фамилия *" name="surname" value="">
+                            <span class="form-icon">
+                                <i class="fa"></i>
+                            </span>
+                        </span>
+                        <span class="form-name">
+                            <input type="text" class="validate" placeholder="Имя *" name="name" value="">
+                            <span class="form-icon">
+                                <i class="fa"></i>
+                            </span>
+                        </span>
+                        <span class="form-name">
+                            <input type="text" class="validate" placeholder="Отчество *" name="patronymic" value="">
+                            <span class="form-icon">
+                                <i class="fa"></i>
+                            </span>
+                        </span>
+                        
                     </div>
 
                     <p>
