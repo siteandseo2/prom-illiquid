@@ -20,8 +20,8 @@ class Product_adm extends CI_Controller {
         $this->load->model('product_m');
         $this->load->model('subcategories_m');
         $this->load->model('category_m');
-        $this->data['category']=  $this->category_m->category_list();
-         foreach ($this->product_m->get_all_product() as $k => $v) {
+        $this->data['category'] = $this->category_m->category_list();
+        foreach ($this->product_m->get_all_product() as $k => $v) {
             $this->data['list'][$v['id']] = $v;
         }
         foreach ($this->data['list'] as $k => $v) {
@@ -30,7 +30,7 @@ class Product_adm extends CI_Controller {
     }
 
     function get_product_list() {
-       
+
         $this->load->view('admin/products', $this->data);
         $this->load->view('admin/footer');
     }
@@ -122,6 +122,20 @@ class Product_adm extends CI_Controller {
         $this->delete_product();
         $this->edit_product();
         $this->load->view("admin/footer");
+    }
+
+    function filter_product() {
+        if (isset($_POST['filter'])) {
+            $id = strtolower($this->input->post('subcat_id'));
+            if (!empty($id))
+                $this->data['list'] = $this->product_m->get_product_by_subcat_id($id);
+            else
+                foreach ($this->product_m->get_all_product() as $k => $v) {
+                    $this->data['list'][$v['id']] = $v;
+                }
+            $this->load->view("admin/products", $this->data);
+            $this->load->view("admin/footer");
+        }
     }
 
 }

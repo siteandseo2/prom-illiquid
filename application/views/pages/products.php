@@ -56,12 +56,12 @@
                             <div class="col-md-4 col-sm-4 cat-content-row-item">
                                 <article>
                                     <div class="cat-item-img">
-                                        <a href="<?= base_url('products/' . $item['link']); ?>" class="cat-item-hover-effect"><!--link-->
+                                        <a href="<?= base_url('products/item/' . $item['id']); ?>" class="cat-item-hover-effect"><!--link-->
                                             <img src="<?= $item['image_path'] ?>" alt=""><!--img-->
                                         </a>
                                     </div>
                                     <div class="cat-item-title">
-                                        <a href="<?= base_url('products/' . $item['link']); ?>item"><!--link-->
+                                        <a href="<?= base_url('products/item/' . $item['id']); ?>item"><!--link-->
                                             <h4>
                                                 <?= $item['name'] ?><!--name-->
                                             </h4>
@@ -71,12 +71,12 @@
                                         </a>
                                     </div>
                                     <div class="hover-over-btns">
-                                        <a href="<?= base_url('products/' . $item['link']); ?>" title="В корзину">
+                                        <a href="<?= base_url('products/item/' . $item['id']); ?>" title="В корзину">
                                             <div class="buy-it">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </div>
                                         </a>
-                                        <a href="<?= base_url('products/' . $item['link']); ?>" title="К товару">
+                                        <a href="<?= base_url('products/item/' . $item['id']); ?>" title="К товару">
                                             <div class="show-it">
                                                 <i class="fa fa-share"></i>
                                             </div>
@@ -99,7 +99,7 @@
                             <div class="cat-item-title">
                                 <a href="#">
                                     <h4>Не найдено ни одного товара
-                                      
+
                                     </h4>
                                     <span class="price">
                                         <span class="amount"></span>
@@ -110,167 +110,7 @@
                     </div>
                     <?php
                 }
-                ?>
-                <!--                <div class="col-md-4 col-sm-4 cat-content-row-item">
-                                    <article>
-                                        <div class="cat-item-img">
-                                            <a href="<?= base_url(); ?>product" class="cat-item-hover-effect">
-                                                <img src="../../../img/sub-item-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="cat-item-title">
-                                            <a href="<?= base_url(); ?>product">
-                                                <h4>
-                                                    Vynil record mockup
-                                                </h4>
-                                                <span class="price">
-                                                    <span class="amount">Free!</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="hover-over-btns">
-                                            <a href="<?= base_url(); ?>product" title="В корзину">
-                                                <div class="buy-it">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </div>
-                                            </a>
-                                            <a href="<?= base_url(); ?>product" title="К товару">
-                                                <div class="show-it">
-                                                    <i class="fa fa-share"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>
-                
-                                <div class="col-md-4 col-sm-4 cat-content-row-item">
-                                    <article>
-                                        <div class="cat-item-img">
-                                            <a href="<?= base_url(); ?>product" class="cat-item-hover-effect">
-                                                <img src="../../../img/sub-item-3.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="cat-item-title">
-                                            <a href="<?= base_url(); ?>product">
-                                                <h4>
-                                                    IPad air mockup
-                                                </h4>
-                                                <span class="price">
-                                                    <span class="amount">$10.00 - $99.00</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="hover-over-btns">
-                                            <a href="<?= base_url(); ?>product" title="В корзину">
-                                                <div class="buy-it">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </div>
-                                            </a>
-                                            <a href="<?= base_url(); ?>product" title="К товару">
-                                                <div class="show-it">
-                                                    <i class="fa fa-share"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>
-                
-                                <div class="col-md-4 col-sm-4 cat-content-row-item">
-                                    <article>
-                                        <div class="cat-item-img">
-                                            <a href="<?= base_url(); ?>product" class="cat-item-hover-effect">
-                                                <img src="../../../img/sub-item-1.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="cat-item-title">
-                                            <a href="<?= base_url(); ?>product">
-                                                <h4>
-                                                    IPhone 6 mockup
-                                                </h4>
-                                                <span class="price">
-                                                    <span class="amount">$15.00</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="hover-over-btns">
-                                            <a href="<?= base_url(); ?>product" title="В корзину">
-                                                <div class="buy-it">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </div>
-                                            </a>
-                                            <a href="<?= base_url(); ?>product" title="К товару">
-                                                <div class="show-it">
-                                                    <i class="fa fa-share"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>
-                
-                                <div class="col-md-4 col-sm-4 cat-content-row-item">
-                                    <article>
-                                        <div class="cat-item-img">
-                                            <a href="<?= base_url(); ?>product" class="cat-item-hover-effect">
-                                                <img src="../../../img/sub-item-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="cat-item-title">
-                                            <a href="<?= base_url(); ?>product">
-                                                <h4>
-                                                    Vynil record mockup
-                                                </h4>
-                                                <span class="price">
-                                                    <span class="amount">Free!</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="hover-over-btns">
-                                            <a href="<?= base_url(); ?>product" title="В корзину">
-                                                <div class="buy-it">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </div>
-                                            </a>
-                                            <a href="<?= base_url(); ?>product" title="К товару">
-                                                <div class="show-it">
-                                                    <i class="fa fa-share"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>
-                
-                                <div class="col-md-4 col-sm-4 cat-content-row-item">
-                                    <article>
-                                        <div class="cat-item-img">
-                                            <a href="<?= base_url(); ?>product" class="cat-item-hover-effect">
-                                                <img src="../../../img/sub-item-3.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="cat-item-title">
-                                            <a href="<?= base_url(); ?>product">
-                                                <h4>
-                                                    IPad air mockup
-                                                </h4>
-                                                <span class="price">
-                                                    <span class="amount">$10.00 - $99.00</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="hover-over-btns">
-                                            <a href="<?= base_url(); ?>product" title="В корзину">
-                                                <div class="buy-it">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </div>
-                                            </a>
-                                            <a href="<?= base_url(); ?>product" title="К товару">
-                                                <div class="show-it">
-                                                    <i class="fa fa-share"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </article>
-                                </div>-->
-
+                ?>     
             </div>
 
         </div>

@@ -23,17 +23,17 @@
             </div>
 
             <!-- Menu -->
-
+            <form action='subcat' method='POST'/>
             <div class="row well" id="prod-nav-bar">
 
                 <!-- Filters -->
 
                 <div class="col-sm-9 prod-nav-filters">
 
-					<div class="col-sm-12">
-						<h2 class="col-sm-12 prod-nav-head">Фильтры</h2>
-					</div>
-                    
+                    <div class="col-sm-12">
+                        <h2 class="col-sm-12 prod-nav-head">Фильтры</h2>
+                    </div>
+
                     <div class="col-sm-5">
                         <h4>Категория</h4>
                         <select id="_prod_cat" class="form-control">
@@ -41,7 +41,7 @@
                             <?php
                             foreach ($category as $item) {
                                 ?>
-                                <option value = "id=<?=$item['id']?>"><?=$item['name']?></option>
+                                <option value = "id=<?= $item['id'] ?>"><?= $item['name'] ?></option>
                                 <?php
                             }
                             ?>
@@ -50,15 +50,12 @@
 
                     <div class="col-sm-5">
                         <h4>Подкатегория</h4>
-                        <select id="_prod_subcat" class="form-control" disabled="disabled">
-                           |<!--  <option value="default">Выберите категорию</option>
-                            <option value="one">One</option>
-                            <option value="two">Two</option> -->
+                        <select id="_prod_subcat" class="form-control" name='subcat_id' disabled="disabled">                       
                         </select>
                     </div>
 
                     <div class="col-sm-2">
-                        <input type="button" id="prod-nav-apply" class="btn btn-success" value="Применить"> 
+                        <input type="submit" id="prod-nav-apply" name='filter' class="btn btn-success" value="Применить"> 
                     </div>
 
                 </div>
@@ -72,7 +69,7 @@
                 </div>
 
             </div>
-
+            </form>
             <!-- Menu end -->
 
             <div class="col-lg-12 tab_margin_top">               

@@ -70,7 +70,7 @@
                 <div class="summary">
 
                     <p class="price">
-                        <span class="amount">$<?= $item['price'] ?></span>
+                        <span class="amount"><?= $item['price'] ?>  <?=$item['currency']?></span>
                     </p>
 
                     <div class="rating clearfix">

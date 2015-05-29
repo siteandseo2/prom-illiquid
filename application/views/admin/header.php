@@ -161,36 +161,7 @@
 					<i class="fa fa-fw fa-dashboard"></i> 
 					Главная
 				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/charts"  data-ajax="charts">
-					<i class="fa fa-fw fa-bar-chart-o"></i> 
-					Графики
-				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/tables"  data-ajax="tables">
-					<i class="fa fa-fw fa-table"></i> Таблицы
-				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/forms"  data-ajax="forms">
-					<i class="fa fa-fw fa-edit"></i> 
-					Формы
-				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/bootstrap-elements" data-ajax="bootstrap-elements">
-					<i class="fa fa-fw fa-desktop"></i> 
-					Bootstrap Elements
-				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/bootstrap-grid" data-ajax="bootstrap-grid">
-					<i class="fa fa-fw fa-wrench"></i> 
-					Bootstrap Grid
-				</a>
-            </li>
+            </li>            
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo">
 					<i class="fa fa-fw fa-arrows-v"></i> Сайт <i class="fa fa-fw fa-caret-down"></i>
@@ -228,7 +199,7 @@
                 </ul>
             </li>  
             <li>
-                <a href="<?= base_url(); ?>admin/blank-page" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-file"></i> Пользователи</a>
+                <a href="<?= base_url(); ?>admin/users" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-file"></i> Пользователи</a>
             </li>                        
         </ul>
         <!-- Sidebar End -->

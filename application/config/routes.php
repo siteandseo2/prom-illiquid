@@ -53,13 +53,16 @@ $route['subcategories/(:any)'] = 'subcategories_front/get_subgategory/$1';
 $route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
 $route['admin/products/filter_by_category'] = 'ajax/filter_by_category';
 $route['admin/products'] = 'product_adm/product';
-$route['admin/add_product']='product_adm/add_product';
+$route['admin/add_product'] = 'product_adm/add_product';
 $route['admin/add_category'] = 'category/add_category';
 $route['admin/add_focus_product'] = 'category/add_focus_product';
 $route['admin/subcategories'] = 'subcategories/get_subcat_list';
 $route['admin/add_subcategory'] = 'subcategories/add_subcategory';
+$route['admin/subcat'] = 'product_adm/filter_product';
 $route['login'] = 'user/get_user';
 
+$route['cabinet'] = 'cabinet/user_data';
+$route['add_product']='cabinet/add_product';
 $route['products'] = 'product/get_all_product';
 $route['products/item/(:any)'] = 'product/get_product/$1';
 $route['products/(:any)'] = 'product/get_products/$1';
