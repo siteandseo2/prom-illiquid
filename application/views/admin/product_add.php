@@ -45,9 +45,7 @@
                     <label>Краткое описание товара</label>
                     <textarea class='form-control' name='s_description' type='text' rows="8"></textarea>                    
                     <label>Полное описание товара</label>
-                    <textarea class='form-control' name='description' type='text' rows="8"></textarea>
-                    <label>Ссылка</label>
-                    <input class='form-control' name='link' placeholder="Например otoplenie (Максимум 50 символов)" type='text'/>
+                    <textarea class='form-control' name='description' type='text' rows="8"></textarea>                    
                     <label>Фото</label>
                     <input class='' name='photo'  type='file'/>                    
                     <label>Статус</label>
