@@ -41,8 +41,7 @@ class Ajax extends CI_Controller {
                 $json[$name][$num]=$value;
             }
         }
-        print_r($json);
-//        echo json_encode($json);        
+        echo json_encode($json);        
     }
     
 
