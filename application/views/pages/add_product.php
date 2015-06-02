@@ -452,14 +452,14 @@
                                     Категория
                                 </label>
                                 <select id="prod_cat" name="prod_cat" class="add-prod-name">
-                                    <option value="default">Выберите Категорию</option>
+                                   <!--  <option value="default">Выберите Категорию</option> -->
                                     
                                 </select>
                                 <label for="prod_subcat">
                                     Подкатегория
                                 </label>
                                 <select id="prod_subcat" name="prod_subcat" class="add-prod-name">
-                                    <option value="default">Выберите Подкатегорию</option>
+                                    <!-- <option value="default">Выберите Подкатегорию</option> -->
                                     
                                 </select>
                             </p>

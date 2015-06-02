@@ -587,7 +587,7 @@ body.no-bg {
 }
 
 .search-input {
-    min-width: 300px;
+   /* min-width: 300px; */
     height: 80px;
     line-height: 80px;
     vertical-align: middle;
@@ -595,7 +595,7 @@ body.no-bg {
     float: left;
     z-index: 250;
     border: none;
-    font-size: 1.8em;
+    font-size: 1.6em;
     padding: 0 10px;
     outline: none;
     -webkit-transition: all .2s;
@@ -637,7 +637,7 @@ body.no-bg {
 }
 
 #searching .search-block-button .btn-text {
-    font-size: 1.7em;
+    font-size: 1.6em;
     line-height: 80px;
     vertical-align: middle;
     text-transform: uppercase;

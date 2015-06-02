@@ -101,7 +101,7 @@
                     <div id="searching" class="clearfix">
 
                         <div class="search-inner clearfix">
-                            <input type="text" placeholder="Я хочу купить" class="search-input" autofocus>
+                            <input type="text" placeholder="Я ХОЧУ КУПИТЬ" class="search-input" autofocus>
 
                             <div class="btn-group s-butt">
                                 <button type="button" class="btn btn-default search-block-button" id="location-select-button">
