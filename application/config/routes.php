@@ -61,6 +61,7 @@ $route['admin/add_focus_product'] = 'category/add_focus_product';
 $route['admin/subcategories'] = 'subcategories/get_subcat_list';
 $route['admin/add_subcategory'] = 'subcategories/add_subcategory';
 $route['admin/subcat'] = 'product_adm/filter_product';
+$route['user/add_product']='user/add_product';
 $route['login'] = 'user/get_user';
 
 $route['cabinet'] = 'cabinet/user_data';

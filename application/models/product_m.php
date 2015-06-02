@@ -65,7 +65,9 @@ class Product_m extends CI_Model {
     }
 
     function add_product($data) {
-        $this->db->insert('product', $data);
+        if($this->db->insert('product', $data)){
+            return TRUE;
+        }
     }
 
     function get_product_by_subcat_id($id) {

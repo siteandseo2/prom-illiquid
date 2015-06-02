@@ -91,6 +91,7 @@
                         <p>
                             <?= nl2br($item['s_description']) ?>
                         </p>
+
                     </div>
 
                     <div class="quantity clearfix">
@@ -279,6 +280,18 @@
 
         <aside id="sidebar" class="sidebar"> 
             <div class="sidebar-content">
+                <section class="widget-shopping-cart">
+                    <div class="widget-title">Товар добавил:
+                        <?= $user_data['name'] ?>
+                    </div>
+                    <div class="widget-title">Email:
+                        <?= $user_data['email'] ?>
+                    </div>
+                    <div class="widget-title">Компания:
+                        <?= $user_data['company'] ?>
+                    </div>
+
+                </section>
 
                 <section class="widget-shopping-cart">
                     <div class="widget-title">YOUR CART</div>

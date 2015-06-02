@@ -32,5 +32,9 @@ class user_model extends CI_Model {
         $query = $this->db->query("SELECT * FROM user WHERE email='$email' AND password='$password'");
         return $query->result_array();
     }
+    function get_user_by_id($id){
+        $query =$this->db->where('id', $id)->get('user');
+        return $query->result_array();
+    }
 
 }

@@ -7,6 +7,8 @@ class User extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->model('product_m');
+        $this->data_user['user'] = @$this->session->userdata('user');
     }
 
     /* function Add user to database */
@@ -48,7 +50,7 @@ class User extends CI_Controller {
                     $session_data['company'] = $item['company'];
                     $session_data['password'] = $item['user_type'];
                 }
-                $this->session->set_userdata(array('user'=>$session_data));
+                $this->session->set_userdata(array('user' => $session_data));
                 echo redirect(base_url('cabinet'));
             } else {
                 redirect(base_url('registration'));
@@ -67,11 +69,34 @@ class User extends CI_Controller {
 
     function exit_user() {
         if (isset($_POST['logout'])) {
-            $this->session->unset_userdata('user');                 
+            $this->session->unset_userdata('user');
             redirect(base_url());
         }
     }
 
     /* END function exit user  */
-    
+
+    function add_product() {
+        if (isset($_POST)) {
+            $this->data['name'] = $this->input->post('prod_name');
+            $this->data['image_path'] = 'path';
+            $this->data['price'] = $this->input->post('prod_price');
+            $this->data['subcat_id'] = $this->input->post('prod_subcat');
+            $this->data['status'] = 'enable';
+            $this->data['description'] = $this->input->post('prod_description');
+            $this->data['s_description'] = $this->input->post('prod_s_description');
+            $this->data['currency'] = $this->input->post('prod_currency');
+            $this->data['availability'] = $this->input->post('prod_is_available');
+            $this->data['prod_code'] = $this->input->post('prod_code');
+            $this->data['prod_type'] = $this->input->post('prod_type');   
+            $this->data['prod_quantity']=$this->input->post('prod_quantity');
+            $this->data['id_user'] =$this->data_user['user']['id'];
+            if ($this->product_m->add_product($this->data) == true) {
+                redirect(base_url('default'));
+            } else {
+                redirect(base_url('add_product'));
+            }
+        }
+    }
+
 }
