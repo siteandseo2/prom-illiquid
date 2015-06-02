@@ -477,6 +477,14 @@
 								<!-- AJAX ? -->
 							</select>
 						</p>
+						
+						<hr>
+						
+						<p>
+							<span class="form-submit">
+								<input type="button" name="account_submit" id="account_submit" value="Сохранить">
+							</span>
+						</p>
 					</div>
 					
 					<div class="col-sm-6">

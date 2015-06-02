@@ -34,7 +34,7 @@
                                                 </a>
                                             </li>
 											<li>
-                                                <a href="<?= base_url(); ?>account">
+                                                <a href="<?= base_url(); ?>">
                                                     <span>Информация о компании</span>
                                                 </a>
                                             </li>
