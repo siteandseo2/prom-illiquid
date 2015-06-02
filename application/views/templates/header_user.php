@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/responsive.css">
     </head>   
-    <body class="no-bg">        
+    <body class="no-bg home-cabinet">        
         <section id="page"> 
             <header id="header" class="normal-header line-decoration">
 
@@ -110,7 +110,8 @@
                     </div>
 
                     <div class="yoursId">
-                        <span><b>Ваш id:</b> 
+                        <h5>Ваш id: </h5>
+                        <span>
                             <?php
                             $id = $user['id'];
                             if (strlen($id) < 8) {
@@ -119,8 +120,12 @@
                                 }
                             }
                             echo $id;
-                            ?>    
+                            ?>
                         </span>
+                    </div>
+                    <div class="entrance">
+                        <h5>Вы вошли как: </h5>
+                        <span>покупатель</span>
                     </div>
 
 
@@ -582,7 +587,6 @@
                     </nav>
 
                     <!-- Cabinet Navigation End -->
-
 
                 </div>
 

@@ -9,7 +9,7 @@
 			 <!-- Cabinet Content -->
             <section id="cabinet-content" class="clearfix">
 			
-				<h3 class="cabinetHead">Персональные данные</h3>
+				<h2 class="cabinetHead">Персональные данные</h2>
 				
 				<!-- Account -->
 				<form id="cabinet-my-account" class="form-submit clearfix" action="" method="POST" enctype="multipart/form-data">
@@ -59,6 +59,14 @@
 								<option value="dn">Днепропетровск</option>
 								<!-- AJAX ? -->
 							</select>
+						</p>
+						
+						<hr>
+						
+						<p>
+							<span class="form-submit">
+								<input type="button" name="account_submit" id="account_submit" value="Сохранить">
+							</span>
 						</p>
 					</div>
 					

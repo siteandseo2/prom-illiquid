@@ -1,17 +1,14 @@
 ﻿<!-- Main Content -->
 <div id="main">
     <div class="container wf-wrap">
-        
+
 
         <div class="row">
             <form action="user/add_product" method="POST" id="adding_new_product" class="form-submit" enctype="multipart/form-data">
 
                 <!-- Cabinet Content -->
                 <section id="cabinet-content" class="clearfix">
-
-                    <h3 class="cabinetHead">Добавить позицию</h3> 
-
-
+                    <h2 class="cabinetHead">Добавить позицию</h2> 
                     <div class="col-sm-6" class="form-fields">
                         <p>
                             <label for="prod_name">
@@ -86,27 +83,21 @@
                                 <option value="thousand">Тысяча</option>
                             </select>
                         </div>
-                        </p>
-
+                        </p> 
                         <p>
                             <label for="prod_s_description">
                                 Краткое описание <span class="required">*</span>
                             </label>
 
                             <textarea class="cabinet-form-input" name="prod_s_description" id="prod_description" cols="15" rows="4"></textarea>
-
-
                         </p>
-
                         <p>
                             <label for="prod_description">
                                 Полное описание <span class="required">*</span>
                             </label>
                             <textarea class="cabinet-form-input" name="prod_description" id="prod_description" cols="15" rows="4"></textarea>
                         </p>
-
                         <hr>
-
                         <p>
                             <span class="form-submit">
                                 <input type="submit" name="submit_product" id="submit_product" value="Опубликовать товар">
@@ -138,7 +129,7 @@
                             <label for="prod_photo">
                                 Фото
                             </label>
-                            
+
 
                             <input type="file" id="prod_photo" name="prod_photo" accept="image/*">
                         </p>

@@ -1256,6 +1256,10 @@ p  .form-submit {
 
 /* Cabinet */
 
+.home-cabinet #searching {
+	width: 100%;
+}
+
 #cabinet-title {
     float: left;
     margin-left: 100px;
@@ -1285,10 +1289,23 @@ p  .form-submit {
     margin-top: 0;
 }
 
-.yoursId {
+.yoursId, .entrance {
     float: right;
-    padding-top: 28px;
-    margin-right: 10px;
+    padding: 28px 0;
+    margin-right: 15px;
+}
+
+.yoursId h5, .entrance h5 {
+	display: inline-block;
+}
+
+.yoursId h5 + span, .entrance h5 + span {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.yoursId h5 + span:hover, .entrance h5 + span:hover {
+	text-decoration: underline;
 }
 
 #cabinet-navigation {
@@ -1337,6 +1354,7 @@ p  .form-submit {
 .cabinetHead {
 	text-align: center;
 	margin-bottom: 40px;
+	color: #3a3a3a;
 }
 
 /* Adding new Product */

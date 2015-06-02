@@ -8,7 +8,6 @@ class User extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('product_m');
-        $this->load->library('upload');
         $this->data_user['user'] = @$this->session->userdata('user');
     }
 
@@ -79,16 +78,10 @@ class User extends CI_Controller {
 
     function add_product() {
         if (isset($_POST)) {
-            if ($_FILES["prod_photo"]["size"] > 1024 * 3 * 1024) {
-                echo ("Размер файла превышает три мегабайта");
-                exit;
-            }
-            // Проверяем загружен ли файл
             if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
-                // Если файл загружен успешно, перемещаем его
-                // из временной директории в конечную
+                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/products/" .$this->data_user['user']['id'].'_'.$_FILES["prod_photo"]["name"]);
                 $this->data['name'] = $this->input->post('prod_name');
-                $this->data['image_path'] = '../../../uploads/'.$_FILES["prod_photo"]["name"];
+                $this->data['image_path'] = '../../../uploads/products/'.$this->data_user['user']['id'].'_'. $_FILES["prod_photo"]["name"];
                 $this->data['price'] = $this->input->post('prod_price');
                 $this->data['subcat_id'] = $this->input->post('prod_subcat');
                 $this->data['status'] = 'enable';
@@ -100,14 +93,11 @@ class User extends CI_Controller {
                 $this->data['prod_type'] = $this->input->post('prod_type');
                 $this->data['prod_quantity'] = $this->input->post('prod_quantity');
                 $this->data['id_user'] = $this->data_user['user']['id'];
-                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/" . $_FILES["prod_photo"]["name"]);
                 if ($this->product_m->add_product($this->data) == true) {
                     redirect(base_url('default'));
                 } else {
                     redirect(base_url('add_product'));
                 }
-            } else {
-                echo("Ошибка загрузки файла");                
             }
         }
     }
