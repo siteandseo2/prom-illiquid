@@ -35,5 +35,9 @@ class Category_m extends CI_Model {
             return $row->name;
         }
     }
+    function get_category_listby_id($id) {
+        $query = $this->db->where('fp_id', $id)->where('status', 'enable')->select('name, id')->get('categories');
+        return $query->result_array();
+    }
 
 }

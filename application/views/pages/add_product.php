@@ -443,7 +443,7 @@
                                     <?php
                                     foreach ($group_list as $item) {
                                         ?>
-                                        <option value="<?=$item['id']?>"><?=$item['name']?></option>
+                                        <option value="id=<?=$item['id']?>"><?=$item['name']?></option>
                                         <?php
                                     }
                                     ?>

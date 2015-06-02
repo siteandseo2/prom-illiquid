@@ -41,7 +41,7 @@ class Main extends CI_Controller {
                     break;
                 case'registration':
                     $this->data['script'] = "<script src='../../../js/validation.js'></script>";
-                    break;
+                    break;               
                 default :
                     $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
                     break;
