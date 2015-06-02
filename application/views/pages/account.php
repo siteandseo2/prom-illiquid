@@ -426,7 +426,7 @@
 			 <!-- Cabinet Content -->
             <section id="cabinet-content" class="clearfix">
 			
-				<h3 class="cabinetHead">Персональные данные</h3>
+				<h2 class="cabinetHead">Персональные данные</h2>
 				
 				<!-- Account -->
 				<form id="cabinet-my-account" class="form-submit clearfix" action="" method="POST" enctype="multipart/form-data">

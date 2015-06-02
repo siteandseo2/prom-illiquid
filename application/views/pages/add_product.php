@@ -426,7 +426,7 @@
                 <!-- Cabinet Content -->
                 <section id="cabinet-content" class="clearfix">
 
-                    <h3 class="cabinetHead">Добавить позицию</h3> 
+                    <h2 class="cabinetHead">Добавить позицию</h2> 
                   
 
                         <div class="col-sm-6" class="form-fields">
