@@ -9,19 +9,19 @@ class Main extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        /*load header*/
+        /* load header */
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
         }
-         /*load category_m*/
+        /* load category_m */
         $this->load->model('category_m');
-         $this->load->model('subcategories_m');
+        $this->load->model('subcategories_m');
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
         $this->data['group_list'] = $this->category_m->focus_product_list();
-          /*load subcategories_m*/
+        /* load subcategories_m */
 //        $this->load->model('subcategories_m');  
 //         = $this->subcategories_m->get_subcategories_list();
     }
@@ -41,10 +41,7 @@ class Main extends CI_Controller {
                     break;
                 case'registration':
                     $this->data['script'] = "<script src='../../../js/validation.js'></script>";
-                    break;
-                case'subcategories':
-                    $this->data['script'] = "";
-                    break;
+                    break;               
                 default :
                     $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
                     break;
@@ -55,8 +52,4 @@ class Main extends CI_Controller {
     }
 
     /* END Main Page USER */
-
-    
-
 }
-

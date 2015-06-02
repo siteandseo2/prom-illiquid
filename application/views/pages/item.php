@@ -70,7 +70,7 @@
                 <div class="summary">
 
                     <p class="price">
-                        <span class="amount"><?= $item['price'] ?>  <?=$item['currency']?></span>
+                        <span class="amount"><?= $item['price'] ?>  <?= $item['currency'] ?></span>
                     </p>
 
                     <div class="rating clearfix">
@@ -302,19 +302,31 @@
                     <div class="widget-title">Категории</div>
                     <ul class="product-cat">                        
                         <?php
-                        foreach ($cat_list as $cat) {
-                            ?>                        
-                            <li class="cat-item cat-parent">
-                                <a href="<?= base_url(); ?>subcategories/<?= $cat['link'] ?>"><?= $cat['name'] ?></a>
-                                <span class="count">()</span>
-                                <ul class="children">                                                                 
-                                            <li>
-                                                <a href="<?= base_url(); ?>products/"></a>
-                                                <span class="count"></span>
-                                            </li>                                                               
-                                </ul>
-                            </li>
-                            <?php
+                        foreach ($cat_list as $cat => $subcategory) {
+                            foreach ($subcategory as $k => $v) {
+                                ?>                        
+                                <li class="cat-item cat-parent">
+                                    <a href="<?= base_url(); ?>subcategories/<?= $k ?>"><?= $cat ?></a>
+                                    <span class="count">(<?= count($v) ?>)</span>
+                                    <ul class="children">      
+                                        <?php
+                                        if (!empty($v)) {
+                                            foreach ($v as $key => $val) {
+                                                foreach ($val as $kl => $zn) {
+                                                    ?>      
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>products/<?= $key ?>"><?= $kl ?></a>
+                                                        <span class="count">(<?= $zn ?>)</span>
+                                                    </li> 
+                                                    <?php
+                                                }
+                                            }
+                                        }
+                                        ?>                                                              
+                                    </ul>
+                                </li>
+                                <?php
+                            }
                         }
                         ?>
                         <!--                        <li class="cat-item cat-parent">

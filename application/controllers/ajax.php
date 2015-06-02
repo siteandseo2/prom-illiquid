@@ -32,6 +32,17 @@ class Ajax extends CI_Controller {
         }
         echo json_encode($json);        
     }
+    public function filter_by_group(){
+        $id=$_POST['id'];      
+        $cat_list=$this->category_m->get_category_listby_id($id);
+        $json=array();
+        foreach ($cat_list as $num => $column){             
+            foreach($column as $name =>$value){
+                $json[$name][$num]=$value;
+            }
+        }
+        echo json_encode($json);        
+    }
     
 
 }
