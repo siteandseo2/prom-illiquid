@@ -448,17 +448,17 @@
                                     }
                                     ?>
                                 </select>
-                                <label for="prod_group">
+                                <label for="prod_cat">
                                     Категория
                                 </label>
-                                <select id="prod_group" name="prod_cat" class="add-prod-name">
+                                <select id="prod_cat" name="prod_cat" class="add-prod-name">
                                     <option value="default">Выберите Категорию</option>
                                     
                                 </select>
-                                <label for="prod_group">
+                                <label for="prod_subcat">
                                     Подкатегория
                                 </label>
-                                <select id="prod_group" name="prod_subcat" class="add-prod-name">
+                                <select id="prod_subcat" name="prod_subcat" class="add-prod-name">
                                     <option value="default">Выберите Подкатегорию</option>
                                     
                                 </select>
