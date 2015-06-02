@@ -138,6 +138,8 @@
                             <label for="prod_photo">
                                 Фото
                             </label>
+                            
+
                             <input type="file" id="prod_photo" name="prod_photo" accept="image/*">
                         </p>
 

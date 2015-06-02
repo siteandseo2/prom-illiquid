@@ -47,7 +47,7 @@
                     <label>Полное описание товара</label>
                     <textarea class='form-control' name='description' type='text' rows="8"></textarea>                    
                     <label>Фото</label>
-                    <input class='' name='photo'  type='file'/>                    
+                    <input class='' name='prod_photo'  type='file'/>                    
                     <label>Статус</label>
                     <select class='form-control ' name='status'>
                         <option value='enable'>Показывать</option>

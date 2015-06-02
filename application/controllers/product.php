@@ -63,12 +63,13 @@ class Product extends CI_Controller {
                 }
             }
         }
-        $this->data_db['prepare_data']=  $this->user_model->get_user_by_id($this->data_db['product']['0']['id_user']);
-        foreach($this->data_db['prepare_data'] as $key=>$value){
-            foreach($value as $k=>$v){
-              $this->data_db['user_data'][$k]=$v;
+        $this->data_db['prepare_data'] = $this->user_model->get_user_by_id($this->data_db['product']['0']['id_user']);
+        foreach ($this->data_db['prepare_data'] as $key => $value) {
+            foreach ($value as $k => $v) {
+                $this->data_db['user_data'][$k] = $v;
             }
         }
+        
 //        echo '<pre>';
 //        print_r($this->data_db['user_data']);
 //        echo '</pre>';
