@@ -32,6 +32,11 @@
                                                     <span>Персональные данные</span>
                                                 </a>
                                             </li>
+											<li>
+                                                <a href="<?= base_url(); ?>account">
+                                                    <span>Информация о компании</span>
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a href="<?= base_url(); ?>">
                                                     <span>Логин и пароль</span>
@@ -430,14 +435,13 @@
                                 <label for="prod_name">
                                     Название <span class="required">*</span>
                                 </label>
-                                <input type="text" id="prod_name" name="prod_name" class="add-prod-name">
+                                <input type="text" id="prod_name" name="prod_name" class="cabinet-form-input">
                             </p>
-
                             <p>
                                 <label for="prod_group">
                                     Группа
                                 </label>
-                                <select id="prod_group" name="prod_group" class="add-prod-name">
+                                <select id="prod_group" name="prod_group" class="cabinet-form-input">
                                     <option value="default">Выберите группу</option>
                                     <?php
                                     foreach ($group_list as $item) {
@@ -447,20 +451,18 @@
                                     }
                                     ?>
                                 </select>
+							</p>
+							<p>
                                 <label for="prod_cat">
                                     Категория
                                 </label>
-                                <select id="prod_cat" name="prod_cat" class="add-prod-name">
-                                   <!--  <option value="default">Выберите Категорию</option> -->
-                                    
-                                </select>
+                                <select id="prod_cat" name="prod_cat" class="cabinet-form-input"></select>
+							</p>
+							<p>
                                 <label for="prod_subcat">
                                     Подкатегория
                                 </label>
-                                <select id="prod_subcat" name="prod_subcat" class="add-prod-name">
-                                    <!-- <option value="default">Выберите Подкатегорию</option> -->
-                                    
-                                </select>
+                                <select id="prod_subcat" name="prod_subcat" class="cabinet-form-input"></select>
                             </p>
 
                             <p>
@@ -473,7 +475,7 @@
                                 <label for="prod_type">
                                     Тип <span class="required">*</span>
                                 </label>
-                                <select id="prod_type" name="prod_type" class="add-prod-name">
+                                <select id="prod_type" name="prod_type" class="cabinet-form-input">
                                     <option value="default">Выберите тип</option>
                                     <option value="retail_only">Товар продается только в розницу</option>
                                     <option value="wholesele_only">Товар продается только в оптом</option>
@@ -487,14 +489,14 @@
                                     Цена
                                 </label>
                             <div class="setPrice">
-                                <input type="text" name="prod_price" id="prod_price" class="add-prod-name">
-                                <select name="prod_currency" class="add-prod-name">
+                                <input type="text" name="prod_price" id="prod_price" class="cabinet-form-input">
+                                <select name="prod_currency" class="cabinet-form-input">
                                     <option value="uah">Грн.</option>
                                     <option value="dollar">$</option>
                                     <option value="rub">Руб.</option>
                                 </select>
                                 <span class="separator"> за </span>
-                                <select name="prod_quantity" class="add-prod-name">
+                                <select name="prod_quantity" class="cabinet-form-input">
                                     <option value="one">Шт.</option>
                                     <option value="hundred">100 Шт.</option>
                                     <option value="ten">10 Шт.</option>
@@ -508,14 +510,14 @@
                                 <label for="prod_description">
                                     Краткое описание <span class="required">*</span>
                                 </label>
-                                <textarea class="add-prod-name" name="prod_description" id="prod_description" cols="15" rows="4"></textarea>
+                                <textarea class="cabinet-form-input" name="prod_description" id="prod_description" cols="15" rows="4"></textarea>
                             </p>
                             
                             <p>
                                 <label for="prod_description">
                                     Полное описание <span class="required">*</span>
                                 </label>
-                                <textarea class="add-prod-name" name="prod_description" id="prod_description" cols="15" rows="4"></textarea>
+                                <textarea class="cabinet-form-input" name="prod_description" id="prod_description" cols="15" rows="4"></textarea>
                             </p>
 
                             <hr>
@@ -533,7 +535,7 @@
                                 <label for="prod_is_available">
                                     Есть в наличии
                                 </label>
-                                <select id="prod_is_available" name="prod_is_available" class="add-prod-name">
+                                <select id="prod_is_available" name="prod_is_available" class="cabinet-form-input">
                                     <option value="yes">В наличии</option>
                                     <option value="no">Нет в наличии</option>
                                     <option value="order">Под заказ</option>
@@ -544,7 +546,7 @@
                                 <label for="prod_code">
                                     Код
                                 </label>
-                                <input type="text" id="prod_code" name="prod_code" class="add-prod-name">
+                                <input type="text" id="prod_code" name="prod_code" class="cabinet-form-input">
                             </p>
 
                             <p>

@@ -33,6 +33,11 @@
                                                     <span>Персональные данные</span>
                                                 </a>
                                             </li>
+											<li>
+                                                <a href="<?= base_url(); ?>account">
+                                                    <span>Информация о компании</span>
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a href="<?= base_url(); ?>">
                                                     <span>Логин и пароль</span>

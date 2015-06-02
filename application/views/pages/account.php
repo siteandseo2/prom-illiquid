@@ -33,6 +33,11 @@
                                                     <span>Персональные данные</span>
                                                 </a>
                                             </li>
+											<li>
+                                                <a href="<?= base_url(); ?>account">
+                                                    <span>Информация о компании</span>
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a href="<?= base_url(); ?>">
                                                     <span>Логин и пароль</span>
@@ -421,8 +426,72 @@
 			 <!-- Cabinet Content -->
             <section id="cabinet-content" class="clearfix">
 			
-				<h3 class="cabinetHead">Профиль компаниии</h3>
-
+				<h3 class="cabinetHead">Персональные данные</h3>
+				
+				<!-- Account -->
+				<form id="cabinet-my-account" class="form-submit clearfix" action="" method="POST" enctype="multipart/form-data">
+				
+					<div class="col-sm-6">
+						<p>
+							<label for="account_name">Имя</label>
+							<input type="text" value="Стив" id="account_name" name="account_name" class="cabinet-form-input">
+						</p>
+						<p>
+							<label for="account_surname">Фамилия</label>
+							<input type="text" value="Джоббс" id="account_surname" name="account_surname" class="cabinet-form-input">
+						</p>
+						<p>
+							<label for="account_patronymic">Отчество</label>
+							<input type="text" value="Леонидович" id="account_patronymic" name="account_patronymic" class="cabinet-form-input">
+						</p>
+						<p>
+							<label for="account_photo">Фото</label>
+							<input type="file" id="account_photo" name="account_photo" accept="image/*">
+						</p>
+						<p>
+							<label for="account_sex">Пол</label>
+							<select class="cabinet-form-input" id="account_sex" name="account_sex">
+								<option value="male">Мужской</option>
+								<option value="female">Женский</option>
+							</select>
+						</p>
+						<p>
+							<label for="account_country">Страна</label>
+							<select class="cabinet-form-input" id="account_country" name="account_country">
+								<option value="ua">Украина</option>
+								<option value="ru">Россия</option>
+								<option value="bl">Беларуссия</option>
+								<option value="kz">Казахстан</option>
+								<option value="ge">Грузия</option>
+								<!-- AJAX ? -->
+							</select>
+						</p>
+						<p>
+							<label for="account_city">Населенный пункт</label>
+							<select id="account_city" name="account_city" class="cabinet-form-input">
+								<option value="zp">Запорожье</option>
+								<option value="ky">Киев</option>
+								<option value="kh">Харьков</option>
+								<option value="ky">Львов</option>
+								<option value="dn">Днепропетровск</option>
+								<!-- AJAX ? -->
+							</select>
+						</p>
+					</div>
+					
+					<div class="col-sm-6">
+						
+						<p>
+							<label>Ваше местоположение на карте</label>
+							<div id="account_map">
+								 <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ZXnZmgyZKZEy3xNR_nhW1LqjoexWeRLd&width=600&height=450"></script>
+							</div>
+						</p>
+					</div>
+				
+				</form>
+				<!-- Account End -->
+				
             </section>
             <!-- Cabinet Content End -->
 			
