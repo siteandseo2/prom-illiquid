@@ -426,7 +426,7 @@
                 <!-- Cabinet Content -->
                 <section id="cabinet-content" class="clearfix">
 
-                    <h3 class="cabinetHead">Добавить позицию</h3> 
+                    <h2 class="cabinetHead">Добавить позицию</h2> 
                   
 
                         <div class="col-sm-6" class="form-fields">
@@ -509,7 +509,7 @@
                                 <label for="prod_s_description">
                                     Краткое описание <span class="required">*</span>
                                 </label>
-                                <textarea class="cabinet-form-input" name="prod_s_description" id="prod_description" cols="15" rows="4"></textarea>
+                                <textarea class="cabinet-form-input" name="prod_s_description" id="prod_s_description" cols="15" rows="4"></textarea>
                             </p>
                             <p>
                                 <label for="prod_description">

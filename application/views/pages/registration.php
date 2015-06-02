@@ -32,40 +32,40 @@
         <div class="row">
 
             <div class="form-container">
-                <form name="registform" action="" method="POST">
+                <form name="registform" action="" method="POST" class="validate-form">
                     <div class="form-fields">
 						<span class="form-name">
-                            <input type="text" class="validate" placeholder="Фамилия *" name="surname" value="">
+                            <input type="text" class="validate validate-w" placeholder="Фамилия *" name="surname" value="">
                             <span class="form-icon">
                                 <i class="fa"></i>
                             </span>
                         </span>
                         <span class="form-name">
-                            <input type="text" class="validate" placeholder="Имя *" name="name" value="">
+                            <input type="text" class="validate validate-w" placeholder="Имя *" name="name" value="">
                             <span class="form-icon">
                                 <i class="fa"></i>
                             </span>
                         </span>
                         <span class="form-name">
-                            <input type="text" class="validate" placeholder="Отчество *" name="patronymic" value="">
+                            <input type="text" class="validate validate-w" placeholder="Отчество *" name="patronymic" value="">
                             <span class="form-icon">
                                 <i class="fa"></i>
                             </span>
                         </span>
                         <span class="form-name">
-                            <input type="text" class="validate" placeholder="E-mail *" name="email" value="">
+                            <input type="text" class="validate validate-e" placeholder="E-mail *" name="email" value="">
                             <span class="form-icon">
                                 <i class="fa"></i>
                             </span>
                         </span>
                         <span class="form-name">
-                            <input type="password" class="validate" placeholder="Пароль * (минимум 8 символов)" name="password" value="">
+                            <input type="password" class="validate validate-wn" placeholder="Пароль * (минимум 8 символов)" name="password" value="">
                             <span class="form-icon">
                                 <i class="fa"></i>
                             </span>
                         </span>                        
                         <span class="form-name">
-                            <input type="text" class="validate" placeholder="Название компании *" name="company" value="">
+                            <input type="text" class="validate validate-any" placeholder="Название компании *" name="company" value="">
                             <span class="form-icon">
                                 <i class="fa"></i>
                             </span>
