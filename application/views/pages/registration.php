@@ -34,25 +34,7 @@
             <div class="form-container">
                 <form name="registform" action="" method="POST">
                     <div class="form-fields">
-                        <span class="form-name">
-                            <input type="text" class="validate" placeholder="Ваше имя *" name="name" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>
-                        <span class="form-name">
-                            <input type="text" class="validate" placeholder="E-mail *" name="email" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>
-                        <span class="form-name">
-                            <input type="password" class="validate" placeholder="Пароль * (минимум 8 символов)" name="password" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>                        
-                        <span class="form-name">
+						<span class="form-name">
                             <input type="text" class="validate" placeholder="Фамилия *" name="surname" value="">
                             <span class="form-icon">
                                 <i class="fa"></i>
@@ -70,6 +52,18 @@
                                 <i class="fa"></i>
                             </span>
                         </span>
+                        <span class="form-name">
+                            <input type="text" class="validate" placeholder="E-mail *" name="email" value="">
+                            <span class="form-icon">
+                                <i class="fa"></i>
+                            </span>
+                        </span>
+                        <span class="form-name">
+                            <input type="password" class="validate" placeholder="Пароль * (минимум 8 символов)" name="password" value="">
+                            <span class="form-icon">
+                                <i class="fa"></i>
+                            </span>
+                        </span>                        
                         <span class="form-name">
                             <input type="text" class="validate" placeholder="Название компании *" name="company" value="">
                             <span class="form-icon">

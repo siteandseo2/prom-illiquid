@@ -3,8 +3,8 @@ $( document ).ready(function() {
 	(function() {
 		
 		var prodGroup = $('#prod_group'),
-		var prodCat = $('#prod_cat'),
-		var prodSubCat = $('#prod_subcat');
+			prodCat = $('#prod_cat'),
+			prodSubCat = $('#prod_subcat');
 		
 		$( prodGroup ).change(function() {
 			

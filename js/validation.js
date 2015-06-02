@@ -4,6 +4,8 @@
 
         var form = document.forms.registform,
         inputName = form.elements.name,
+        inputSurname = form.elements.surname,
+        inputPatr = form.elements.patronymic,
         inputPass = form.elements.password,
         inputEmail = form.elements.email,
         inputCompany = form.elements.company,
@@ -12,8 +14,9 @@
 namePattern = /[^a-zA-Zа-яА-Я\s]/gi,
         passwordPattern = /[^a-zA-Zа-яА-Я0-9]/gi,
         emailPattern = /\w+\@\w+\.\w+/,
-        required = [inputName, inputPass, inputEmail, inputCompany];
-
+		
+        required = [inputName, inputSurname, inputPatr, inputPass, inputEmail, inputCompany];
+		
 required.forEach(function (input) {
     input.addEventListener('blur', function () {
         validate(this, this.value);
@@ -26,6 +29,8 @@ function validate(self, str, pattern) {
 
     switch (self.getAttribute('name')) {
         case 'name':
+        case 'surname':
+        case 'patronymic':
             if (!namePattern.test(str) && self.value.length) {
                 lightAccept();
             } else {
