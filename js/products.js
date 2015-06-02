@@ -16,7 +16,7 @@ $(document).ready(function () {
 		$( document ).on('change', '#prod_cat', function() {
 			
 			var val = $( this ).val();
-			sendAjax( val, 'ajax/filtger_by_categories', prodSubCat );
+			sendAjax( val, 'ajax/filter_by_categories', prodSubCat );
 			
 		});
 		
@@ -43,7 +43,7 @@ $(document).ready(function () {
 			for(var i = 0; i<names.length; i++) {
 				var opt = document.createElement('option');
 				opt.innerHTML = names[i];
-				opt.setAttribute('value', values[i]);
+				opt.setAttribute('value', 'id='+values[i]);
 				
 				$( select ).append( opt );
 			}

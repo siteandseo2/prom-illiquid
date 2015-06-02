@@ -70,8 +70,11 @@ class subcategories_m extends CI_Model {
         }
     }
      function get_subcategories_by_category($id) {
+        $query = $this->db->where("cat_id", $id)->select('name, link')->get('subcategories');
+        return $query->result_array();
+    }     
+     function get_subcategories_by_cat_id($id) {
         $query = $this->db->where("cat_id", $id)->select('id, name')->get('subcategories');
         return $query->result_array();
-    }
-
+    }     
 }
