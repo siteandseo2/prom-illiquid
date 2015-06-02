@@ -1,4 +1,4 @@
-<!-- Main Content -->
+﻿<!-- Main Content -->
 
 <div id="main">
     <div class="container wf-wrap">
@@ -29,7 +29,7 @@
                                     <div class="sub-nav inn-level">
                                         <ul>
                                             <li>
-                                                <a href="<?= base_url(); ?>account">
+                                                <a href="<?= base_url(); ?>">
                                                     <span>Персональные данные</span>
                                                 </a>
                                             </li>
@@ -421,15 +421,7 @@
 			 <!-- Cabinet Content -->
             <section id="cabinet-content" class="clearfix">
 			
-				<h3 class="cabinetHead">Главная</h3>
-
-
-                <div class="col-sm-3" id="cabinet-content-left-aside"></div>
-
-                <div class="col-sm-6" id="cabinet-content-center"></div>
-
-                <div class="col-sm-3" id="cabinet-content-right-aside"></div>
-
+				<h3 class="cabinetHead">Профиль компаниии</h3>
 
             </section>
             <!-- Cabinet Content End -->
