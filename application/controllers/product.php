@@ -31,6 +31,7 @@ class Product extends CI_Controller {
         $this->load->model('subcategories_m');
         $this->load->model('category_m');
         $this->load->model('product_m');
+        $this->load->model('user_model');
         $this->data['products'] = $this->product_m->get_all_product();
         $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/product_settings.js'></script>";
     }
@@ -62,6 +63,15 @@ class Product extends CI_Controller {
                 }
             }
         }
+        $this->data_db['prepare_data']=  $this->user_model->get_user_by_id($this->data_db['product']['0']['id_user']);
+        foreach($this->data_db['prepare_data'] as $key=>$value){
+            foreach($value as $k=>$v){
+              $this->data_db['user_data'][$k]=$v;
+            }
+        }
+//        echo '<pre>';
+//        print_r($this->data_db['user_data']);
+//        echo '</pre>';
         $this->load->view("pages/item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
     }

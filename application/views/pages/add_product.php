@@ -421,14 +421,13 @@
         </div>
 
         <div class="row">
-            <form action="" method="POST" class="form-submit" enctype="multipart/form-data">
+            <form action="user/add_product" method="POST" id="adding_new_product" class="form-submit" enctype="multipart/form-data">
 
                 <!-- Cabinet Content -->
                 <section id="cabinet-content" class="clearfix">
 
                     <h3 class="cabinetHead">Добавить позицию</h3> 
-
-                    <form id="adding_new_product" action="" method="POST">
+                  
 
                         <div class="col-sm-6" class="form-fields">
                             <p>
@@ -446,7 +445,7 @@
                                     <?php
                                     foreach ($group_list as $item) {
                                         ?>
-                                        <option value="id=<?=$item['id']?>"><?=$item['name']?></option>
+                                        <option value="<?=$item['id']?>"><?=$item['name']?></option>
                                         <?php
                                     }
                                     ?>
@@ -507,12 +506,11 @@
                             </p>
 
                             <p>
-                                <label for="prod_description">
+                                <label for="prod_s_description">
                                     Краткое описание <span class="required">*</span>
                                 </label>
-                                <textarea class="cabinet-form-input" name="prod_description" id="prod_description" cols="15" rows="4"></textarea>
+                                <textarea class="cabinet-form-input" name="prod_s_description" id="prod_description" cols="15" rows="4"></textarea>
                             </p>
-                            
                             <p>
                                 <label for="prod_description">
                                     Полное описание <span class="required">*</span>
@@ -524,7 +522,7 @@
 
                             <p>
                                 <span class="form-submit">
-                                    <input type="button" name="submit_product" id="submit_product" value="Опубликовать товар">
+                                    <input type="submit" name="submit_product" id="submit_product" value="Опубликовать товар">
                                 </span>
                             </p>
 
@@ -558,7 +556,7 @@
 
                         </div>
 
-                    </form>
+                    
 
                 </section>
                 <!-- Cabinet Content End -->
