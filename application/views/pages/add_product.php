@@ -4,7 +4,7 @@
 
 
         <div class="row">
-            <form action="user/add_product" method="POST" id="adding_new_product" class="form-submit" enctype="multipart/form-data">
+            <form action="user/add_product" method="POST" id="adding_new_product" class="form-submit validate-form" enctype="multipart/form-data">
 
                 <!-- Cabinet Content -->
                 <section id="cabinet-content" class="clearfix">
@@ -14,7 +14,7 @@
                             <label for="prod_name">
                                 Название <span class="required">*</span>
                             </label>
-                            <input type="text" id="prod_name" name="prod_name" class="cabinet-form-input">
+                            <input type="text" id="prod_name" name="prod_name" class="cabinet-form-input validate validate-any">
                         </p>
                         <p>
                             <label for="prod_group">
@@ -96,7 +96,7 @@
                         <hr>
                         <p>
                             <span class="form-submit">
-                                <input type="submit" name="submit_product" id="submit_product" value="Опубликовать товар">
+                                <input type="submit" name="submit_product" id="submit_product" value="Опубликовать товар" class="validate-submit">
                             </span>
                         </p>
 
