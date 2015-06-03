@@ -19,12 +19,24 @@ class User extends CI_Controller {
     function add_user() {
 
         if (isset($_POST)) {
-            foreach ($this->input->post() as $k => $v) {
-                $this->data[$k] = $v;
-            }
+            $this->data['usercat'] = $this->input->post('usercat');
             $this->data['user_type'] = 'user';
+            $this->data['name'] = $this->input->post('name');
+            $this->data['surname'] = $this->input->post('surname');
+            $this->data['patronymic'] = $this->input->post('patronymic');
+            $this->data['email'] = $this->input->post('email');
+            $this->data['password'] = $this->input->post('password');
+            if ($this->data['usercat'] == 'buyer') {
+                $this->data['company'] = "NULL";
+                $this->data['country'] = "NULL";
+                $this->data['city'] = "NULL";
+            } else {
+                $this->data['company'] = $this->input->post('company');
+                $this->data['country'] = $this->input->post('country');
+                $this->data['city'] = $this->input->post('city');
+            }
             $email = $this->input->post('email');
-            if (!empty($this->data[$k])) {
+            if (!empty($this->data)) {
                 $response = $this->user_model->add_user($this->data, $email);
             } else {
                 $response = '400';
