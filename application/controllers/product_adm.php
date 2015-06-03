@@ -46,17 +46,13 @@ class Product_adm extends CI_Controller {
                 if ($id == $key)
                     $name = $value;
             }
-            foreach ($this->input->post('link') as $key => $value) {
-                if ($id == $key)
-                    $link = $value;
-            }
+           
             foreach ($this->input->post('subcat_product') as $key => $value) {
                 if ($id == $key)
                     $fp_id = $value;
             }
             $this->db->query("UPDATE product SET subcat_id='$fp_id' WHERE id='$id'");
-            $this->db->query("UPDATE product SET name='$name' WHERE id='$id'");
-            $this->db->query("UPDATE product SET link='$link'  WHERE id='$id'");
+            $this->db->query("UPDATE product SET name='$name' WHERE id='$id'");          
             redirect(base_url('admin/products'));
         }
     }

@@ -1,9 +1,15 @@
 <div class="page-title">
     <div class="wf-wrap">
-
         <div class="wf-table">
             <div class="wf-td hgroup">
-                <h1><?= @$category ?></h1>
+                <h1>
+                    <?php
+                    if (!empty($category))
+                        echo $category;
+                    else
+                        echo 'Все Категории';
+                    ?>
+                </h1>
             </div>
             <div class="wf-td">
                 <ul class="breadcrumbs text-normal">
@@ -11,12 +17,21 @@
                         <a href="<?= base_url(); ?>default">Главная</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>subcategories/<?= @$link ?>"><?= @$category ?></a>
+                        <a href="<?= base_url(); ?>subcategories/<?php
+                        if (!empty($link))
+                            echo $link;
+                        ?>">
+                               <?php
+                               if (!empty($category))
+                                   echo $category;
+                               else
+                                   echo 'Все Категории';
+                               ?>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -45,7 +60,7 @@
                                 <div class="cat-item-title">
                                     <a href="<?= base_url(); ?>products/<?= $item['link'] ?>">
                                         <h3>
-                                            <?= $item['name'] ?>
+            <?= $item['name'] ?>
                                             <mark class="count">(<?= $count[$item['id']] ?>)</mark>
                                         </h3>
                                     </a>
@@ -57,8 +72,8 @@
                 }
             } else {
                 ?>
-            <div class="col-md-3 col-sm-3 cat-content-row-item">                
-            </div>
+                <div class="col-md-3 col-sm-3 cat-content-row-item">                
+                </div>
                 <div class="col-md-6 col-sm-6 cat-content-row-item">
                     <article>
                         <div class="cat-item-img">
@@ -76,8 +91,8 @@
                         </div>
                     </article>
                 </div>
-            <div class="col-md-3 col-sm-3 cat-content-row-item">                
-            </div>
+                <div class="col-md-3 col-sm-3 cat-content-row-item">                
+                </div>
                 <?php
             }
             ?>

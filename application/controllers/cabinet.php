@@ -17,7 +17,7 @@ class Cabinet extends CI_Controller {
         parent::__construct();
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
-            $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script><script src='../../../js/validation.js'></script><script src='../../js/products.js' type='text/javascript'></script>";
+            $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script></script><script src='../../js/products.js' type='text/javascript'></script>";
             $this->load->model('main_m');
             $this->load->model('category_m');
             $this->load->model('subcategories_m');

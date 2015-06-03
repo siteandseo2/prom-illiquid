@@ -17,6 +17,7 @@ class Subcategories_front extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
         $this->load->model('main_m');
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
@@ -30,7 +31,21 @@ class Subcategories_front extends CI_Controller {
         $this->load->model('product_m');
     }
 
-    function get_subgategory($name = '') {
+    function get_all_subcat() {       
+        $this->data['subcategories'] = $this->subcategories_m->get_subcategories_list();
+        if (!empty($this->data['subcategories'])) {
+            foreach ($this->data['subcategories'] as $k => $arr) {
+                $id[] = $arr['id'];
+            }
+            foreach ($id as $k => $v) {
+                $this->data['count'][$v] = $this->product_m->count_products($v);
+            }
+        }
+        $this->load->view("pages/subcategories", $this->data);
+        $this->load->view("templates/footer", $this->data);
+    }
+
+    function get_subgategory($name = '') {      
         $this->data['category'] = $this->category_m->get_category_name($name);
         $this->data['link'] = $name;
         $this->data['subcategories'] = $this->subcategories_m->get_subcategories($name);
@@ -43,7 +58,7 @@ class Subcategories_front extends CI_Controller {
             }
         }
         $this->load->view("pages/subcategories", $this->data);
-        $this->load->view("templates/footer");
+        $this->load->view("templates/footer", $this->data);
     }
 
 }

@@ -39,7 +39,7 @@ class User extends CI_Controller {
     /* function login user from database */
 
     function get_user() {
-        $this->data['script'] = "<script src='../../../js/validation.js'></script>";
+//        $this->data['script'] = "<script src='../../../js/validation.js'></script>";
         $this->load->view('templates/header');
         $this->load->view('pages/login');
         $this->load->view('templates/footer', $this->data);

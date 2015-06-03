@@ -43,8 +43,10 @@ class subcategories_m extends CI_Model {
         foreach ($id->result() as $row) {
             $cat_id = $row->id;
         }
+        if(!empty($cat_id)){
         $query = $this->db->where("cat_id", $cat_id)->get('subcategories');
         return $query->result_array();
+        }
     }
 
     function get_subcategories_name_by_id($id) {

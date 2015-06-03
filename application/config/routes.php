@@ -68,6 +68,7 @@ $route['login'] = 'user/get_user';
 
 $route['cabinet'] = 'cabinet/user_data';
 $route['add_product']='cabinet/add_product';
+$route['subcategories']='subcategories_front/get_all_subcat';
 $route['products'] = 'product/get_all_product';
 $route['products/item/(:any)'] = 'product/get_product/$1';
 $route['products/(:any)'] = 'product/get_products/$1';

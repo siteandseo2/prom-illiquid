@@ -1,4 +1,4 @@
-﻿<!-- Page title -->
+<!-- Page title -->
 
 <div class="page-title">
     <div class="wf-wrap">
