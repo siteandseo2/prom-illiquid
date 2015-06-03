@@ -75,7 +75,7 @@
 								</span>
 							</span>
 							<span class="form-name">
-								<input type="password" class="validate pass-origin" data-validate="wn" placeholder="Пароль * (минимум 8 символов)" name="password">
+								<input type="password" class="validate" data-validate="wn" placeholder="Пароль * (минимум 8 символов)" name="password">
 								<span class="form-icon">
 									<i class="fa"></i>
 								</span>

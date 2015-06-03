@@ -96,7 +96,7 @@
 			case 're':
 				// check repeat
 				
-				var origin = $('.pass-origin').val();
+				var origin = $('[name="password"]').val();
 				
 				self.value.length && isSimilar( origin, self.value ) ? lightAccept() : lightDenied();
 				
@@ -207,10 +207,15 @@
 				return;
 
 			if (xhr.status == 200) {
-				callback( true );
+				setTimeout(function() {
+					callback( true );
+				}, 1000);
 			} else {
 				console.error(xhr.status + ' : ' + xhr.statusText);
-				callback( false );
+				
+				setTimeout(function() {
+					callback( false );
+				}, 1000);
 			}
 		}
 
@@ -220,26 +225,41 @@
 	
 	// Modal Response
 	
-	var registrResponse = document.querySelector('.registrResponse'),
-		registrResponseHead = document.querySelector('.registrResponse > h1'),
-		overlay = document.querySelector('.overlay');
-
+	try {
+		
+		var registrResponse = document.querySelector('.registrResponse'),
+			registrResponseHead = document.querySelector('.registrResponse > h1'),
+			overlay = document.querySelector('.overlay'),
+			okBtn = document.querySelector('.modalOk');
+		
+	} catch( e ) {
+		console.log( e.type + ' : ' + e.message );
+	}
+	
+	// Show Modal
 	function callback( data ) {
 		registrResponse.style.display = 'block';
 		overlay.style.display = 'block';
 
 		if (data) {
 			registrResponseHead.classList.add('registrResponseSuccess');
-			registrResponseHead.innerHTML = 'Registration was succesful.<br>Thank You!';
+			registrResponseHead.innerHTML = 'Спасибо!<br>Ваша регистрация прошла успешно.';
 		} else {
 			registrResponseHead.classList.add('registrResponseFalse');
-			registrResponseHead.innerHTML = 'Such email already been registred.<br>Try someone else, please.';
+			registrResponseHead.innerHTML = 'Такой пользователь уже зарегистрирован.<br>Проверьте корректность введенных Вами данных.';
 		}
 	}
 
-	var okBtn = document.querySelector('.modalOk');
-
-	okBtn.onclick = function () {
+	okBtn.onclick = function() {
+		clearModal();
+	}
+	
+	$( document ).on('click', '.overlay', function() {
+		clearModal();
+	});
+	
+	// Clear Modal
+	function clearModal() {
 		registrResponse.style.display = 'none';
 		overlay.style.display = 'none';
 
