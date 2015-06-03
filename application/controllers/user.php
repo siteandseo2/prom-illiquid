@@ -9,6 +9,7 @@ class User extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->model('user_model');
         $this->load->model('product_m');
         $this->data_user['user'] = @$this->session->userdata('user');
     }
@@ -19,12 +20,11 @@ class User extends CI_Controller {
 
         if (isset($_POST)) {
             foreach ($this->input->post() as $k => $v) {
-                $data[$k] = $v;
+                $this->data[$k] = $v;
             }
             $this->data['user_type'] = 'user';
             $email = $this->input->post('email');
-            if (!empty($data[$k])) {
-                $this->load->model('user_model');
+            if (!empty($this->data[$k])) {
                 $response = $this->user_model->add_user($this->data, $email);
             } else {
                 $response = '400';
@@ -52,7 +52,10 @@ class User extends CI_Controller {
                 foreach ($this->data['user'] as $item) {
                     $session_data['id'] = $item['id'];
                     $session_data['name'] = $item['name'];
+                    $session_data['surname'] = $item['surname'];
+                    $session_data['patronymic'] = $item['patronymic'];
                     $session_data['email'] = $item['email'];
+                    $session_data['usercat'] = $item['usercat'];
                     $session_data['company'] = $item['company'];
                     $session_data['password'] = $item['user_type'];
                 }

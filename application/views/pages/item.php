@@ -282,7 +282,9 @@
             <div class="sidebar-content">
                 <section class="widget-shopping-cart">
                     <div class="widget-title">Товар добавил:
+                        <?= $user_data['surname'] ?>
                         <?= $user_data['name'] ?>
+                        <?= $user_data['patronymic'] ?>
                     </div>
                     <div class="widget-title">Email:
                         <?= $user_data['email'] ?>

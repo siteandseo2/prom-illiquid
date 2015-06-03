@@ -17,8 +17,10 @@ class Subcategories_front extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->model('main_m');
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
+            $this->data['menu'] = $this->main_m->get_menu();
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");

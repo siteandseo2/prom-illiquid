@@ -66,7 +66,7 @@
                                                 <?= $item['name'] ?><!--name-->
                                             </h4>
                                             <span class="price">
-                                                <span class="amount">$<?= $item['price'] ?></span><!--cost-->
+                                                <span class="amount"><?= $item['price'] ?>  <?= $item['currency'] ?></span><!--cost-->
                                             </span>
                                         </a>
                                     </div>
