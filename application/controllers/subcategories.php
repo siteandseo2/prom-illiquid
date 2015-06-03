@@ -72,7 +72,7 @@ class Subcategories extends CI_Controller {
                     $this->db->query("UPDATE subcategories SET status='disable' WHERE id='$key'");
                     $this->db->query("UPDATE product SET status='disable' WHERE subcat_id='$key'");
                 } else {
-                    $cat_id = $this->subcategories_m->get_cat_id($key);                   
+                    $cat_id = $this->subcategories_m->get_cat_id($key);
                     $this->db->query("UPDATE subcategories SET status='enable' WHERE id='$key'");
                     $this->db->query("UPDATE categories SET status='enable' WHERE id='$cat_id'");
                 }
@@ -105,19 +105,25 @@ class Subcategories extends CI_Controller {
         $this->edit_subcat();
         $this->load->view('admin/footer');
     }
-    
-    /*function add subcategory */
-    public function add_subcategory(){
-         if (isset($_POST['add_subcategory'])) {
-            $this->data_db['name'] = $this->input->post('name');
-            $this->data_db['link'] = strtolower($this->input->post('link'));
-            $this->data_db['image_path'] = 'path';
-            $this->data_db['cat_id'] = strtolower($this->input->post('category'));
-            $this->data_db['status'] = strtolower($this->input->post('status'));
-            $this->subcategories_m->add_subcategory($this->data_db);
+
+    /* function add subcategory */
+
+    public function add_subcategory() {
+        if (isset($_POST['add_subcategory'])) {
+            if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
+                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/subcat_image/" . $_FILES["prod_photo"]["name"]);
+                $this->data_db['name'] = $this->input->post('name');
+                $this->data_db['link'] = strtolower($this->input->post('link'));
+                $this->data_db['image_path'] = '../../../uploads/subcat_image/' . $_FILES["prod_photo"]["name"];
+                $this->data_db['cat_id'] = strtolower($this->input->post('category'));
+                $this->data_db['status'] = strtolower($this->input->post('status'));
+                $this->subcategories_m->add_subcategory($this->data_db);
+                redirect(base_url('admin/subcategories'));
+            } else {
+                redirect(base_url('admin/subcategories_add'));
+            }
         }
-        unset($this->data_db);
-        redirect(base_url('admin/subcategories'));
     }
-/*END function add subcategory*/
+
+    /* END function add subcategory */
 }

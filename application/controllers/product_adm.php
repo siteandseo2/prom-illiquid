@@ -103,12 +103,18 @@ class Product_adm extends CI_Controller {
     function add_product() {
         if (isset($_POST['add_product'])) {
             $this->data_db['name'] = $this->input->post('name');
-            $this->data_db['image_path'] = strtolower($this->input->post('photo'));            
+            $this->data_db['image_path'] = strtolower($this->input->post('photo'));
             $this->data_db['price'] = ($this->input->post('price'));
             $this->data_db['subcat_id'] = ($this->input->post('subcat_id'));
             $this->data_db['status'] = strtolower($this->input->post('status'));
             $this->data_db['description'] = ($this->input->post('description'));
             $this->data_db['s_description'] = ($this->input->post('s_description'));
+            $this->data_db['prod_type'] = $this->input->post('prod_type');
+            $this->data_db['currency'] = $this->input->post('prod_currency');
+            $this->data_db['prod_quantity'] = $this->input->post('prod_quantity');
+            $this->data_db['availability'] = $this->input->post('prod_is_available');
+            $this->data_db['prod_code'] = $this->input->post('prod_code');
+            $this->data_db['prod_code'] = $this->input->post('prod_code');
             $this->product_m->add_product($this->data_db);
         }
         unset($this->data_db);

@@ -46,7 +46,7 @@
                                     <div class="mini-login">
                                         <a href="<?= base_url(); ?>cabinet" class="submit">
                                             <i class="fa fa-sign-in"></i>
-                                            <span class="top-bar-icon-text"><?= $user['name'];?></span>
+                                            <span class="top-bar-icon-text"><?= $user['name']; ?></span>
                                         </a>
                                     </div>
 
@@ -104,80 +104,495 @@
                         <span class="cabinet-name">
                             <h3>Кабинет компании</h3>
                             <h4>
-                                <?=$user['company'];?>
+                                <?= $user['company']; ?>
                             </h4>
                         </span>
                     </div>
 
                     <div class="yoursId">
                         <h5>Ваш id: </h5>
-						<span>
+                        <span>
                             <?php
-                            $id=$user['id'];
-                            if(strlen($id)<8){
-                              for($i=0; $i<8-strlen($id);$i++){
-                                  echo 0;
-                              }
+                            $id = $user['id'];
+                            if (strlen($id) < 8) {
+                                for ($i = 0; $i < 8 - strlen($id); $i++) {
+                                    echo 0;
+                                }
                             }
                             echo $id;
                             ?>
-						</span>
+                        </span>
                     </div>
-					
-					<div class="entrance">
-						<h5>Вы вошли как: </h5>
-						<span>покупатель</span>
-					</div>
-					
-					
-					<!-- Search -->
-				<div id="searching" class="clearfix">
+                    <div class="entrance">
+                        <h5>Вы вошли как: </h5>
+                        <span>покупатель</span>
+                    </div>
 
-					<div class="search-inner clearfix">
-						<input type="text" placeholder="Я ХОЧУ КУПИТЬ" class="search-input" autofocus>
 
-						<div class="btn-group s-butt">
-							<button type="button" class="btn btn-default search-block-button" id="location-select-button">
-								<span class="btn-text">Вся Украина</span>
-								<span class="search-select-icon">
-									<i class="fa fa-angle-down"></i>
-								</span>
+                    <!-- Search -->
+                    <div id="searching" class="clearfix">
 
-								<div class="sub-nav">
-									<input type="text" placeholder="Введите название города" name="searchCityName">
-									<ul></ul>
-								</div>
-							</button>
+                        <div class="search-inner clearfix">
+                            <input type="text" placeholder="Я ХОЧУ КУПИТЬ" class="search-input" autofocus>
 
-							<a href="#" title="Искать на сайте">
-								<button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
-									<span class="btn-text">Поиск</span>
-									<span class="search-select-icon">
-										<i class="fa fa-search"></i>
-									</span>
-								</button>
-							</a>
-						</div>
-					</div>
+                            <div class="btn-group s-butt">
+                                <button type="button" class="btn btn-default search-block-button" id="location-select-button">
+                                    <span class="btn-text">Вся Украина</span>
+                                    <span class="search-select-icon">
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
 
-					<div class="search-inner clearfix">
-						<div class="s-butt">
-							<button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
-								<span class="btn-text">Я хочу продать</span>
-							</button>
-						</div>
-					</div>
+                                    <div class="sub-nav">
+                                        <input type="text" placeholder="Введите название города" name="searchCityName">
+                                        <ul></ul>
+                                    </div>
+                                </button>
 
-				</div>
-				<!-- Search End --> 
-					
-					
+                                <a href="#" title="Искать на сайте">
+                                    <button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
+                                        <span class="btn-text">Поиск</span>
+                                        <span class="search-select-icon">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="search-inner clearfix">
+                            <div class="s-butt">
+                                <button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
+                                    <span class="btn-text">Я хочу продать</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Search End --> 
+                </div>
+                <div class="row">
+
+
+                    <!-- Cabinet Navigation -->
+
+                    <nav id="cabinet-navigation">
+                        <ul id="main-nav" class="clearfix">
+                            <li>
+                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <span>Мой кабинет</span>
+                                </a>
+                                <div class="sub-nav out-level">
+                                    <ul>
+                                        <li>
+                                            <a href="<?= base_url(); ?>cabinet" class="clearfix">
+                                                <span class="cabinet-nav-text">Главная</span>
+                                            </a>
+                                        </li>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Персональные данные</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+                                            <div class="sub-nav inn-level">
+                                                <ul>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>account">
+                                                            <span>Персональные данные</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Информация о компании</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Логин и пароль</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Удаление учетной записи</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Настройки доступа</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+                                            <div class="sub-nav inn-level">
+                                                <ul>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Управление пользователями</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Логин и пароль</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Информация о компании</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+                                            <div class="sub-nav inn-level">
+                                                <ul>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Название компании, логотип, описание, адрес</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Специализации</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Адрес</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Компания на карте города</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Дополнительная информация о компании</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Бонусы и рейтинги</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <span>Товары и услуги</span>
+                                </a>
+                                <div class="sub-nav out-level">
+                                    <ul>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Управление товарами</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+                                            <div class="sub-nav inn-level">
+                                                <ul>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>add_product">
+                                                            <span>Добавить позицию</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Управление товарами и группами</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Витрина</span>
+                                            </a>
+                                        </li>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Импорт</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+                                            <div class="sub-nav inn-level">
+                                                <ul>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Импорт товаров и услуг</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Синхронизация с 1 С</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Текущие импортируемые файлы</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Отчет по импорту</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Прайсы</span>
+                                            </a>
+                                        </li>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Тендеры</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+                                            <div class="sub-nav inn-level">
+                                                <ul>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Управление тендерами</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Поиск тендеров</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Управление подписками на тендеры</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Менеджеры групп</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <span>Заказы</span>
+                                </a>
+                                <div class="sub-nav out-level">
+                                    <ul>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Сообщения</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Клиенты</span>
+                                            </a>
+                                        </li>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Экспорт</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+                                            <div class="sub-nav inn-level">
+                                                <ul>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Экспорт в XML</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Экспорт в XLS</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Описание формата</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Настройка заказов</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+                                            <div class="sub-nav inn-level">
+                                                <ul>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Управление заказами и сообщениями</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Менеджеры групп товаров</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Почта для заказов и сообщений</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <span>Рассылка</span>
+                                </a>
+                                <div class="sub-nav out-level">
+                                    <ul>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Business</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Presentation</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Creative</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Photography</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <span>Настройки</span>
+                                </a>
+                                <div class="sub-nav out-level">
+                                    <ul>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Настройка заказов</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+                                            <div class="sub-nav inn-level">
+                                                <ul>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Управление заказами и сообщениями</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Менеджеры групп товаров</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="<?= base_url(); ?>">
+                                                            <span>Почта для заказов и сообщений</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="downItem">
+                                            <a href="<?= base_url(); ?>default" onclick="return false;" class="clearfix">
+                                                <span class="cabinet-nav-text">Настройка доступа</span>
+                                                <span class="cabinet-nav-icon">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                                <div class="sub-nav inn-level">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="<?= base_url(); ?>">
+                                                                <span>Управление пользователями</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="<?= base_url(); ?>">
+                                                                <span>Логин и пароль</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Персональные данные</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <span>Справка</span>
+                                </a>
+                                <div class="sub-nav out-level">
+                                    <ul>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Карта кабинета</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= base_url(); ?>default" onclick="return false;">
+                                                <span>Справка</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                    <!-- Cabinet Navigation End -->
 
                 </div>
-				
-				
-				
-				
+
+
+
+
                 <!-- Branding & Navigation End -->
 
             </header>
