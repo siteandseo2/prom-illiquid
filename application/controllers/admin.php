@@ -23,8 +23,10 @@ class Admin extends CI_Controller {
         }
 
 
-        /* load categories */
-
+        /* load menu */
+        $this->load->model('main_m');
+        $this->data['menu'] = $this->main_m->get_menu();
+         /* load categories */
         $this->load->model('category_m');
         $this->data['cat_list'] = $this->category_m->category_list();
 

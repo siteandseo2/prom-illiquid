@@ -30,10 +30,19 @@
                         #id
                     </th>
                     <th>
+                        Фамилия 
+                    </th>
+                    <th>
                         Имя
                     </th>
                     <th>
+                        Отчество
+                    </th>
+                    <th>
                         Email
+                    </th>
+                    <th>
+                        Тип Пользователя
                     </th>
                     <th>
                         Компания
@@ -44,8 +53,11 @@
                         ?>
                         <tr>
                             <td><?= $item['id'] ?></td>
+                            <td><?= $item['surname'] ?></td>
                             <td><?= $item['name'] ?></td>
+                            <td><?= $item['patronymic'] ?></td>
                             <td><?= $item['email'] ?></td>
+                            <td><?= $item['usercat'] ?></td>
                             <td><?= $item['company'] ?></td>
                         </tr>
                         <?php

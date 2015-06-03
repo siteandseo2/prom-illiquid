@@ -46,17 +46,13 @@ class Product_adm extends CI_Controller {
                 if ($id == $key)
                     $name = $value;
             }
-            foreach ($this->input->post('link') as $key => $value) {
-                if ($id == $key)
-                    $link = $value;
-            }
+           
             foreach ($this->input->post('subcat_product') as $key => $value) {
                 if ($id == $key)
                     $fp_id = $value;
             }
             $this->db->query("UPDATE product SET subcat_id='$fp_id' WHERE id='$id'");
-            $this->db->query("UPDATE product SET name='$name' WHERE id='$id'");
-            $this->db->query("UPDATE product SET link='$link'  WHERE id='$id'");
+            $this->db->query("UPDATE product SET name='$name' WHERE id='$id'");          
             redirect(base_url('admin/products'));
         }
     }
@@ -102,20 +98,23 @@ class Product_adm extends CI_Controller {
 
     function add_product() {
         if (isset($_POST['add_product'])) {
-            $this->data_db['name'] = $this->input->post('name');
-            $this->data_db['image_path'] = strtolower($this->input->post('photo'));
-            $this->data_db['price'] = ($this->input->post('price'));
-            $this->data_db['subcat_id'] = ($this->input->post('subcat_id'));
-            $this->data_db['status'] = strtolower($this->input->post('status'));
-            $this->data_db['description'] = ($this->input->post('description'));
-            $this->data_db['s_description'] = ($this->input->post('s_description'));
-            $this->data_db['prod_type'] = $this->input->post('prod_type');
-            $this->data_db['currency'] = $this->input->post('prod_currency');
-            $this->data_db['prod_quantity'] = $this->input->post('prod_quantity');
-            $this->data_db['availability'] = $this->input->post('prod_is_available');
-            $this->data_db['prod_code'] = $this->input->post('prod_code');
-            $this->data_db['prod_code'] = $this->input->post('prod_code');
-            $this->product_m->add_product($this->data_db);
+            if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
+                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/products/" . '1_' . $_FILES["prod_photo"]["name"]);
+                $this->data_db['name'] = $this->input->post('name');
+                $this->data_db['image_path'] = '../../../uploads/products/' . '1_' . $_FILES["prod_photo"]["name"];
+                $this->data_db['price'] = ($this->input->post('price'));
+                $this->data_db['subcat_id'] = ($this->input->post('subcat_id'));
+                $this->data_db['status'] = strtolower($this->input->post('status'));
+                $this->data_db['description'] = ($this->input->post('description'));
+                $this->data_db['s_description'] = ($this->input->post('s_description'));
+                $this->data_db['prod_type'] = $this->input->post('prod_type');
+                $this->data_db['currency'] = $this->input->post('prod_currency');
+                $this->data_db['prod_quantity'] = $this->input->post('prod_quantity');
+                $this->data_db['availability'] = $this->input->post('prod_is_available');
+                $this->data_db['prod_code'] = $this->input->post('prod_code');
+                $this->data_db['id_user'] ='1';
+                $this->product_m->add_product($this->data_db);
+            }
         }
         unset($this->data_db);
         redirect(base_url('admin/products'));

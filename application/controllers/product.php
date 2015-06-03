@@ -1,16 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of product
- *
- * @author baccardi
- */
 class Product extends CI_Controller {
 
     public $data = '';
@@ -20,9 +9,11 @@ class Product extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->model('main_m');
         /* load header */
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
+            $this->data['menu'] = $this->main_m->get_menu();
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
@@ -33,12 +24,13 @@ class Product extends CI_Controller {
         $this->load->model('product_m');
         $this->load->model('user_model');
         $this->data['products'] = $this->product_m->get_all_product();
-        $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/product_settings.js'></script>";
+        $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/product_settings.js'></script><script src='../../../js/main.js'></script>";
     }
 
     function get_all_product() {
+        $this->data['items'] = $this->product_m->get_all_product();
         $this->load->view("pages/products", $this->data);
-        $this->load->view("templates/footer");
+        $this->load->view("templates/footer", $this->script);
     }
 
     function get_products($link) {
@@ -69,12 +61,10 @@ class Product extends CI_Controller {
                 $this->data_db['user_data'][$k] = $v;
             }
         }
-        
-//        echo '<pre>';
-//        print_r($this->data_db['user_data']);
-//        echo '</pre>';
         $this->load->view("pages/item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
     }
 
 }
+?>
+

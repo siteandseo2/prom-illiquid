@@ -1,4 +1,4 @@
-﻿<!-- Main Content -->
+<!-- Main Content -->
 <div id="main">
     <div class="container wf-wrap">
 

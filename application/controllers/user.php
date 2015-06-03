@@ -9,6 +9,7 @@ class User extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->model('user_model');
         $this->load->model('product_m');
         $this->data_user['user'] = @$this->session->userdata('user');
     }
@@ -18,13 +19,24 @@ class User extends CI_Controller {
     function add_user() {
 
         if (isset($_POST)) {
-            foreach ($this->input->post() as $k => $v) {
-                $data[$k] = $v;
-            }
+            $this->data['usercat'] = $this->input->post('usercat');
             $this->data['user_type'] = 'user';
+            $this->data['name'] = $this->input->post('name');
+            $this->data['surname'] = $this->input->post('surname');
+            $this->data['patronymic'] = $this->input->post('patronymic');
+            $this->data['email'] = $this->input->post('email');
+            $this->data['password'] = $this->input->post('password');
+            if ($this->data['usercat'] == 'buyer') {
+                $this->data['company'] = "NULL";
+                $this->data['country'] = "NULL";
+                $this->data['city'] = "NULL";
+            } else {
+                $this->data['company'] = $this->input->post('company');
+                $this->data['country'] = $this->input->post('country');
+                $this->data['city'] = $this->input->post('city');
+            }
             $email = $this->input->post('email');
-            if (!empty($data[$k])) {
-                $this->load->model('user_model');
+            if (!empty($this->data)) {
                 $response = $this->user_model->add_user($this->data, $email);
             } else {
                 $response = '400';
@@ -39,7 +51,7 @@ class User extends CI_Controller {
     /* function login user from database */
 
     function get_user() {
-        $this->data['script'] = "<script src='../../../js/validation.js'></script>";
+//        $this->data['script'] = "<script src='../../../js/validation.js'></script>";
         $this->load->view('templates/header');
         $this->load->view('pages/login');
         $this->load->view('templates/footer', $this->data);
@@ -52,7 +64,10 @@ class User extends CI_Controller {
                 foreach ($this->data['user'] as $item) {
                     $session_data['id'] = $item['id'];
                     $session_data['name'] = $item['name'];
+                    $session_data['surname'] = $item['surname'];
+                    $session_data['patronymic'] = $item['patronymic'];
                     $session_data['email'] = $item['email'];
+                    $session_data['usercat'] = $item['usercat'];
                     $session_data['company'] = $item['company'];
                     $session_data['password'] = $item['user_type'];
                 }

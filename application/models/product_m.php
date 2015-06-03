@@ -12,7 +12,7 @@
  * @author baccardi
  */
 class Product_m extends CI_Model {
-
+//
     function __construct() {
         parent::__construct();
     }
@@ -34,8 +34,6 @@ class Product_m extends CI_Model {
     function get_product($id) {
         $query = $this->db->where('id', $id)->get('product');
         return $query->result_array();
-
-//        $a= $this->foreachByKey($a, $id);
     }
 
     function get_product_cat($cat_id) {

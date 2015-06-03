@@ -100,7 +100,7 @@
                             <!-- 1st row -->
                             <div class="col-md-3 col-sm-4 tabs-grid-item">
                                 <div class="inner-item">
-                                    <a href="<?= base_url(); ?>/products/<?=$item['link']?>" class="item-link">
+                                    <a href="<?= base_url(); ?>products/<?=$item['link']?>" class="item-link">
                                         <div class="photo-frame">
                                             <img src="<?=$item['image_path']?>" alt="<?=$item['name']?>">
                                         </div>

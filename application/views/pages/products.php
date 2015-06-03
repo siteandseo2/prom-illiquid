@@ -1,11 +1,16 @@
-﻿<!-- Page title -->
-
+<!-- Page title -->
 <div class="page-title">
     <div class="wf-wrap">
-
         <div class="wf-table">
             <div class="wf-td hgroup">
-                <h1><?= @$subcat_name ?></h1>
+                <h1>
+                    <?php
+                    if (!empty($subcat_name))
+                        echo $subcat_name;
+                    else
+                        echo 'Все категории';
+                    ?>
+                </h1>
             </div>
             <div class="wf-td">
                 <ul class="breadcrumbs text-normal">
@@ -13,10 +18,30 @@
                         <a href="<?= base_url(); ?>default">Главная</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>subcategories/<?= @$cat_name['0']['link'] ?>"><?= @$cat_name['0']['name'] ?></a>
+                        <a href="<?= base_url(); ?>subcategories/<?php
+                        if (!empty($cat_name['0']['link']))
+                            echo $cat_name['0']['link'];
+                        ?>">
+                               <?php
+                            if (!empty($cat_name['0']['name']))
+                                echo $cat_name['0']['name'];
+                            else
+                                echo 'Все категории';
+                               ?>
+                        </a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>products/<?= @$link ?>"><?= @$subcat_name ?></a>
+                        <a href="<?= base_url(); ?>products/<?php
+                        if (!empty($link))
+                            echo $link;
+                        ?>">
+                               <?php
+                               if (!empty($subcat_name))
+                                   echo $subcat_name;
+                               else
+                                   echo 'Все товары';
+                               ?>                            
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -24,18 +49,14 @@
 
     </div>
 </div>
-
 <!-- Page title -->
-
-
 <!-- Main Content -->
-
 <div id="main" class="cat-main">
     <div class="container wf-wrap clearfix">
 
         <div id="content" class="content">
 
-            <p class="cat-result-count">Найдено <?= @count($items) ?> позиции</p>
+            <p class="cat-result-count">Найдено <?=count($items) ?> позиции</p>
 
             <div class="cat-ordering">
                 <select>
@@ -66,7 +87,7 @@
                                                 <?= $item['name'] ?><!--name-->
                                             </h4>
                                             <span class="price">
-                                                <span class="amount">$<?= $item['price'] ?></span><!--cost-->
+                                                <span class="amount"><?= $item['price'] ?>  <?= $item['currency'] ?></span><!--cost-->
                                             </span>
                                         </a>
                                     </div>
