@@ -4,7 +4,9 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class User extends CI_Controller {
+
     public $data;
+
     function __construct() {
         parent::__construct();
         $this->load->model('product_m');
@@ -37,6 +39,10 @@ class User extends CI_Controller {
     /* function login user from database */
 
     function get_user() {
+        $this->data['script'] = "<script src='../../../js/validation.js'></script>";
+        $this->load->view('templates/header');
+        $this->load->view('pages/login');
+        $this->load->view('templates/footer', $this->data);
         if (isset($_POST['login'])) {
             $email = $this->input->post('email');
             $password = $this->input->post('password');
@@ -52,12 +58,7 @@ class User extends CI_Controller {
                 }
                 $this->session->set_userdata(array('user' => $session_data));
                 redirect(base_url('cabinet'));
-            } 
-        } else {
-            $this->data['script']="<script src='../../../js/validation.js'></script>";
-            $this->load->view('templates/header');
-            $this->load->view('pages/login');
-            $this->load->view('templates/footer', $this->data['script']);
+            }
         }
     }
 
@@ -78,9 +79,9 @@ class User extends CI_Controller {
     function add_product() {
         if (isset($_POST)) {
             if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
-                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/products/" .$this->data_user['user']['id'].'_'.$_FILES["prod_photo"]["name"]);
+                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_' . $_FILES["prod_photo"]["name"]);
                 $this->data['name'] = $this->input->post('prod_name');
-                $this->data['image_path'] = '../../../uploads/products/'.$this->data_user['user']['id'].'_'. $_FILES["prod_photo"]["name"];
+                $this->data['image_path'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_' . $_FILES["prod_photo"]["name"];
                 $this->data['price'] = $this->input->post('prod_price');
                 $this->data['subcat_id'] = $this->input->post('prod_subcat');
                 $this->data['status'] = 'enable';

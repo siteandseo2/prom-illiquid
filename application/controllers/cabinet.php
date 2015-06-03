@@ -17,7 +17,7 @@ class Cabinet extends CI_Controller {
         parent::__construct();
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');            
-            $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script><script src='../../js/products.js' type='text/javascript'></script>";
+            $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script><script src='../../../js/validation.js'></script><script src='../../js/products.js' type='text/javascript'></script>";
             $this->load->view("templates/header_user", $this->data);
             $this->load->model('category_m');
             $this->load->model('subcategories_m');
@@ -33,6 +33,7 @@ class Cabinet extends CI_Controller {
     }
 
     function add_product() {
+        
         $this->data['group_list']=$this->category_m->focus_product_list();
         $this->load->view("pages/add_product", $this->data);
         $this->load->view("templates/footer", $this->data);
