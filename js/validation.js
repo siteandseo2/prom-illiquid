@@ -228,7 +228,7 @@
 	try {
 		
 		var registrResponse = document.querySelector('.registrResponse'),
-			registrResponseHead = document.querySelector('.registrResponse > h1'),
+			registrResponseHead = document.querySelector('.registrResponse > h3'),
 			overlay = document.querySelector('.overlay'),
 			okBtn = document.querySelector('.modalOk');
 		

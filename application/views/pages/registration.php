@@ -132,7 +132,7 @@
             </div>
 
             <div class="registrResponse">
-                <h1></h1>
+                <h3></h3>
                 <div class="modalOk">
                     <span>Ok</span>
                 </div>
