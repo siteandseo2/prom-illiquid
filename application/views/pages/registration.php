@@ -63,7 +63,7 @@
                                 </span>
                             </span>
                             <span class="form-name">
-                                <input type="text" class="validate" data-validate="w" placeholder="Отчество" name="patronymic">
+                                <input type="text" data-validate="w" placeholder="Отчество" name="patronymic">
                                 <span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
@@ -86,6 +86,12 @@
                                     <i class="fa"></i>
                                 </span>
                             </span>
+							<span class="form-name">
+                                <input type="text" data-validate="any" placeholder="Название компании" name="company">
+                                <span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+                            </span> 
 
                         </div>
                         <!-- Buyer set End -->
@@ -93,12 +99,6 @@
                         <!-- Seller Set -->
                         <div class="seller-set">
 
-                            <span class="form-name">
-                                <input type="text" class="validate" data-validate="any" placeholder="Название компании *" name="company">
-                                <span class="form-icon">
-                                    <i class="fa"></i>
-                                </span>
-                            </span> 
                             <p>
                                 <label for="country">Страна</label>
                                 <select class="cabinet-form-input" name="country" id="country">
