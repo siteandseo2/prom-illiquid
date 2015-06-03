@@ -33,66 +33,99 @@
 
             <div class="form-container">
                 <form name="registform" action="" method="POST" class="validate-form">
+				
+					<legend>Зарегистрироваться как</legend>
+				
+						<div class="btn-group validate-form-tabs" data-toggle="buttons">
+							<label class="btn active">
+								<input type="radio" name="register_as" id="buyer" autocomplete="off" checked> Покупатель
+							</label>
+							<label class="btn">
+								<input type="radio" name="register_as" id="seller" autocomplete="off"> Продавец
+							</label>
+						</div>
+				
                     <div class="form-fields">
-						<span class="form-name">
-                            <input type="text" class="validate validate-w" placeholder="Фамилия *" name="surname" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>
-                        <span class="form-name">
-                            <input type="text" class="validate validate-w" placeholder="Имя *" name="name" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>
-                        <span class="form-name">
-                            <input type="text" class="validate validate-w" placeholder="Отчество *" name="patronymic" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>
-                        <span class="form-name">
-                            <input type="text" class="validate validate-e" placeholder="E-mail *" name="email" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>
-                        <span class="form-name">
-                            <input type="password" class="validate validate-wn" placeholder="Пароль * (минимум 8 символов)" name="password" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>                        
-                        <span class="form-name">
-                            <input type="text" class="validate validate-any" placeholder="Название компании *" name="company" value="">
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span>                        
+					
+						<!-- Buyer Set -->
+						<div class="buyer-set">
+						
+							<span class="form-name">
+								<input type="text" class="validate" data-validate="w" placeholder="Фамилия *" name="surname">
+								<span class="form-icon">
+									<i class="fa"></i>
+								</span>
+							</span>
+							<span class="form-name">
+								<input type="text" class="validate" data-validate="w" placeholder="Имя *" name="name">
+								<span class="form-icon">
+									<i class="fa"></i>
+								</span>
+							</span>
+							<span class="form-name">
+								<input type="text" class="validate" data-validate="w" placeholder="Отчество" name="patronymic">
+								<span class="form-icon">
+									<i class="fa"></i>
+								</span>
+							</span>
+							<span class="form-name">
+								<input type="text" class="validate" data-validate="e" placeholder="E-mail *" name="email">
+								<span class="form-icon">
+									<i class="fa"></i>
+								</span>
+							</span>
+							<span class="form-name">
+								<input type="password" class="validate" data-validate="wn" placeholder="Пароль * (минимум 8 символов)" name="password">
+								<span class="form-icon">
+									<i class="fa"></i>
+								</span>
+							</span>
+							<span class="form-name">
+								<input type="password" class="validate" data-validate="re" placeholder="Повторите пароль *" name="password_repeat">
+								<span class="form-icon">
+									<i class="fa"></i>
+								</span>
+							</span>
+						
+						</div>
+						<!-- Buyer set End -->
+						
+						<!-- Seller Set -->
+						<div class="seller-set">
+						
+							<span class="form-name">
+								<input type="text" class="validate" data-validate="any" placeholder="Название компании *" name="company">
+								<span class="form-icon">
+									<i class="fa"></i>
+								</span>
+							</span> 
+							<p>
+								<label for="country">Страна</label>
+								<select class="cabinet-form-input" name="country" id="country">
+									<option value="ua">Украина</option>
+									<option value="ru">Россия</option>
+									<option value="usa">США</option>
+									<!-- AJAX or foreach -->
+								</select>
+							</p>
+							<p>
+								<label for="city">Город</label>
+								<select class="cabinet-form-input" name="city" id="city">
+									<option value="zp">Запорожье</option>
+									<option value="ky">Киев</option>
+									<option value="kh">Харьков</option>
+									<!-- AJAX or foreach -->
+								</select>
+							</p>
+						
+						</div>
+						<!-- Seller set End -->
+						
                     </div>   
-                    <div class="form-fields col-lg-12 col-md-12 col-sm-12">
-                        
-                        <span class="form-inline col-lg-3 col-md-3 col-sm-3">                            
-                            <input type="radio" class="radio" name="usercat" value="seller">
-                            <label>Как продавец</label>
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span> 
-                        <div class=""></div>
-                        <span class="form-inline col-lg-3 col-md-3 col-sm-3">                            
-                            <input type="radio" class="radio"  name="usercat" value="buyer"> 
-                            <label>Как покупатель</label>
-                            <span class="form-icon">
-                                <i class="fa"></i>
-                            </span>
-                        </span> 
-                     
-                    </div> 
+                    
                     <p>
                         <span class="form-submit">
-                            <input type="button" name="register" value="Зарегистрироваться">                            
+                            <input type="button" name="register" value="Зарегистрироваться" class="validate-submit">                            
                         </span>                        
                     </p>
                 </form>

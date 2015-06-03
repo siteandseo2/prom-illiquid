@@ -4,7 +4,7 @@
 
 
         <div class="row">
-            <form action="user/add_product" method="POST" id="adding_new_product" class="form-submit" enctype="multipart/form-data">
+            <form action="user/add_product" method="POST" id="adding_new_product" class="form-submit validate-form" enctype="multipart/form-data">
 
                 <!-- Cabinet Content -->
                 <section id="cabinet-content" class="clearfix">
@@ -14,7 +14,7 @@
                             <label for="prod_name">
                                 Название <span class="required">*</span>
                             </label>
-                            <input type="text" id="prod_name" name="prod_name" class="cabinet-form-input">
+                            <input type="text" id="prod_name" name="prod_name" class="cabinet-form-input validate validate-any">
                         </p>
                         <p>
                             <label for="prod_group">
@@ -22,13 +22,9 @@
                             </label>
                             <select id="prod_group" name="prod_group" class="cabinet-form-input">
                                 <option value="default">Выберите группу</option>
-                                <?php
-                                foreach ($group_list as $item) {
-                                    ?>
-                                    <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
-                                    <?php
-                                }
-                                ?>
+                                <?php foreach ($group_list as $item) { ?>
+								<option value="<?= $item['id'] ?>"><?= $item['name'] ?></option><
+								<?php } ?>
                             </select>
                         </p>
                         <p>
@@ -62,27 +58,27 @@
                                 <option value="service">Услуга</option>
                             </select>
                         </p>
-
+						
                         <p>
                             <label for="">
                                 Цена
                             </label>
-                        <div class="setPrice">
-                            <input type="text" name="prod_price" id="prod_price" class="cabinet-form-input">
-                            <select name="prod_currency" class="cabinet-form-input">
-                                <option value="uah">Грн.</option>
-                                <option value="dollar">$</option>
-                                <option value="rub">Руб.</option>
-                            </select>
-                            <span class="separator"> за </span>
-                            <select name="prod_quantity" class="cabinet-form-input">
-                                <option value="one">Шт.</option>
-                                <option value="hundred">100 Шт.</option>
-                                <option value="ten">10 Шт.</option>
-                                <option value="box">Упаковка</option>
-                                <option value="thousand">Тысяча</option>
-                            </select>
-                        </div>
+							<div class="setPrice">
+								<input type="text" name="prod_price" id="prod_price" class="cabinet-form-input">
+								<select name="prod_currency" class="cabinet-form-input">
+									<option value="uah">Грн.</option>
+									<option value="dollar">$</option>
+									<option value="rub">Руб.</option>
+								</select>
+								<span class="separator"> за </span>
+								<select name="prod_quantity" class="cabinet-form-input">
+									<option value="one">Шт.</option>
+									<option value="hundred">100 Шт.</option>
+									<option value="ten">10 Шт.</option>
+									<option value="box">Упаковка</option>
+									<option value="thousand">Тысяча</option>
+								</select>
+							</div>
                         </p> 
                         <p>
                             <label for="prod_s_description">
@@ -100,7 +96,7 @@
                         <hr>
                         <p>
                             <span class="form-submit">
-                                <input type="submit" name="submit_product" id="submit_product" value="Опубликовать товар">
+                                <input type="submit" name="submit_product" id="submit_product" value="Опубликовать товар" class="validate-submit">
                             </span>
                         </p>
 
