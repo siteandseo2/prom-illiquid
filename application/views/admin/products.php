@@ -41,7 +41,7 @@
                             <?php
                             foreach ($category as $item) {
                                 ?>
-                                <option value = "id=<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                                <option value = "<?= $item['id'] ?>"><?= $item['name'] ?></option>
                                 <?php
                             }
                             ?>

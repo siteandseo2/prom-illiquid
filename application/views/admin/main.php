@@ -101,20 +101,49 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-lg-12 tab_margin_top">  
-                <div class="pull-right col-lg-3 col-sm-auto">
-                    <a href="<?= base_url('admin'); ?>/menu_add" class="btn btn-primary btn-labeled" style="width: 100%;">
-                        <span class="btn-label icon fa fa-plus"></span>
-                        Добавить пункт меню
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- /.container-fluid -->
 
+            <div class="row">               
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Добавить пункт меню
+                        <small>Add menu item </small>
+                    </h1>                           
+                </div>                 
+            </div>
+            <div class="col-lg-6 tab_margin_top">               
+                <form action="add_item_menu" method="POST" class="form-submit" enctype="multipart/form-data">
+                    <label>Название</label>
+                    <input class='form-control' name='name' placeholder="Например МОЙ КАБИНЕТ (Максимум 25 символов)" type='text'/>
+                    <label>Тип</label>
+                    <select class="form-control ajax-first-select" name='group' id="prod_group">
+                        <option value="default">Выберите Тип</option>
+                        <option value="default">Пункт меню 1-го уровня</option>
+                        <option value="r">Пункт меню 2-го уровня</option>
+                        <option value="d">Пункт меню 3-го уровня</option>
+                    </select>
+                    <label>Выберите Пункт Меню Родителя</label>
+                    <select class="form-control ajax-second-select" name='parent' id="prod_cat" disabled="disabled"></select>  
+                    </select>
+                    <label>Ccылка</label>
+                    <input class='form-control' name='link' placeholder="Например account (Максимум 25 символов)" type='text'/>
+                    <label>Статус</label>
+                    <select class='form-control ' name='status'>
+                        <option value='enable'>Показывать</option>
+                        <option value='disable'>Скрывать</option>
+                    </select>
+                    <div class='tab_margin_top'>
+                        <button class="btn btn-info" type='submit' name="add_item_menu" value=""><i class="fa fa-save"></i> Сохранить</button>
+                        <button class="btn btn-danger" type='reset' name="reset" value=""><i class="fa fa-remove"></i> Сбросить</button>
+                    </div>
+            </div> 
+            </form>
+        </div>
     </div>
-   
-    <!-- /#page-wrapper -->
+    <!-- /.container-fluid -->
+
+</div>
+
+<!-- /#page-wrapper -->
 
 </div>
 <!-- /#wrapper -->
