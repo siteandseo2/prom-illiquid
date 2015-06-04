@@ -23,11 +23,11 @@
             </div>
 
             <!-- Menu -->
-            <form action='subcat' method='POST'/>
+
             <div class="row well" id="prod-nav-bar">
 
                 <!-- Filters -->
-
+                <form action='subcat' method='POST'/>
                 <div class="col-sm-9 prod-nav-filters">
 
                     <div class="col-sm-12">
@@ -58,7 +58,7 @@
                     </div>
 
                 </div>
-
+                </form>
 
                 <div class="pull-right col-lg-3 col-sm-auto">
                     <a href="<?= base_url('admin'); ?>/product_add" class="btn btn-primary btn-labeled" style="width: 100%;">
@@ -66,9 +66,9 @@
                         Добавить товар
                     </a>
                 </div>
-
             </div>
-            </form>
+
+
             <!-- Menu end -->
 
             <div class="col-lg-12 tab_margin_top">               
@@ -141,12 +141,12 @@
                 </form>
             </div>
 
+
+            <!-- /.container-fluid -->
+
         </div>
-        <!-- /.container-fluid -->
+        <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#page-wrapper -->
-
-</div>
-<!-- /#wrapper -->
+    <!-- /#wrapper -->
 

@@ -136,7 +136,7 @@
                             <input type="text" placeholder="Я ХОЧУ КУПИТЬ" class="search-input" autofocus>
 
                             <div class="btn-group s-butt">
-                                <button type="button" class="btn btn-default search-block-button" id="location-select-button">
+                                <button type="button" class="btn btn-default search-block-button"  value="default" id="location-select-button">
                                     <span class="btn-text">Вся Украина</span>
                                     <span class="search-select-icon">
                                         <i class="fa fa-angle-down"></i>

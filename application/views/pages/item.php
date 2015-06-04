@@ -292,6 +292,13 @@
                     <div class="widget-title">Компания:
                         <?= $user_data['company'] ?>
                     </div>
+                    <div class="widget-title">Страна:
+                        <?= $user_data['country'] ?>
+                    </div>
+                     <div class="widget-title">Город:
+                        <?= $user_data['city'] ?>
+                    </div>
+                    
 
                 </section>
 
