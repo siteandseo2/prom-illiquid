@@ -21,11 +21,25 @@
                     </ol>                    
                 </div>                 
             </div>
-            <!-- /.row -->
-            <div class="pull-right col-lg-3 col-sm-auto">
+            <!-- /.row -->  
+            <div class="row ">  
+                <div class="col-lg-12">
+                    <div class="pull-left col-lg-12 col-sm-auto">
+                        <h1 class="page-header">
+                            Главное Меню
+                            <small>Main menu</small>
 
+                            <div class="pull-right col-lg-3 col-sm-auto">
+                                <a href="<?= base_url('admin'); ?>/menu_add" class="btn btn-primary btn-labeled" style="width: 100%;">
+                                    <span class="btn-label icon fa fa-plus"></span>
+                                    Добавить Пункт Меню
+                                </a>
+                            </div>
+                        </h1>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-12 tab_margin_top">               
+            <div class="col-lg-12 ">               
                 <nav id="cabinet-navigation">
                     <ul id="main-nav" class="clearfix">                           
                         <?php
@@ -100,20 +114,29 @@
 
                     </ul>
                 </nav>
-            </div>
-            <div class="col-lg-12 tab_margin_top">  
-                <div class="pull-right col-lg-3 col-sm-auto">
-                    <a href="<?= base_url('admin'); ?>/menu_add" class="btn btn-primary btn-labeled" style="width: 100%;">
-                        <span class="btn-label icon fa fa-plus"></span>
-                        Добавить пункт меню
-                    </a>
+            </div> 
+            <div class="row ">  
+                <div class="col-lg-12">
+                    <div class="pull-left col-lg-12 col-sm-auto">
+                        <h1 class="page-header">
+                            Слайдер
+                            <small>Slider</small>
+
+                            <div class="pull-right col-lg-3 col-sm-auto">
+                                <a href="<?= base_url('admin'); ?>/menu_add" class="btn btn-primary btn-labeled" style="width: 100%;">
+                                    <span class="btn-label icon fa fa-plus"></span>
+                                    Добавить изображение в слайдер
+                                </a>
+                            </div>
+                        </h1>
+                    </div>
                 </div>
             </div>
-        </div>
+           
+        </div> 
         <!-- /.container-fluid -->
 
     </div>
-   
     <!-- /#page-wrapper -->
 
 </div>
