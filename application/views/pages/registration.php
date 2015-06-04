@@ -130,13 +130,7 @@
                     </p>
                 </form>
             </div>
-
-            <div class="registrResponse">
-                <h3></h3>
-                <div class="modalOk">
-                    <span>Ok</span>
-                </div>
-            </div>
+			
         </div>
 
         <hr>
