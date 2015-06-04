@@ -8,6 +8,7 @@
         <meta name="author" content="SITE&SEO">        
         <link href="<?= base_url(); ?>../../../css/normalize.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>../../../css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/perfect-scrollbar.css">
