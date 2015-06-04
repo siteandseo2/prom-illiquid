@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+	
     (function () {
 
         var prodGroup = $('#prod_group'),
@@ -49,7 +49,25 @@ $(document).ready(function () {
 			}
 			
         }
+		
+		/* Slider */
+		
+		$( "#slider-range-max" ).slider({
+			range: "max",
+			min: 1,
+			max: 10,
+			value: 1,
+			slide: function( event, ui ) {
+				$( ".amount" ).val( ui.value ).attr( 'data-value', ui.value );
+				$('#range_hidden').val( $('.amount').attr('data-value') );
+			}
+		});
+			
+		$( ".amount" ).val( $( "#slider-range-max" ).slider( "value" ) ).attr( 'data-value', $( "#slider-range-max" ).slider( "value" ) );
+		$('#range_hidden').val( $('.amount').attr('data-value') );
+		
+			
 
     }());
-
+	
 });

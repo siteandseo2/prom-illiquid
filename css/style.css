@@ -1370,16 +1370,24 @@ p  .form-submit {
 	color: #f00;
 }
 
-.dashed, .dashed:hover {
-	text-decoration: none;
+.form-fields > div {
+	margin: 0 0 10px;
 }
 
-.dashed > span {
-	border-bottom: 1px dashed #2578e9;
+.form-fields input[type="radio"] {
+	margin: 0 15px 0 5px;
 }
 
-.dashed > span:hover {
-	border-bottom: 0;
+.radio-block > div {
+	margin: 0 0 10px;
+}
+
+.amount {
+	display: block;
+	margin-bottom: 5px;
+	border: 0;
+	font-weight: bold;
+	color: #888;
 }
 
 .setPrice .add-prod-name {
@@ -1389,6 +1397,14 @@ p  .form-submit {
 
 .setPrice .separator {
 	margin-right: 10px;
+}
+
+.ui-slider {
+	background: #eaeaea;
+}
+
+.ui-slider-range {
+	background: #eee;
 }
 
 /* Account */

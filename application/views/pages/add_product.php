@@ -9,7 +9,7 @@
                 <!-- Cabinet Content -->
                 <section id="cabinet-content" class="clearfix">
                     <h2 class="cabinetHead">Добавить позицию</h2> 
-                    <div class="col-sm-6" class="form-fields">
+                    <div class="col-sm-6 form-fields">
                         <p>
                             <label for="prod_name">
                                 Название <span class="required">*</span>
@@ -39,39 +39,36 @@
                             </label>
                             <select id="prod_subcat" name="prod_subcat" class="cabinet-form-input"></select>
                         </p>
-
-                        <p>
-                            <a href="#" class="dashed">
-                                <span>Создать новую группу</span>
-                            </a>
-                        </p>
-
-                        <p>
-                            <label for="prod_type">
-                                Тип <span class="required">*</span>
-                            </label>
-                            <select id="prod_type" name="prod_type" class="cabinet-form-input">
-                                <option value="default">Выберите тип</option>
-                                <option value="retail_only">Товар продается только в розницу</option>
-                                <option value="wholesele_only">Товар продается только в оптом</option>
-                                <option value="wholesele_and_retail">Товар продается и оптом и в розницу</option>
-                                <option value="service">Услуга</option>
-                            </select>
-                        </p>
+						
+						<div class="radio-block">
+							<label>Состояние</label>
+							<div>
+								<span>Новое</span>
+								<input type="radio" name="prod_condition" id="prod_condition1" value="new" checked>
+								<span>Б/у</span>
+								<input type="radio" name="prod_condition" id="prod_condition2" value="used">
+							</div>
+							<div>
+								<label>Оцените по шкале</label>
+								<input type="text" class="amount" readonly data-value="" value="">
+								<input type="hidden" id="range_hidden" value="">
+								<div id="slider-range-max"></div>
+							</div>
+						</div>
 						
                         <p>
-                            <label for="">
+                            <label>
                                 Цена
                             </label>
 							<div class="setPrice">
-								<input type="text" name="prod_price" id="prod_price" class="cabinet-form-input">
-								<select name="prod_currency" class="cabinet-form-input">
+								<input type="text" name="prod_price" id="prod_price" class="cabinet-form-input add-prod-name">
+								<select name="prod_currency" class="cabinet-form-input add-prod-name">
 									<option value="uah">Грн.</option>
 									<option value="dollar">$</option>
 									<option value="rub">Руб.</option>
 								</select>
 								<span class="separator"> за </span>
-								<select name="prod_quantity" class="cabinet-form-input">
+								<select name="prod_quantity" class="cabinet-form-input add-prod-name">
 									<option value="one">Шт.</option>
 									<option value="hundred">100 Шт.</option>
 									<option value="ten">10 Шт.</option>
@@ -80,20 +77,16 @@
 								</select>
 							</div>
                         </p> 
+		
                         <p>
-                            <label for="prod_s_description">
-                                Краткое описание <span class="required">*</span>
+                            <label for="prod_photo">
+                                Фото
                             </label>
-
-                            <textarea class="cabinet-form-input" name="prod_s_description" id="prod_description" cols="15" rows="4"></textarea>
+                            <input type="file" id="prod_photo" name="prod_photo" accept="image/*">
                         </p>
-                        <p>
-                            <label for="prod_description">
-                                Полное описание <span class="required">*</span>
-                            </label>
-                            <textarea class="cabinet-form-input" name="prod_description" id="prod_description" cols="15" rows="4"></textarea>
-                        </p>
+						
                         <hr>
+						
                         <p>
                             <span class="form-submit">
                                 <input type="submit" name="submit_product" id="submit_product" value="Опубликовать товар" class="validate-submit">
@@ -103,31 +96,26 @@
                     </div>
 
                     <div class="col-sm-6" class="form-fields">
-                        <p>
-                            <label for="prod_is_available">
-                                Есть в наличии
-                            </label>
-                            <select id="prod_is_available" name="prod_is_available" class="cabinet-form-input">
-                                <option value="yes">В наличии</option>
-                                <option value="no">Нет в наличии</option>
-                                <option value="order">Под заказ</option>
-                            </select>
-                        </p>
-
-                        <p>
+					
+						<p>
                             <label for="prod_code">
                                 Код
                             </label>
                             <input type="text" id="prod_code" name="prod_code" class="cabinet-form-input">
                         </p>
-
-                        <p>
-                            <label for="prod_photo">
-                                Фото
+                        
+						<p>
+                            <label for="prod_s_description">
+                                Краткое описание <span class="required">*</span>
                             </label>
 
-
-                            <input type="file" id="prod_photo" name="prod_photo" accept="image/*">
+                            <textarea class="cabinet-form-input" name="prod_s_description" id="prod_description" cols="15" rows="2"></textarea>
+                        </p>
+                        <p>
+                            <label for="prod_description">
+                                Полное описание <span class="required">*</span>
+                            </label>
+                            <textarea class="cabinet-form-input" name="prod_description" id="prod_description" cols="15" rows="6"></textarea>
                         </p>
 
                     </div>
