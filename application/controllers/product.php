@@ -24,7 +24,7 @@ class Product extends CI_Controller {
         $this->load->model('product_m');
         $this->load->model('user_model');
         $this->data['products'] = $this->product_m->get_all_product();
-        $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/product_settings.js'></script><script src='../../../js/main.js'></script>";
+        $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/product_settings.js'></script><script src='../../../js/main.js'></script>";
     }
 
     function get_all_product() {

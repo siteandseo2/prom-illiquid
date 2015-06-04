@@ -97,11 +97,15 @@ $( document ).ready(function() {
 			var data = $( this ).val();
 			
 			if( data == 'default' ) {
+				
+				$( secondSelect ).html('').attr('disabled', 'disabled');
+				$('#page_url').html('').attr('disabled', 'disabled');
 				return;
 			}
 			
 			switch( page ){
 				case '/admin/products':
+				case '/admin/subcat':
 					callAjax( 'products/filter_by_category', data );
 					break;
 				case '/admin/menu_add':
@@ -144,6 +148,10 @@ $( document ).ready(function() {
 		}
 		
 		parent.removeAttr('disabled');
+		
+		if( window.location.pathname == '/admin/menu_add' ) {
+			$('#page_url').removeAttr('disabled');
+		}
 		
 		for(var i = 0; i<name.length; i++) {
 			var option = document.createElement('option');

@@ -32,5 +32,12 @@ class Main_m extends CI_Model {
         }
         return $arr1;
     }
+    function get_parent($type){
+        $main = $this->db->where('type', $type)->select('id, name')->get('menu');
+        return $main->result_array();
+    }
+    function insert_item($data){
+        $query =  $this->db->insert('menu', $data);
+    }
 
 }

@@ -14,6 +14,7 @@
 class Admin extends CI_Controller {
 
     public $data;
+    public $data_menu;
 
     function __construct() {
         parent::__construct();
@@ -26,7 +27,7 @@ class Admin extends CI_Controller {
         /* load menu */
         $this->load->model('main_m');
         $this->data['menu'] = $this->main_m->get_menu();
-         /* load categories */
+        /* load categories */
         $this->load->model('category_m');
         $this->data['cat_list'] = $this->category_m->category_list();
 
@@ -53,7 +54,7 @@ class Admin extends CI_Controller {
         } else {
             $email = $this->input->post('email');
             $password = $this->input->post('password');
-            $this->load->model('user_model');
+            $this->load->model('user_model');            
             $data['admin'] = $this->user_model->login_user($email, $password);
             if (!empty($data['admin'])) {
                 foreach ($data['admin'] as $item) {
@@ -98,4 +99,32 @@ class Admin extends CI_Controller {
     }
 
     /* END function exit user  */
+
+    function add_menu() {
+        if (isset($_POST['add_item_menu'])) {
+            if ($this->input->post('group') == 'r') {
+                $this->data_menu['type'] = 'd';
+                $this->data_menu['p_id'] = $this->input->post('parent');
+                $this->data_menu['p_id2'] = '0';
+                $this->data_menu['link'] = $this->input->post('link');
+            }
+            if ($this->input->post('group') == 'd') {
+                $this->data_menu['type'] = 'dd';
+                $this->data_menu['p_id'] = '0';
+                $this->data_menu['p_id2'] = $this->input->post('parent');
+                $this->data_menu['link'] = $this->input->post('link');
+            }
+            if ($this->input->post('group') == 'default') {
+                $this->data_menu['type'] = 'r';
+                $this->data_menu['p_id'] = '0';
+                $this->data_menu['p_id2'] = '0';
+                $this->data_menu['link'] = '#';
+            }
+            $this->data_menu['name'] = $this->input->post('name');
+            $this->data_menu['status'] = $this->input->post('status');
+            $this->main_m->insert_item($this->data_menu);
+            redirect(base_url('admin/main'));
+        }
+    }
+
 }

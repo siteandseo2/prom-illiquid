@@ -12,6 +12,7 @@
  * @author baccardi
  */
 class Product_m extends CI_Model {
+
 //
     function __construct() {
         parent::__construct();
@@ -63,13 +64,18 @@ class Product_m extends CI_Model {
     }
 
     function add_product($data) {
-        if($this->db->insert('product', $data)){
+        if ($this->db->insert('product', $data)) {
             return TRUE;
         }
     }
 
     function get_product_by_subcat_id($id) {
         $query = $this->db->where('subcat_id', $id)->get('product');
+        return $query->result_array();
+    }
+
+    function search_prod($name) {
+     $query = $this->db->like('name', $name)->get('product');
         return $query->result_array();
     }
 
