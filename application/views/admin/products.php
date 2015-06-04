@@ -36,7 +36,7 @@
 
                     <div class="col-sm-5">
                         <h4>Категория</h4>
-                        <select id="_prod_cat" class="form-control">
+                        <select id="_prod_cat" class="form-control ajax-first-select">
                             <option value="default">Выберите категорию</option>
                             <?php
                             foreach ($category as $item) {
@@ -50,8 +50,7 @@
 
                     <div class="col-sm-5">
                         <h4>Подкатегория</h4>
-                        <select id="_prod_subcat" class="form-control" name='subcat_id' disabled="disabled">                       
-                        </select>
+                        <select id="_prod_subcat" class="form-control ajax-second-select" name='subcat_id' disabled="disabled"></select>
                     </div>
 
                     <div class="col-sm-2">

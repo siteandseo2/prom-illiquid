@@ -164,7 +164,17 @@
         </div>
     </div>
 
+	
+	<!-- Modal -->
     <div class="overlay"></div>
+	
+	<div class="registrResponse">
+		<h3></h3>
+		<div class="modalOk">
+			<span>Ok</span>
+		</div>
+	</div>
+	<!-- Modal End -->
 
 </footer>
 
@@ -179,10 +189,12 @@
 <script src="../../../js/jquery-1.11.0.min.js"></script>
 <script src="../../../js/jquery-ui.js"></script>
 <script src="../../../js/bootstrap.js"></script>
+<script src="../../../js/uploading.js"></script>
 <?php
 if (!empty($script))
     print_r($script);
 ?>
+
 
 
 

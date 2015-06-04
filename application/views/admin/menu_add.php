@@ -27,22 +27,28 @@
             <!-- /.row -->
 
             <div class="col-lg-6 tab_margin_top">               
-                <form action="add_product" method="POST" class="form-submit" enctype="multipart/form-data">
+                <form action="add_item_menu" method="POST" class="form-submit" enctype="multipart/form-data">
                     <label>Название</label>
                     <input class='form-control' name='name' placeholder="Например МОЙ КАБИНЕТ (Максимум 25 символов)" type='text'/>
                     <label>Тип</label>
-                    <select class='form-control' name='group' id="menu_type">
+                    <select class="form-control ajax-first-select" name='group' id="prod_group">
                         <option value="default">Выберите Тип</option>
-                        <option value="1">Пункт меню 1-го уровня</option>
-                        <option value="2">Пункт меню 2-го уровня</option>
-                        <option value="3">Пункт меню 3-го уровня</option>
+                        <option value="default">Пункт меню 1-го уровня</option>
+                        <option value="r">Пункт меню 2-го уровня</option>
+                        <option value="d">Пункт меню 3-го уровня</option>
                     </select>
                     <label>Выберите Пункт Меню Родителя</label>
-                    <select class='form-control' name='menu_parent' id="menu_parent">
-
-                    </select>  
+                    <select class="form-control ajax-second-select" name='parent' id="prod_cat" disabled="disabled"></select>  
+                    </select>
+                    <label>Ccылка</label>
+                    <input class='form-control' name='link' placeholder="Например account (Максимум 25 символов)" type='text'/>
+                    <label>Статус</label>
+                    <select class='form-control ' name='status'>
+                        <option value='enable'>Показывать</option>
+                        <option value='disable'>Скрывать</option>
+                    </select>
                     <div class='tab_margin_top'>
-                        <button class="btn btn-info" type='submit' name="add_product" value=""><i class="fa fa-save"></i> Сохранить</button>
+                        <button class="btn btn-info" type='submit' name="add_item_menu" value=""><i class="fa fa-save"></i> Сохранить</button>
                         <button class="btn btn-danger" type='reset' name="reset" value=""><i class="fa fa-remove"></i> Сбросить</button>
                     </div>
             </div> 

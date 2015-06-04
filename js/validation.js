@@ -1,6 +1,7 @@
 ﻿/* ----------------------------------------------------------
 						VALIDATION
  ------------------------------------------------------------*/
+ 
  $( document ).ready(function() {
 	 
 	// Define variables
@@ -186,7 +187,18 @@
 				return false;
 			}
 		} else {
-			doAjax( 'user/add_user' );
+			
+			switch( window.location.pathname ) {
+				case '/registration':
+					doAjax( 'user/add_user' );
+					break;
+				case '/login':
+					doAjax( 'user/get_user' );
+					break;
+				default:
+					break;
+			}
+	
 		}
 
 	});
@@ -203,19 +215,24 @@
 		xhr.open('POST', url, true);
 
 		xhr.onreadystatechange = function () {
-			if (xhr.readyState != 4)
-				return;
+			if (xhr.readyState != 4) return;
 
-			if (xhr.status == 200) {
+			if ( xhr.status == 200 && url == 'user/add_user' ) {
+				
 				setTimeout(function() {
 					callback( true );
 				}, 1000);
+				
 			} else {
+				
 				console.error(xhr.status + ' : ' + xhr.statusText);
 				
-				setTimeout(function() {
-					callback( false );
-				}, 1000);
+				if( user == 'user/add_user' ) {
+					setTimeout(function() {
+						callback( false );
+					}, 1000);
+				}
+				
 			}
 		}
 
@@ -228,7 +245,7 @@
 	try {
 		
 		var registrResponse = document.querySelector('.registrResponse'),
-			registrResponseHead = document.querySelector('.registrResponse > h1'),
+			registrResponseHead = document.querySelector('.registrResponse > h3'),
 			overlay = document.querySelector('.overlay'),
 			okBtn = document.querySelector('.modalOk');
 		
@@ -241,7 +258,7 @@
 		registrResponse.style.display = 'block';
 		overlay.style.display = 'block';
 
-		if (data) {
+		if ( data ) {
 			registrResponseHead.classList.add('registrResponseSuccess');
 			registrResponseHead.innerHTML = 'Спасибо!<br>Ваша регистрация прошла успешно.';
 		} else {

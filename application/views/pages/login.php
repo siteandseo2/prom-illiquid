@@ -30,13 +30,19 @@
         <div class="row">
 
             <div class="form-container">
-                <form name="loginform" action="" method="POST">
+                <form name="loginform" method="POST" class="validate-form">
                     <div class="form-fields">
-                        <span class="form-name login-form-input">
-                            <input type="text" class="validate" placeholder="E-mail *" name="email" value="">
+                        <span class="form-name">
+                            <input type="text" class="validate" data-validate="e" placeholder="E-mail *" name="email">
+							<span class="form-icon">
+								<i class="fa"></i>
+							</span>
                         </span>
-                        <span class="form-name login-form-input">
-                            <input type="text" class="validate" placeholder="Пароль *" name="password" value="">
+                        <span class="form-name">
+                            <input type="text" class="validate" data-validate="wn" placeholder="Пароль *" name="password">
+							<span class="form-icon">
+								<i class="fa"></i>
+							</span>
                         </span>
                     </div>
 
@@ -49,7 +55,7 @@
 
                     <p>
                         <span class="form-submit">
-                            <input type="submit" name="login" value="Войти">
+                            <input type="submit" name="login" value="Войти" class="validate-submit">
                         </span>
                     </p>
                 </form>
