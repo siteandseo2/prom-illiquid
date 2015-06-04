@@ -65,6 +65,7 @@ $route['admin/add_subcategory'] = 'subcategories/add_subcategory';
 $route['admin/subcat'] = 'product_adm/filter_product';
 $route['user/add_product']='user/add_product';
 $route['login'] = 'user/get_user';
+$route['search']='search/get_search';
 
 $route['cabinet'] = 'cabinet/user_data';
 $route['add_product']='cabinet/add_product';

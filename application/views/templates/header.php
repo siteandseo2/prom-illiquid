@@ -98,44 +98,46 @@
                     </div>
 
                     <!-- Search -->
-                    <div id="searching" class="clearfix">
+                    <form action="<?= base_url(); ?>search" method="POST">
+                        <div id="searching" class="clearfix">
 
-                        <div class="search-inner clearfix">
-                            <input type="text" placeholder="Я ХОЧУ КУПИТЬ" class="search-input" autofocus>
+                            <div class="search-inner clearfix">
+                                <input type="text" placeholder="Я ХОЧУ КУПИТЬ" name="name" class="search-input" autofocus>
 
-                            <div class="btn-group s-butt">
-                                <button type="button" class="btn btn-default search-block-button" id="location-select-button">
-                                    <span class="btn-text">Вся Украина</span>
-                                    <span class="search-select-icon">
-                                        <i class="fa fa-angle-down"></i>
-                                    </span>
-
-                                    <div class="sub-nav">
-                                        <input type="text" placeholder="Введите название города" name="searchCityName">
-                                        <ul></ul>
-                                    </div>
-                                </button>
-
-                                <a href="#" title="Искать на сайте">
-                                    <button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
-                                        <span class="btn-text">Поиск</span>
+                                <div class="btn-group s-butt">
+                                    <button type="button" class="btn btn-default search-block-button" id="location-select-button">
+                                        <span class="btn-text">Вся Украина</span>
                                         <span class="search-select-icon">
-                                            <i class="fa fa-search"></i>
+                                            <i class="fa fa-angle-down"></i>
                                         </span>
+
+                                        <div class="sub-nav">
+                                            <input type="text" placeholder="Введите название города" name="searchCityName">
+                                            <ul></ul>
+                                        </div>
                                     </button>
-                                </a>
-                            </div>
-                        </div>
 
-                        <div class="search-inner clearfix">
-                            <div class="s-butt">
-                                <button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
-                                    <span class="btn-text">Я хочу продать</span>
-                                </button>
+                                    <a href="#" title="Искать на сайте">
+                                        <button type="submit" class="btn btn-default search-block-button" name="search" value="BUY" id="buy-search-button">
+                                            <span class="btn-text">Поиск</span>
+                                            <span class="search-select-icon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
+                            <div class="search-inner clearfix">
+                                <div class="s-butt">
+                                    <button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
+                                        <span class="btn-text">Я хочу продать</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
                     <!-- Search End --> 
 
                 </div>
