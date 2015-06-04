@@ -48,51 +48,82 @@ $( document ).ready(function() {
 		if( ev.target.tagName == 'A' ) clear();
 	});
 	
-	/* Product page filters */
+	/* AJAX IN COMMON */
 	
-	var prodSel = $('#_prod_cat'),
-		prodSubCat = document.getElementById('_prod_subcat');
-	
-	$( prodSel ).change(function() {
+	try {
 		
-		var data = $( this ).val();
+		var firstSelect = $('.ajax-first-select'),
+			secondSelect = $('.ajax-second-select'),
+			page = window.location.pathname;
+	
+		$( firstSelect ).change(function() {
+			
+			var data = $( this ).val();
+			
+			if( data == 'default' ) {
+				return;
+			}
+			
+			data = 'id=' + data;
+			
+			switch( page ){
+				case '/admin/products':
+					callAjax( 'products/filter_by_category', data );
+					break;
+				case '/admin/menu_add':
+					callAjax( 'ajax/add_menu_item', data );
+					break;
+				default:
+					break;
+			}
+
+		});
+		
+	} catch( e ) {
+		
+		console.log( e.type + ' ' + e.message );
+		
+	}
+	
+	function callAjax( url, data ) {
+		console.log( url, data );
 		
 		$.ajax({
 			type: 'GET',
-			url: 'products/filter_by_category',
+			url: url,
 			data: data,
 			success: function( content ) {
-				getSubCat( content );
+				getSubCat( content, secondSelect );
 			}
 		});
-		
-	});
+	}
 	
-	function getSubCat( data ) {
+	
+	function getSubCat( data, parent ) {
 		
-		var parent = prodSubCat;
-		parent.innerHTML = '';
+		$( parent ).html('');
 		
 		var obj = JSON.parse( data );
 		
-		var id = obj['id'];
+		console.log( obj );
+		
+		var id = obj['link'];
 		var name = obj['name'];
 		
 		if( !obj['name'] ) {
 			return;
 		}
 		
-		parent.removeAttribute('disabled');
+		parent.removeAttr('disabled');
 		
 		for(var i = 0; i<name.length; i++) {
 			var option = document.createElement('option');
 			option.setAttribute('value', id[i]);
 			option.innerHTML = name[i];
 			
-			parent.appendChild( option );
+			$( parent ).append( option );
 		}
 		
-		
-	}
+	}	
 	
 });

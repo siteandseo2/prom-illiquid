@@ -31,16 +31,14 @@
                     <label>Название</label>
                     <input class='form-control' name='name' placeholder="Например МОЙ КАБИНЕТ (Максимум 25 символов)" type='text'/>
                     <label>Тип</label>
-                    <select class='form-control' name='group' id="prod_group">
+                    <select class="form-control ajax-first-select" name='group' id="prod_group">
                         <option value="default">Выберите Тип</option>
                         <option value="1">Пункт меню 1-го уровня</option>
                         <option value="2">Пункт меню 2-го уровня</option>
                         <option value="3">Пункт меню 3-го уровня</option>
                     </select>
                     <label>Выберите Пункт Меню Родителя</label>
-                    <select class='form-control' name='cat_id' id="prod_cat">
-
-                    </select>  
+                    <select class="form-control ajax-second-select" name='cat_id' id="prod_cat" disabled="disabled"></select>  
                     <div class='tab_margin_top'>
                         <button class="btn btn-info" type='submit' name="add_product" value=""><i class="fa fa-save"></i> Сохранить</button>
                         <button class="btn btn-danger" type='reset' name="reset" value=""><i class="fa fa-remove"></i> Сбросить</button>
