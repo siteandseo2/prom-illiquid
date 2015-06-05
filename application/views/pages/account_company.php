@@ -90,8 +90,8 @@
 						
 						<p>
 							<label>Ваше местоположение на карте</label>
-							<div id="map">
-								 <!-- <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ZXnZmgyZKZEy3xNR_nhW1LqjoexWeRLd&width=600&height=450"></script> -->
+							<div id="account_map">
+								 <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ZXnZmgyZKZEy3xNR_nhW1LqjoexWeRLd&width=600&height=450"></script>
 							</div>
 						</p>
 					</div>

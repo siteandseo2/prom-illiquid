@@ -47,6 +47,7 @@
 		var persPhone = $('[name="phone"]').parent();
 		var persCountry = $('[name="country"]').parent();
 		var persCity = $('[name="city"]').parent();
+		var persAddress = $('[name="address"]').parent();
 		
 		if( who == 'seller' ) {
 			$('.seller-set').css('display', 'block');
@@ -54,13 +55,14 @@
 			$( persPhone ).css('display', 'none');
 			$( persCountry ).css('display', 'none');
 			$( persCity ).css('display', 'none');
-			
+			$( persAddress ).css('display', 'none');
 		} else {
 			$('.seller-set').css('display', 'none');
 			$( persEmail ).css('display', 'block');
 			$( persPhone ).css('display', 'block');
 			$( persCountry ).css('display', 'block');
 			$( persCity ).css('display', 'block');
+			$( persAddress ).css('display', 'block');
 		}
 	}
 	

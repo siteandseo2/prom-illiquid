@@ -17,6 +17,8 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/responsive.css">
+		
+		<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     </head>   
     <body class="no-bg home-cabinet">        
         <section id="page"> 
