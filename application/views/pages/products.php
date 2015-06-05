@@ -23,10 +23,10 @@
                             echo $cat_name['0']['link'];
                         ?>">
                                <?php
-                            if (!empty($cat_name['0']['name']))
-                                echo $cat_name['0']['name'];
-                            else
-                                echo 'Все категории';
+                               if (!empty($cat_name['0']['name']))
+                                   echo $cat_name['0']['name'];
+                               else
+                                   echo 'Все категории';
                                ?>
                         </a>
                     </li>
@@ -56,7 +56,7 @@
 
         <div id="content" class="content">
 
-            <p class="cat-result-count">Найдено <?=count($items) ?> позиции</p>
+            <p class="cat-result-count">Найдено <?= count($items) ?> позиции</p>
 
             <div class="cat-ordering">
                 <select>
@@ -136,111 +136,9 @@
 
         </div>
 
-        <!-- Sidebar -->
-
-
-        <aside id="sidebar" class="sidebar"> 
-            <div class="sidebar-content">
-
-                <section class="widget-shopping-cart">
-                    <div class="widget-title">YOUR CART</div>
-                    <ul class="widget-cart-list">
-                        <li class="empty">No products in the cart</li>
-                    </ul>
-                </section>
-
-                <section class="widget-product-search">
-                    <div class="widget-title">SEARCH</div>
-                    <form role="search" method="get" action="">
-                        <input type="search" class="search-field" placeholder="Search Products.." value="" name="S" title="Search for..">
-                        <input type="submit" value="search">
-                        <span class="search-icon">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </form>
-                </section>
-
-                <section class="widget-product-categories">
-                    <div class="widget-title">CATEGORIES</div>
-                    <ul class="product-cat">
-                        <li class="cat-item cat-parent">
-                            <a href="<?= base_url(); ?>">Clothes and Footwear</a>
-                            <span class="count">(17)</span>
-                            <ul class="children">
-                                <li>
-                                    <a href="<?= base_url(); ?>">Footwear</a>
-                                    <span class="count">(3)</span>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url(); ?>">Hoodies</a>
-                                    <span class="count">(7)</span>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url(); ?>">T-Shirts</a>
-                                    <span class="count">(7)</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="cat-item cat-parent">
-                            <a href="<?= base_url(); ?>">Digital goods</a>
-                            <span class="count">(21)</span>
-                            <ul class="children">
-                                <li>
-                                    <a href="<?= base_url(); ?>">Smartphones</a>
-                                    <span class="count">(3)</span>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url(); ?>">Laptops</a>
-                                    <span class="count">(7)</span>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url(); ?>">PC's</a>
-                                    <span class="count">(7)</span>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="widget-top-rated">
-                    <div class="widget-title">TOP RATED</div>
-                    <ul class="widget-cart-list">
-                        <li>
-                            <a href="<?= base_url(); ?>" title=""> 
-                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-                                <span class="product-title">IPhone mockup 6</span>
-                            </a>
-                            <span class="amount">$15.00</span>
-                        </li>
-                        <li>
-                            <a href="<?= base_url(); ?>" title=""> 
-                                <img src="../../../img/shop-thumb-2.jpg" alt="IPad Air mockup">
-                                <span class="product-title">IPad Air mockup</span>
-                            </a>
-                            <span class="amount">$15.00</span>
-                        </li>
-                        <li>
-                            <a href="<?= base_url(); ?>" title=""> 
-                                <img src="../../../img/shop-thumb-3.jpg" alt="High Space Sneakers">
-                                <span class="product-title">High Space Sneakers</span>
-                            </a>
-                            <span class="amount">$15.00</span>
-                        </li>
-                        <li>
-                            <a href="<?= base_url(); ?>" title=""> 
-                                <img src="../../../img/shop-thumb-4.jpg" alt="Space Hoddie">
-                                <span class="product-title">Space Hoddie</span>
-                            </a>
-                            <span class="amount">$15.00</span>
-                        </li>
-                    </ul>
-                </section>
-
-            </div>
-        </aside>
-
-
-        <!-- Sidebar End-->
+        <?php
+        include_once 'application/views/templates/sidebar.php';
+        ?>
 
     </div>
 </div>

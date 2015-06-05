@@ -71,91 +71,91 @@
 
                     <p class="price">
                         <span class="amount"><?= $item['price'] ?></span>
-						<span class="currency"><?= $item['currency'] ?></span>
-						<span class="separetor">за</span>
-						<span class="quantity">1000 шт.</span>
+                        <span class="currency"><?= $item['currency'] ?></span>
+                        <span class="separetor">за</span>
+                        <span class="quantity"><?= $item['prod_quantity'] ?></span>
                     </p>
-					
-					<p class="order">
-						<span>Минимальный заказ:</span>
-						<span class="q">1000</span>
-					</p>
-					<!-- 
-                    <div class="rating clearfix">
-                        <div class="star-rating" title="Rated 5.00 of 5">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <a href="<?= base_url(); ?>#reviews" class="review-link" rel="nofollow">
-                            ( <span class="ratingCount">1</span>
-                            customer review )
-                        </a>
-                    </div>
-					-->
-					<!--
-                    <div class="description">
-                        <p>
-                            <?= nl2br($item['s_description']) ?>
-                        </p>
-                    </div>
-					-->
+
+                    <p class="order">
+                        <span>Минимальный заказ:</span>
+                        <span class="q">1000</span>
+                    </p>
+                    <!-- 
+    <div class="rating clearfix">
+    <div class="star-rating" title="Rated 5.00 of 5">
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+    </div>
+    <a href="<?= base_url(); ?>#reviews" class="review-link" rel="nofollow">
+        ( <span class="ratingCount">1</span>
+        customer review )
+    </a>
+    </div>
+                    -->
+                    <!--
+    <div class="description">
+    <p>
+                    <?= nl2br($item['s_description']) ?>
+    </p>
+    </div>
+                    -->
                     <div class="quantity clearfix">
                         <input type="number" step="1" min="1" value="1" title="Change quantity" size="4">
                         <div class="add2cart">Купить</div>
                     </div>
 
                     <div class="product_meta">
-						<span class="contdition_degree">
-							Состояние: 
-							<span class="isNew">новое</span>
-							<span class="decimal">
-								(<span>8</span> из 10)
-							</span>
-						</span>
+                        <span class="contdition_degree">
+                            Состояние: 
+                            <span class="isNew">новое</span>
+                            <span class="decimal">
+                                (<span>8</span> из 10)
+                            </span>
+                        </span>
                         <span class="meta_id">
                             Код:
                             <span class="id"><?= $item['id'] ?></span>
                         </span>
-						<!--
-						<span class="group">
-							Группа:
-							<a href="<? base_url(); ?>">Промышленные товары</a>
-						</span>
-                        <span class="cat">
-                            Категория:
-                            <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
+                        <!--
+                        <span class="group">
+                                Группа:
+                                <a href="<? base_url(); ?>">Промышленные товары</a>
                         </span>
-						<span class="sunCat">
-							Подкатегория:
-							<a href="<?= base_url(); ?>">Клапаны</a>
-						</span>
-						-->
-                        <!--<span class="tagged_as">
-                            Тэги:
-                            <a href="<?= base_url(); ?>products/item/<?= $item['id'] ?>"><?= $item['name'] ?></a>
-                            <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
-                            <a href="<?= base_url(); ?>subcategories/<?= $subcat_name['0']['link'] ?>"><?= $subcat_name['0']['name'] ?></a>                            
-                        </span> -->
+    <span class="cat">
+    Категория:
+    <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
+    </span>
+                        <span class="sunCat">
+                                Подкатегория:
+                                <a href="<?= base_url(); ?>">Клапаны</a>
+                        </span>
+                        -->
+    <!--<span class="tagged_as">
+    Тэги:
+    <a href="<?= base_url(); ?>products/item/<?= $item['id'] ?>"><?= $item['name'] ?></a>
+    <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
+    <a href="<?= base_url(); ?>subcategories/<?= $subcat_name['0']['link'] ?>"><?= $subcat_name['0']['name'] ?></a>                            
+    </span> -->
                     </div>
-					
-					<div class="seller_info">
-						<h3>Информация о продавце</h3>
-						<span class="company">
-							Компания:
-							<a href="<?= base_url(); ?>" class="company_value">КриворожДымоходТруба</a>
-						</span>
-						<span class="email">
-							Email:
-							<span class="email_value">krivorozhtruba@gmail.com</span>
-						</span>
-						<span class="phone">
-							Телефон:
-							<span href="<?= base_url(); ?>" class="phone_value">+38 095 123 45 67</span>
-						</span>
-					</div>
+
+                    <div class="seller_info">
+                        <h3>Информация о продавце</h3>
+                        <span class="company">
+                            Компания:
+                            <a href="<?= base_url(); ?>" class="company_value"><?=$user_data['company']?></a>
+                        </span>
+                        <span class="email">
+                            Email:
+                            <span class="email_value"><?=$user_data['email']?></span>
+                        </span>
+                        <span class="phone">
+                            Телефон:
+                            <span href="<?= base_url(); ?>" class="phone_value"><?=$user_data['id']?></span>
+                        </span>
+                    </div>
 
                 </div>
             <?php } ?>
@@ -310,127 +310,10 @@
                     </div>
                 </section>
             </div>
-
-
-
         </div>
-
-        <!-- Sidebar -->
-
-
-        <aside id="sidebar" class="sidebar"> 
-            <div class="sidebar-content">
-
-                <section class="widget-shopping-cart">
-                    <div class="widget-title">Корзина</div>
-                    <ul class="widget-cart-list">
-                        <li class="empty">В вашей корзине пока пусто</li>
-                    </ul>
-                </section>
-
-                <section class="widget-product-search">
-                    <div class="widget-title">Поиск</div>
-                    <form role="search" method="get" action="">
-                        <input type="search" class="search-field" placeholder="Искать.." value="" name="S" title="Search for..">
-                        <input type="submit" value="search">
-                        <span class="search-icon">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </form>
-                </section>
-
-                <section class="widget-product-categories">
-                    <div class="widget-title">Категории</div>
-                    <ul class="product-cat">                        
-                        <?php
-                        foreach ($cat_list as $cat => $subcategory) {
-                            foreach ($subcategory as $k => $v) {
-                                ?>                        
-                                <li class="cat-item cat-parent">
-                                    <a href="<?= base_url(); ?>subcategories/<?= $k ?>"><?= $cat ?></a>
-                                    <span class="count">(<?= count($v) ?>)</span>
-                                    <ul class="children">      
-                                        <?php
-                                        if (!empty($v)) {
-                                            foreach ($v as $key => $val) {
-                                                foreach ($val as $kl => $zn) {
-                                                    ?>      
-                                                    <li>
-                                                        <a href="<?= base_url(); ?>products/<?= $key ?>"><?= $kl ?></a>
-                                                        <span class="count">(<?= $zn ?>)</span>
-                                                    </li> 
-                                                    <?php
-                                                }
-                                            }
-                                        }
-                                        ?>                                                              
-                                    </ul>
-                                </li>
-                                <?php
-                            }
-                        }
-                        ?>
-                        <!--                        <li class="cat-item cat-parent">
-                                                    <a href="<?= base_url(); ?>">Digital goods</a>
-                                                    <span class="count">(21)</span>
-                                                    <ul class="children">
-                                                        <li>
-                                                            <a href="<?= base_url(); ?>">Smartphones</a>
-                                                            <span class="count">(3)</span>
-                                                        </li>
-                                                        <li>
-                                                            <a href="<?= base_url(); ?>">Laptops</a>
-                                                            <span class="count">(7)</span>
-                                                        </li>
-                                                        <li>
-                                                            <a href="<?= base_url(); ?>">PC's</a>
-                                                            <span class="count">(7)</span>
-                                                        </li>
-                                                    </ul>
-                                                </li>-->
-                    </ul>
-                </section>
-
-                <section class="widget-top-rated">
-                    <div class="widget-title">TOP RATED</div>
-                    <ul class="widget-cart-list">
-                        <li>
-                            <a href="<?= base_url(); ?>" title=""> 
-                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-                                <span class="product-title">IPhone mockup 6</span>
-                            </a>
-                            <span class="amount">$15.00</span>
-                        </li>
-                        <li>
-                            <a href="<?= base_url(); ?>" title=""> 
-                                <img src="../../../img/shop-thumb-2.jpg" alt="IPad Air mockup">
-                                <span class="product-title">IPad Air mockup</span>
-                            </a>
-                            <span class="amount">$15.00</span>
-                        </li>
-                        <li>
-                            <a href="<?= base_url(); ?>" title=""> 
-                                <img src="../../../img/shop-thumb-3.jpg" alt="High Space Sneakers">
-                                <span class="product-title">High Space Sneakers</span>
-                            </a>
-                            <span class="amount">$15.00</span>
-                        </li>
-                        <li>
-                            <a href="<?= base_url(); ?>" title=""> 
-                                <img src="../../../img/shop-thumb-4.jpg" alt="Space Hoddie">
-                                <span class="product-title">Space Hoddie</span>
-                            </a>
-                            <span class="amount">$15.00</span>
-                        </li>
-                    </ul>
-                </section>
-
-            </div>
-        </aside>
-
-
-        <!-- Sidebar End-->
-
+        <?php
+        include_once 'application/views/templates/sidebar.php';
+        ?>
     </div>
 </div>
 
