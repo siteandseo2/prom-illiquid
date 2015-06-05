@@ -33,24 +33,18 @@ $( document ).ready(function() {
 			
 			var json = $.xml2json( data );
 			
-			console.log( json );
-			
 			var coords = json.GeoObjectCollection.featureMember['0'].GeoObject.Point.pos;
 		
 			var valid = coords.split(' ');
-			var center = [parseFloat( valid[0] ), parseFloat( valid[1] )];
-			
-			console.log( center );
-			console.log( typeof center );
-			
-			
+			var center = [parseFloat( valid[1] ), parseFloat( valid[0] )];
+		
 			ymaps.ready(init);
 			var myMap;
 			
 			function init() {
 				myMap = new ymaps.Map('map', {
 					center: center,
-					zoom: 7
+					zoom: 10
 				});
 			}
 			
