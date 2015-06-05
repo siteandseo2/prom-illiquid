@@ -35,20 +35,21 @@ $( document ).ready(function() {
 			
 			console.log( json );
 			
-			var coords = json.GeoObjectCollection.featureMember['0'].GeoObject.boundedBy.Envelope;
+			var coords = json.GeoObjectCollection.featureMember['0'].GeoObject.Point.pos;
+		
+			var valid = coords.split(' ');
+			var center = [parseFloat( valid[0] ), parseFloat( valid[1] )];
 			
-			coords.lowerCorner = parseFloat( coords.lowerCorner );
-			coords.upperCorner = parseFloat( coords.upperCorner );
+			console.log( center );
+			console.log( typeof center );
 			
-			console.log( coords.lowerCorner );
-			console.log( typeof coords.lowerCorner );
 			
 			ymaps.ready(init);
 			var myMap;
 			
 			function init() {
 				myMap = new ymaps.Map('map', {
-					center: [coords.lowerCorner, coords.upperCorner],
+					center: center,
 					zoom: 7
 				});
 			}
