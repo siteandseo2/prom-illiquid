@@ -70,9 +70,17 @@
                 <div class="summary">
 
                     <p class="price">
-                        <span class="amount"><?= $item['price'] ?>  <?= $item['currency'] ?></span>
+                        <span class="amount"><?= $item['price'] ?></span>
+						<span class="currency"><?= $item['currency'] ?></span>
+						<span class="separetor">за</span>
+						<span class="quantity">1000 шт.</span>
                     </p>
-
+					
+					<p class="order">
+						<span>Минимальный заказ:</span>
+						<span class="q">1000</span>
+					</p>
+					<!-- 
                     <div class="rating clearfix">
                         <div class="star-rating" title="Rated 5.00 of 5">
                             <i class="fa fa-star-o"></i>
@@ -86,35 +94,68 @@
                             customer review )
                         </a>
                     </div>
-
+					-->
+					<!--
                     <div class="description">
                         <p>
                             <?= nl2br($item['s_description']) ?>
                         </p>
-
                     </div>
-
+					-->
                     <div class="quantity clearfix">
                         <input type="number" step="1" min="1" value="1" title="Change quantity" size="4">
                         <div class="add2cart">Купить</div>
                     </div>
 
                     <div class="product_meta">
+						<span class="contdition_degree">
+							Состояние: 
+							<span class="isNew">новое</span>
+							<span class="decimal">
+								(<span>8</span> из 10)
+							</span>
+						</span>
                         <span class="meta_id">
-                            ID:
+                            Код:
                             <span class="id"><?= $item['id'] ?></span>
                         </span>
-                        <span class="posted_in">
+						<!--
+						<span class="group">
+							Группа:
+							<a href="<? base_url(); ?>">Промышленные товары</a>
+						</span>
+                        <span class="cat">
                             Категория:
                             <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
                         </span>
-                        <span class="tagged_as">
+						<span class="sunCat">
+							Подкатегория:
+							<a href="<?= base_url(); ?>">Клапаны</a>
+						</span>
+						-->
+                        <!--<span class="tagged_as">
                             Тэги:
                             <a href="<?= base_url(); ?>products/item/<?= $item['id'] ?>"><?= $item['name'] ?></a>
                             <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
                             <a href="<?= base_url(); ?>subcategories/<?= $subcat_name['0']['link'] ?>"><?= $subcat_name['0']['name'] ?></a>                            
-                        </span>
+                        </span> -->
                     </div>
+					
+					<div class="seller_info">
+						<h3>Информация о продавце</h3>
+						<span class="company">
+							Компания:
+							<a href="<?= base_url(); ?>" class="company_value">КриворожДымоходТруба</a>
+						</span>
+						<span class="email">
+							Email:
+							<span class="email_value">krivorozhtruba@gmail.com</span>
+						</span>
+						<span class="phone">
+							Телефон:
+							<span href="<?= base_url(); ?>" class="phone_value">+38 095 123 45 67</span>
+						</span>
+					</div>
 
                 </div>
             <?php } ?>
@@ -134,7 +175,6 @@
                 </ul>
 
                 <section id="description_panel">
-                    <h2>Описание <?= $item['name'] ?></h2>
                     <p> <?= nl2br($item['description']) ?></p>
                 </section>
 
@@ -280,39 +320,18 @@
 
         <aside id="sidebar" class="sidebar"> 
             <div class="sidebar-content">
-                <section class="widget-shopping-cart">
-                    <div class="widget-title">Товар добавил:
-                        <?= $user_data['surname'] ?>
-                        <?= $user_data['name'] ?>
-                        <?= $user_data['patronymic'] ?>
-                    </div>
-                    <div class="widget-title">Email:
-                        <?= $user_data['email'] ?>
-                    </div>
-                    <div class="widget-title">Компания:
-                        <?= $user_data['company'] ?>
-                    </div>
-                    <div class="widget-title">Страна:
-                        <?= $user_data['country'] ?>
-                    </div>
-                     <div class="widget-title">Город:
-                        <?= $user_data['city'] ?>
-                    </div>
-                    
-
-                </section>
 
                 <section class="widget-shopping-cart">
-                    <div class="widget-title">YOUR CART</div>
+                    <div class="widget-title">Корзина</div>
                     <ul class="widget-cart-list">
-                        <li class="empty">No products in the cart</li>
+                        <li class="empty">В вашей корзине пока пусто</li>
                     </ul>
                 </section>
 
                 <section class="widget-product-search">
                     <div class="widget-title">Поиск</div>
                     <form role="search" method="get" action="">
-                        <input type="search" class="search-field" placeholder="Search Products.." value="" name="S" title="Search for..">
+                        <input type="search" class="search-field" placeholder="Искать.." value="" name="S" title="Search for..">
                         <input type="submit" value="search">
                         <span class="search-icon">
                             <i class="fa fa-search"></i>
