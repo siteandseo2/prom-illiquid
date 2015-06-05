@@ -169,9 +169,11 @@
                     <li class="add_info_tab">
                         <a href="#">Дополнительная информация</a>
                     </li>
+					<!--
                     <li class="reviews_tab">
                         <a href="#">Отзывы (1)</a>
                     </li>
+					-->
                 </ul>
 
                 <section id="description_panel">
@@ -197,7 +199,9 @@
                         </tbody>
                     </table>
                 </section>
-
+				
+				<!--
+				
                 <section id="reviews_panel" style="display: none;">
                     <div id="comments">
                         <h2>1 oтзыв o <?= $item['name'] ?></h2>
@@ -309,6 +313,9 @@
                         </form>
                     </div>
                 </section>
+				
+				-->
+				
             </div>
         </div>
         <?php
