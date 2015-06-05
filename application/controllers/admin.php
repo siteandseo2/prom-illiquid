@@ -27,9 +27,9 @@ class Admin extends CI_Controller {
         /* load menu */
         $this->load->model('main_m');
         $this->data['menu'] = $this->main_m->get_menu();
-        $this->data['fst_level']=$this->main_m->get_fst_l();
-        $this->data['scnd_level']=$this->main_m->get_snd_l();
-        $this->data['trd_level']=$this->main_m->get_trd_l();
+        $this->data['fst_level'] = $this->main_m->get_fst_l();
+        $this->data['scnd_level'] = $this->main_m->get_snd_l();
+        $this->data['trd_level'] = $this->main_m->get_trd_l();
         /* load categories */
         $this->load->model('category_m');
         $this->data['cat_list'] = $this->category_m->category_list();
@@ -105,6 +105,7 @@ class Admin extends CI_Controller {
 
     function add_menu() {
         if (isset($_POST['add_item_menu'])) {
+            $this->data_menu['owner'] = $this->input->post('owner');
             if ($this->input->post('group') == 'r') {
                 $this->data_menu['type'] = 'd';
                 $this->data_menu['p_id'] = $this->input->post('parent');
@@ -124,17 +125,33 @@ class Admin extends CI_Controller {
             $this->data_menu['status'] = $this->input->post('status');
             if (!empty($this->input->post('link'))) {
                 $this->data_menu['link'] = $this->input->post('link');
-                if (!file_exists(APPPATH . '/views/userpages/' . $this->input->post('link') . '.php')) {
-                    $fp = fopen('application/views/userpages/' . $this->input->post('link') . '.php', 'a');
+                if ($this->input->post('owner') == 'user') {
+                    if (!file_exists(APPPATH . '/views/userpages/' . $this->input->post('link') . '.php')) {
+                        $fp = fopen('application/views/userpages/' . $this->input->post('link') . '.php', 'a');
 //                $mytext = "Это строку необходимо нам записать\r\n"; // Исходная строка
 //                $test = fwrite($fp, $mytext); // Запись в файл
-                    fclose($fp);
-                    $this->main_m->insert_item($this->data_menu);
-                    redirect(base_url('admin/main'));
-                } else {
-                    $this->data['error'] = 'Cтраница с таким именем уже существует!';
-                    $this->load->view('admin/error', $this->data);
-                    $this->load->view('admin/footer');
+                        fclose($fp);
+                        $this->main_m->insert_item($this->data_menu);
+                        redirect(base_url('admin/main'));
+                    } else {
+                        $this->data['error'] = 'Cтраница с таким именем уже существует!';
+                        $this->load->view('admin/error', $this->data);
+                        $this->load->view('admin/footer');
+                    }
+                }
+                 if ($this->input->post('owner') == 'admin') {
+                    if (!file_exists(APPPATH . '/views/pages/' . $this->input->post('link') . '.php')) {
+                        $fp = fopen('application/views/pages/' . $this->input->post('link') . '.php', 'a');
+//                $mytext = "Это строку необходимо нам записать\r\n"; // Исходная строка
+//                $test = fwrite($fp, $mytext); // Запись в файл
+                        fclose($fp);
+                        $this->main_m->insert_item($this->data_menu);
+                        redirect(base_url('admin/main'));
+                    } else {
+                        $this->data['error'] = 'Cтраница с таким именем уже существует!';
+                        $this->load->view('admin/error', $this->data);
+                        $this->load->view('admin/footer');
+                    }
                 }
             } else {
                 $this->data_menu['link'] = '#';
