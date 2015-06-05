@@ -36,7 +36,7 @@
 
                     <legend>Зарегистрироваться как</legend>
 
-                    <div class="btn-group validate-form-tabs" data-toggle="buttons">
+                    <div class="btn-group validate-form-tabs" data-toggle="buttons" id="chooseRole">
                         <label class="btn active">
                             <input type="radio" name="usercat" id="buyer" autocomplete="off" checked value="buyer"> Покупатель
                         </label>
@@ -49,6 +49,8 @@
 
                         <!-- Buyer Set -->
                         <div class="buyer-set">
+						
+							<h4>Персональные данные</h4>
 
                             <span class="form-name">
                                 <input type="text" class="validate" data-validate="w" placeholder="Фамилия *" name="surname">
@@ -74,6 +76,12 @@
                                     <i class="fa"></i>
                                 </span>
                             </span>
+							<span class="form-name">
+                                <input type="text" class="validate" data-validate="p" placeholder="Телефон *" name="phone">
+                                <span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+                            </span>
                             <span class="form-name">
                                 <input type="password" class="validate" data-validate="wn" placeholder="Пароль * (минимум 8 символов)" name="password">
                                 <span class="form-icon">
@@ -86,20 +94,8 @@
                                     <i class="fa"></i>
                                 </span>
                             </span>
-							<span class="form-name">
-                                <input type="text" data-validate="any" placeholder="Название компании" name="company">
-                                <span class="form-icon">
-                                    <i class="fa"></i>
-                                </span>
-                            </span> 
-
-                        </div>
-                        <!-- Buyer set End -->
-
-                        <!-- Seller Set -->
-                        <div class="seller-set">
-
-                            <p>
+							
+							<p>
                                 <label for="country">Страна</label>
                                 <select class="cabinet-form-input" name="country" id="country">
                                     <option value="ua">Украина</option>
@@ -111,6 +107,62 @@
                             <p>
                                 <label for="city">Город</label>
                                 <select class="cabinet-form-input" name="city" id="city">
+                                    <option value="zp">Запорожье</option>
+                                    <option value="ky">Киев</option>
+                                    <option value="kh">Харьков</option>
+                                    <!-- AJAX or foreach -->
+                                </select>
+                            </p>
+							
+
+                        </div>
+                        <!-- Buyer set End -->
+						
+					</div>
+					
+					<div class="form-fields">
+
+                        <!-- Seller Set -->
+                        <div class="seller-set">
+						
+							<h4>Информация о компании</h4>
+							
+							<span class="form-name">
+                                <input type="text" class="validate" data-validate="any" placeholder="Название компании *" name="company">
+                                <span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+                            </span>
+							<span class="form-name">
+                                <input type="text" class="validate" data-validate="e" placeholder="Email компании *" name="company_email">
+                                <span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+                            </span>
+							<span class="form-name">
+                                <input type="text" class="validate" data-validate="p" placeholder="Телефон компании *" name="company_phone">
+                                <span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+                            </span>
+							<span class="form-name">
+                                <input type="text" placeholder="Дополнительные телефон" name="company_phone_more">
+                                <span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+                            </span>
+                            <p>
+                                <label for="company_country">Страна</label>
+                                <select class="cabinet-form-input" name="company_country" id="company_country">
+                                    <option value="ua">Украина</option>
+                                    <option value="ru">Россия</option>
+                                    <option value="usa">США</option>
+                                    <!-- AJAX or foreach -->
+                                </select>
+                            </p>
+                            <p>
+                                <label for="company_city">Город</label>
+                                <select class="cabinet-form-input" name="company_city" id="company_city">
                                     <option value="zp">Запорожье</option>
                                     <option value="ky">Киев</option>
                                     <option value="kh">Харьков</option>

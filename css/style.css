@@ -918,10 +918,6 @@ body.no-bg {
     border-top-left-radius: 0;
 }
 
-.seller-set .form-name:last-of-type {
-	border-top: 0;
-}
-
 .form-fields .form-name input {
     margin: 0;
     border: none;
@@ -1799,7 +1795,7 @@ p  .form-submit {
 }
 
 .product_meta > span > span {
-	color: #888;
+	color: #555;
 	font-size: 1em;
 }
 
@@ -2375,6 +2371,13 @@ p  .form-submit {
 }
 
 /* Registration */
+.form-container legend {
+	font-size: 2em;
+} 
+
+#chooseRole {
+	box-shadow: 0px 1px 0px #eee;
+}
 
 .validateInputTrue,
 .validateInputTrue:focus {
@@ -2402,7 +2405,6 @@ p  .form-submit {
 .validateIconFalse {
     color: rgba(255, 0, 0, 1);
 }
-
 
 .registrResponse {
 	width: 25%;

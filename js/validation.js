@@ -22,6 +22,7 @@
 	
 	var namePattern = /[^a-zA-Zа-яА-Я\s]/gi,
 		passwordPattern = /[^a-zA-Zа-яА-Я0-9]/gi,
+		phonePattetn = /[^\+\d+\s+]/g,
 		emailPattern = /\w+\@\w+\.\w+/;
 		
 	// Content management
@@ -42,10 +43,24 @@
 	}
 	
 	function changeSet( who ) {
+		var persEmail = $('[name="email"]').parent();
+		var persPhone = $('[name="phone"]').parent();
+		var persCountry = $('[name="country"]').parent();
+		var persCity = $('[name="city"]').parent();
+		
 		if( who == 'seller' ) {
 			$('.seller-set').css('display', 'block');
+			$( persEmail ).css('display', 'none');
+			$( persPhone ).css('display', 'none');
+			$( persCountry ).css('display', 'none');
+			$( persCity ).css('display', 'none');
+			
 		} else {
 			$('.seller-set').css('display', 'none');
+			$( persEmail ).css('display', 'block');
+			$( persPhone ).css('display', 'block');
+			$( persCountry ).css('display', 'block');
+			$( persCity ).css('display', 'block');
 		}
 	}
 	
@@ -80,6 +95,11 @@
 				// /\w+\@\w+\.\w+/; email
 			
 				emailPattern.test(str) && self.value.length ? lightAccept() : lightDenied();
+				
+				break;
+			case 'p':
+				
+				!phonePattetn.test(str) && self.value.length ? lightAccept() : lightDenied();
 				
 				break;
 			case 'wn':
