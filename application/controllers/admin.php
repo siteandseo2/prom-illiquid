@@ -27,6 +27,9 @@ class Admin extends CI_Controller {
         /* load menu */
         $this->load->model('main_m');
         $this->data['menu'] = $this->main_m->get_menu();
+        $this->data['fst_level']=$this->main_m->get_fst_l();
+        $this->data['scnd_level']=$this->main_m->get_snd_l();
+        $this->data['trd_level']=$this->main_m->get_trd_l();
         /* load categories */
         $this->load->model('category_m');
         $this->data['cat_list'] = $this->category_m->category_list();
