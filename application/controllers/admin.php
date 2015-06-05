@@ -124,8 +124,8 @@ class Admin extends CI_Controller {
             $this->data_menu['status'] = $this->input->post('status');
             if (!empty($this->input->post('link'))) {
                 $this->data_menu['link'] = $this->input->post('link');
-                if (!file_exists(APPPATH . '/views/pages/' . $this->input->post('link') . '.php')) {
-                    $fp = fopen('application/views/pages/' . $this->input->post('link') . '.php', 'a');
+                if (!file_exists(APPPATH . '/views/userpages/' . $this->input->post('link') . '.php')) {
+                    $fp = fopen('application/views/userpages/' . $this->input->post('link') . '.php', 'a');
 //                $mytext = "Это строку необходимо нам записать\r\n"; // Исходная строка
 //                $test = fwrite($fp, $mytext); // Запись в файл
                     fclose($fp);
