@@ -1,6 +1,8 @@
 $(document).ready(function () {
 	
     (function () {
+		
+		/* AJAX */
 
         var prodGroup = $('#prod_group'),
 			prodCat = $('#prod_cat'),
@@ -66,7 +68,11 @@ $(document).ready(function () {
 		$( ".amount" ).val( $( "#slider-range-max" ).slider( "value" ) ).attr( 'data-value', $( "#slider-range-max" ).slider( "value" ) );
 		$('#range_hidden').val( $('.amount').attr('data-value') );
 		
-			
+		/* Checkbox */
+		
+		$('#check_min_order').click(function() {
+			$('#prod_min_order').slideToggle();
+		});
 
     }());
 	

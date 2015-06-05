@@ -1382,7 +1382,7 @@ p  .form-submit {
 	margin: 0 0 10px;
 }
 
-.amount {
+.radio-block .amount {
 	display: block;
 	margin-bottom: 5px;
 	border: 0;
@@ -1405,6 +1405,20 @@ p  .form-submit {
 
 .ui-slider-range {
 	background: #eee;
+}
+
+#check_min_order {
+	position: relative;
+	top: 2px;
+	left: 5px;
+}
+
+#prod_min_order {
+	display: none;
+}
+
+.form-fields input[type="file"] {
+	margin-bottom: 5px;
 }
 
 /* Account */
@@ -1642,10 +1656,31 @@ p  .form-submit {
 }
 
 .summary .price {
-    font: normal normal 20px / 28px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+	margin-bottom: 10px;
+}
+
+.summary .price > soan {
+	margin-right: 5px;
+}
+
+.summary .price .amount,
+.summary .price .quantity {
+    font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
     text-transform: none;
     color: #333;
-    margin-bottom: 5px;
+}
+
+.summary .price .amount {
+	font-size: 2.2em;
+}
+
+.summary .price .quantity {
+	font-size: 1.5em;
+}
+
+.summary .order .q {
+	color: #333;
+	font-size: 1.3em;
 }
 
 .summary .rating {
@@ -1716,8 +1751,8 @@ p  .form-submit {
     line-height: 27px;
     float: left;
     vertical-align: middle;
-    padding-top: 6px;
-    padding-bottom: 7px;
+    padding-top: 4px;
+    padding-bottom: 3px;
     font: normal 500 14px / 31px "Roboto", Helvetica, Arial, Verdana, sans-serif;
     padding-left: 14.3px;
     padding-right: 14.3px;
@@ -1736,16 +1771,45 @@ p  .form-submit {
     clear: both;
 }
 
-.product_meta > span {
+.seller_info > h3 {
+	color: #333;
+}
+
+.product_meta > span,
+.seller_info > span {
     display: block;
-    color: rgba(119,119,119,0.5);
-    margin-bottom: 5px;
-    font-size: 13px;
+    color: #888;
+    font-size: 1.2em;
     line-height: 23px;
 }
 
+.seller_info > span > a {
+	font-size: 1em;
+	color: #333;
+	text-decoration: none;
+}
+
+.seller_info > span > span {
+	font-size: 1em;
+	color: #333;
+}
+
+.seller_info > span > a:hover {
+	text-decoration: underline;
+}
+
+.product_meta > span > span {
+	color: #888;
+	font-size: 1em;
+}
+
+.product_meta .isNew {
+	margin-right: 10px;
+	color: #333;
+}
+
 .product_meta > span > a {
-    color: rgba(119,119,119,0.5);
+    color: #888;
 }
 
 /* Product Tabs */
@@ -1764,7 +1828,7 @@ p  .form-submit {
 .product-tabs .tabs > li {
     float: left;
     margin-left: 20px;
-    font-size: 16px;
+    font-size: 1.8em;
 }
 .product-tabs .tabs > li:first-child {
     margin-left: 0;

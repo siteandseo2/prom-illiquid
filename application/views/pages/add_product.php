@@ -56,7 +56,7 @@
 							</div>
 						</div>
 						
-                        <p>
+                        <div>
                             <label>
                                 Цена
                             </label>
@@ -76,14 +76,13 @@
 									<option value="thousand">Тысяча</option>
 								</select>
 							</div>
-                        </p> 
-		
-                        <p>
-                            <label for="prod_photo">
-                                Фото
-                            </label>
-                            <input type="file" id="prod_photo" name="prod_photo" accept="image/*">
-                        </p>
+                        </div> 
+						
+						<p>
+							<label for="prod_min_order">Минимальный заказ</label>
+							<input type="checkbox" id="check_min_order">
+							<input type="text" name="prod_min_order" id="prod_min_order" class="cabinet-form-input">
+						</p>
 						
                         <hr>
 						
@@ -95,7 +94,7 @@
 
                     </div>
 
-                    <div class="col-sm-6" class="form-fields">
+                    <div class="col-sm-6 form-fields">
 					
 						<p>
                             <label for="prod_code">
@@ -103,7 +102,7 @@
                             </label>
                             <input type="text" id="prod_code" name="prod_code" class="cabinet-form-input">
                         </p>
-                        
+                        <!--
 						<p>
                             <label for="prod_s_description">
                                 Краткое описание <span class="required">*</span>
@@ -111,11 +110,22 @@
 
                             <textarea class="cabinet-form-input" name="prod_s_description" id="prod_description" cols="15" rows="2"></textarea>
                         </p>
+						-->
                         <p>
                             <label for="prod_description">
-                                Полное описание <span class="required">*</span>
+                                Описание <span class="required">*</span>
                             </label>
                             <textarea class="cabinet-form-input" name="prod_description" id="prod_description" cols="15" rows="6"></textarea>
+                        </p>
+						
+						<p>
+                            <label for="prod_photo">
+                                Фото
+                            </label>
+                            <input type="file" id="prod_photo_1" name="prod_photo_1" accept="image/*">
+                            <input type="file" id="prod_photo_2" name="prod_photo_2" accept="image/*">
+                            <input type="file" id="prod_photo_3" name="prod_photo_3" accept="image/*">
+                            <input type="file" id="prod_photo_4" name="prod_photo_4" accept="image/*">
                         </p>
 
                     </div>
