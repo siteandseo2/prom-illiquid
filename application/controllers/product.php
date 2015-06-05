@@ -38,6 +38,15 @@ class Product extends CI_Controller {
         $this->data_db['subcat_name'] = $this->product_m->get_subcat_name($link);
         $this->data_db['cat_name'] = $this->product_m->get_cat_name($link);
         $this->data_db['link'] = $link;
+        $this->data_db['subcat'] = $this->subcategories_m->get_subcategories_list();
+        $this->data_db['prepare'] = $this->category_m->category_list();
+        foreach ($this->data_db['prepare'] as $key => $value) {
+            foreach ($this->data_db['subcat'] as $k => $v) {
+                if ($v['cat_id'] == $value['id']) {
+                    $this->data_db['cat_list'][$value['name']][$value['link']][$v['link']][$v['name']] = $this->product_m->count_products($v['id']);
+                }
+            }
+        }
         $this->load->view("pages/products", $this->data_db);
         $this->load->view("templates/footer", $this->script);
     }

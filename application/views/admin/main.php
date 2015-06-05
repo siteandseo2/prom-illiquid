@@ -39,7 +39,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 ">               
+            <div class="col-lg-12 ">  
+
+                <!--NAV START -->
+
+
                 <nav id="cabinet-navigation">
                     <ul id="main-nav" class="clearfix">                           
                         <?php
@@ -115,6 +119,256 @@
                     </ul>
                 </nav>
             </div> 
+            <!--NAV END -->
+            <form action="edit_menu" method="POST" class="form-submit">
+                <!--TABLE NAV START -->
+                <div class="row">               
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Меню 1-го уровня
+                            <small>Menu 1-st level</small>
+                        </h1>  
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>Меню 1-го уровня
+                            </li>                        
+                        </ol>                    
+                    </div>                 
+                </div>
+                <div class="col-lg-7">
+
+                    <table class='col-lg-6 table-bordered table-responsive table'>
+                        <tbody>
+                        <thead>
+                        <th>
+                            #id
+                        </th>
+                        <th class='col-lg-9'>
+                            Название
+                        </th>                        
+                        <th class='col-lg-1'>
+                            Редактировать
+                        </th>  
+                        <th class='col-lg-1'>
+                            Удалить
+                        <th class='col-lg-1'>                   
+                            Скрыть
+                        </th>  
+                        </thead>
+                        <?php
+                        foreach ($fst_level as $item) {
+                            if ($item['status'] == 'enable') {
+                                $btn_name = '<i class = "fa fa-eye-slash"></i> Скрыть';
+                            } else {
+                                $btn_name = '<i class = "fa fa-eye"></i> Показать';
+                            }
+                            if ($item['owner'] == 'admin') {
+                                $dis = 'disabled';
+                            } else {
+                                $dis = '';
+                            }
+                            ?>
+                            <tr>
+                                <td>
+                                    <?= $item['id'] ?> <input class="" type='checkbox' name="id[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"/>
+                                    <input  type='text' name="link[<?= $item['id'] ?>]" value=" <?= $item['link'] ?>" hidden=""/>
+                                    <input  type='text' name="parent[<?= $item['id'] ?>]" value=" <?= $item['p_id'] ?>" hidden=""/>
+                                    <input  type='text' name="parent2[<?= $item['id'] ?>]" value=" <?= $item['p_id2'] ?>" hidden=""/>
+                                </td>
+                                <td><input class="form-control" type='text' name="name[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>               
+                                <td><button class="btn btn-success" type='submit' name="edit[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"><i class="fa fa-pencil"></i> Редактировать</button></td>
+                                <td><button class="btn btn-danger"type='submit' name="delete[<?= $item['id'] ?>]" value="<?= $item['id'] ?>" <?= $dis ?>><i class="fa fa-trash-o"></i> Удалить</button></td>
+                                <td><button class = "btn btn-default"type = 'submit' name = "status[<?= $item['id'] ?>]" value = "<?= $item['status'] ?>"><?= $btn_name ?></button></td>   
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+
+                </div> 
+                <div class="row">               
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Меню 2-го уровня
+                            <small>Menu 2-nd level</small>
+                        </h1>  
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>Меню 2-го уровня
+                            </li>                        
+                        </ol>                    
+                    </div>                 
+                </div>
+                <div class="col-lg-12">
+
+                    <table class='col-lg-6 table-bordered table-responsive table'>
+                        <tbody>
+                        <thead>
+                        <th>
+                            #id
+                        </th>
+                        <th class='col-lg-4'>
+                            Название
+                        </th>
+                        <th class='col-lg-4'>
+                            Родитель
+                        </th>  
+                        <th class='col-lg-4'>
+                            Ссылка
+                        </th>  
+                        <th >
+                            Редактировать
+                        </th>  
+                        <th >
+                            Удалить
+                        <th>                   
+                            Скрыть
+                        </th>  
+                        </thead>
+                        <?php
+                        foreach ($scnd_level as $item) {
+                            if ($item['status'] == 'enable') {
+                                $btn_name = '<i class = "fa fa-eye-slash"></i> Скрыть';
+                            } else {
+                                $btn_name = '<i class = "fa fa-eye"></i> Показать';
+                            }
+                            if ($item['owner'] == 'admin') {
+                                $dis = 'disabled';
+                            } else {
+                                $dis = '';
+                            }
+                            ?>
+                            <tr>
+                                <td>
+                                    <?= $item['id'] ?> <input class="" type='checkbox' name="id[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"/>                                  
+                                    <input  type='text' name="parent2[<?= $item['id'] ?>]" value=" <?= $item['p_id2'] ?>" hidden=""/>
+                                </td>
+                                <td><input class="form-control" type='text' name="name[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>   
+                                <td>
+                                    <select class = "form-control" name = "parent[<?= $item['id'] ?>]" >
+                                        <?php
+                                        foreach ($fst_level as $id) {
+                                            if ($id['id'] == $item['p_id']) {
+                                                ?>
+                                                <option value = "<?= $item['p_id'] ?>"><?= $id['name'] ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        foreach ($fst_level as $id) {
+                                            if ($id['id'] != $item['p_id']) {
+                                                ?>
+                                                <option value = "<?= $id['id'] ?>"><?= $id['name'] ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
+                                <td><input class="form-control" type='text' name="link[<?= $item['id'] ?>]" value="<?= $item['link'] ?>"/></td> 
+                                <td><button class="btn btn-success" type='submit' name="edit[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"><i class="fa fa-pencil"></i> Редактировать</button></td>
+                                <td><button class="btn btn-danger"type='submit' name="delete[<?= $item['id'] ?>]" value="<?= $item['id'] ?>" <?= $dis ?>><i class="fa fa-trash-o"></i> Удалить</button></td>
+                                <td><button class = "btn btn-default"type = 'submit' name = "status2[<?= $item['id'] ?>]" value = "<?= $item['status'] ?>"><?= $btn_name ?></button></td>   
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+
+                </div>  
+                <div class="row">               
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Меню 3-го уровня
+                            <small>Menu 3-rd level</small>
+                        </h1>  
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>Меню 3-го уровня
+                            </li>                        
+                        </ol>                    
+                    </div>                 
+                </div>
+                <div class="col-lg-12">
+
+                    <table class='col-lg-6 table-bordered table-responsive table'>
+                        <tbody>
+                        <thead>
+                        <th>
+                            #id
+                        </th>
+                        <th class='col-lg-4'>
+                            Название
+                        </th>
+                        <th class='col-lg-4'>
+                            Родитель
+                        </th>  
+                        <th class='col-lg-4'>
+                            Ссылка
+                        </th>  
+                        <th >
+                            Редактировать
+                        </th>  
+                        <th >
+                            Удалить
+                        <th>                   
+                            Скрыть
+                        </th>  
+                        </thead>
+                        <?php
+                        foreach ($trd_level as $item) {
+                            if ($item['status'] == 'enable') {
+                                $btn_name = '<i class = "fa fa-eye-slash"></i> Скрыть';
+                            } else {
+                                $btn_name = '<i class = "fa fa-eye"></i> Показать';
+                            }
+                            if ($item['owner'] == 'admin') {
+                                $dis = 'disabled';
+                            } else {
+                                $dis = '';
+                            }
+                            ?>
+                            <tr>
+                                <td>
+                                    <?= $item['id'] ?> <input class="" type='checkbox' name="id[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"/>
+                                    <input  type='text' name="parent[<?= $item['id'] ?>]" value=" <?= $item['p_id'] ?>" hidden=""/>
+                                </td>
+                                <td><input class="form-control" type='text' name="name[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>    
+                                <td>
+                                    <select class = "form-control" name = "parent2[<?= $item['id'] ?>]" >
+                                        <?php
+                                        foreach ($scnd_level as $id) {
+                                            if ($id['id'] == $item['p_id2']) {
+                                                ?>
+                                                <option value = "<?= $item['p_id2'] ?>"><?= $id['name'] ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        foreach ($scnd_level as $id) {
+                                            if ($id['id'] != $item['p_id2']) {
+                                                ?>
+                                                <option value = "<?= $id['id'] ?>"><?= $id['name'] ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </td>  
+                                <td><input class="form-control" type='text' name="link[<?= $item['id'] ?>]" value="<?= $item['link'] ?>"/></td> 
+                                <td><button class="btn btn-success" type='submit' name="edit[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"><i class="fa fa-pencil"></i> Редактировать</button></td>
+                                <td><button class="btn btn-danger"type='submit' name="delete[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"<?=$dis?>><i class="fa fa-trash-o"></i> Удалить</button></td>
+                                <td><button class = "btn btn-default"type = 'submit' name = "status3[<?= $item['id'] ?>]" value = "<?= $item['status'] ?>"><?= $btn_name ?></button></td>   
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+
+                </div> 
+                <!--TABLE NAV END -->
+            </form>
             <div class="row ">  
                 <div class="col-lg-12">
                     <div class="pull-left col-lg-12 col-sm-auto">
@@ -132,7 +386,7 @@
                     </div>
                 </div>
             </div>
-           
+
         </div> 
         <!-- /.container-fluid -->
 

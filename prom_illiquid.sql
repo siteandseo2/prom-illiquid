@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 03 2015 г., 17:12
+-- Время создания: Июн 05 2015 г., 16:37
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('f5ab18617261f87385e6b2acb6acfbb8', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433340732, 'a:2:{s:9:"user_data";s:0:"";s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
+('6aa1d7b3cd91d957cb64ff67471f440f', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433511204, 'a:1:{s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
 
 -- --------------------------------------------------------
 
@@ -104,21 +104,22 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `p_id2` int(11) NOT NULL,
   `status` varchar(10) NOT NULL,
   `link` varchar(50) NOT NULL,
+  `owner` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
 -- Дамп данных таблицы `menu`
 --
 
-INSERT INTO `menu` (`id`, `name`, `type`, `p_id`, `p_id2`, `status`, `link`) VALUES
-(1, 'МОЙ КАБИНЕТ', 'r', 0, 0, 'enable', '#'),
-(2, 'Главная', 'd', 1, 0, 'enable', 'default'),
-(3, 'Персональные данные', 'd', 1, 0, 'enable', '#'),
-(4, 'Информация о компании', 'dd', 0, 3, 'enable', 'account'),
-(5, 'Товары и услуги', 'r', 0, 0, 'enable', '#'),
-(6, 'Добавить товар', 'd', 5, 0, 'enable', 'add_product'),
-(7, 'info', 'dd', 0, 3, 'enable', '#');
+INSERT INTO `menu` (`id`, `name`, `type`, `p_id`, `p_id2`, `status`, `link`, `owner`) VALUES
+(1, 'Мой кабинет', 'r', 0, 0, 'enable', ' #', 'admin'),
+(2, 'Главная', 'd', 1, 0, 'enable', 'default', 'admin'),
+(3, 'Персональные данные', 'd', 1, 0, 'enable', '#', 'admin'),
+(4, 'Информация о компании', 'dd', 0, 3, 'enable', 'account', 'admin'),
+(5, 'Товары и услуги', 'r', 0, 0, 'enable', '#', 'admin'),
+(6, 'Добавить товар', 'd', 5, 0, 'enable', 'add_product', 'admin'),
+(34, 'Логин и Пароль', 'dd', 0, 3, 'enable', 'login_password', 'admin');
 
 -- --------------------------------------------------------
 
@@ -134,11 +135,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   `subcat_id` int(11) NOT NULL,
   `status` varchar(10) NOT NULL,
   `description` text,
-  `s_description` text,
   `currency` varchar(5) DEFAULT NULL,
-  `availability` varchar(5) DEFAULT NULL,
   `prod_code` int(15) DEFAULT NULL,
-  `prod_type` varchar(50) NOT NULL,
   `prod_quantity` varchar(20) NOT NULL,
   `id_user` int(10) NOT NULL,
   PRIMARY KEY (`id`)
@@ -148,11 +146,11 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- Дамп данных таблицы `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `subcat_id`, `status`, `description`, `s_description`, `currency`, `availability`, `prod_code`, `prod_type`, `prod_quantity`, `id_user`) VALUES
-(1, 'Шаровая опора Ланос Сенс Нексия CTR', '../../../uploads/products/1_sharovaya-opora-lanos-lanos-v-assortimente-222-B.jpg', 195, 2, 'enable', 'Шаровые опоры рычага Lanos (Sens, Nexia) производства CTR (Корея). Опора симметрична – по стороне установки не разделяется. Central Corporation является поставщиком шаровых опор на конвейер, поэтому заказав, например, нижние опоры GM на Ланос (Сенс, Нексию) в упаковке General Motors Вы получите эту же деталь но значительно дорóже. Не стоит переплачивать за упаковку!\n', 'Марка\nDaewoo\nПроизводитель  \nCTR\nТип техники\nЛегковой автомобиль\nТип запчасти\nОригинал\nСтрана производитель\nЮжная Корея\n\n', 'uah', 'yes', 94788122, 'retail_only', 'one', 2548244),
-(2, 'Стойка газовая АГАТ', '../../../uploads/products/1_4026380d65b558098b943c75118616f4.jpg', 300, 2, 'enable', 'Амортизатор 1102, 1103 Агат передний левый Спорт (стойка красная)', 'Заводской номер	А511-2905007\nПроизводитель	Агат', 'uah', 'yes', 54740, 'retail_only', 'one', 2548244),
-(4, 'Кирпич Куйбышево М-100 250х120х65', '../../../uploads/products/1_m150.jpg', 3.85, 3, 'enable', 'Марка по прочности: 100 кг/см2.\nИспользуется для укладки внутренних и наружных стен дома.\nВ ассортименте строительный рядовой кирпич М-100, М-125.', 'Доставка:да\nПартия поставки: от 4000\nАдрес: Киев, ул. Тепловозная 18-д', 'uah', 'yes', 35242, 'wholesele_only', 'one', 1),
-(5, 'Клапан 1102, 1103, 1105 впуск ', '../../../uploads/products/1_187735313_3_644x461_klapana-na-zaz-968m-avtozapchasti.jpg', 186, 1, 'enable', 'Клапана б/у ЗАЗ-968 совдепия комплект на движок 4 впусных 4 выпукных', 'Код товара	10308\nКаталожный номер	245.1007010-10\nЗаводской номер	MS-1102IN\nПроизводитель	MASTER', 'uah', 'yes', 2147483647, 'retail_only', 'box', 1);
+INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `subcat_id`, `status`, `description`, `currency`, `prod_code`, `prod_quantity`, `id_user`) VALUES
+(1, 'Шаровая опора Ланос Сенс Нексия CTR', '../../../uploads/products/1_sharovaya-opora-lanos-lanos-v-assortimente-222-B.jpg', 195, 2, 'enable', 'Шаровые опоры рычага Lanos (Sens, Nexia) производства CTR (Корея). Опора симметрична – по стороне установки не разделяется. Central Corporation является поставщиком шаровых опор на конвейер, поэтому заказав, например, нижние опоры GM на Ланос (Сенс, Нексию) в упаковке General Motors Вы получите эту же деталь но значительно дорóже. Не стоит переплачивать за упаковку!\n', 'Грн.', 94788122, 'Шт.', 2548244),
+(2, 'Стойка газовая АГАТ', '../../../uploads/products/1_4026380d65b558098b943c75118616f4.jpg', 300, 2, 'enable', 'Амортизатор 1102, 1103 Агат передний левый Спорт (стойка красная)', 'Грн.', 54740, 'Шт.', 2548244),
+(4, 'Кирпич Куйбышево М-100 250х120х65', '../../../uploads/products/1_m150.jpg', 3.85, 3, 'enable', 'Марка по прочности: 100 кг/см2.\nИспользуется для укладки внутренних и наружных стен дома.\nВ ассортименте строительный рядовой кирпич М-100, М-125.', 'Грн.', 35242, 'Шт.', 1),
+(5, 'Клапан 1102, 1103, 1105 впуск ', '../../../uploads/products/1_187735313_3_644x461_klapana-na-zaz-968m-avtozapchasti.jpg', 186, 1, 'enable', 'Клапана б/у ЗАЗ-968 совдепия комплект на движок 4 впусных 4 выпукных', 'Грн.', 2147483647, 'Упаковку', 1);
 
 -- --------------------------------------------------------
 
@@ -196,16 +194,20 @@ CREATE TABLE IF NOT EXISTS `user` (
   `usercat` varchar(50) NOT NULL,
   `surname` varchar(50) NOT NULL,
   `patronymic` varchar(50) NOT NULL,
+  `country` varchar(25) NOT NULL,
+  `city` varchar(35) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548245 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548247 ;
 
 --
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `company`, `user_type`, `usercat`, `surname`, `patronymic`) VALUES
-(1, 'Admin', 'admin', 'prom_admin', 'Admin', 'admin', 'Maks', 'Prihodko', 'Alexandrovich'),
-(2548244, 'Максим', 'mprihodko92@gmail.com', 'qwer0987', 'Site&Seo', 'user', 'seller', 'Приходько', 'Александрович');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `company`, `user_type`, `usercat`, `surname`, `patronymic`, `country`, `city`) VALUES
+(1, 'Admin', 'admin', 'prom_admin', 'Admin', 'admin', 'Maks', 'Prihodko', 'Alexandrovich', 'Украина', 'Запорожье'),
+(2548244, 'Максим', 'mprihodko92@gmail.com', 'qwer0987', 'Site&Seo', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье'),
+(2548245, 'саммпм', 'hfgdfj@gfd.dsfgs', '12345678', 'NULL', 'user', 'buyer', 'Приходь', 'гроавотпова', 'NULL', 'NULL'),
+(2548246, 'Maksim', 'John@gmail.com', 'qwert098', 'Site&Seo', 'user', 'seller', 'Pryhodko', 'Aleksandrovich', 'ua', 'zp');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

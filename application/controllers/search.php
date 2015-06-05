@@ -11,18 +11,40 @@
  *
  * @author baccardi
  */
-class Search  extends CI_Controller{
-     function __construct() {
-         parent::__construct();
-         $this->load->model('product_m');
-     }
-     function get_search(){
-         if(isset($_POST['search'])){
-             $name=$this->input->post('name');
-             $data['pr']=$this->product_m->search_prod($name);
-             echo '<pre>';
-             print_r($data['pr']);
-             echo '</pre>';
-         }
-     }
+class Search extends CI_Controller {
+
+    public $data;
+
+    function __construct() {
+        parent::__construct();
+        $this->load->model('product_m');
+        $this->load->model('main_m');
+        /* load header */
+        if (!empty($this->session->userdata('user'))) {
+            $this->data['user'] = @$this->session->userdata('user');
+            $this->data['menu'] = $this->main_m->get_menu();
+            $this->load->view("templates/header_user", $this->data);
+        } else {
+            $this->load->view("templates/header");
+        }
+        /* load category_m */
+        $this->load->model('category_m');
+        $this->load->model('subcategories_m');
+        $this->data['list'] = $this->subcategories_m->get_subcategories_list();
+        $this->data['group_list'] = $this->category_m->focus_product_list();
+        $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/product_settings.js'></script><script src='../../../js/main.js'></script>";
+    }
+
+    function get_search() {
+        if (isset($_POST['search'])) {
+            $name = $this->input->post('name');
+            $name = explode(" ", $name);
+            foreach ($name as $item) {
+                $this->data['items'] = $this->product_m->search_prod($item);
+            }
+            $this->load->view("pages/products", $this->data);
+            $this->load->view("templates/footer", $this->script);
+        }
+    }
+
 }

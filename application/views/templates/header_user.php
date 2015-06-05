@@ -133,44 +133,46 @@
 
 
                     <!-- Search -->
-                    <div id="searching" class="clearfix">
+                    <form action="<?= base_url(); ?>search" method="POST">
+                        <div id="searching" class="clearfix">
 
-                        <div class="search-inner clearfix">
-                            <input type="text" placeholder="Я ХОЧУ КУПИТЬ" class="search-input" autofocus>
+                            <div class="search-inner clearfix">
+                                <input type="text" placeholder="Я ХОЧУ КУПИТЬ" name="name" class="search-input" autofocus>
 
-                            <div class="btn-group s-butt">
-                                <button type="button" class="btn btn-default search-block-button"  value="default" id="location-select-button">
-                                    <span class="btn-text">Вся Украина</span>
-                                    <span class="search-select-icon">
-                                        <i class="fa fa-angle-down"></i>
-                                    </span>
-
-                                    <div class="sub-nav">
-                                        <input type="text" placeholder="Введите название города" name="searchCityName">
-                                        <ul></ul>
-                                    </div>
-                                </button>
-
-                                <a href="#" title="Искать на сайте">
-                                    <button type="button" class="btn btn-default search-block-button" value="BUY" id="buy-search-button">
-                                        <span class="btn-text">Поиск</span>
+                                <div class="btn-group s-butt">
+                                    <button type="button" class="btn btn-default search-block-button" id="location-select-button">
+                                        <span class="btn-text">Вся Украина</span>
                                         <span class="search-select-icon">
-                                            <i class="fa fa-search"></i>
+                                            <i class="fa fa-angle-down"></i>
                                         </span>
+
+                                        <div class="sub-nav">
+                                            <input type="text" placeholder="Введите название города" name="searchCityName">
+                                            <ul></ul>
+                                        </div>
                                     </button>
-                                </a>
-                            </div>
-                        </div>
 
-                        <div class="search-inner clearfix">
-                            <div class="s-butt">
-                                <button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
-                                    <span class="btn-text">Я хочу продать</span>
-                                </button>
+                                    <a href="#" title="Искать на сайте">
+                                        <button type="submit" class="btn btn-default search-block-button" name="search" value="BUY" id="buy-search-button">
+                                            <span class="btn-text">Поиск</span>
+                                            <span class="search-select-icon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
+                            <div class="search-inner clearfix">
+                                <div class="s-butt">
+                                    <button type="button" class="btn btn-default search-block-button" value="SELL" id="sell-search-button">
+                                        <span class="btn-text">Я хочу продать</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
                     <!-- Search End --> 
                 </div>
                 <div class="row">
@@ -179,60 +181,62 @@
                     <!-- Cabinet Navigation -->
 
                     <nav id="cabinet-navigation">
-                        <ul id="main-nav" class="clearfix">                           
-                            <?php
-                            foreach ($menu as $item => $arr) {
-                                ?>
-                                <li>
-                                    <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
-                                        <span><?= $item ?></span>
-                                    </a>
+                    <ul id="main-nav" class="clearfix">                           
+                        <?php
+                        foreach ($menu as $item => $arr) {
+                            ?>
+                            <li>
+                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <span><?= $item ?></span>
+                                </a>
+                                <?php
+                                if (count($arr) > 1) {
+                                    ?>
                                     <div class="sub-nav out-level">
                                         <ul>
                                             <?php
-                                            if (!empty($arr)) {
-                                                foreach ($arr as $id => $array) {
-                                                    if ($id == $arr['0']) {
-                                                        foreach ($array as $sub => $mass) {
-                                                            if (count($mass) > 1) {
-                                                                ?>
-                                                                <li class="downItem">
-                                                                    <a href="<?= base_url(); ?><?= $sub ?>" onclick="return false;" class="clearfix">
-                                                                        <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
-                                                                        <span class="cabinet-nav-icon">
-                                                                            <i class="fa fa-angle-right"></i>
-                                                                        </span>
-                                                                    </a>
-                                                                    <div class="sub-nav inn-level">
-                                                                        <ul>
-                                                                            <?php
-                                                                            foreach ($mass as $k => $v) {
-                                                                                if (is_array($v)) {
-                                                                                    foreach ($v as $key => $zn) {
-                                                                                        ?>
-                                                                                        <li>
-                                                                                            <a href="<?= base_url(); ?><?= $key ?>">
-                                                                                                <span><?= $zn ?></span>
-                                                                                            </a>
-                                                                                        </li>
-                                                                                        <?php
-                                                                                    }
+                                            foreach ($arr as $id => $array) {
+                                                if ($id == $arr['0']) {
+
+                                                    foreach ($array as $sub => $mass) {
+                                                        if (count($mass) > 1) {
+                                                            ?>
+                                                            <li class="downItem">
+                                                                <a href="<?= base_url(); ?><?= $sub ?>" onclick="return false;" class="clearfix">
+                                                                    <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
+                                                                    <span class="cabinet-nav-icon">
+                                                                        <i class="fa fa-angle-right"></i>
+                                                                    </span>
+                                                                </a>
+                                                                <div class="sub-nav inn-level">
+                                                                    <ul>
+                                                                        <?php
+                                                                        foreach ($mass as $k => $v) {
+                                                                            if (is_array($v)) {
+                                                                                foreach ($v as $key => $zn) {
+                                                                                    ?>
+                                                                                    <li>
+                                                                                        <a href="<?= base_url(); ?><?= $key ?>">
+                                                                                            <span><?= $zn ?></span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <?php
                                                                                 }
                                                                             }
-                                                                            ?>                                                                        
-                                                                        </ul>
-                                                                    </div>
-                                                                </li>
-                                                                <?php
-                                                            } else {
-                                                                ?>                                           
-                                                                <li>
-                                                                    <a href="<?= base_url(); ?><?= $sub ?>" class="clearfix">
-                                                                        <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
-                                                                    </a>
-                                                                </li>                                                            
-                                                                <?php
-                                                            }
+                                                                        }
+                                                                        ?>                                                                        
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                            <?php
+                                                        } else {
+                                                            ?>                                           
+                                                            <li>
+                                                                <a href="<?= base_url(); ?><?= $sub ?>" class="clearfix">
+                                                                    <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
+                                                                </a>
+                                                            </li>                                                            
+                                                            <?php
                                                         }
                                                     }
                                                 }
@@ -240,12 +244,16 @@
                                             ?>
                                         </ul>
                                     </div>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                        </ul>
-                    </nav>
+                                    <?php
+                                }
+                                ?>
+                            </li>
+                            <?php
+                        }
+                        ?>
+
+                    </ul>
+                </nav>
                     <!-- Cabinet Navigation End -->
                 </div>
                 <!-- Branding & Navigation End -->

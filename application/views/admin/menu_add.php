@@ -28,6 +28,7 @@
 
             <div class="col-lg-6 tab_margin_top " >               
                 <form action="add_item_menu" method="POST" class="form-submit" enctype="multipart/form-data">
+                    <input name='owner'  type='text'  value="user" hidden>
                     <label>Название</label>
                     <input class='form-control' name='name' placeholder="Например МОЙ КАБИНЕТ (Максимум 25 символов)" type='text'/>
                     <label>Статус</label>
