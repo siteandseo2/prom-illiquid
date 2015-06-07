@@ -1423,10 +1423,9 @@ p  .form-submit {
 	padding: 0 22px;
 }
 
-#account_map {
+#map {
 	width: 100%;
-	height: 250px;
-	
+	height: 500px;
 }
 
 /* Categories */

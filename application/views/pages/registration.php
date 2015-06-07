@@ -65,7 +65,7 @@
                                 </span>
                             </span>
                             <span class="form-name">
-                                <input type="text" data-validate="w" placeholder="Отчество" name="patronymic">
+                                <input type="text" placeholder="Отчество" name="patronymic">
                                 <span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
@@ -114,7 +114,13 @@
                                 </select>
                             </p>
 							
-
+							<p class="form-name">
+								<input type="text" placeholder="Адрес" name="address">
+								<span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+							</p>
+							
                         </div>
                         <!-- Buyer set End -->
 						
@@ -169,6 +175,12 @@
                                     <!-- AJAX or foreach -->
                                 </select>
                             </p>
+							<p class="form-name">
+								<input type="text" class="validate" data-validate="wn" placeholder="Адрес компании *" name="company_address">
+								<span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+							</p>
 
                         </div>
                         <!-- Seller set End -->
