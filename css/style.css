@@ -157,10 +157,15 @@ body.no-bg {
     text-align: right;
 }
 
-#top-bar .mini-contacts {
+#top-bar .mini-contacts > a  {
     color: #9e9e9e;
     margin-right: 20px;
     margin-left: 0;
+	text-decoration: none;
+}
+
+#top-bar .mini-contacts > a:hover {
+	text-decoration: underline;
 }
 
 #top-bar  i {

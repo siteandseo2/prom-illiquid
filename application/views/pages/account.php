@@ -12,7 +12,7 @@
                 <h2 class="cabinetHead">Персональные данные</h2>
 
                 <!-- Account -->
-                <form id="cabinet-my-account" class="form-submit clearfix" action="" method="POST" enctype="multipart/form-data">
+                <form id="cabinet-my-account" class="form-submit clearfix" method="POST" enctype="multipart/form-data">
 
                     <div class="col-sm-6">
                         <p>
@@ -52,8 +52,8 @@
                         -->
                         <p>
                             <label for="account_country">Страна</label>
-                            <select class="cabinet-form-input" id="account_country" name="account_country">
-                                <option value="ua"><?= $user_data['country'] ?></option>
+                            <select class="cabinet-form-input" id="account_country" name="account_country" data-map="country">
+                                <option value="ua"><?=$user_data['country']?></option>
                                 <option value="ua">Украина</option>
                                 <option value="ru">Россия</option>
                                 <option value="bl">Беларуссия</option>
@@ -64,8 +64,8 @@
                         </p>
                         <p>
                             <label for="account_city">Город</label>
-                            <select id="account_city" name="account_city" class="cabinet-form-input">
-                                <option value="ky"><?= $user_data['city'] ?></option>
+                            <select id="account_city" name="account_city" class="cabinet-form-input" data-map="city">
+                                <option value="zp"><?=$user_data['city']?></option>
                                 <option value="zp">Запорожье</option>
                                 <option value="ky">Киев</option>
                                 <option value="kh">Харьков</option>
@@ -75,8 +75,12 @@
                             </select>
                         </p>
                         <p>
-                            <label for="account_address">Адрес</label>
-                            <input type="text" value="<?= $user_data['street'] ?>  <?= $user_data['building'] ?>" id="account_address" name="account_address" class="cabinet-form-input">
+                            <label for="account_street">Улица</label>
+                            <input type="text" value="<?= $user_data['street'] ?>" id="account_street" name="account_street" class="cabinet-form-input" data-map="street">
+                        </p>
+						<p>
+                            <label for="account_building">Дом</label>
+                            <input type="text" value="<?= $user_data['building'] ?>" id="account_building" name="account_building" class="cabinet-form-input" data-map="building">
                         </p>
 
                         <hr>
@@ -92,10 +96,9 @@
 
                         <p>
                             <label>Ваше местоположение на карте</label>
-                        <div id="map">
-                                 <!-- <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ZXnZmgyZKZEy3xNR_nhW1LqjoexWeRLd&width=600&height=450"></script> -->
-                        </div>
+							<div id="map"></div>
                         </p>
+						
                     </div>
 
                 </form>

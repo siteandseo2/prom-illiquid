@@ -56,5 +56,13 @@ class Main_m extends CI_Model {
         $main = $this->db->where('type', 'dd')->get('menu');
         return $main->result_array();
     }
+    function get_location(){
+        $location= $this->db->get('city');
+        return $location->result_array();
+    }
+      function get_city(){
+        $location= $this->db->get('locality');
+        return $location->result_array();
+    }
 
 }

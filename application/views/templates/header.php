@@ -27,22 +27,22 @@
                             <div class="wf-table">
                                 <!-- Top bar conctacts icons -->
                                 <div class="wf-td">
-                                    <span class="mini-contacts email">
-                                        <i class="fa fa-envelope-o"></i>
-                                        <span class="top-bar-icon-text">isitinme88@gmail.com</span>
+                                    <span class="mini-contacts">
+                                        <a href="<?= base_url(); ?>" class="top-bar-icon-text">О нас</a>
                                     </span>
-                                    <span class="mini-contacts phone">
-                                        <i class="fa fa-phone"></i>
-                                        <span class="top-bar-icon-text">(095) 896 24 70</span>
-                                    </span>
-                                    <span class="mini-contacts skype">
-                                        <i class="fa fa-skype"></i>
-                                        <span class="top-bar-icon-text">alexander_punkk</span>
+                                    <span class="mini-contacts">
+                                        <a href="<?= base_url(); ?>" class="top-bar-icon-text">Тех поддержка</a>
                                     </span>
                                 </div>
                                 <!-- Top bar conctacts icons End -->
 
                                 <div class="right-block wf-td clearfix">
+									<div class="mini-login">
+										<a href="<?= base_url(); ?>" class="submit">
+											<i class="fa fa-shopping-cart"></i>
+											<span class="top-bar-icon-text">Корзина</span>
+										</a>
+									</div>
                                     <div class="mini-login">
                                         <a href="<?= base_url(); ?>login" class="submit">
                                             <i class="fa fa-sign-in"></i>
