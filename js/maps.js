@@ -1,19 +1,18 @@
 $( document ).ready(function() {
 	
-	alert( 'maps uploaded!' );
-	
 	(function() {
 		
-		var country = document.getElementById('account_country').options[0].text,
-			city = document.getElementById('account_city').options[0].text,
-			address = document.getElementById('account_address').value;
+		var country = document.querySelector('[data-map="country"]').options[0].text,
+			city = document.querySelector('[data-map="city"]').options[0].text,
+			street = document.querySelector('[data-map="street"]').value,
+			building = document.querySelector('[data-map="building"]').value;
 		
-		console.log( country, city, address );
+		console.log( country, city, street, building );
 		
 		function sendToYandex() {
 			
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'http://geocode-maps.yandex.ru/1.x/?geocode=' + country + ',+' + city + ',+' + address, true);
+			xhr.open('GET', 'http://geocode-maps.yandex.ru/1.x/?geocode=' + country + ',+' + city + ',+' + street + ',+' + building, true);
 			
 			xhr.onreadystatechange = function() {
 				if( xhr.readyState != 4 ) return;

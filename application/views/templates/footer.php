@@ -165,16 +165,9 @@
     </div>
 
 	
-	<!-- Modal -->
+	
     <div class="overlay"></div>
 	
-	<div class="registrResponse">
-		<h3></h3>
-		<div class="modalOk">
-			<span>Ok</span>
-		</div>
-	</div>
-	<!-- Modal End -->
 
 </footer>
 
