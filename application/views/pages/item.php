@@ -47,21 +47,27 @@
                         <img src="<?= $item['image_path'] ?>" alt="" width="700" height="850">
                     </a>
                     <div class="thumbnails clearfix">
-                        <div class="col-md-4 col-sm-4">
+                        <? if(!empty($item['min_img1'])) {?>
+                        <div class="col-md-4 col-sm-4">                            
                             <a href="<?= base_url(); ?><?= $item['min_img1'] ?>" class="fancy" data-fancybox-group="gallery">
                                 <img src="<?= $item['min_img1'] ?>" alt="" width="400" height="400">
                             </a>
                         </div>
+                        <? }
+                        if(!empty($item['min_img2'])) { ?>
                         <div class="col-md-4 col-sm-4">
                             <a href="<?= base_url(); ?><?= $item['min_img2'] ?>" class="fancy" data-fancybox-group="gallery"> 
                                 <img src="<?= $item['min_img2'] ?>" alt="" width="400" height="400">
                             </a>
                         </div>
+                        <? }
+                        if(!empty($item['min_img3'])){ ?>
                         <div class="col-md-4 col-sm-4">
                             <a href="<?= base_url(); ?><?= $item['min_img3'] ?>" class="fancy" data-fancybox-group="gallery">
                                 <img src="<?= $item['min_img3'] ?>" alt="" width="400" height="400">
                             </a>
                         </div>
+                        <? } ?>
                     </div>
                 </div>
 
@@ -75,11 +81,12 @@
                         <span class="separetor">за</span>
                         <span class="quantity"><?= $item['prod_quantity'] ?></span>
                     </p>
-
+                    <? if(!empty($item['prod_min_order'])) {?>
                     <p class="order">
                         <span>Минимальный заказ:</span>
-                        <span class="q">1000</span>
+                        <span class="q"><?=$item['prod_min_order']?></span>
                     </p>
+                    <? } ?>
                     <!-- 
     <div class="rating clearfix">
     <div class="star-rating" title="Rated 5.00 of 5">
