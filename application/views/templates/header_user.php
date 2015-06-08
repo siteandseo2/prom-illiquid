@@ -8,7 +8,7 @@
         <meta name="author" content="SITE&SEO">        
         <link href="<?= base_url(); ?>../../../css/normalize.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
-		<link href="<?= base_url(); ?>../../../css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url(); ?>../../../css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/perfect-scrollbar.css">
@@ -17,8 +17,8 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/responsive.css">
-		
-		<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+        <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     </head>   
     <body class="no-bg home-cabinet">        
         <section id="page"> 
@@ -128,7 +128,13 @@
                     </div>
                     <div class="entrance">
                         <h5>Вы вошли как: </h5>
-                        <span><?= $user['usercat'] ?></span>
+                        <span><?php
+                           if($user['usercat']=='seller')
+                               echo 'Продавец';
+                           else
+                               echo 'Покупатель';
+                            ?>
+                        </span>
                     </div>
 
 
@@ -181,79 +187,85 @@
                     <!-- Cabinet Navigation -->
 
                     <nav id="cabinet-navigation">
-                    <ul id="main-nav" class="clearfix">                           
-                        <?php
-                        foreach ($menu as $item => $arr) {
-                            ?>
-                            <li>
-                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
-                                    <span><?= $item ?></span>
-                                </a>
-                                <?php
-                                if (count($arr) > 1) {
-                                    ?>
-                                    <div class="sub-nav out-level">
-                                        <ul>
-                                            <?php
-                                            foreach ($arr as $id => $array) {
-                                                if ($id == $arr['0']) {
+                        <ul id="main-nav" class="clearfix">                           
+                            <?php
+                            foreach ($menu as $item => $arr) {
+                                ?>
+                                <li>
+                                    <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                        <span><?= $item ?></span>
+                                    </a>
+                                    <?php
+                                    if (count($arr) > 1) {
+                                        ?>
+                                        <div class="sub-nav out-level">
+                                            <ul>
+                                                <?php
+                                                foreach ($arr as $id => $array) {
+                                                    if ($id == $arr['0']) {
 
-                                                    foreach ($array as $sub => $mass) {
-                                                        if (count($mass) > 1) {
-                                                            ?>
-                                                            <li class="downItem">
-                                                                <a href="<?= base_url(); ?><?= $sub ?>" onclick="return false;" class="clearfix">
-                                                                    <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
-                                                                    <span class="cabinet-nav-icon">
-                                                                        <i class="fa fa-angle-right"></i>
-                                                                    </span>
-                                                                </a>
-                                                                <div class="sub-nav inn-level">
-                                                                    <ul>
-                                                                        <?php
-                                                                        foreach ($mass as $k => $v) {
-                                                                            if (is_array($v)) {
-                                                                                foreach ($v as $key => $zn) {
-                                                                                    ?>
-                                                                                    <li>
-                                                                                        <a href="<?= base_url(); ?><?= $key ?>">
-                                                                                            <span><?= $zn ?></span>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    <?php
+                                                        foreach ($array as $sub => $mass) {
+                                                            if (count($mass) > 1) {
+                                                                ?>
+                                                                <li class="downItem">
+                                                                    <a href="<?= base_url(); ?><?= $sub ?>" onclick="return false;" class="clearfix">
+                                                                        <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
+                                                                        <span class="cabinet-nav-icon">
+                                                                            <i class="fa fa-angle-right"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                    <div class="sub-nav inn-level">
+                                                                        <ul>
+                                                                            <?php
+                                                                            foreach ($mass as $k => $v) {
+                                                                                if (is_array($v)) {
+                                                                                    foreach ($v as $key => $zn) {
+                                                                                        if ($key == 'account') {
+                                                                                            $key = 'account/' . $user['id'];
+                                                                                        }
+                                                                                        ?>
+                                                                                        <li>
+                                                                                            <a href="<?= base_url(); ?><?= $key ?>">
+                                                                                                <span><?= $zn ?></span>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <?php
+                                                                                    }
                                                                                 }
                                                                             }
-                                                                        }
-                                                                        ?>                                                                        
-                                                                    </ul>
-                                                                </div>
-                                                            </li>
-                                                            <?php
-                                                        } else {
-                                                            ?>                                           
-                                                            <li>
-                                                                <a href="<?= base_url(); ?><?= $sub ?>" class="clearfix">
-                                                                    <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
-                                                                </a>
-                                                            </li>                                                            
-                                                            <?php
+                                                                            ?>                                                                        
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                <?php
+                                                            } else {
+                                                                if ($sub == 'account') {
+                                                                    $sub = 'account/' . $user['id'];
+                                                                }
+                                                                ?>                                           
+                                                                <li>
+                                                                    <a href="<?= base_url(); ?><?= $sub ?>" class="clearfix">
+                                                                        <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
+                                                                    </a>
+                                                                </li>                                                            
+                                                                <?php
+                                                            }
                                                         }
                                                     }
                                                 }
-                                            }
-                                            ?>
-                                        </ul>
-                                    </div>
-                                    <?php
-                                }
-                                ?>
-                            </li>
-                            <?php
-                        }
-                        ?>
+                                                ?>
+                                            </ul>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </li>
+                                <?php
+                            }
+                            ?>
 
-                    </ul>
-                </nav>
+                        </ul>
+                    </nav>
                     <!-- Cabinet Navigation End -->
                 </div>
                 <!-- Branding & Navigation End -->

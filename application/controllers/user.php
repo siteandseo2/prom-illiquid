@@ -11,7 +11,15 @@ class User extends CI_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('product_m');
+        $this->load->model('main_m');
         $this->data_user['user'] = @$this->session->userdata('user');
+        if (!empty($this->session->userdata('user'))) {
+            $this->data['user'] = @$this->session->userdata('user');
+            $this->data['menu'] = $this->main_m->get_menu();
+            $this->load->view("templates/header_user", $this->data);
+        } else {
+            $this->load->view("templates/header");
+        }
     }
 
     /* function Add user to database */
@@ -51,8 +59,7 @@ class User extends CI_Controller {
     /* function login user from database */
 
     function get_user() {
-//        $this->data['script'] = "<script src='../../../js/validation.js'></script>";
-        $this->load->view('templates/header');
+//        $this->data['script'] = "<script src='../../../js/validation.js'></script>";        
         $this->load->view('pages/login');
         $this->load->view('templates/footer', $this->data);
         if (isset($_POST['login'])) {
@@ -115,6 +122,17 @@ class User extends CI_Controller {
                 }
             }
         }
+    }
+
+    function accout_user($id) {
+        $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
+        foreach ($this->data['user_data2'] as $key => $val) {
+            foreach ($val as $k => $v) {
+                $this->data['user_data'][$k] = $v;
+            }
+        }
+        $this->load->view('pages/account', $this->data);
+        $this->load->view('templates/footer', $this->data);
     }
 
 }
