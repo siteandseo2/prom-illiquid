@@ -108,19 +108,17 @@
                                 <label for="location">Область</label>
                                 <select class="cabinet-form-input" name="location" id="location">
                                     <?php
-                                    foreach ($location as $k) {
+                                    foreach($location as $k) {
                                         ?>
-                                        <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
+                                        <option value="<?=$k['id']?>"><?=$k['name']?></option> 
                                         <?php
                                     }
                                     ?>                               
                                     <!-- AJAX or foreach -->
                                 </select>
                                 <label for="city">Город</label>
-                            </p>
-                            <p>
                                 <select class="cabinet-form-input" name="city" id="city">
-                                  
+                                    
                                     <!-- AJAX or foreach -->
                                 </select>
                             </p>
@@ -187,19 +185,17 @@
                                 <label for="company_location">Область</label>
                                 <select class="cabinet-form-input" name="company_location" id="company_location">
                                     <?php
-                                    foreach ($location as $k) {
+                                    foreach($location as $k) {
                                         ?>
-                                        <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
+                                        <option value="<?=$k['id']?>"><?=$k['name']?></option> 
                                         <?php
                                     }
                                     ?>                               
                                     <!-- AJAX or foreach -->
                                 </select>
                                 <label for="company_city">Город</label>
-                            </p>
-                            <p>
                                 <select class="cabinet-form-input" name="company_city" id="company_city">
-                                   
+                                    
                                     <!-- AJAX or foreach -->
                                 </select>
                             </p>
