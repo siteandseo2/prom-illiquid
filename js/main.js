@@ -89,12 +89,24 @@
 				$( this ).css('visibility', 'hidden');
 			});
 		}
+		
+		// AJAX Request
+		$.ajax({
+			method: 'POST',
+			url: 'ajax/change_location',
+			succes: function( content ) {
+				console.log( content );
+				console.log( typeof content );
+			}
+		});
+		
+		//fillInSearchDropDown();
+		
 	}
 	
 	
 	/* Fill in search dropdown */
 	
-	// AJAX
 	var cities = ['Винница', 'Луцк', 'Днепропетровск', 'Житомир', 'Ужгород', 'Запорожье',
 	'Ивано-Франковск', 'Киев', 'Кировоград', 'Львов', 'Николаев', 'Одесса', 'Полтава',
 	'Ровно', 'Сумы', 'Тернополь', 'Харьков', 'Херсон', 'Черкассы', 'Чернигов', 'Черновцы'
@@ -111,7 +123,7 @@
 	
 	//
 	
-	(function fillInSearchDropDown() {
+	function fillInSearchDropDown() {
 		
 		try {
 			var dropDownUl = document.querySelector('#location-select-button .sub-nav ul');
@@ -139,7 +151,7 @@
 			}
 		}
 		
-	})();
+	};
 	
 	/* Perfect scrollbar */
 	
