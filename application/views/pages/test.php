@@ -1,6 +1,10 @@
+<form method="POST" action="">
+    <textarea name="text" row="10"></textarea>
+    <input type="submit" value="clean" name="clean">
+</form>
 <?php
-echo "test";
-if (isset($_POST) && !empty($_POST['data'])) {
-    var_dump(json_decode($_POST['data']));    
+if(isset($_POST['clean'])){
+    $text= strip_tags($_POST['text']);
+    echo $text;
 }
 ?>

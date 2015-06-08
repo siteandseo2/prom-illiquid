@@ -26,25 +26,34 @@ class User extends CI_Controller {
     /* function Add user to database */
 
     function add_user() {
-
+        unset($this->data);
         if (isset($_POST)) {
             $this->data['usercat'] = $this->input->post('usercat');
             $this->data['user_type'] = 'user';
             $this->data['name'] = $this->input->post('name');
             $this->data['surname'] = $this->input->post('surname');
             $this->data['patronymic'] = $this->input->post('patronymic');
-            $this->data['email'] = $this->input->post('email');
             $this->data['password'] = $this->input->post('password');
             if ($this->data['usercat'] == 'buyer') {
                 $this->data['company'] = "NULL";
-                $this->data['country'] = "NULL";
-                $this->data['city'] = "NULL";
-            } else {
-                $this->data['company'] = $this->input->post('company');
+                $this->data['email'] = $this->input->post('email');
+                $this->data['phone'] = $this->input->post('phone');
                 $this->data['country'] = $this->input->post('country');
                 $this->data['city'] = $this->input->post('city');
-            }
-            $email = $this->input->post('email');
+                $this->data['street'] = $this->input->post('street');
+                $this->data['building'] = $this->input->post('building');
+                $email = $this->input->post('email');
+            } else {
+                $email = $this->input->post('company_email');
+                $this->data['company'] = $this->input->post('company');
+                $this->data['email'] = $this->input->post('company_email');
+                $this->data['phone'] = $this->input->post('company_phone');
+                $this->data['phone_more'] = $this->input->post('company_phone_more');
+                $this->data['country'] = $this->input->post('company_country');
+                $this->data['city'] = $this->input->post('company_city');
+                $this->data['street'] = $this->input->post('company_street');
+                $this->data['building'] = $this->input->post('company_building');
+            }            
             if (!empty($this->data)) {
                 $response = $this->user_model->add_user($this->data, $email);
             } else {
@@ -78,6 +87,8 @@ class User extends CI_Controller {
                     $session_data['usercat'] = $item['usercat'];
                     $session_data['company'] = $item['company'];
                     $session_data['password'] = $item['user_type'];
+                    $session_data['country'] = $item['country'];
+                    $session_data['city'] = $item['city'];
                 }
                 $this->session->set_userdata(array('user' => $session_data));
                 redirect(base_url('cabinet'));
