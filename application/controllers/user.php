@@ -20,7 +20,10 @@ class User extends CI_Controller {
         } else {
             $this->load->view("templates/header");
         }
-        $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/xml2json.js'></script><script src='../../../js/maps.js'></script><script src='../../../js/main.js'></script>";
+        $this->data['script'] = ""
+                . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                . "<script src='../../../js/main.js'></script>"
+                . "<script src='../../../js/validation.js'></script>";
     }
 
     /* function Add user to database */
@@ -53,7 +56,7 @@ class User extends CI_Controller {
                 $this->data['city'] = $this->input->post('company_city');
                 $this->data['street'] = $this->input->post('company_street');
                 $this->data['building'] = $this->input->post('company_building');
-            }            
+            }
             if (!empty($this->data)) {
                 $response = $this->user_model->add_user($this->data, $email);
             } else {
@@ -112,19 +115,26 @@ class User extends CI_Controller {
 
     function add_product() {
         if (isset($_POST)) {
-            if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
-                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_' . $_FILES["prod_photo"]["name"]);
+            unset($this->data);
+            if (is_uploaded_file($_FILES["prod_photo_1"]["tmp_name"])) {
+                move_uploaded_file($_FILES["prod_photo_1"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_' . $_FILES["prod_photo_1"]["name"]);
+                move_uploaded_file($_FILES["prod_photo_2"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_2"]["name"]);
+                move_uploaded_file($_FILES["prod_photo_3"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_3"]["name"]);
+                move_uploaded_file($_FILES["prod_photo_4"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_4"]["name"]);
                 $this->data['name'] = $this->input->post('prod_name');
-                $this->data['image_path'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_' . $_FILES["prod_photo"]["name"];
+                $this->data['image_path'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_' . $_FILES["prod_photo_1"]["name"];
+                $this->data['min_img1'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_2"]["name"];
+                $this->data['min_img2'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_3"]["name"];
+                $this->data['min_img3'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_4"]["name"];
                 $this->data['price'] = $this->input->post('prod_price');
                 $this->data['subcat_id'] = $this->input->post('prod_subcat');
                 $this->data['status'] = 'enable';
                 $this->data['description'] = $this->input->post('prod_description');
-                $this->data['s_description'] = $this->input->post('prod_s_description');
+                $this->data['prod_min_order'] = $this->input->post('prod_min_order');
                 $this->data['currency'] = $this->input->post('prod_currency');
-                $this->data['availability'] = $this->input->post('prod_is_available');
                 $this->data['prod_code'] = $this->input->post('prod_code');
-                $this->data['prod_type'] = $this->input->post('prod_type');
+                $this->data['condition'] = $this->input->post('prod_condition');
+                $this->data['ball'] = $this->input->post('ball');
                 $this->data['prod_quantity'] = $this->input->post('prod_quantity');
                 $this->data['id_user'] = $this->data_user['user']['id'];
                 if ($this->product_m->add_product($this->data) == true) {
@@ -140,6 +150,11 @@ class User extends CI_Controller {
         if (empty($this->session->userdata('user'))) {
             redirect(base_url());
         } else {
+            $this->data['script'] = ""
+                    . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                    . "<script src='../../../js/xml2json.js'></script>"
+                    . "<script src='../../../js/maps.js'></script>"
+                    . "<script src='../../../js/main.js'></script>";
             $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
             if ($this->data['user_data2'] == true) {
                 foreach ($this->data['user_data2'] as $key => $val) {
@@ -154,6 +169,7 @@ class User extends CI_Controller {
             }
         }
     }
+
     function company_info($id) {
         if (empty($this->session->userdata('user'))) {
             redirect(base_url());

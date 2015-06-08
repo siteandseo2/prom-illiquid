@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 08 2015 г., 16:27
+-- Время создания: Июн 08 2015 г., 17:09
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('2fbe3338e670cc37e9c6adc3cf5e188e', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433769953, '');
+('31c379d85429f86b4d107c729eb8bcfb', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433772289, 'a:1:{s:4:"user";a:10:{s:2:"id";s:7:"2548248";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:14:"John@gmail.com";s:7:"usercat";s:6:"seller";s:7:"company";s:23:"Желтый дезик";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";}}');
 
 -- --------------------------------------------------------
 
@@ -2672,18 +2672,23 @@ CREATE TABLE IF NOT EXISTS `product` (
   `id_user` int(10) NOT NULL,
   `ball` int(2) NOT NULL,
   `condition` varchar(10) NOT NULL,
+  `prod_min_order` varchar(100) DEFAULT NULL,
+  `min_img1` varchar(200) DEFAULT NULL,
+  `min_img2` varchar(200) DEFAULT NULL,
+  `min_img3` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Дамп данных таблицы `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `subcat_id`, `status`, `description`, `currency`, `prod_code`, `prod_quantity`, `id_user`, `ball`, `condition`) VALUES
-(1, 'Шаровая опора Ланос Сенс Нексия CTR', '../../../uploads/products/1_sharovaya-opora-lanos-lanos-v-assortimente-222-B.jpg', 195, 2, 'enable', 'Шаровые опоры рычага Lanos (Sens, Nexia) производства CTR (Корея). Опора симметрична – по стороне установки не разделяется. Central Corporation является поставщиком шаровых опор на конвейер, поэтому заказав, например, нижние опоры GM на Ланос (Сенс, Нексию) в упаковке General Motors Вы получите эту же деталь но значительно дорóже. Не стоит переплачивать за упаковку!\n', 'Грн.', 94788122, 'Шт.', 2548244, 10, 'Новое'),
-(2, 'Стойка газовая АГАТ', '../../../uploads/products/1_4026380d65b558098b943c75118616f4.jpg', 300, 2, 'enable', 'Амортизатор 1102, 1103 Агат передний левый Спорт (стойка красная)', 'Грн.', 54740, 'Шт.', 2548244, 10, 'Новое'),
-(4, 'Кирпич Куйбышево М-100 250х120х65', '../../../uploads/products/1_m150.jpg', 3.85, 3, 'enable', 'Марка по прочности: 100 кг/см2.\nИспользуется для укладки внутренних и наружных стен дома.\nВ ассортименте строительный рядовой кирпич М-100, М-125.', 'Грн.', 35242, 'Шт.', 1, 9, 'Новое'),
-(5, 'Клапан 1102, 1103, 1105 впуск ', '../../../uploads/products/1_187735313_3_644x461_klapana-na-zaz-968m-avtozapchasti.jpg', 186, 1, 'enable', 'Клапана б/у ЗАЗ-968 совдепия комплект на движок 4 впусных 4 выпукных', 'Грн.', 2147483647, 'Упаковку', 1, 8, 'Б/у');
+INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `subcat_id`, `status`, `description`, `currency`, `prod_code`, `prod_quantity`, `id_user`, `ball`, `condition`, `prod_min_order`, `min_img1`, `min_img2`, `min_img3`) VALUES
+(1, 'Шаровая опора Ланос Сенс Нексия CTR', '../../../uploads/products/1_sharovaya-opora-lanos-lanos-v-assortimente-222-B.jpg', 195, 2, 'enable', 'Шаровые опоры рычага Lanos (Sens, Nexia) производства CTR (Корея). Опора симметрична – по стороне установки не разделяется. Central Corporation является поставщиком шаровых опор на конвейер, поэтому заказав, например, нижние опоры GM на Ланос (Сенс, Нексию) в упаковке General Motors Вы получите эту же деталь но значительно дорóже. Не стоит переплачивать за упаковку!\n', 'Грн.', 94788122, 'Шт.', 2548244, 10, 'Новое', NULL, NULL, NULL, NULL),
+(2, 'Стойка газовая АГАТ', '../../../uploads/products/1_4026380d65b558098b943c75118616f4.jpg', 300, 2, 'enable', 'Амортизатор 1102, 1103 Агат передний левый Спорт (стойка красная)', 'Грн.', 54740, 'Шт.', 2548244, 10, 'Новое', NULL, NULL, NULL, NULL),
+(4, 'Кирпич Куйбышево М-100 250х120х65', '../../../uploads/products/1_m150.jpg', 3.85, 3, 'enable', 'Марка по прочности: 100 кг/см2.\nИспользуется для укладки внутренних и наружных стен дома.\nВ ассортименте строительный рядовой кирпич М-100, М-125.', 'Грн.', 35242, 'Шт.', 1, 9, 'Новое', NULL, NULL, NULL, NULL),
+(5, 'Клапан 1102, 1103, 1105 впуск ', '../../../uploads/products/1_187735313_3_644x461_klapana-na-zaz-968m-avtozapchasti.jpg', 186, 1, 'enable', 'Клапана б/у ЗАЗ-968 совдепия комплект на движок 4 впусных 4 выпукных', 'Грн.', 2147483647, 'Упаковку', 1, 8, 'Б/у', NULL, NULL, NULL, NULL),
+(8, 'Редукторы', '../../../uploads/products/2548248_1631608.jpg', 3500, 4, 'enable', 'Ном. №	Наименование	Кол-во, шт\n8220680	Редуктор Ч100	56\n8220681	Редуктор У2-100-31-12	4\n8220682	Редуктор У2-100-20-11	1\n8220683	Редуктор Ц2У-100-20-12	5\n8220684	Редутор Ц2У-125-40-12	2\n8220685	Редуктор 2У-100-20	3\n\n\n', 'Грн.', 43235252, 'Шт.', 2548248, 5, 'Б/у', '1 шт', '../../../uploads/products/2548248_min1631616.jpg', '../../../uploads/products/2548248_min1631620.jpg', '../../../uploads/products/2548248_min1631653.jpg');
 
 -- --------------------------------------------------------
 

@@ -50,7 +50,7 @@
                             </div>
                             <div>
                                 <label>Оцените по шкале</label>
-                                <input type="text" class="amount" readonly data-value="" value="">
+                                <input type="text" class="amount" name='ball' readonly data-value="" value="">
                                 <input type="hidden" id="range_hidden" value="">
                                 <div id="slider-range-max"></div>
                             </div>
