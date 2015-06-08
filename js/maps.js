@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 	
+	alert( 'maps uploaded!' );
+	
 	(function() {
 		
 		var country = document.getElementById('account_country').options[0].text,
