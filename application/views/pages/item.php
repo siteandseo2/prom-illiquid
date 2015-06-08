@@ -48,18 +48,18 @@
                     </a>
                     <div class="thumbnails clearfix">
                         <div class="col-md-4 col-sm-4">
-                            <a href="<?= base_url(); ?>../../../img/big-1.jpg" class="fancy" data-fancybox-group="gallery">
-                                <img src="../../../img/thumb-1.jpg" alt="" width="400" height="400">
+                            <a href="<?= base_url(); ?><?= $item['min_img1'] ?>" class="fancy" data-fancybox-group="gallery">
+                                <img src="<?= $item['min_img1'] ?>" alt="" width="400" height="400">
                             </a>
                         </div>
                         <div class="col-md-4 col-sm-4">
-                            <a href="<?= base_url(); ?>../../../img/big-2.jpg" class="fancy" data-fancybox-group="gallery"> 
-                                <img src="../../../img/thumb-2.jpg" alt="" width="400" height="400">
+                            <a href="<?= base_url(); ?><?= $item['min_img2'] ?>" class="fancy" data-fancybox-group="gallery"> 
+                                <img src="<?= $item['min_img2'] ?>" alt="" width="400" height="400">
                             </a>
                         </div>
                         <div class="col-md-4 col-sm-4">
-                            <a href="<?= base_url(); ?>../../../img/big-3.jpg" class="fancy" data-fancybox-group="gallery">
-                                <img src="../../../img/thumb-3.jpg" alt="" width="400" height="400">
+                            <a href="<?= base_url(); ?><?= $item['min_img3'] ?>" class="fancy" data-fancybox-group="gallery">
+                                <img src="<?= $item['min_img3'] ?>" alt="" width="400" height="400">
                             </a>
                         </div>
                     </div>

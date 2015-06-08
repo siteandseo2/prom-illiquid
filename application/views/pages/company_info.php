@@ -42,14 +42,20 @@
                             </select>
                         </p>
                         <p>
+                            <label for="location">Область</label>
+                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                                <?php
+                                foreach ($location as $k) {
+                                    ?>
+                                    <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
+                                    <?php
+                                }
+                                ?>                               
+                                <!-- AJAX or foreach -->
+                            </select>
                             <label for="company_city">Город</label>
                             <select id="company_city" name="company_city" class="cabinet-form-input" data-map="city">
-                                <option value="zp"><?= $user_data['city'] ?></option>
-                                <option value="zp">Запорожье</option>
-                                <option value="ky">Киев</option>
-                                <option value="kh">Харьков</option>
-                                <option value="ky">Львов</option>
-                                <option value="dn">Днепропетровск</option>
+                                <option value="zp"><?= $user_data['city'] ?></option>                                
                                 <!-- AJAX ? -->
                             </select>
                         </p>
