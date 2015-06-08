@@ -40,12 +40,12 @@
                                 </div>
                                 <!-- Top bar conctacts icons End -->                              
                                 <div class="right-block wf-td clearfix">
-									<div class="mini-login">
-										<a href="<?= base_url(); ?>" class="submit">
-											<i class="fa fa-shopping-cart"></i>
-											<span class="top-bar-icon-text">Корзина</span>
-										</a>
-									</div>
+                                    <div class="mini-login">
+                                        <a href="<?= base_url(); ?>" class="submit">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            <span class="top-bar-icon-text">Корзина</span>
+                                        </a>
+                                    </div>
                                     <div class="mini-login">
                                         <a href="<?= base_url(); ?>cabinet" class="submit">
                                             <i class="fa fa-sign-in"></i>
@@ -129,10 +129,10 @@
                     <div class="entrance">
                         <h5>Вы вошли как: </h5>
                         <span><?php
-                           if($user['usercat']=='seller')
-                               echo 'Продавец';
-                           else
-                               echo 'Покупатель';
+                            if ($user['usercat'] == 'seller')
+                                echo 'Продавец';
+                            else
+                                echo 'Покупатель';
                             ?>
                         </span>
                     </div>
@@ -220,10 +220,10 @@
                                                                             foreach ($mass as $k => $v) {
                                                                                 if (is_array($v)) {
                                                                                     foreach ($v as $key => $zn) {
-                                                                                        if ($key == 'account') 
+                                                                                        if ($key == 'account')
                                                                                             $key = 'account/' . $user['id'];
-                                                                                        if($key == 'company_info')
-                                                                                             $key = 'company_info/' . $user['id'];
+                                                                                        if ($key == 'company_info')
+                                                                                            $key = 'company_info/' . $user['id'];
                                                                                         ?>
                                                                                         <li>
                                                                                             <a href="<?= base_url(); ?><?= $key ?>">
