@@ -265,7 +265,9 @@
 
 	}
 	
-	// Modal Response
+	/* ---------------------------------------------------------------
+							Modal Response
+	-----------------------------------------------------------------*/
 	
 	try {
 		
@@ -313,6 +315,31 @@
 			input.nextElementSibling.className = 'form-icon';
 		});
 	}
+	
+	/* -----------------------------------------------------
+						AJAX FOR LOCATION 
+	-------------------------------------------------------- */
+	
+	try {
+		var region = $('[data-ajax="region"]');
+		console.log( region );
+	} catch( e ) {
+		console.log( e.type + ' : ' + e.message );
+	}
+	
+	$( region ).change(function() {
+		var val = $( this ).val();
+		
+		$.ajax({
+			type: 'POST',
+			url: 'ajax/change_location',
+			data: val,
+			success: function( data ) {
+				console.log( data );
+				console.log( typeof data );
+			}
+		});
+	});
 
 
 
