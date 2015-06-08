@@ -157,7 +157,8 @@ class User extends CI_Controller {
                     . "<script src = '../../../js/perfect-scrollbar.jquery.js'></script>" /* ??????????*/
                     . "<script src='../../../js/xml2json.js'></script>"
                     . "<script src='../../../js/maps.js'></script>"
-                    . "<script src='../../../js/main.js'></script>";
+                    . "<script src='../../../js/main.js'></script>"
+					. "<script src='../../../js/validation.js'></script>";
             $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
             if ($this->data['user_data2'] == true) {
                 foreach ($this->data['user_data2'] as $key => $val) {
@@ -179,7 +180,8 @@ class User extends CI_Controller {
         $this->data['script'] = ""
                 . "<script src='../../../js/xml2json.js'></script>"
                 . "<script src='../../../js/maps.js'></script>"
-                . "<script src='../../../js/main.js'></script>";
+                . "<script src='../../../js/main.js'></script>"
+				. "<script src='../../../js/validation.js'></script>";
         if (empty($this->session->userdata('user'))) {
             redirect(base_url());
         } else {

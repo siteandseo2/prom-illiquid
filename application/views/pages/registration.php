@@ -114,13 +114,9 @@
                                         <?php
                                     }
                                     ?>                               
-                                    <!-- AJAX or foreach -->
                                 </select>
                                 <label for="city">Город</label>
-                                <select class="cabinet-form-input" name="city" id="city">
-                                    
-                                    <!-- AJAX or foreach -->
-                                </select>
+                                <select class="cabinet-form-input" name="city" id="city"></select>
                             </p>
 
                             <p class="form-name">
@@ -178,7 +174,6 @@
                                     <option value="ua">Украина</option>
                                     <option value="ru">Россия</option>
                                     <option value="usa">США</option>
-                                    <!-- AJAX or foreach -->
                                 </select>
                             </p>
                             <p>
@@ -191,13 +186,11 @@
                                         <?php
                                     }
                                     ?>                               
-                                    <!-- AJAX or foreach -->
                                 </select>
+							</p>
+							<p>
                                 <label for="company_city">Город</label>
-                                <select class="cabinet-form-input" name="company_city" id="company_city">
-                                    
-                                    <!-- AJAX or foreach -->
-                                </select>
+                                <select class="cabinet-form-input" name="company_city" id="company_city"></select>
                             </p>
                             <p class="form-name">
                                 <input type="text" placeholder="Улица" name="company_street">

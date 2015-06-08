@@ -51,12 +51,12 @@
                                     <?php
                                 }
                                 ?>                               
-                                <!-- AJAX or foreach -->
                             </select>
-                            <label for="company_city">Город</label>
-                            <select id="company_city" name="company_city" class="cabinet-form-input" data-map="city">
+						</p>
+						<p>
+                            <label for="city">Город</label>
+                            <select id="city" name="city" class="cabinet-form-input" data-map="city">
                                 <option value="zp"><?= $user_data['city'] ?></option>                                
-                                <!-- AJAX ? -->
                             </select>
                         </p>
                         <p>

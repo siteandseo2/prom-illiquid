@@ -194,7 +194,14 @@
 
 	};
 
-	inputSubmit.addEventListener('click', function () {
+	
+	try {
+		inputSubmit.addEventListener('click', sendSubmit);
+	} catch( e ) {
+		console.log( e.type + ' : ' + e.message );
+	}
+	
+	function sendSubmit() {
 		[].forEach.call(required, function (input) {
 			validate(input, input.value);
 		});
@@ -226,7 +233,7 @@
 	
 		}
 
-	});
+	}
 
 	/* ----------------------------------------------------
 							AJAX
@@ -275,6 +282,10 @@
 			registrResponseHead = document.querySelector('.registrResponse > h3'),
 			overlay = document.querySelector('.overlay'),
 			okBtn = document.querySelector('.modalOk');
+			
+			okBtn.onclick = function() {
+				clearModal();
+			}
 		
 	} catch( e ) {
 		console.log( e.type + ' : ' + e.message );
@@ -294,10 +305,6 @@
 			registrResponseHead.classList.add('registrResponseFalse');
 			registrResponseHead.innerHTML = 'Такой пользователь уже зарегистрирован.<br>Проверьте корректность введенных Вами данных.';
 		}
-	}
-
-	okBtn.onclick = function() {
-		clearModal();
 	}
 	
 	$( document ).on('click', '.overlay', function() {
@@ -321,26 +328,55 @@
 	-------------------------------------------------------- */
 	
 	try {
+		
 		var region = $('[data-ajax="region"]');
 		console.log( region );
+		
 	} catch( e ) {
 		console.log( e.type + ' : ' + e.message );
 	}
 	
 	$( region ).change(function() {
 		var val = $( this ).val();
+		var self = $( this ).attr('id');
 		
 		$.ajax({
 			type: 'POST',
 			url: 'ajax/change_location',
 			data: 'id='+ val,
 			success: function( data ) {
-				console.log( data );
-				console.log( typeof data );
+				deploy( data, self );
 			}
 		});
 	});
-
+	
+	function deploy( data, self ) {
+		var json = JSON.parse( data ),
+			city;
+		
+		var id = json.id;
+		var name = json.name;
+		
+		switch( self ) {
+			case 'location':
+				city = $('#city');
+				break;
+			case 'company_location':
+				city = $('#company_city');
+				break;
+			default:
+				break;
+		}
+		
+		city.innerHTML = '';
+		
+		for(var i = 0; i<id.length; i++) {
+			var option = document.createElement('option');
+			option.setAttribute('value', id[i]);
+			option.innerHTML = name[i];
+			$( city ).append( option );
+		}
+	}
 
 
 });
