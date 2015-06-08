@@ -7,7 +7,7 @@
         <meta name="keywords" content="Неликвиды, купля, продажа">
         <meta name="author" content="SITE&SEO">        
         <link href="<?= base_url(); ?>../../../css/normalize.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/perfect-scrollbar.css">
@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/responsive.css">
     </head>   
-    <body class="no-bg">        
+    <body>        
         <section id="page">              
             <header id="header" class="normal-header line-decoration">
                 <!-- Top Bar -->
