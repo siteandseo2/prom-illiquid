@@ -115,7 +115,13 @@
                             </p>
 							
 							<p class="form-name">
-								<input type="text" placeholder="Адрес" name="address">
+								<input type="text" placeholder="Улица" name="street" id="street">
+								<span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+							</p>
+							<p class="form-name">
+								<input type="text" placeholder="Дом" name="building" id="building">
 								<span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
@@ -176,7 +182,13 @@
                                 </select>
                             </p>
 							<p class="form-name">
-								<input type="text" class="validate" data-validate="wn" placeholder="Адрес компании *" name="company_address">
+								<input type="text" placeholder="Улица" name="company_street">
+								<span class="form-icon">
+                                    <i class="fa"></i>
+                                </span>
+							</p>
+							<p class="form-name">
+								<input type="text" placeholder="Дом" name="company_building">
 								<span class="form-icon">
                                     <i class="fa"></i>
                                 </span>

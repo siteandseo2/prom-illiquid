@@ -11,7 +11,7 @@ $( document ).ready(function() {
 		function sendToYandex() {
 			
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'http://geocode-maps.yandex.ru/1.x/?geocode=' + country + ',+' + city, true);
+			xhr.open('GET', 'http://geocode-maps.yandex.ru/1.x/?geocode=' + country + ',+' + city + ',+' + address, true);
 			
 			xhr.onreadystatechange = function() {
 				if( xhr.readyState != 4 ) return;
@@ -33,7 +33,7 @@ $( document ).ready(function() {
 			
 			var json = $.xml2json( data );
 			
-			var coords = json.GeoObjectCollection.featureMember['0'].GeoObject.Point.pos;
+			var coords = json.GeoObjectCollection.featureMember.GeoObject.Point.pos;
 		
 			var valid = coords.split(' ');
 			var center = [parseFloat( valid[1] ), parseFloat( valid[0] )];
@@ -44,8 +44,15 @@ $( document ).ready(function() {
 			function init() {
 				myMap = new ymaps.Map('map', {
 					center: center,
-					zoom: 10
+					zoom: 14
 				});
+				
+				placemark = new ymaps.Placemark(center, { 
+					hintContent: "Zp - center", 
+					balloonContent: "Here we go!" 
+				});
+				
+				myMap.geoObjects.add( placemark );
 			}
 			
 		}

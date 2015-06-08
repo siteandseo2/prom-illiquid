@@ -44,10 +44,11 @@
 	
 	function changeSet( who ) {
 		var persEmail = $('[name="email"]').parent();
-		var persPhone = $('[name="phone"]').parent();
-		var persCountry = $('[name="country"]').parent();
-		var persCity = $('[name="city"]').parent();
-		var persAddress = $('[name="address"]').parent();
+			persPhone = $('[name="phone"]').parent(),
+			persCountry = $('[name="country"]').parent(),
+			persCity = $('[name="city"]').parent(),
+			persStreet = $('[name="street"]').parent(),
+			persBuilding = $('[name="building"]').parent();
 		
 		if( who == 'seller' ) {
 			$('.seller-set').css('display', 'block');
@@ -55,14 +56,16 @@
 			$( persPhone ).css('display', 'none');
 			$( persCountry ).css('display', 'none');
 			$( persCity ).css('display', 'none');
-			$( persAddress ).css('display', 'none');
+			$( persStreet ).css('display', 'none');
+			$( persBuilding ).css('display', 'none');
 		} else {
 			$('.seller-set').css('display', 'none');
 			$( persEmail ).css('display', 'block');
 			$( persPhone ).css('display', 'block');
 			$( persCountry ).css('display', 'block');
 			$( persCity ).css('display', 'block');
-			$( persAddress ).css('display', 'block');
+			$( persStreet ).css('display', 'block');
+			$( persBuilding ).css('display', 'block');
 		}
 	}
 	
