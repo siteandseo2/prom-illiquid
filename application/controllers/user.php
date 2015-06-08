@@ -20,6 +20,7 @@ class User extends CI_Controller {
         } else {
             $this->load->view("templates/header");
         }
+
         $this->data['script'] = ""
                 . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
                 . "<script src='../../../js/main.js'></script>"
@@ -147,11 +148,13 @@ class User extends CI_Controller {
     }
 
     function accout_user($id) {
+        unset($this->data);
+        $this->data['location'] = $this->main_m->get_location();
         if (empty($this->session->userdata('user'))) {
             redirect(base_url());
         } else {
             $this->data['script'] = ""
-                    . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                    . "<script src = '../../../js/perfect-scrollbar.jquery.js'></script>" /* ??????????*/
                     . "<script src='../../../js/xml2json.js'></script>"
                     . "<script src='../../../js/maps.js'></script>"
                     . "<script src='../../../js/main.js'></script>";
@@ -171,6 +174,12 @@ class User extends CI_Controller {
     }
 
     function company_info($id) {
+        unset($this->data);
+        $this->data['location'] = $this->main_m->get_location();
+        $this->data['script'] = ""
+                . "<script src='../../../js/xml2json.js'></script>"
+                . "<script src='../../../js/maps.js'></script>"
+                . "<script src='../../../js/main.js'></script>";
         if (empty($this->session->userdata('user'))) {
             redirect(base_url());
         } else {

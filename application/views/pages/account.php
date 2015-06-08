@@ -76,7 +76,7 @@
                             </select>
                             <label for="account_city">Город</label>
                             <select id="account_city" name="account_city" class="cabinet-form-input" data-map="city">
-
+                                <option val='<?=$user_data['city']?>'><?=$user_data['city']?></option>
                                 <!-- AJAX or foreach -->
                             </select>
                         </p>
