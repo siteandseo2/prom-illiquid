@@ -106,7 +106,7 @@
                             </p>
                             <p>
                                 <label for="location">Область</label>
-                                <select class="cabinet-form-input" name="location" id="location">
+                                <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
                                     <?php
                                     foreach($location as $k) {
                                         ?>
@@ -183,7 +183,7 @@
                             </p>
                             <p>
                                 <label for="company_location">Область</label>
-                                <select class="cabinet-form-input" name="company_location" id="company_location">
+                                <select class="cabinet-form-input" name="company_location" id="company_location" data-ajax="region">
                                     <?php
                                     foreach($location as $k) {
                                         ?>

@@ -90,18 +90,6 @@
 			});
 		}
 		
-		// AJAX Request
-		$.ajax({
-			method: 'POST',
-			url: 'ajax/change_location',
-			succes: function( content ) {
-				console.log( content );
-				console.log( typeof content );
-			}
-		});
-		
-		//fillInSearchDropDown();
-		
 	}
 	
 	
@@ -152,6 +140,8 @@
 		}
 		
 	};
+	
+	fillInSearchDropDown();
 	
 	/* Perfect scrollbar */
 	
