@@ -42,17 +42,23 @@
                             </select>
                         </p>
                         <p>
-                            <label for="company_city">Город</label>
-                            <select id="company_city" name="company_city" class="cabinet-form-input" data-map="city">
-                                <option value="zp"><?= $user_data['city'] ?></option>
-                                <option value="zp">Запорожье</option>
-                                <option value="ky">Киев</option>
-                                <option value="kh">Харьков</option>
-                                <option value="ky">Львов</option>
-                                <option value="dn">Днепропетровск</option>
-                                <!-- AJAX ? -->
-                            </select>
+                            <label for="location">Область</label>
+                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                                <?php
+                                foreach ($location as $k) {
+                                    ?>
+                                    <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
+                                    <?php
+                                }
+                                ?>                               
+                                <!-- AJAX or foreach -->
+                                <label for="company_city">Город</label>
+                                <select id="company_city" name="company_city" class="cabinet-form-input" data-map="city">                                   
+
+                                    <!-- AJAX or foreach -->
+                                </select>
                         </p>
+
                         <p>
                             <label for="company_street">Улица</label>
                             <input type="text" value="<?= $user_data['street'] ?>" id="company_street" name="company_street" class="cabinet-form-input" data-map="street">

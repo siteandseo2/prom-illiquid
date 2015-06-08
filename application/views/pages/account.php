@@ -53,7 +53,7 @@
                         <p>
                             <label for="account_country">Страна</label>
                             <select class="cabinet-form-input" id="account_country" name="account_country" data-map="country">
-                                <option value="ua"><?=$user_data['country']?></option>
+                                <option value="ua"><?= $user_data['country'] ?></option>
                                 <option value="ua">Украина</option>
                                 <option value="ru">Россия</option>
                                 <option value="bl">Беларуссия</option>
@@ -63,22 +63,29 @@
                             </select>
                         </p>
                         <p>
+                            <label for="location">Область</label>
+                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                                <?php
+                                foreach ($location as $k) {
+                                    ?>
+                                    <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
+                                    <?php
+                                }
+                                ?>                               
+                                <!-- AJAX or foreach -->
+                            </select>
                             <label for="account_city">Город</label>
                             <select id="account_city" name="account_city" class="cabinet-form-input" data-map="city">
-                                <option value="zp"><?=$user_data['city']?></option>
-                                <option value="zp">Запорожье</option>
-                                <option value="ky">Киев</option>
-                                <option value="kh">Харьков</option>
-                                <option value="ky">Львов</option>
-                                <option value="dn">Днепропетровск</option>
-                                <!-- AJAX ? -->
+
+                                <!-- AJAX or foreach -->
                             </select>
                         </p>
+                        
                         <p>
                             <label for="account_street">Улица</label>
                             <input type="text" value="<?= $user_data['street'] ?>" id="account_street" name="account_street" class="cabinet-form-input" data-map="street">
                         </p>
-						<p>
+                        <p>
                             <label for="account_building">Дом</label>
                             <input type="text" value="<?= $user_data['building'] ?>" id="account_building" name="account_building" class="cabinet-form-input" data-map="building">
                         </p>
@@ -96,9 +103,9 @@
 
                         <p>
                             <label>Ваше местоположение на карте</label>
-							<div id="map"></div>
+                        <div id="map"></div>
                         </p>
-						
+
                     </div>
 
                 </form>
