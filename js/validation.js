@@ -321,8 +321,8 @@
 	-------------------------------------------------------- */
 	
 	try {
-		var region = $('[data-ajax="region"]');
-		console.log( region );
+		var region = $('[data-ajax="region"]'),
+			city = $('[data-ajax="city"]');
 	} catch( e ) {
 		console.log( e.type + ' : ' + e.message );
 	}
@@ -335,12 +335,26 @@
 			url: 'ajax/change_location',
 			data: 'id='+ val,
 			success: function( data ) {
-				console.log( data );
-				console.log( typeof data );
+				deploy( data );
 			}
 		});
 	});
-
+	
+	function deploy( data ) {
+		var json = JSON.parse( data );
+		
+		city.innerHTML = '';
+		
+		var id = json.id;
+		var name = json.name;
+		
+		for(var i = 0; i<id.length; i++) {
+			var option = document.createElement('option');
+			option.setAttribute('value', id[i]);
+			option.innerHTML = name[i];
+			$( city ).append( option );
+		}
+	}
 
 
 });

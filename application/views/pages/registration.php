@@ -114,13 +114,9 @@
                                         <?php
                                     }
                                     ?>                               
-                                    <!-- AJAX or foreach -->
                                 </select>
                                 <label for="city">Город</label>
-                                <select class="cabinet-form-input" name="city" id="city">
-                                    
-                                    <!-- AJAX or foreach -->
-                                </select>
+                                <select class="cabinet-form-input" name="city" id="city" data-ajax="city"></select>
                             </p>
 
                             <p class="form-name">
