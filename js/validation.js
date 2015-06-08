@@ -333,7 +333,7 @@
 		$.ajax({
 			type: 'POST',
 			url: 'ajax/change_location',
-			data: val,
+			data: 'id='+ val,
 			success: function( data ) {
 				console.log( data );
 				console.log( typeof data );

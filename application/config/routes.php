@@ -53,6 +53,7 @@ $route['subcategories/(:any)'] = 'subcategories_front/get_subgategory/$1';
 $route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
 $route['ajax/filter_by_group']='ajax/filter_by_group/$1';
 $route['ajax/filter_by_categories']='ajax/filter_by_categories/$1';
+$route['ajax/change_location']='ajax/change_location';
 $route['admin/ajax/add_menu_item']='ajax/change_item_menu';
 $route['admin/ajax/filter_by_categories']='ajax/filter_by_categories/$1';
 $route['admin/ajax/filter_by_group']='ajax/filter_by_group/$1';

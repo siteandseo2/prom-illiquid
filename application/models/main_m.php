@@ -64,5 +64,9 @@ class Main_m extends CI_Model {
         $location= $this->db->get('locality');
         return $location->result_array();
     }
+     function get_city_by_id($id){
+        $location= $this->db->where('city_id', $id)->select('id, name')->get('locality');
+        return $location->result_array();
+    }
 
 }

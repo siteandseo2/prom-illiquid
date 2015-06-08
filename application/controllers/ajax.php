@@ -23,15 +23,14 @@ class Ajax extends CI_Controller {
         echo json_encode($json);
     }
 
-
     public function filter_by_category() {
         $id = $_POST['id'];
         $subcat_list = $this->subcategories_m->get_subcategories_by_category($id);
         $json = array();
         foreach ($subcat_list as $num => $column) {
             foreach ($column as $name => $value) {
-                if($name=='id'){
-                    $name='link';
+                if ($name == 'id') {
+                    $name = 'link';
                 }
                 $json[$name][$num] = $value;
             }
@@ -75,6 +74,18 @@ class Ajax extends CI_Controller {
                 $json[$name][$num] = $value;
             }
         }
+        echo json_encode($json);
+    }
+
+    public function change_location() {
+        $id = $_POST['id'];
+        $menu_list = $this->main_m->get_city_by_id($id);
+        $json = array();
+        foreach ($menu_list as $num => $column) {
+            foreach ($column as $name => $value) {              
+                $json[$name][$num] = $value;
+            }
+        }      
         echo json_encode($json);
     }
 
