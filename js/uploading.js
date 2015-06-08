@@ -1,16 +1,18 @@
 ﻿$(function() {
-
-	switch( window.location.pathname ) {
-		case '/login':
-			$.getScript('js/validation.js');
-			break;
-		case '/account':
-			$.getScript('js/maps.js');
-			$.getScript('js/xml2json.js');
-			//$('body').append('<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>');
-			break;
-		default:
-			break;
+	
+	var path = window.location.pathname;
+	
+	if( isMatch( path, '/login' ) ) {
+		$.getScript('js/validation.js');
+	} else if ( isMatch( path, '/account' ) ) {
+		$.getScript('js/maps.js');
+		$.getScript('js/xml2json.js');
+	} else {
+		return;
+	}
+	
+	function isMatch( path, url ) {
+		return path.indexOf( url ) != -1 ? true : false;
 	}
 
 }());
