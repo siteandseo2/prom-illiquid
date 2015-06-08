@@ -32,7 +32,6 @@
 						<p>
                             <label for="company_country">Страна</label>
                             <select class="cabinet-form-input" id="company_country" name="company_country" data-map="country">
-                                <option value="ua"><?=$user_data['country']?></option>
                                 <option value="ua">Украина</option>
                                 <option value="ru">Россия</option>
                                 <option value="bl">Беларуссия</option>
@@ -44,7 +43,6 @@
                         <p>
                             <label for="company_city">Город</label>
                             <select id="company_city" name="company_city" class="cabinet-form-input" data-map="city">
-                                <option value="zp"><?=$user_data['city']?></option>
                                 <option value="zp">Запорожье</option>
                                 <option value="ky">Киев</option>
                                 <option value="kh">Харьков</option>
@@ -82,7 +80,7 @@
 					</div>
 				
 				</form>
-			
+		
 			</section>
 		
 		</div>

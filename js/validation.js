@@ -252,7 +252,7 @@
 				
 				console.error(xhr.status + ' : ' + xhr.statusText);
 				
-				if( user == 'user/add_user' ) {
+				if( url == 'user/add_user' ) {
 					setTimeout(function() {
 						callback( false );
 					}, 1000);
@@ -286,6 +286,8 @@
 		if ( data ) {
 			registrResponseHead.classList.add('registrResponseSuccess');
 			registrResponseHead.innerHTML = 'Спасибо!<br>Ваша регистрация прошла успешно.';
+			
+			
 		} else {
 			registrResponseHead.classList.add('registrResponseFalse');
 			registrResponseHead.innerHTML = 'Такой пользователь уже зарегистрирован.<br>Проверьте корректность введенных Вами данных.';

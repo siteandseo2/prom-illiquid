@@ -207,12 +207,34 @@
                 </form>
 				
 				<!-- Modal -->
-				<div class="registrResponse">
-					<h3></h3>
-					<div class="modalOk">
-						<span>Ok</span>
+				
+					<div class="registrResponse">
+						<h3></h3>
+						<div class="modalOk">
+							<span>Ok</span>
+						</div>
+					</div>
+			
+				<!-- 
+				<div class="modal hide" id="modal" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h3>Modal Header</h3>
+							</div>
+							<div class="modal-body">
+								<p>Content goes here..</p>
+							</div>
+							
+						</div>
 					</div>
 				</div>
+				
+				<button class="btn btn-primary" data-toggle="modal" data-target="#modal">Trigger Button</button>
+				-->
+	
 				<!-- Modal End -->
 				
             </div>
