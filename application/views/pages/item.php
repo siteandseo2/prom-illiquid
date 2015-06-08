@@ -110,14 +110,14 @@
                     <div class="product_meta">
                         <span class="contdition_degree">
                             Состояние: 
-                            <span class="isNew">новое</span>
+                            <span class="isNew"><?= $item['condition'] ?></span>
                             <span class="decimal">
-                                (<span>8</span> из 10)
+                                (<span><?= $item['ball'] ?></span> из 10)
                             </span>
                         </span>
                         <span class="meta_id">
                             Код:
-                            <span class="id"><?= $item['id'] ?></span>
+                            <span class="id"><?= $item['prod_code'] ?></span>
                         </span>
                         <!--
                         <span class="group">
@@ -153,7 +153,7 @@
                         </span>
                         <span class="phone">
                             Телефон:
-                            <span href="<?= base_url(); ?>" class="phone_value"><?=$user_data['id']?></span>
+                            <span href="<?= base_url(); ?>" class="phone_value"><?=$user_data['phone']?></span>
                         </span>
                     </div>
 

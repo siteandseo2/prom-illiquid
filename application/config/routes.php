@@ -67,6 +67,7 @@ $route['admin/subcat'] = 'product_adm/filter_product';
 $route['admin/add_item_menu']='menu/add_menu';
 $route['admin/edit_menu']='menu/get_menu_list';
 $route['user/add_product']='user/add_product';
+$route['account/(:any)']='user/accout_user/$1';
 $route['login'] = 'user/get_user';
 $route['search']='search/get_search';
 

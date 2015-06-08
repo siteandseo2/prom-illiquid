@@ -19,6 +19,8 @@ class Search extends CI_Controller {
         parent::__construct();
         $this->load->model('product_m');
         $this->load->model('main_m');
+        $this->load->model('subcategories_m');
+        $this->load->model('category_m');
         /* load header */
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
@@ -26,6 +28,16 @@ class Search extends CI_Controller {
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
+        }
+        /* load sidebar_data */
+        $this->data['subcat'] = $this->subcategories_m->get_subcategories_list();
+        $this->data['prepare'] = $this->category_m->category_list();
+        foreach ($this->data['prepare'] as $key => $value) {
+            foreach ($this->data['subcat'] as $k => $v) {
+                if ($v['cat_id'] == $value['id']) {
+                    $this->data['cat_list'][$value['name']][$value['link']][$v['link']][$v['name']] = $this->product_m->count_products($v['id']);
+                }
+            }
         }
         /* load category_m */
         $this->load->model('category_m');
