@@ -49,8 +49,8 @@
 
                         <!-- Buyer Set -->
                         <div class="buyer-set">
-						
-							<h4>Персональные данные</h4>
+
+                            <h4>Персональные данные</h4>
 
                             <span class="form-name">
                                 <input type="text" class="validate" data-validate="w" placeholder="Фамилия *" name="surname">
@@ -76,7 +76,7 @@
                                     <i class="fa"></i>
                                 </span>
                             </span>
-							<span class="form-name">
+                            <span class="form-name">
                                 <input type="text" class="validate" data-validate="p" placeholder="Телефон *" name="phone">
                                 <span class="form-icon">
                                     <i class="fa"></i>
@@ -94,8 +94,8 @@
                                     <i class="fa"></i>
                                 </span>
                             </span>
-							
-							<p>
+
+                            <p>
                                 <label for="country">Страна</label>
                                 <select class="cabinet-form-input" name="country" id="country">
                                     <option value="ua">Украина</option>
@@ -105,59 +105,68 @@
                                 </select>
                             </p>
                             <p>
+                                <label for="location">Область</label>
+                                <select class="cabinet-form-input" name="location" id="location">
+                                    <?php
+                                    foreach($location as $k) {
+                                        ?>
+                                        <option value="<?=$k['id']?>"><?=$k['name']?></option> 
+                                        <?php
+                                    }
+                                    ?>                               
+                                    <!-- AJAX or foreach -->
+                                </select>
                                 <label for="city">Город</label>
                                 <select class="cabinet-form-input" name="city" id="city">
-                                    <option value="zp">Запорожье</option>
-                                    <option value="ky">Киев</option>
-                                    <option value="kh">Харьков</option>
+                                    
                                     <!-- AJAX or foreach -->
                                 </select>
                             </p>
-							
-							<p class="form-name">
-								<input type="text" placeholder="Улица" name="street" id="street">
-								<span class="form-icon">
+
+                            <p class="form-name">
+                                <input type="text" placeholder="Улица" name="street" id="street">
+                                <span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
-							</p>
-							<p class="form-name">
-								<input type="text" placeholder="Дом" name="building" id="building">
-								<span class="form-icon">
+                            </p>
+                            <p class="form-name">
+                                <input type="text" placeholder="Дом" name="building" id="building">
+                                <span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
-							</p>
-							
+                            </p>
+
                         </div>
                         <!-- Buyer set End -->
-						
-					</div>
-					
-					<div class="form-fields">
+
+                    </div>
+
+                    <div class="form-fields">
 
                         <!-- Seller Set -->
                         <div class="seller-set">
-						
-							<h4>Информация о компании</h4>
-							
-							<span class="form-name">
+
+                            <h4>Информация о компании</h4>
+
+                            <span class="form-name">
                                 <input type="text" class="validate" data-validate="any" placeholder="Название компании *" name="company">
                                 <span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
                             </span>
-							<span class="form-name">
+                            <span class="form-name">
                                 <input type="text" class="validate" data-validate="e" placeholder="Email компании *" name="company_email">
                                 <span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
                             </span>
-							<span class="form-name">
+                            <span class="form-name">
                                 <input type="text" class="validate" data-validate="p" placeholder="Телефон компании *" name="company_phone">
                                 <span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
                             </span>
-							<span class="form-name">
+                            <span class="form-name">
                                 <input type="text" placeholder="Дополнительные телефон" name="company_phone_more">
                                 <span class="form-icon">
                                     <i class="fa"></i>
@@ -173,26 +182,35 @@
                                 </select>
                             </p>
                             <p>
+                                <label for="company_location">Область</label>
+                                <select class="cabinet-form-input" name="company_location" id="company_location">
+                                    <?php
+                                    foreach($location as $k) {
+                                        ?>
+                                        <option value="<?=$k['id']?>"><?=$k['name']?></option> 
+                                        <?php
+                                    }
+                                    ?>                               
+                                    <!-- AJAX or foreach -->
+                                </select>
                                 <label for="company_city">Город</label>
                                 <select class="cabinet-form-input" name="company_city" id="company_city">
-                                    <option value="zp">Запорожье</option>
-                                    <option value="ky">Киев</option>
-                                    <option value="kh">Харьков</option>
+                                    
                                     <!-- AJAX or foreach -->
                                 </select>
                             </p>
-							<p class="form-name">
-								<input type="text" placeholder="Улица" name="company_street">
-								<span class="form-icon">
+                            <p class="form-name">
+                                <input type="text" placeholder="Улица" name="company_street">
+                                <span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
-							</p>
-							<p class="form-name">
-								<input type="text" placeholder="Дом" name="company_building">
-								<span class="form-icon">
+                            </p>
+                            <p class="form-name">
+                                <input type="text" placeholder="Дом" name="company_building">
+                                <span class="form-icon">
                                     <i class="fa"></i>
                                 </span>
-							</p>
+                            </p>
 
                         </div>
                         <!-- Seller set End -->
@@ -205,40 +223,18 @@
                         </span>                        
                     </p>
                 </form>
-				
-				<!-- Modal -->
-				
-					<div class="registrResponse">
-						<h3></h3>
-						<div class="modalOk">
-							<span>Ok</span>
-						</div>
-					</div>
-			
-				<!-- 
-				<div class="modal hide" id="modal" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								<h3>Modal Header</h3>
-							</div>
-							<div class="modal-body">
-								<p>Content goes here..</p>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				
-				<button class="btn btn-primary" data-toggle="modal" data-target="#modal">Trigger Button</button>
-				-->
-	
-				<!-- Modal End -->
-				
+
+                <!-- Modal -->
+                <div class="registrResponse">
+                    <h3></h3>
+                    <div class="modalOk">
+                        <span>Ok</span>
+                    </div>
+                </div>
+                <!-- Modal End -->
+
             </div>
-			
+
         </div>
 
         <hr>

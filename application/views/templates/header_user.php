@@ -220,9 +220,10 @@
                                                                             foreach ($mass as $k => $v) {
                                                                                 if (is_array($v)) {
                                                                                     foreach ($v as $key => $zn) {
-                                                                                        if ($key == 'account') {
+                                                                                        if ($key == 'account') 
                                                                                             $key = 'account/' . $user['id'];
-                                                                                        }
+                                                                                        if($key == 'company_info')
+                                                                                             $key = 'company_info/' . $user['id'];
                                                                                         ?>
                                                                                         <li>
                                                                                             <a href="<?= base_url(); ?><?= $key ?>">

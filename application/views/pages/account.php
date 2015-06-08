@@ -17,23 +17,23 @@
                     <div class="col-sm-6">
                         <p>
                             <label for="account_name">Имя</label>
-                            <input type="text" value="<?=$user_data['name']?>" id="account_name" name="account_name" class="cabinet-form-input">
+                            <input type="text" value="<?= $user_data['name'] ?>" id="account_name" name="account_name" class="cabinet-form-input">
                         </p>
                         <p>
                             <label for="account_surname">Фамилия</label>
-                            <input type="text" value="<?=$user_data['surname']?>" id="account_surname" name="account_surname" class="cabinet-form-input">
+                            <input type="text" value="<?= $user_data['surname'] ?>" id="account_surname" name="account_surname" class="cabinet-form-input">
                         </p>
                         <p>
                             <label for="account_patronymic">Отчество</label>
-                            <input type="text" value="<?=$user_data['patronymic']?>" id="account_patronymic" name="account_patronymic" class="cabinet-form-input">
+                            <input type="text" value="<?= $user_data['patronymic'] ?>" id="account_patronymic" name="account_patronymic" class="cabinet-form-input">
                         </p>
                         <p>
                             <label for="account_email">Email</label>
-                            <input type="text" value="<?=$user_data['email']?>" id="account_email" name="account_email" class="cabinet-form-input">
+                            <input type="text" value="<?= $user_data['email'] ?>" id="account_email" name="account_email" class="cabinet-form-input">
                         </p>
                         <p>
                             <label for="account_phone">Телефон</label>
-                            <input type="text" value="+<?=$user_data['phone']?>" id="account_phone" name="account_phone" class="cabinet-form-input">
+                            <input type="text" value="+<?= $user_data['phone'] ?>" id="account_phone" name="account_phone" class="cabinet-form-input">
                         </p>
                         <!-- 
                         <p>
@@ -76,11 +76,11 @@
                         </p>
                         <p>
                             <label for="account_street">Улица</label>
-                            <input type="text" value="пр. Ленина" id="account_street" name="account_street" class="cabinet-form-input" data-map="street">
+                            <input type="text" value="<?= $user_data['street'] ?>" id="account_street" name="account_street" class="cabinet-form-input" data-map="street">
                         </p>
 						<p>
                             <label for="account_building">Дом</label>
-                            <input type="text" value="143" id="account_building" name="account_building" class="cabinet-form-input" data-map="building">
+                            <input type="text" value="<?= $user_data['building'] ?>" id="account_building" name="account_building" class="cabinet-form-input" data-map="building">
                         </p>
 
                         <hr>
