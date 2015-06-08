@@ -20,6 +20,7 @@ class User extends CI_Controller {
         } else {
             $this->load->view("templates/header");
         }
+        $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/xml2json.js'></script><script src='../../../js/maps.js'></script><script src='../../../js/main.js'></script>";
     }
 
     /* function Add user to database */
@@ -125,14 +126,22 @@ class User extends CI_Controller {
     }
 
     function accout_user($id) {
-        $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
-        foreach ($this->data['user_data2'] as $key => $val) {
-            foreach ($val as $k => $v) {
-                $this->data['user_data'][$k] = $v;
+        if (empty($this->session->userdata('user'))) {
+            redirect(base_url());
+        } else {
+            $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
+            if ($this->data['user_data2'] == true) {
+                foreach ($this->data['user_data2'] as $key => $val) {
+                    foreach ($val as $k => $v) {
+                        $this->data['user_data'][$k] = $v;
+                    }
+                }
+                $this->load->view('pages/account', $this->data);
+                $this->load->view('templates/footer', $this->data);
+            } else {
+                redirect(base_url('account') . '/' . $this->data['user']['id']);
             }
         }
-        $this->load->view('pages/account', $this->data);
-        $this->load->view('templates/footer', $this->data);
     }
 
 }
