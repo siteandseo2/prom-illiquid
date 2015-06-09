@@ -178,6 +178,7 @@ class User extends CI_Controller {
         unset($this->data);
         $this->data['location'] = $this->main_m->get_location();
         $this->data['script'] = ""
+                . "<script src = '../../../js/perfect-scrollbar.jquery.js'></script>" /* ??????????*/
                 . "<script src='../../../js/xml2json.js'></script>"
                 . "<script src='../../../js/maps.js'></script>"
                 . "<script src='../../../js/main.js'></script>"
