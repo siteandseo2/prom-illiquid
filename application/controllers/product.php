@@ -35,7 +35,7 @@ class Product extends CI_Controller {
         }
         /* load model product */
         $this->data['products'] = $this->product_m->get_all_product();
-        $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/product_settings.js'></script><script src='../../../js/main.js'></script>";
+        $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
     }
 
     function get_all_product() {
@@ -64,6 +64,7 @@ class Product extends CI_Controller {
     }
 
     function get_product($id) {
+         $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/product_settings.js'></script><script src='../../../js/main.js'></script>";
         $this->data_db['product'] = $this->product_m->get_product($id);
         $this->data_db['cat_name'] = $this->product_m->get_product_cat($this->data_db['product']['0']['subcat_id']);
         $this->data_db['subcat_name'] = $this->product_m->get_cat_name($this->data_db['cat_name']['0']['link']);
