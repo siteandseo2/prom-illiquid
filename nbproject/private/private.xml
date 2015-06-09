@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/var/www/prom.loc/application/views/admin/slider.php</file>
             <file>file:/var/www/prom.loc/application/config/routes.php</file>
             <file>file:/var/www/prom.loc/application/views/admin/header.php</file>
@@ -10,6 +11,14 @@
             <file>file:/var/www/prom.loc/application/models/main_m.php</file>
             <file>file:/var/www/prom.loc/application/views/pages/default.php</file>
             <file>file:/var/www/prom.loc/application/controllers/main.php</file>
+=======
+            <file>file:/var/www/prom.loc/application/controllers/user.php</file>
+            <file>file:/var/www/prom.loc/application/controllers/menu.php</file>
+            <file>file:/var/www/prom.loc/application/config/routes.php</file>
+            <file>file:/var/www/prom.loc/application/views/admin/error.php</file>
+            <file>file:/var/www/prom.loc/application/controllers/admin.php</file>
+            <file>file:/var/www/prom.loc/application/models/main_m.php</file>
+>>>>>>> Alexlocal
         </group>
     </open-files>
 </project-private>
