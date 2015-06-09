@@ -56,6 +56,7 @@ $route['ajax/filter_by_categories']='ajax/filter_by_categories/$1';
 $route['ajax/change_location']='ajax/change_location';
 $route['admin/ajax/add_menu_item']='ajax/change_item_menu';
 $route['admin/ajax/filter_by_categories']='ajax/filter_by_categories/$1';
+$route['account/ajax/change_location']='ajax/change_location';
 $route['admin/ajax/filter_by_group']='ajax/filter_by_group/$1';
 $route['admin/products/filter_by_category'] = 'ajax/filter_by_category';
 $route['admin/products'] = 'product_adm/product';
