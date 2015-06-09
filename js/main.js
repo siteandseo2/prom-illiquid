@@ -145,8 +145,11 @@
 	
 	/* Perfect scrollbar */
 	
-	$('#location-select-button .sub-nav ul').perfectScrollbar();
-
+	(function() {
+		
+		$('#location-select-button .sub-nav ul').perfectScrollbar();
+		
+	}());
 	
 	/* Accordion */
 	try {

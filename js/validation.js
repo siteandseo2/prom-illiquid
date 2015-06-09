@@ -276,51 +276,30 @@
 							Modal Response
 	-----------------------------------------------------------------*/
 	
-	try {
-		
-		var registrResponse = document.querySelector('.registrResponse'),
-			registrResponseHead = document.querySelector('.registrResponse > h3'),
-			overlay = document.querySelector('.overlay'),
-			okBtn = document.querySelector('.modalOk');
-			
-			okBtn.onclick = function() {
-				clearModal();
-			}
-		
-	} catch( e ) {
-		console.log( e.type + ' : ' + e.message );
-	}
+	// Show Response
 	
-	// Show Modal
 	function callback( data ) {
-		registrResponse.style.display = 'block';
-		overlay.style.display = 'block';
-
+		
+		var success = $('#registrResponseSuccess'),
+			danger = $('#registrResponseDanger');
+		
 		if ( data ) {
-			registrResponseHead.classList.add('registrResponseSuccess');
-			registrResponseHead.innerHTML = 'Спасибо!<br>Ваша регистрация прошла успешно.';
 			
+			setTimeout(function() {
+				$( success ).slideToggle(2000, function() {
+					$( this ).slideUp(2000);
+				});
+			}, 1000);
 			
 		} else {
-			registrResponseHead.classList.add('registrResponseFalse');
-			registrResponseHead.innerHTML = 'Такой пользователь уже зарегистрирован.<br>Проверьте корректность введенных Вами данных.';
+			
+			setTimeout(function() {
+				$( danger ).slideToggle(2000, function() {
+					$( this ).slideUp(2000);
+				});
+			}, 1000);
+			
 		}
-	}
-	
-	$( document ).on('click', '.overlay', function() {
-		clearModal();
-	});
-	
-	// Clear Modal
-	function clearModal() {
-		registrResponse.style.display = 'none';
-		overlay.style.display = 'none';
-
-		[].forEach.call(required, function (input) {
-			input.value = '';
-			input.className = 'validate';
-			input.nextElementSibling.className = 'form-icon';
-		});
 	}
 	
 	/* -----------------------------------------------------

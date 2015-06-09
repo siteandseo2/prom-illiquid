@@ -38,9 +38,10 @@
 
                                 <div class="right-block wf-td clearfix">
 									<div class="mini-login">
-										<a href="<?= base_url(); ?>" class="submit">
+										<a href="#" class="submit" data-toggle="modal" data-target="#modalCart" id="topBarCartLink"> 
 											<i class="fa fa-shopping-cart"></i>
 											<span class="top-bar-icon-text">Корзина</span>
+											<span class="num badge" id="cart-amount">0</span>
 										</a>
 									</div>
                                     <div class="mini-login">

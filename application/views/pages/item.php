@@ -111,7 +111,7 @@
                     -->
                     <div class="quantity clearfix">
                         <input type="number" step="1" min="1" value="1" title="Change quantity" size="4">
-                        <div class="add2cart">Купить</div>
+                        <div class="add2cart buy-it" data-toggle="modal" data-target="#modalCart">Купить</div>
                     </div>
 
                     <div class="product_meta">

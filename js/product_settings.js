@@ -1,6 +1,12 @@
-/* Fancybox Gallery */
+$( document ).ready(function() {
 	
-	$('.fancy').fancybox();
+	/* Fancybox Gallery */
+	
+	try {
+		$('.fancy').fancybox();
+	} catch ( e ) {
+		console.log( e.type + ' : ' + e.message );
+	}
 	
 	/* Product Tabs */
 	
@@ -79,4 +85,7 @@
 			}
 		});
 	});
+	
+	
+});
 	

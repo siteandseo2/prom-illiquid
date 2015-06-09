@@ -77,12 +77,12 @@
                             <div class="col-md-4 col-sm-4 cat-content-row-item">
                                 <article>
                                     <div class="cat-item-img">
-                                        <a href="<?= base_url('products/item/' . $item['id']); ?>" class="cat-item-hover-effect"><!--link-->
+                                        <a href="#" onclick="return false;" class="cat-item-hover-effect"><!--link-->
                                             <img src="<?= $item['image_path'] ?>" alt=""><!--img-->
                                         </a>
                                     </div>
                                     <div class="cat-item-title">
-                                        <a href="<?= base_url('products/item/' . $item['id']); ?>item"><!--link-->
+                                        <a href="#" onclick="return false;"><!--link-->
                                             <h4>
                                                 <?= $item['name'] ?><!--name-->
                                             </h4>
@@ -92,8 +92,8 @@
                                         </a>
                                     </div>
                                     <div class="hover-over-btns">
-                                        <a href="<?= base_url('products/item/' . $item['id']); ?>" title="В корзину">
-                                            <div class="buy-it">
+                                        <a href="#" title="В корзину" data-toggle="modal" data-target="#modalCart" class="buy-it">
+                                            <div>
                                                 <i class="fa fa-shopping-cart"></i>
                                             </div>
                                         </a>
