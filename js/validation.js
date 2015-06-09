@@ -330,7 +330,6 @@
 	try {
 		
 		var region = $('[data-ajax="region"]');
-		console.log( region );
 		
 	} catch( e ) {
 		console.log( e.type + ' : ' + e.message );
@@ -368,7 +367,7 @@
 				break;
 		}
 		
-		city.innerHTML = '';
+		$( city ).html('');
 		
 		for(var i = 0; i<id.length; i++) {
 			var option = document.createElement('option');
