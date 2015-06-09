@@ -13,19 +13,23 @@ class Product_adm extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        /* load header */
-        $this->data['admin'] = @$this->session->userdata('admin');
-        $this->load->view("admin/header", $this->data);
-        /* load models */
-        $this->load->model('product_m');
-        $this->load->model('subcategories_m');
-        $this->load->model('category_m');
-        $this->data['category'] = $this->category_m->category_list();
-        foreach ($this->product_m->get_all_product() as $k => $v) {
-            $this->data['list'][$v['id']] = $v;
-        }
-        foreach ($this->data['list'] as $k => $v) {
-            $this->data['subcat'][$v['subcat_id']] = $this->subcategories_m->get_subcategories_name_by_id($v['subcat_id']);
+        if (!empty($this->session->userdata('admin'))) {
+            /* load header */
+            $this->data['admin'] = @$this->session->userdata('admin');
+            $this->load->view("admin/header", $this->data);
+            /* load models */
+            $this->load->model('product_m');
+            $this->load->model('subcategories_m');
+            $this->load->model('category_m');
+            $this->data['category'] = $this->category_m->category_list();
+            foreach ($this->product_m->get_all_product() as $k => $v) {
+                $this->data['list'][$v['id']] = $v;
+            }
+            foreach ($this->data['list'] as $k => $v) {
+                $this->data['subcat'][$v['subcat_id']] = $this->subcategories_m->get_subcategories_name_by_id($v['subcat_id']);
+            }
+        } else {
+            redirect(base_url('admin'));
         }
     }
 
@@ -46,13 +50,13 @@ class Product_adm extends CI_Controller {
                 if ($id == $key)
                     $name = $value;
             }
-           
+
             foreach ($this->input->post('subcat_product') as $key => $value) {
                 if ($id == $key)
                     $fp_id = $value;
             }
             $this->db->query("UPDATE product SET subcat_id='$fp_id' WHERE id='$id'");
-            $this->db->query("UPDATE product SET name='$name' WHERE id='$id'");          
+            $this->db->query("UPDATE product SET name='$name' WHERE id='$id'");
             redirect(base_url('admin/products'));
         }
     }
@@ -112,7 +116,7 @@ class Product_adm extends CI_Controller {
                 $this->data_db['prod_quantity'] = $this->input->post('prod_quantity');
                 $this->data_db['availability'] = $this->input->post('prod_is_available');
                 $this->data_db['prod_code'] = $this->input->post('prod_code');
-                $this->data_db['id_user'] ='1';
+                $this->data_db['id_user'] = '1';
                 $this->product_m->add_product($this->data_db);
             }
         }

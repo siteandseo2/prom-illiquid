@@ -86,7 +86,7 @@ class Admin extends CI_Controller {
                 $this->load->view("admin/footer", $this->data);
             }
         } else {
-            $this->load->view("pages/auth_admin");
+            redirect(base_url('admin'));
         }
     }
 
@@ -103,6 +103,79 @@ class Admin extends CI_Controller {
 
     /* END function exit user  */
 
-    
+    /* function edit slider */
 
+    function edit_slider() {
+        if (isset($_POST['edit'])) {
+            foreach ($this->input->post('edit') as $val) {
+                $id = $val;
+            }
+            foreach ($this->input->post('name') as $key => $value) {
+                if ($id == $key)
+                    $name = $value;
+            }
+            foreach ($this->input->post('text') as $key => $value) {
+                if ($id == $key)
+                    $text = $value;
+            }
+            $this->db->query("UPDATE slider SET text='$text' WHERE id='$id'");
+            $this->db->query("UPDATE slider SET header='$name' WHERE id='$id'");
+        }
+        if (isset($_POST['delete'])) {
+            foreach ($this->input->post('delete') as $id) {
+                $this->db->where('id', $id)->delete('slider');
+            }
+        }
+        if (isset($_POST['status'])) {
+            foreach ($this->input->post('status') as $key => $val) {
+                if ($val == 'enable') {
+                    $this->db->query("UPDATE slider SET status='disable' WHERE id='$key'");
+                } else {
+                    $this->db->query("UPDATE slider SET status='enable' WHERE id='$key'");
+                }
+            }
+        }
+        if (isset($_POST['first'])) {
+            $id = $this->input->post('act');
+            $this->db->query("UPDATE slider SET act='0'");
+            $this->db->query("UPDATE slider SET act='1' WHERE id='$id'");
+        }
+        $this->data['slider'] = $this->main_m->get_slider_item();
+        $this->load->view("admin/slider", $this->data);
+        $this->load->view("admin/footer", $this->data);
+    }
+
+    /* END function edit slider */
+    /* slide_add START */
+
+    function slide_add() {
+        if (isset($_POST['slide_add'])) {
+            unset($this->data);
+            if (!empty($this->input->post('header')) && !empty($this->input->post('text'))) {
+                if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
+                    $this->data['header'] = $this->input->post('header');
+                    $this->data['text'] = $this->input->post('text');
+                    $this->data['status'] = $this->input->post('status');
+                    $this->data['act'] = '0';
+                    $this->data['path'] = '../../../img/' . $_FILES["prod_photo"]["name"];
+                    move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./img/" . $_FILES["prod_photo"]["name"]);
+                    $this->main_m->get_slider_insert($this->data);
+                    redirect(base_url('admin/slider'));
+                } else {
+                    $this->data['error'] = 'Ошибка при загрузке файла';                   
+                    $this->load->view('admin/error', $this->data);
+                    $this->load->view('admin/footer');
+                }
+            } else { 
+                $this->data['error'] = 'Ошибка при заполнении формы';               
+                $this->load->view('admin/error', $this->data);
+                $this->load->view('admin/footer');
+            }
+        } else {
+            $this->load->view("admin/slide_add", $this->data);
+            $this->load->view("admin/footer", $this->data);
+        }
+    }
+
+    /* slide_add End */
 }

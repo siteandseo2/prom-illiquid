@@ -21,6 +21,8 @@ class Menu extends CI_Controller {
         if (!empty($this->session->userdata('admin'))) {
             $this->data['admin'] = $this->session->userdata('admin');
             $this->load->view("admin/header", $this->data);
+        }else{
+            redirect(base_url('admin'));
         }
 
 

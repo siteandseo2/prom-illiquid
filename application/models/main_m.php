@@ -56,17 +56,31 @@ class Main_m extends CI_Model {
         $main = $this->db->where('type', 'dd')->get('menu');
         return $main->result_array();
     }
-    function get_location(){
-        $location= $this->db->get('city');
+
+    function get_location() {
+        $location = $this->db->get('city');
         return $location->result_array();
     }
-      function get_city(){
-        $location= $this->db->get('locality');
+
+    function get_city() {
+        $location = $this->db->get('locality');
         return $location->result_array();
     }
-     function get_city_by_id($id){
-        $location= $this->db->where('city_id', $id)->select('id, name')->get('locality');
+
+    function get_city_by_id($id) {
+        $location = $this->db->where('city_id', $id)->select('id, name')->get('locality');
         return $location->result_array();
+    }
+
+    function get_slider_item() {
+        $picture = $this->db->get('slider');
+        return $picture->result_array();
+    }
+
+    function get_slider_insert($data) {
+        if ($this->db->insert('slider', $data)) {
+            return true;
+        }
     }
 
 }

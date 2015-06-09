@@ -158,14 +158,14 @@
         <ul class="nav navbar-nav side-nav" id="sideBar">
             <li>
                 <a href="<?= base_url(); ?>admin/index" data-ajax="index">
-					<i class="fa fa-fw fa-dashboard"></i> 
-					Главная
-				</a>
+                    <i class="fa fa-fw fa-dashboard"></i> 
+                    Главная
+                </a>
             </li>            
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo">
-					<i class="fa fa-fw fa-arrows-v"></i> Сайт <i class="fa fa-fw fa-caret-down"></i>
-				</a>
+                    <i class="fa fa-fw fa-arrows-v"></i> Сайт <i class="fa fa-fw fa-caret-down"></i>
+                </a>
                 <ul id="demo" class="collapse">
                     <li>
                         <a href="<?= base_url(); ?>admin/main" class="dropped">Главная страница</a>
@@ -174,7 +174,7 @@
                         <a href="#" class="dropped">Страницы</a>
                     </li>
                     <li>
-                        <a href="#" class="dropped">Слайдер</a>
+                        <a href="<?= base_url(); ?>admin/slider" class="dropped">Слайдер</a>
                     </li>
                 </ul>
             </li>  
@@ -190,8 +190,8 @@
                     <li>
                         <a href="<?= base_url(); ?>admin/subcategories" data-ajax="subcategories" class="dropped">Подкатегории товаров</a>
                     </li>
-                     <li>
-                         <a href="<?= base_url(); ?>admin/products" data-ajax="products" class="dropped">Товары</a>
+                    <li>
+                        <a href="<?= base_url(); ?>admin/products" data-ajax="products" class="dropped">Товары</a>
                     </li>
                     <li>
                         <a href="#" class="dropped">Атрибуты товаров</a>
@@ -204,6 +204,6 @@
         </ul>
         <!-- Sidebar End -->
 
-        
+
 
 

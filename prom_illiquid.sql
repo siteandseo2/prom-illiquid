@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 08 2015 г., 17:09
+-- Время создания: Июн 09 2015 г., 17:52
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('31c379d85429f86b4d107c729eb8bcfb', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433772289, 'a:1:{s:4:"user";a:10:{s:2:"id";s:7:"2548248";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:14:"John@gmail.com";s:7:"usercat";s:6:"seller";s:7:"company";s:23:"Желтый дезик";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";}}');
+('22380f8adffd3cf79ee92ea1cebdfc19', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433861305, 'a:2:{s:4:"user";a:10:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:7:"usercat";s:6:"seller";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";}s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
 
 -- --------------------------------------------------------
 
@@ -2689,6 +2689,35 @@ INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `subcat_id`, `status
 (4, 'Кирпич Куйбышево М-100 250х120х65', '../../../uploads/products/1_m150.jpg', 3.85, 3, 'enable', 'Марка по прочности: 100 кг/см2.\nИспользуется для укладки внутренних и наружных стен дома.\nВ ассортименте строительный рядовой кирпич М-100, М-125.', 'Грн.', 35242, 'Шт.', 1, 9, 'Новое', NULL, NULL, NULL, NULL),
 (5, 'Клапан 1102, 1103, 1105 впуск ', '../../../uploads/products/1_187735313_3_644x461_klapana-na-zaz-968m-avtozapchasti.jpg', 186, 1, 'enable', 'Клапана б/у ЗАЗ-968 совдепия комплект на движок 4 впусных 4 выпукных', 'Грн.', 2147483647, 'Упаковку', 1, 8, 'Б/у', NULL, NULL, NULL, NULL),
 (8, 'Редукторы', '../../../uploads/products/2548248_1631608.jpg', 3500, 4, 'enable', 'Ном. №	Наименование	Кол-во, шт\n8220680	Редуктор Ч100	56\n8220681	Редуктор У2-100-31-12	4\n8220682	Редуктор У2-100-20-11	1\n8220683	Редуктор Ц2У-100-20-12	5\n8220684	Редутор Ц2У-125-40-12	2\n8220685	Редуктор 2У-100-20	3\n\n\n', 'Грн.', 43235252, 'Шт.', 2548248, 5, 'Б/у', '1 шт', '../../../uploads/products/2548248_min1631616.jpg', '../../../uploads/products/2548248_min1631620.jpg', '../../../uploads/products/2548248_min1631653.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `slider`
+--
+
+CREATE TABLE IF NOT EXISTS `slider` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `path` varchar(200) NOT NULL,
+  `text` varchar(500) NOT NULL,
+  `header` varchar(50) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `act` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+--
+-- Дамп данных таблицы `slider`
+--
+
+INSERT INTO `slider` (`id`, `path`, `text`, `header`, `status`, `act`) VALUES
+(1, '../../../img/bg-01.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. ', 'Слайд Первый', 'disable', 0),
+(2, '../../../img/bg-02.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \n                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \n                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \n                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan', 'Слайд Второй', 'disable', 0),
+(6, '../../../img/01.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \n                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \n                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \n                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan', 'Слайд четвертый', 'disable', 0),
+(7, '../../../img/020tyuhjkl.png', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд пятый', 'disable', 0),
+(8, '../../../img/21-1800x700.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд шестой', 'enable', 0),
+(9, '../../../img/0_37bbf_ba545d6d_orig.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд седьмой', 'enable', 0),
+(10, '../../../img/slider_02-1800x700.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд восьмой', 'enable', 1);
 
 -- --------------------------------------------------------
 
