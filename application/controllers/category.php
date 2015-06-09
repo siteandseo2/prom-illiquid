@@ -7,6 +7,7 @@ class Category extends CI_Controller {
 
     function __construct($page = 'index') {
         parent::__construct();
+        if(!empty($this->session->userdata('admin'))){
         $this->load->model('category_m');
         $this->data['admin'] = @$this->session->userdata('admin');
         $this->load->view("admin/header", $this->data);
@@ -20,8 +21,10 @@ class Category extends CI_Controller {
         /* load focus product */
 
         $this->data['fpl'] = $this->category_m->focus_product_list();
+    }else{
+          redirect(base_url('admin'));
     }
-
+    }
     /* START METHOD's for categories
      *
      * 

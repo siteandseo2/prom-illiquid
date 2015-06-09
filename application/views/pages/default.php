@@ -2,26 +2,37 @@
 
     <!-- Carousel slides -->
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="../../../img/bg-01.jpg" alt="Slide one">
-            <div class="carousel-description carousel-caption">
-                <h1>Slide One</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="../../../img/bg-02.jpg" alt="Slide two">
-            <div class="carousel-caption carousel-description">
-                <h1>Slide Two</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
-            </div>
-        </div>
+        <?php
+        
+        foreach ($slider as $item) {
+            if ($item['status'] == 'enable') {
+                if($item['act']==1)
+                    $act='active';
+                else{
+                    $act='';
+                }
+                ?>        
+                <div class="item <?=$act?>">
+                    <img src="<?=$item['path']?>" alt="Slide one">
+                    <div class="carousel-description carousel-caption">
+                        <h1><?=$item['header']?></h1>
+                        <p><?=$item['text']?></p>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+        ?>
+        <!--        <div class="item">
+                    <img src="../../../img/bg-02.jpg" alt="Slide two">
+                    <div class="carousel-caption carousel-description">
+                        <h1>Slide Two</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
+                            Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
+                            sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
+                            diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
+                    </div>
+                </div>-->
     </div>
     <!-- Carousel slides End -->
 
@@ -95,22 +106,22 @@
 
                     <!-- Home tab Grid -->
                     <div class="col-sm-9 clearfix tabs-content-grid home-tab-grid">
-                        <?php foreach ($list as $item) {
-                            ?>
+<?php foreach ($list as $item) {
+    ?>
                             <!-- 1st row -->
                             <div class="col-md-3 col-sm-4 tabs-grid-item">
                                 <div class="inner-item">
-                                    <a href="<?= base_url(); ?>products/<?=$item['link']?>" class="item-link">
+                                    <a href="<?= base_url(); ?>products/<?= $item['link'] ?>" class="item-link">
                                         <div class="photo-frame">
-                                            <img src="<?=$item['image_path']?>" alt="<?=$item['name']?>">
+                                            <img src="<?= $item['image_path'] ?>" alt="<?= $item['name'] ?>">
                                         </div>
                                         <div class="item-title">
-                                            <span><?=$item['name']?></span>
+                                            <span><?= $item['name'] ?></span>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                        <?php } ?>
+<?php } ?>
                     </div>
                     <!-- Home tab grid End -->
 

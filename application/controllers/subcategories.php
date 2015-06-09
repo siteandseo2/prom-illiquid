@@ -18,19 +18,23 @@ class Subcategories extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->data['admin'] = @$this->session->userdata('admin');
-        $this->load->view("admin/header", $this->data);
-        /* load categories */
+        if (!empty($this->session->userdata('admin'))) {
+            $this->data['admin'] = @$this->session->userdata('admin');
+            $this->load->view("admin/header", $this->data);
+            /* load categories */
 
-        $this->load->model('category_m');
-        $this->data['cat_list'] = $this->category_m->category_list();
+            $this->load->model('category_m');
+            $this->data['cat_list'] = $this->category_m->category_list();
 
-        /* load model for subcategories */
+            /* load model for subcategories */
 
-        $this->load->model('subcategories_m');
-        /* load subcategories list */
+            $this->load->model('subcategories_m');
+            /* load subcategories list */
 
-        $this->data['subcategories_list'] = $this->subcategories_m->get_subcategories_list();
+            $this->data['subcategories_list'] = $this->subcategories_m->get_subcategories_list();
+        } else {
+            redirect(base_url('admin'));
+        }
     }
 
     /* function edit_subcat */

@@ -369,23 +369,7 @@
                 </div> 
                 <!--TABLE NAV END -->
             </form>
-            <div class="row ">  
-                <div class="col-lg-12">
-                    <div class="pull-left col-lg-12 col-sm-auto">
-                        <h1 class="page-header">
-                            Слайдер
-                            <small>Slider</small>
-
-                            <div class="pull-right col-lg-3 col-sm-auto">
-                                <a href="<?= base_url('admin'); ?>/menu_add" class="btn btn-primary btn-labeled" style="width: 100%;">
-                                    <span class="btn-label icon fa fa-plus"></span>
-                                    Добавить изображение в слайдер
-                                </a>
-                            </div>
-                        </h1>
-                    </div>
-                </div>
-            </div>
+            
 
         </div> 
         <!-- /.container-fluid -->

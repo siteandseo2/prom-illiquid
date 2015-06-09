@@ -19,12 +19,13 @@ class Main extends CI_Controller {
             $this->load->view("templates/header");
         }
         /* load category_m */
+        $this->load->model('main_m');
         $this->load->model('category_m');
         $this->load->model('subcategories_m');
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
         $this->data['group_list'] = $this->category_m->focus_product_list();
-        $this->data['location']=$this->main_m->get_location();
-        $this->data['city']=$this->main_m->get_city();
+        $this->data['location'] = $this->main_m->get_location();
+        $this->data['city'] = $this->main_m->get_city();
         /* load subcategories_m */
     }
 
@@ -40,6 +41,7 @@ class Main extends CI_Controller {
         } else {
             switch ($page) {
                 case 'default':
+                     $this->data['slider'] = $this->main_m->get_slider_item();
                     $this->data['script'] = "<script src='../../../js/autoComplete.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script>
 <script src='../../../js/main.js'></script><script src='../../js/main_tabs.js'></script>";
                     break;
