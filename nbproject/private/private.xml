@@ -4,12 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/prom.loc/application/controllers/user.php</file>
+            <file>file:/var/www/prom.loc/application/controllers/menu.php</file>
             <file>file:/var/www/prom.loc/application/config/routes.php</file>
-            <file>file:/var/www/prom.loc/application/views/pages/test.php</file>
-            <file>file:/var/www/prom.loc/application/views/pages/company_info.php</file>
-            <file>file:/var/www/prom.loc/application/views/pages/account.php</file>
-            <file>file:/var/www/prom.loc/application/views/pages/item.php</file>
-            <file>file:/var/www/prom.loc/application/controllers/main.php</file>
+            <file>file:/var/www/prom.loc/application/views/admin/error.php</file>
+            <file>file:/var/www/prom.loc/application/controllers/admin.php</file>
+            <file>file:/var/www/prom.loc/application/models/main_m.php</file>
         </group>
     </open-files>
 </project-private>
