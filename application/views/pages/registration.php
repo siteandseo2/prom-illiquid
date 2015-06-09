@@ -216,16 +216,18 @@
                         </span>                        
                     </p>
                 </form>
-
-                <!-- Modal -->
-                <div class="registrResponse">
-                    <h3></h3>
-                    <div class="modalOk">
-                        <span>Ok</span>
-                    </div>
-                </div>
-                <!-- Modal End -->
-
+				
+				<!-- Response -->
+				
+				<div class="alert alert-success" role="alert" id="registrResponseSuccess">
+					<strong>Регистрация прошла успешно, спасибо!</strong>
+				</div>
+				<div class="alert alert-danger" role="alert" id="registrResponseDanger">
+					<strong>Ошибка при регистрации. Проверьте корретность введенных вами данных.</strong>
+				</div>
+				
+				<!-- Response End -->
+				
             </div>
 
         </div>

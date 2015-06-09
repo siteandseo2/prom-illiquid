@@ -39,7 +39,7 @@
                             ?>
                             <?php
                             foreach ($slider as $item) {
-                                if ($item['act'] != '1') {
+                                if ($item['act'] != '1' && $item['status']!='disable') {
                                     ?>
                                     <option value="<?= $item['id'] ?>">Картинка с ID: <?= $item['id'] ?></option>
                                     <?php

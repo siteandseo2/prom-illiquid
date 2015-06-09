@@ -176,6 +176,10 @@ body.no-bg {
     padding-left: 5px;
 }
 
+#top-bar .top-bar-icon-text + .num {
+	color: #fff;
+}
+
 #top-bar .mini-login {
     display: inline-block;
     vertical-align: middle;
@@ -937,7 +941,7 @@ p.form-name {
     color: #b8bcbe;
 }
 
-p  .form-submit {
+p .form-submit {
     display: inline-block;
     padding-left: 12px;
     padding-right: 12px;
@@ -2414,61 +2418,10 @@ p  .form-submit {
     color: rgba(255, 0, 0, 1);
 }
 
-.registrResponse {
-	width: 25%;
-	padding: 35px 20px;
-	margin: 0 auto;
-	position: relative;
-	top: -250px;
-	z-index: 160;
-	background: rgba(245, 245, 245, .7);
-	box-shadow: 0px 0px 5px #ddd;
-	text-align: center;
+#registrResponseSuccess,
+#registrResponseDanger {
 	display: none;
 }
-
-.registrResponse h3 {
-	margin: 0;
-}
-
-.registrResponseSuccess {
-	color: rgba(0, 205, 0, .7);
-}
-
-.registrResponseFalse {
-	color: rgba(205, 0, 0, .7);
-}
-
-.registrResponse .modalOk {
-	width: 30%;
-	padding: 5px 10px;
-	background: rgba(0, 0, 0, .7);
-	text-align: center;
-	margin: 20px auto 0;
-	border-radius: 3px;
-	cursor: pointer;
-	transition: all .3s;
-}
-
-.registrResponse .modalOk:hover {
-	background: rgba(0, 0, 0, .5);
-}
-
-.registrResponse .modalOk span {
-	color: #fff;
-}
-
-.overlay {
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background: rgba(0, 0, 0, .4);
-	z-index: 150;
-	display: none;
-}
-
 
 /* Cross browser hacks */
 /*

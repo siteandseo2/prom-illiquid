@@ -164,9 +164,113 @@
         </div>
     </div>
 
+	<!-- Modal Cart -->
 	
-	
-    <div class="overlay"></div>
+	<div class="modal fade bs-example-modal-lg" id="modalCart" aria-hidden="true" role="dialog">
+		<div class="modal-dialog modal-lg">
+		
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Оформление заказ</h4>
+				</div>
+				<div class="modal-body clearfix">
+					
+					<form name="modalCartForm" method="POST" class="validate-form">
+						<div class="form-fields clearfix">
+							
+							<!-- Left Side -->
+							
+							<div class="col-sm-6">
+								
+								<p>
+									<label for="type_of_order">Форма заказа</label>
+									<select class="cabinet-form-input" name="type_of_order" id="type_of_order">
+										<option value="cash">Наличные</option>
+										<option value="mail">Наложенный платеж</option>
+										<option value="card">Кредитная карточка</option>
+									</select>
+								</p>
+								
+								<p>
+									<label for="type_of_deliverance">Тип доставки</label>
+									<select class="cabinet-form-input" name="type_of_deliverance" id="type_of_deliverance">
+										<option value="nova_poshta">Нова Пошта</option>
+										<option value="self">Самовывоз</option>
+										<option value="intime">Интайм</option>
+									</select>
+								</p>
+								
+								<span class="form-name">
+									<input type="text" class="validate" data-validate="w" placeholder="Имя *" name="name">
+									<span class="form-icon">
+										<i class="fa"></i>
+									</span>
+								</span>
+								
+								<span class="form-name">
+									<input type="text" class="validate" data-validate="w" placeholder="Фамилия *" name="surname">
+									<span class="form-icon">
+										<i class="fa"></i>
+									</span>
+								</span>
+								
+								<p>
+									<label for="location">Область</label>
+									<select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+										<option value="zp">Запорожская</option>
+										<!-- foreach -->
+									</select>
+								</p>
+								
+								<p>
+									<label for="city">Область</label>
+									<select class="cabinet-form-input" name="city" id="city">
+										<option value="zp">Запорожье</option>
+										<!-- ajax -->
+									</select>
+								</p>
+								
+								<p class="form-name">
+									<input type="text" class="validate" data-validate="e" placeholder="Email *" name="email">
+									<span class="form-icon">
+										<i class="fa"></i>
+									</span>
+								</p>
+								
+								<p class="form-name">
+									<input type="text" class="validate" data-validate="p" placeholder="Телефон *" name="email">
+									<span class="form-icon">
+										<i class="fa"></i>
+									</span>
+								</p>
+							
+							</div>
+							
+							<!-- Right Side -->
+							
+							<div class="col-sm-6">
+							
+							</div>
+							
+						</div>
+					</form>
+					
+				</div>
+				<div class="modal-footer" style="text-align: left;">
+					 <p>
+                        <span class="form-submit">
+                            <input type="button" name="send" value="Оформить заказ" class="validate-submit">                            
+                        </span>
+						<span>
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>                   
+                        </span>
+                    </p>
+				</div>
+			</div>
+		
+		</div>
+	</div>
 	
 
 </footer>
@@ -180,12 +284,12 @@
 
 
 <script src="../../../js/jquery-1.11.0.min.js"></script>
-<script src="../../../js/jquery-ui.js"></script>
+ <script src="../../../js/jquery-ui.js"></script> 
 <script src="../../../js/bootstrap.js"></script>
 <script src="../../../js/uploading.js"></script>
 <?php
-if (!empty($script))
-    print_r($script);
+	/* if (!empty($script))
+    print_r($script); */
 ?>
 
 
