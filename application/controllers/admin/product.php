@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class Product_adm extends CI_Controller {
+class Product extends CI_Controller {
 
     public $data;
     public $data_db;
@@ -124,7 +124,7 @@ class Product_adm extends CI_Controller {
         redirect(base_url('admin/products'));
     }
 
-    function product() {
+    function products() {
         $this->load->view("admin/products", $this->data);
         $this->change_type();
         $this->delete_product();

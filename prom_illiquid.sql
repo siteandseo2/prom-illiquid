@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 09 2015 г., 17:52
+-- Время создания: Июн 10 2015 г., 15:50
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `fp_id` int(11) NOT NULL,
   `image_path` varchar(200) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `categories`
@@ -44,7 +44,13 @@ INSERT INTO `categories` (`id`, `name`, `status`, `link`, `fp_id`, `image_path`)
 (1, 'Автозапчасти', 'enable', 'autozapchasti', 2, ''),
 (2, 'Строительство', 'enable', 'stroitelstvo', 1, ''),
 (3, 'Аренда спецтехники', 'enable', 'arenda_techniki', 3, ''),
-(4, 'Электрооборудование', 'enable', 'electromachine', 1, '');
+(4, 'Электрооборудование', 'enable', 'electromachine', 1, ''),
+(5, 'Отопление', 'enable', 'otoplenie', 1, ''),
+(6, 'Военторг', 'enable', 'voentorg', 2, ''),
+(7, 'Техника и электроника', 'enable', 'device', 2, ''),
+(8, 'Спорт, развлечения, хобби', 'enable', 'sport', 2, ''),
+(9, 'Товары для сада', 'enable', 'dso', 2, ''),
+(10, 'Металл, пластик, резина', 'enable', 'metal_plastik_rezina', 1, '');
 
 -- --------------------------------------------------------
 
@@ -110,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('22380f8adffd3cf79ee92ea1cebdfc19', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433861305, 'a:2:{s:4:"user";a:10:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:7:"usercat";s:6:"seller";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";}s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
+('cbe45febf7fc0d9de3da2f5de795489a', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433940534, 'a:3:{s:9:"user_data";s:0:"";s:4:"user";a:10:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:7:"usercat";s:6:"seller";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";}s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
 
 -- --------------------------------------------------------
 
@@ -2655,6 +2661,32 @@ INSERT INTO `menu` (`id`, `name`, `type`, `p_id`, `p_id2`, `status`, `link`, `ow
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `partners`
+--
+
+CREATE TABLE IF NOT EXISTS `partners` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `logo` varchar(200) NOT NULL,
+  `link` varchar(30) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Дамп данных таблицы `partners`
+--
+
+INSERT INTO `partners` (`id`, `name`, `logo`, `link`, `status`) VALUES
+(1, 'Apple', '../../../logo/apple_1.jpg', 'https://www.apple.com/', 'enable'),
+(3, 'Ray Ban', '../../../logo/images.png', 'http://www.rb.ua/', 'enable'),
+(4, 'volkswagen', '../../../logo/x_a2f4c8c0.jpg', 'http://www.volkswagen.ua/', 'enable'),
+(5, 'Sony', '../../../logo/sony.png', 'https://www.sony.ua/', 'enable'),
+(6, 'creative', '../../../logo/creative_logo.jpg', 'http://ru.creative.com/', 'enable');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `product`
 --
 
@@ -2704,17 +2736,17 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `status` varchar(10) NOT NULL,
   `act` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `slider`
 --
 
 INSERT INTO `slider` (`id`, `path`, `text`, `header`, `status`, `act`) VALUES
-(1, '../../../img/bg-01.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. ', 'Слайд Первый', 'disable', 0),
-(2, '../../../img/bg-02.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \n                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \n                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \n                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan', 'Слайд Второй', 'disable', 0),
-(6, '../../../img/01.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \n                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \n                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \n                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan', 'Слайд четвертый', 'disable', 0),
-(7, '../../../img/020tyuhjkl.png', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд пятый', 'disable', 0),
+(1, '../../../img/bg-01.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. ', 'Слайд Первый', 'enable', 0),
+(2, '../../../img/bg-02.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \n                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \n                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \n                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan', 'Слайд Второй', 'enable', 0),
+(6, '../../../img/01.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \n                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \n                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \n                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan', 'Слайд четвертый', 'enable', 0),
+(7, '../../../img/020tyuhjkl.png', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд пятый', 'enable', 0),
 (8, '../../../img/21-1800x700.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд шестой', 'enable', 0),
 (9, '../../../img/0_37bbf_ba545d6d_orig.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд седьмой', 'enable', 0),
 (10, '../../../img/slider_02-1800x700.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд восьмой', 'enable', 1);
@@ -2733,7 +2765,7 @@ CREATE TABLE IF NOT EXISTS `subcategories` (
   `status` varchar(10) NOT NULL,
   `cat_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Дамп данных таблицы `subcategories`
@@ -2743,7 +2775,9 @@ INSERT INTO `subcategories` (`id`, `name`, `image_path`, `link`, `status`, `cat_
 (1, 'Двигатель', '../../../uploads/subcat_image/PRJ000618_i2.jpg', 'dvs', 'enable', 1),
 (2, 'Ходовая часть', '../../../uploads/subcat_image/hodovaya.jpg', 'hodovaja', 'enable', 1),
 (3, 'Кирпич', '../../../uploads/subcat_image/2757_32_big.jpg', 'kirpich', 'enable', 2),
-(4, 'Электростанок', '../../../uploads/subcat_image/201245567_3_644x461_prodam-derevoobrabatyvayuschiy-stanok-elektro-pila-tsirkulyarka-pilorama-elektroinstrument_rev015.jpg', 'stanok', 'enable', 4);
+(4, 'Электростанок', '../../../uploads/subcat_image/201245567_3_644x461_prodam-derevoobrabatyvayuschiy-stanok-elektro-pila-tsirkulyarka-pilorama-elektroinstrument_rev015.jpg', 'stanok', 'enable', 4),
+(5, 'Бытовые насосы', '../../../uploads/subcat_image/bit_nasosi_2.jpg', 'bit_nasos', 'enable', 5),
+(6, 'Котлы твердотопливные', '../../../uploads/subcat_image/vatra-12.png', 'kotli', 'enable', 5);
 
 -- --------------------------------------------------------
 
@@ -2768,7 +2802,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `building` varchar(10) NOT NULL,
   `phone_more` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548249 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548250 ;
 
 --
 -- Дамп данных таблицы `user`
@@ -2778,7 +2812,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `company`, `user_type`, `
 (1, 'Admin', 'admin', 'prom_admin', 'Admin', 'admin', 'Maks', 'Prihodko', 'Alexandrovich', 'Украина', 'Запорожье', '380938246066', 'Ладожская ', '17', ''),
 (2548244, 'Максим', 'mprihodko92@gmail.com', 'qwer0987', 'Site&Seo', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '380938246066', 'Ладожская ', '17а', ''),
 (2548247, 'Макс', 'baccardi92@mail.ru', '24june92', 'NULL', 'user', 'buyer', 'Приходько', 'Александрович', 'Украина ', 'Киев', '0505315548', 'Бульвар Верховного Совета', '24', ''),
-(2548248, 'Максим', 'John@gmail.com', '24june92', 'Желтый дезик', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '2712259', 'пр. Ленина ', '164', '380938246066');
+(2548248, 'Максим', 'John@gmail.com', '24june92', 'Желтый дезик', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '2712259', 'пр. Ленина ', '164', '380938246066'),
+(2548249, 'Maks', 'dji@fng.fgkmjd', 'qwer0987', 'NULL', 'user', 'buyer', 'Pryh', 'Alex', 'Украина ', 'Запорожье', '3578348343', 'пр. Ленина', '34', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

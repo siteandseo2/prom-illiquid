@@ -98,15 +98,16 @@
                             <p>
                                 <label for="country">Страна</label>
                                 <select class="cabinet-form-input" name="country" id="country">
-                                    <option value="ua">Украина</option>
-                                    <option value="ru">Россия</option>
-                                    <option value="usa">США</option>
+                                    <option value="Украина">Украина</option>
+                                    <option value="Россия">Россия</option>
+                                    <option value="США">США</option>
                                     <!-- AJAX or foreach -->
                                 </select>
                             </p>
                             <p>
                                 <label for="location">Область</label>
                                 <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                                     <option value="default">Выберите Область</option>
                                     <?php
                                     foreach($location as $k) {
                                         ?>
@@ -116,7 +117,9 @@
                                     ?>                               
                                 </select>
                                 <label for="city">Город</label>
-                                <select class="cabinet-form-input" name="city" id="city"></select>
+                                <select class="cabinet-form-input" name="city" id="city">
+                                     <option value="default">Выберите Населенный Пункт</option> 
+                                </select>
                             </p>
 
                             <p class="form-name">
@@ -171,14 +174,15 @@
                             <p>
                                 <label for="company_country">Страна</label>
                                 <select class="cabinet-form-input" name="company_country" id="company_country">
-                                    <option value="ua">Украина</option>
-                                    <option value="ru">Россия</option>
-                                    <option value="usa">США</option>
+                                    <option value="Украина">Украина</option>
+                                    <option value="Россия">Россия</option>
+                                    <option value="США">США</option>
                                 </select>
                             </p>
                             <p>
                                 <label for="company_location">Область</label>
                                 <select class="cabinet-form-input" name="company_location" id="company_location" data-ajax="region">
+                                    <option value="default">Выберите Область</option> 
                                     <?php
                                     foreach($location as $k) {
                                         ?>
@@ -190,7 +194,9 @@
 							</p>
 							<p>
                                 <label for="company_city">Город</label>
-                                <select class="cabinet-form-input" name="company_city" id="company_city"></select>
+                                <select class="cabinet-form-input" name="company_city" id="company_city">
+                                    <option value="default">Выберите Населенный Пункт</option> 
+                                </select>
                             </p>
                             <p class="form-name">
                                 <input type="text" placeholder="Улица" name="company_street">

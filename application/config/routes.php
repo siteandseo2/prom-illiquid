@@ -45,32 +45,38 @@ if (!defined('BASEPATH'))
 
 $route['default_controller'] = "main/index";
 
-$route['admin'] = 'admin/get_admin';
-$route['admin/(:any)'] = 'admin/admin_pages/$1';
-
-$route['user/add_user'] = 'user/add_user';
-$route['subcategories/(:any)'] = 'subcategories_front/get_subgategory/$1';
-$route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
 $route['ajax/filter_by_group']='ajax/filter_by_group/$1';
 $route['ajax/filter_by_categories']='ajax/filter_by_categories/$1';
 $route['ajax/change_location']='ajax/change_location';
+$route['user/add_user'] = 'user/add_user';
 $route['admin/ajax/add_menu_item']='ajax/change_item_menu';
 $route['admin/ajax/filter_by_categories']='ajax/filter_by_categories/$1';
-$route['company_info/ajax/change_location']='ajax/change_location';
-$route['account/ajax/change_location']='ajax/change_location';
 $route['admin/ajax/filter_by_group']='ajax/filter_by_group/$1';
+$route['account/ajax/change_location']='ajax/change_location';
+$route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
+$route['company_info/ajax/change_location']='ajax/change_location';
+
+$route['admin'] = 'admin/admin/get_admin';
+$route['admin/(:any)'] = 'admin/admin/admin_pages/$1';
 $route['admin/products/filter_by_category'] = 'ajax/filter_by_category';
-$route['admin/products'] = 'product_adm/product';
-$route['admin/add_product'] = 'product_adm/add_product';
-$route['admin/add_category'] = 'category/add_category';
-$route['admin/add_focus_product'] = 'category/add_focus_product';
-$route['admin/subcategories'] = 'subcategories/get_subcat_list';
-$route['admin/add_subcategory'] = 'subcategories/add_subcategory';
-$route['admin/subcat'] = 'product_adm/filter_product';
-$route['admin/add_item_menu']='menu/add_menu';
-$route['admin/edit_menu']='menu/get_menu_list';
-$route['admin/slider']='admin/edit_slider';
-$route['admin/slide_add']='admin/slide_add';
+$route['admin/products'] = 'admin/product/products';
+$route['admin/add_product'] = 'admin/product/add_product';
+$route['admin/add_category'] = 'admin/category/add_category';
+$route['admin/add_focus_product'] = 'admin/category/add_focus_product';
+$route['admin/subcategories'] = 'admin/subcategories/get_subcat_list';
+$route['admin/add_subcategory'] = 'admin/subcategories/add_subcategory';
+$route['admin/subcat'] = 'admin/product/filter_product';
+$route['admin/add_item_menu']='admin/menu/add_menu';
+$route['admin/edit_menu']='admin/menu/get_menu_list';
+$route['admin/slider']='admin/admin/edit_slider';
+$route['admin/slide_add']='admin/admin/slide_add';
+$route['admin/exit_user'] = 'admin/admin/exit_user';
+$route['admin/category'] = 'admin/category/get_category';
+$route['admin/focus_product'] = 'admin/category/focus_product';
+$route['admin/partners']='admin/admin/partners';
+$route['admin/add_partner']='admin/admin/add_partner';
+
+$route['subcategories/(:any)'] = 'subcategories/get_subgategory/$1';
 $route['user/add_product']='user/add_product';
 $route['company_info']='user/company_info/$1';
 $route['company_info/(:any)']='user/company_info/$1';
@@ -78,18 +84,15 @@ $route['account']='user/accout_user/$1';
 $route['account/(:any)']='user/accout_user/$1';
 $route['login'] = 'user/get_user';
 $route['search']='search/get_search';
-
 $route['cabinet'] = 'cabinet/user_data';
 $route['add_product']='cabinet/add_product';
-$route['subcategories']='subcategories_front/get_all_subcat';
+$route['subcategories']='subcategories/get_all_subcat';
 $route['products'] = 'product/get_all_product';
 $route['products/item/(:any)'] = 'product/get_product/$1';
 $route['products/(:any)'] = 'product/get_products/$1';
 $route['exit_user'] = 'user/exit_user';
 
-$route['admin/exit_user'] = 'admin/exit_user';
-$route['admin/category'] = 'category/get_category';
-$route['admin/focus_product'] = 'category/focus_product';
+
 $route['(:any)'] = 'main/index/$1';
 
 

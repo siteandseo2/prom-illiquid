@@ -83,4 +83,15 @@ class Main_m extends CI_Model {
         }
     }
 
+    function get_partners() {
+        $partner = $this->db->get('partners');
+        return $partner->result_array();
+    }
+
+    function partner_add($data) {
+        if ($this->db->insert('partners', $data)) {
+            return true;
+        }
+    }
+
 }

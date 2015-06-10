@@ -162,12 +162,12 @@ class Admin extends CI_Controller {
                     $this->main_m->get_slider_insert($this->data);
                     redirect(base_url('admin/slider'));
                 } else {
-                    $this->data['error'] = 'Ошибка при загрузке файла';                   
+                    $this->data['error'] = 'Ошибка при загрузке файла';
                     $this->load->view('admin/error', $this->data);
                     $this->load->view('admin/footer');
                 }
-            } else { 
-                $this->data['error'] = 'Ошибка при заполнении формы';               
+            } else {
+                $this->data['error'] = 'Ошибка при заполнении формы';
                 $this->load->view('admin/error', $this->data);
                 $this->load->view('admin/footer');
             }
@@ -178,4 +178,75 @@ class Admin extends CI_Controller {
     }
 
     /* slide_add End */
+
+    /* partners function START */
+
+    function partners() {
+        if (isset($_POST['edit'])) {
+            foreach ($this->input->post('edit') as $val) {
+                $id = $val;
+            }
+            foreach ($this->input->post('name') as $key => $value) {
+                if ($id == $key)
+                    $name = $value;
+            }
+            foreach ($this->input->post('link') as $key => $value) {
+                if ($id == $key)
+                    $link = $value;
+            }
+            $this->db->query("UPDATE partners SET name='$name' WHERE id='$id'");
+            $this->db->query("UPDATE partners SET link='$link' WHERE id='$id'");
+        }
+        if (isset($_POST['delete'])) {
+            foreach ($this->input->post('delete') as $id) {
+                $this->db->where('id', $id)->delete('partners');
+            }
+        }
+        if (isset($_POST['status'])) {
+            foreach ($this->input->post('status') as $key => $val) {
+                if ($val == 'enable') {
+                    $this->db->query("UPDATE partners SET status='disable' WHERE id='$key'");
+                } else {
+                    $this->db->query("UPDATE partners SET status='enable' WHERE id='$key'");
+                }
+            }
+        }
+        $this->data['partner'] = $this->main_m->get_partners();
+        $this->load->view("admin/partners", $this->data);
+        $this->load->view("admin/footer", $this->data);
+    }
+
+    /* partners function END */
+
+    /* add partner START */
+
+    function add_partner() {
+        if (isset($_POST['add_partner'])) {
+            if (!empty($this->input->post('name'))) {
+                if (is_uploaded_file($_FILES["logo"]["tmp_name"])) {
+                    unset($this->data);
+                    $this->data['link'] = $this->input->post('link');
+                    $this->data['name'] = $this->input->post('name');
+                    $this->data['status'] = $this->input->post('status');
+                    $this->data['logo'] = '../../../logo/' . $_FILES["logo"]["name"];
+                    move_uploaded_file($_FILES["logo"]["tmp_name"], "./logo/" . $_FILES["logo"]["name"]);
+                    $this->main_m->partner_add($this->data);
+                    redirect(base_url('admin/partners'));
+                } else {
+                    $this->data['error'] = 'Ошибка при загрузке файла';
+                    $this->load->view('admin/error', $this->data);
+                    $this->load->view('admin/footer');
+                }
+            } else {
+                $this->data['error'] = 'Ошибка при заполнении формы';
+                $this->load->view('admin/error', $this->data);
+                $this->load->view('admin/footer');
+            }
+        } else {
+            $this->load->view("admin/partner_add", $this->data);
+            $this->load->view("admin/footer", $this->data);
+        }
+    }
+
+    /* add partner END */
 }

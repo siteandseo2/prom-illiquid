@@ -176,6 +176,9 @@
                     <li>
                         <a href="<?= base_url(); ?>admin/slider" class="dropped">Слайдер</a>
                     </li>
+                    <li>
+                        <a href="<?= base_url(); ?>admin/partners" class="dropped">Партнеры</a>
+                    </li>
                 </ul>
             </li>  
             <li>
