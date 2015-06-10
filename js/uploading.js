@@ -68,6 +68,10 @@
 				$.post('../../../js/validation.js');
 				$.post('../../../js/maps.js');
 				
+			} else if( isMatch( path, '/products/' ) ) {
+				
+				get.searchPost();
+				
 			} else if ( isMatch( path, '/products/item/' ) ) {
 				
 				get.searchPost();

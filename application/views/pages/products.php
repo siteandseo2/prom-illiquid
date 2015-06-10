@@ -78,21 +78,24 @@
                                 <article>
                                     <div class="cat-item-img">
                                         <a href="#" onclick="return false;" class="cat-item-hover-effect"><!--link-->
-                                            <img src="<?= $item['image_path'] ?>" alt=""><!--img-->
+                                            <img id="mainImage" src="<?= $item['image_path'] ?>" alt=""><!--img-->
                                         </a>
                                     </div>
                                     <div class="cat-item-title">
                                         <a href="#" onclick="return false;"><!--link-->
-                                            <h4>
+                                            <h4 id="itemName">
                                                 <?= $item['name'] ?><!--name-->
                                             </h4>
-                                            <span class="price">
-                                                <span class="amount"><?= $item['price'] ?>  <?= $item['currency'] ?></span><!--cost-->
+                                            <span class="item_price">
+                                                <span class="price"><?= $item['price'] ?></span>
+												<span class="currency"><?= $item['currency'] ?></span>
+												<span class="separator">за</span>
+												<span class="quantity"><?= $item['prod_quantity'] ?></span>
                                             </span>
                                         </a>
                                     </div>
                                     <div class="hover-over-btns">
-                                        <a href="#" title="В корзину" data-toggle="modal" data-target="#modalCart" class="buy-it">
+                                        <a href="#" id="<?= $item['id'] ?>" title="В корзину" data-toggle="modal" data-target="#modalCart" class="buy-it">
                                             <div>
                                                 <i class="fa fa-shopping-cart"></i>
                                             </div>

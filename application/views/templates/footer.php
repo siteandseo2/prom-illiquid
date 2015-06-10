@@ -249,12 +249,16 @@
 							
 							<!-- Right Side -->
 							
-							<div class="col-sm-6">
-							
+							<div class="col-sm-6 items-list">
+								
+								<!-- Item Block --> 
+								
 							</div>
 							
 						</div>
 					</form>
+					
+					<h3 class="empty_cart">Ваша корзина пуста</h3>
 					
 				</div>
 				<div class="modal-footer" style="text-align: left;">
