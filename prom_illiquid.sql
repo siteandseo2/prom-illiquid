@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 10 2015 г., 15:12
+-- Время создания: Июн 10 2015 г., 15:50
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `fp_id` int(11) NOT NULL,
   `image_path` varchar(200) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `categories`
@@ -44,7 +44,13 @@ INSERT INTO `categories` (`id`, `name`, `status`, `link`, `fp_id`, `image_path`)
 (1, 'Автозапчасти', 'enable', 'autozapchasti', 2, ''),
 (2, 'Строительство', 'enable', 'stroitelstvo', 1, ''),
 (3, 'Аренда спецтехники', 'enable', 'arenda_techniki', 3, ''),
-(4, 'Электрооборудование', 'enable', 'electromachine', 1, '');
+(4, 'Электрооборудование', 'enable', 'electromachine', 1, ''),
+(5, 'Отопление', 'enable', 'otoplenie', 1, ''),
+(6, 'Военторг', 'enable', 'voentorg', 2, ''),
+(7, 'Техника и электроника', 'enable', 'device', 2, ''),
+(8, 'Спорт, развлечения, хобби', 'enable', 'sport', 2, ''),
+(9, 'Товары для сада', 'enable', 'dso', 2, ''),
+(10, 'Металл, пластик, резина', 'enable', 'metal_plastik_rezina', 1, '');
 
 -- --------------------------------------------------------
 
@@ -110,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('86350694513c0eb62c96bba74dafbc68', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433938110, 'a:3:{s:9:"user_data";s:0:"";s:4:"user";a:10:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:7:"usercat";s:6:"seller";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";}s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
+('cbe45febf7fc0d9de3da2f5de795489a', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1433940534, 'a:3:{s:9:"user_data";s:0:"";s:4:"user";a:10:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:7:"usercat";s:6:"seller";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";}s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
 
 -- --------------------------------------------------------
 
@@ -2759,7 +2765,7 @@ CREATE TABLE IF NOT EXISTS `subcategories` (
   `status` varchar(10) NOT NULL,
   `cat_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Дамп данных таблицы `subcategories`
@@ -2769,7 +2775,9 @@ INSERT INTO `subcategories` (`id`, `name`, `image_path`, `link`, `status`, `cat_
 (1, 'Двигатель', '../../../uploads/subcat_image/PRJ000618_i2.jpg', 'dvs', 'enable', 1),
 (2, 'Ходовая часть', '../../../uploads/subcat_image/hodovaya.jpg', 'hodovaja', 'enable', 1),
 (3, 'Кирпич', '../../../uploads/subcat_image/2757_32_big.jpg', 'kirpich', 'enable', 2),
-(4, 'Электростанок', '../../../uploads/subcat_image/201245567_3_644x461_prodam-derevoobrabatyvayuschiy-stanok-elektro-pila-tsirkulyarka-pilorama-elektroinstrument_rev015.jpg', 'stanok', 'enable', 4);
+(4, 'Электростанок', '../../../uploads/subcat_image/201245567_3_644x461_prodam-derevoobrabatyvayuschiy-stanok-elektro-pila-tsirkulyarka-pilorama-elektroinstrument_rev015.jpg', 'stanok', 'enable', 4),
+(5, 'Бытовые насосы', '../../../uploads/subcat_image/bit_nasosi_2.jpg', 'bit_nasos', 'enable', 5),
+(6, 'Котлы твердотопливные', '../../../uploads/subcat_image/vatra-12.png', 'kotli', 'enable', 5);
 
 -- --------------------------------------------------------
 
