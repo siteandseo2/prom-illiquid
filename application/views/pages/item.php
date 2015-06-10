@@ -7,7 +7,7 @@
             ?>            
             <div class="wf-table">
                 <div class="wf-td hgroup">
-                    <h1><?= $item['name'] ?></h1>
+                    <h1 id="itemName"><?= $item['name'] ?></h1>
                 </div>
                 <div class="wf-td">
                     <ul class="breadcrumbs text-normal">
@@ -44,7 +44,7 @@
 
                 <div class="images">
                     <a href="#">
-                        <img src="<?= $item['image_path'] ?>" alt="" width="700" height="850">
+                        <img src="<?= $item['image_path'] ?>" alt="" width="700" height="850" id="mainImage">
                     </a>
                     <div class="thumbnails clearfix">
                         <? if(!empty($item['min_img1'])) {?>
@@ -75,10 +75,10 @@
 
                 <div class="summary">
 
-                    <p class="price">
-                        <span class="amount"><?= $item['price'] ?></span>
+                    <p class="item_price">
+                        <span class="price"><?= $item['price'] ?></span>
                         <span class="currency"><?= $item['currency'] ?></span>
-                        <span class="separetor">за</span>
+                        <span class="separator">за</span>
                         <span class="quantity"><?= $item['prod_quantity'] ?></span>
                     </p>
                     <? if(!empty($item['prod_min_order'])) {?>
@@ -109,9 +109,9 @@
     </p>
     </div>
                     -->
-                    <div class="quantity clearfix">
+                    <div class="quantity_ clearfix">
                         <input type="number" step="1" min="1" value="1" title="Change quantity" size="4">
-                        <div class="add2cart buy-it" data-toggle="modal" data-target="#modalCart">Купить</div>
+                        <div class="add2cart buy-it" data-toggle="modal" data-target="#modalCart" id="<?= $item['id'] ?>">Купить</div>
                     </div>
 
                     <div class="product_meta">

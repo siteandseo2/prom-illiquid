@@ -1548,8 +1548,14 @@ p .form-submit {
     font: normal normal normal 16px / 27px "Roboto", Helvetica, Arial, Verdana, sans-serif;
 }
 
-.cat-item-title a  h4 + .price  > .amount {
-    color: rgba(119,119,119,0.5);
+.cat-item-title .item_price span {
+	color: #888;
+}
+
+.cat-item-title .item_price  .price,
+.cat-item-title .item_price  .quantity {
+   color: #333;
+   font-size: 1.2em;
 }
 
 
@@ -1594,6 +1600,7 @@ p .form-submit {
     display: inline-block;
     text-decoration: none;
     border: 0;
+	outline: 0;
 }
 
 .hover-over-btns > a > div {
@@ -1663,26 +1670,26 @@ p .form-submit {
     box-sizing: border-box;
 }
 
-.summary .price {
+.summary .item_price {
 	margin-bottom: 10px;
 }
 
-.summary .price > soan {
+.summary .item_price > soan {
 	margin-right: 5px;
 }
 
-.summary .price .amount,
-.summary .price .quantity {
+.summary .item_price .amount,
+.summary .item_price .quantity {
     font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
     text-transform: none;
     color: #333;
 }
 
-.summary .price .amount {
+.summary .item_price .amount {
 	font-size: 2.2em;
 }
 
-.summary .price .quantity {
+.summary .item_price .quantity {
 	font-size: 1.5em;
 }
 
@@ -1732,11 +1739,11 @@ p .form-submit {
     margin-bottom: 10px;
 }
 
-.quantity {
+.quantity_ {
     margin-bottom: 20px; 
 }
 
-.quantity  input {
+.quantity_  input {
     width: 15%;
     float: left;
     margin: 0 15px 0 0;
@@ -1753,7 +1760,7 @@ p .form-submit {
     box-sizing: border-box;
 }
 
-.quantity .add2cart {
+.quantity_ .add2cart {
     box-shadow: 0 1px 6px rgba(0,0,0,0.12);
     transition: all .2s;
     line-height: 27px;
@@ -1770,7 +1777,7 @@ p .form-submit {
     cursor: pointer;
 }
 
-.quantity .add2cart:hover {
+.quantity_ .add2cart:hover {
     box-shadow: 0 1px 6px 3px rgba(0,0,0,0.12);
 }
 
@@ -2478,3 +2485,42 @@ p .form-submit {
 	text-decoration: underline;
 }
 
+/* Modal Cart */
+
+.cartItemBlock {
+	padding: 10px 5px;
+	border-bottom: 1px solid #eaeaea;
+}
+
+.cartItemBlock > p {
+	margin-right: 15px;
+}
+
+.cartItemBlock .thumb {
+	float: left;
+	margin-right: 15px;
+}
+
+.cartItemBlock  .title {
+	font-size: 1.1em;
+	line-height: 1.4em;
+}
+
+.cartItemBlock  .title,
+.cartItemBlock  .price,
+.cartItemBlock  .quantity {
+	color: #333;
+}
+
+.cartItemBlock  .price,
+.cartItemBlock  .quantity {
+	font-size: 1em;
+}
+
+.cartItemBlock .item-close {
+	float: right;
+}
+
+#modalCart .empty_cart {
+	display: none;
+}
