@@ -17,10 +17,18 @@
                                 </a>
                             </div>
                         </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/index">Главная</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-dashboard"></i>Слайдер
+                            </li>                        
+                        </ol>          
                     </div> 
                 </div> 
             </div> 
-            <form action="<?=  base_url('admin').'/slider'?>" method="POST"  class="form-submit validate-form" enctype="multipart/form-data">
+            <form action="<?= base_url('admin') . '/slider' ?>" method="POST"  class="form-submit validate-form" enctype="multipart/form-data">
 
                 <div class='form-container col-lg-6'>
                     <div class='col-lg-3'>
@@ -39,7 +47,7 @@
                             ?>
                             <?php
                             foreach ($slider as $item) {
-                                if ($item['act'] != '1' && $item['status']!='disable') {
+                                if ($item['act'] != '1' && $item['status'] != 'disable') {
                                     ?>
                                     <option value="<?= $item['id'] ?>">Картинка с ID: <?= $item['id'] ?></option>
                                     <?php
@@ -97,7 +105,7 @@
                             <td><textarea rows='9' class="form-control"  name="text[<?= $item['id'] ?>]"><?= $item['text'] ?></textarea></td>  
                             <td><button class="btn btn-success" type='submit' name="edit[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"><i class="fa fa-pencil"></i> Редактировать</button></td>
                             <td><button class="btn btn-danger"type='submit' name="delete[<?= $item['id'] ?>]" <?= $status ?> value="<?= $item['id'] ?>" ><i class="fa fa-trash-o"></i> Удалить</button></td>
-                            <td><button class = "btn btn-default"type = 'submit' name = "status[<?= $item['id'] ?>]" <?= $status ?> value = "<?=$item['status']?>"><?= $btn_name ?></button></td>   
+                            <td><button class = "btn btn-default"type = 'submit' name = "status[<?= $item['id'] ?>]" <?= $status ?> value = "<?= $item['status'] ?>"><?= $btn_name ?></button></td>   
                         </tr>
                     <?php } ?>
                     </tbody>

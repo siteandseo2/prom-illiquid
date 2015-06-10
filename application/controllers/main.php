@@ -23,6 +23,7 @@ class Main extends CI_Controller {
         $this->load->model('category_m');
         $this->load->model('subcategories_m');
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
+        $this->data['partner'] = $this->main_m->get_partners();
         $this->data['group_list'] = $this->category_m->focus_product_list();
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
