@@ -82,7 +82,7 @@
                     <div class="col-sm-6">
 
                         <p>
-                            <label>Ваше местоположение на карте</label>
+                            <label>Местоположение на карте</label>
                         <div id="map"></div>
                         </p>
 

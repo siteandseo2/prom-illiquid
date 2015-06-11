@@ -48,7 +48,7 @@
                                         </a>
                                     </div>
                                     <div class="mini-login">
-                                        <a href="<?= base_url(); ?>cabinet" class="submit">
+                                        <a href="<?= base_url(); ?>account/<?= $user['id']; ?>" class="submit">
                                             <span class="top-bar-icon-text"><?= $user['surname']; ?>  <?= $user['name']; ?></span>
                                         </a>
                                     </div>

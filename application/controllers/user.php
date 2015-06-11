@@ -171,10 +171,7 @@ class User extends CI_Controller {
 
     function company_info($id) {
         unset($this->data);
-        $this->data['user'] = $this->session->userdata('user');
-        if ($this->data['user']['id'] == $id) {
-            redirect(base_url('account'));
-        }
+        $this->data['user'] = $this->session->userdata('user');        
         $this->data['location'] = $this->main_m->get_location();
         if (empty($this->session->userdata('user'))) {
             redirect(base_url());
