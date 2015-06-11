@@ -47,7 +47,7 @@
                                     <div class="mini-login">
                                         <a href="<?= base_url(); ?>login" class="submit">
                                             <i class="fa fa-sign-in"></i>
-                                            <span class="top-bar-icon-text">Войти</span>
+                                            <span class="top-bar-icon-text">Вoйти</span>
                                         </a>
                                     </div>
 

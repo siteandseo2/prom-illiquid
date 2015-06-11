@@ -41,14 +41,14 @@
                                 <!-- Top bar conctacts icons End -->                              
                                 <div class="right-block wf-td clearfix">
                                     <div class="mini-login">
-                                        <a href="<?= base_url(); ?>" class="submit">
+                                        <a href="#" class="submit" data-toggle="modal" data-target="#modalCart" id="topBarCartLink">
                                             <i class="fa fa-shopping-cart"></i>
                                             <span class="top-bar-icon-text">Корзина</span>
+											<span class="num badge" id="cart-amount"></span>
                                         </a>
                                     </div>
                                     <div class="mini-login">
                                         <a href="<?= base_url(); ?>cabinet" class="submit">
-                                            <i class="fa fa-sign-in"></i>
                                             <span class="top-bar-icon-text"><?= $user['surname']; ?>  <?= $user['name']; ?></span>
                                         </a>
                                     </div>
@@ -56,7 +56,8 @@
                                     <div class="mini-login">
                                         <a href="#" class="submit">
                                             <form action="<?= base_url(); ?>exit_user" method="POST">
-                                                <i class="fa fa-pencil"></i><input onfocus="this.blur();" type="submit" id="exit" name="logout" value="Выйти" class="top-bar-icon-text subm" >
+                                                <i class="fa fa-sign-out"></i>
+												<input onfocus="this.blur();" type="submit" id="exit" name="logout" value="Выйти" class="top-bar-icon-text subm" >
                                             </form>                                
                                         </a>
                                     </div>

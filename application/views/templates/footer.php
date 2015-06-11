@@ -269,6 +269,11 @@
                         <span>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>                   
                         </span>
+						<span class="totalPrice">
+							<span>Итого</span>
+							<span class="sum"></span>
+							<span class="curr">Грн</span>
+						</span>
                     </p>
                 </div>
             </div>
