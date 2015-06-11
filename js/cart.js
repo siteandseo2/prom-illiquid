@@ -4,9 +4,18 @@
 	
 	var topBarCounter = $('#topBarCartLink'),
 		buyBtn = $('.buy-it'),
-		cartAmount = $('#cart-amount');
+		cartAmount = $('#cart-amount'),
+		isSession;
+		
+	// WHAT FLOW
 	
-	// TOPBARCLICK
+	(function() {
+		sessionStorage.length ? isSession = true : isSession = false;
+	}());
+	
+	console.log( isSession );
+	
+	// TOPBAR CLICK
 		
 	$( topBarCounter ).click(function() {
 		isEmpty();
