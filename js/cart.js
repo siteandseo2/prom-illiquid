@@ -15,7 +15,7 @@
 	// BUYCLICK
 	
 	$( buyBtn ).click(function() {
-	
+		
 		var itemBlock = $( this ).parent().parent(),
 		
 		id = this.id,
@@ -25,15 +25,13 @@
 			currency: $( itemBlock ).find('.currency').text(),
 			quantity: $( itemBlock ).find('.quantity').text()
 		} : {
-			price: +$('.price').text(),
-			currency: $('.currency').text(),
-			quantity: $('.quantity').text()
+			price: +$('.summary .price').text(),
+			currency: $('.summary .currency').text(),
+			quantity: $('.summary .quantity').text()
 		},
 		img = this.tagName == 'A' ? $( itemBlock ).parent().find('#mainImage').attr('src') : $('#mainImage').attr('src');
 		
 		var item = new Item(id, name, item_price, img);
-		
-		console.log( item );
 		
 		insertItem( item );
 		
