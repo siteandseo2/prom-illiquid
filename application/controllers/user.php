@@ -173,6 +173,9 @@ class User extends CI_Controller {
         unset($this->data);
         $this->data['user'] = $this->session->userdata('user');        
         $this->data['location'] = $this->main_m->get_location();
+        if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'buyer') {
+            redirect(base_url('account'));
+        }
         if (empty($this->session->userdata('user'))) {
             redirect(base_url());
         } else {
