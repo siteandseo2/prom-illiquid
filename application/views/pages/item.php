@@ -43,7 +43,7 @@
                 <!-- Main Product Image -->
 
                 <div class="images">
-                    <a href="#">
+                    <a href="<?= base_url(); ?><?= $item['image_path'] ?>" class="fancy" data-fancybox-group="gallery">
                         <img src="<?= $item['image_path'] ?>" alt="" width="700" height="850" id="mainImage">
                     </a>
                     <div class="thumbnails clearfix">
@@ -87,28 +87,28 @@
                         <span class="q"><?=$item['prod_min_order']?></span>
                     </p>
                     <? } ?>
-                    <!-- 
-    <div class="rating clearfix">
-    <div class="star-rating" title="Rated 5.00 of 5">
-        <i class="fa fa-star-o"></i>
-        <i class="fa fa-star-o"></i>
-        <i class="fa fa-star-o"></i>
-        <i class="fa fa-star-o"></i>
-        <i class="fa fa-star-o"></i>
-    </div>
-    <a href="<?= base_url(); ?>#reviews" class="review-link" rel="nofollow">
-        ( <span class="ratingCount">1</span>
-        customer review )
-    </a>
-    </div>
-                    -->
-                    <!--
-    <div class="description">
-    <p>
-                    <?= nl2br($item['s_description']) ?>
-    </p>
-    </div>
-                    -->
+										<!-- 
+						<div class="rating clearfix">
+						<div class="star-rating" title="Rated 5.00 of 5">
+							<i class="fa fa-star-o"></i>
+							<i class="fa fa-star-o"></i>
+							<i class="fa fa-star-o"></i>
+							<i class="fa fa-star-o"></i>
+							<i class="fa fa-star-o"></i>
+						</div>
+						<a href="<?= base_url(); ?>#reviews" class="review-link" rel="nofollow">
+							( <span class="ratingCount">1</span>
+							customer review )
+						</a>
+						</div>
+										-->
+										<!--
+						<div class="description">
+						<p>
+										<?= nl2br($item['s_description']) ?>
+						</p>
+						</div>
+										-->
                     <div class="quantity_ clearfix">
                         <input type="number" step="1" min="1" value="1" title="Change quantity" size="4">
                         <div class="add2cart buy-it" data-toggle="modal" data-target="#modalCart" id="<?= $item['id'] ?>">Купить</div>

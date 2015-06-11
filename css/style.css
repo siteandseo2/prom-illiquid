@@ -1678,14 +1678,14 @@ p .form-submit {
 	margin-right: 5px;
 }
 
-.summary .item_price .amount,
+.summary .item_price .price,
 .summary .item_price .quantity {
     font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
     text-transform: none;
     color: #333;
 }
 
-.summary .item_price .amount {
+.summary .item_price .price {
 	font-size: 2.2em;
 }
 
@@ -2524,3 +2524,16 @@ p .form-submit {
 #modalCart .empty_cart {
 	display: none;
 }
+
+#modalCart .totalPrice {
+	display: inline-block;
+	margin-left: 140px;
+	font-size: 1.2em;
+}
+
+#modalCart .totalPrice .sum {
+	color: #333;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+

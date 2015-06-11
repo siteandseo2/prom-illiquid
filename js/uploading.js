@@ -68,10 +68,6 @@
 				$.post('../../../js/validation.js');
 				$.post('../../../js/maps.js');
 				
-			} else if( isMatch( path, '/products/' ) ) {
-				
-				get.searchPost();
-				
 			} else if ( isMatch( path, '/products/item/' ) ) {
 				
 				get.searchPost();
@@ -79,7 +75,11 @@
 				$.post('../../../js/jquery.fancybox.pack.js');
 				$.post('../../../js/product_settings.js');
 				
-			} else if ( isMatch( path, '/subcategories/' ) ){
+			} else if( isMatch( path, '/products/' ) ) {
+				
+				get.searchPost();
+				
+			}  else if ( isMatch( path, '/subcategories/' ) ){
 				
 				get.searchPost();
 				
@@ -90,9 +90,10 @@
 			break;
 	}
 	
-	function isMatch( path, url ) {
-		return path.indexOf( url ) != -1 ? true : false;
+	function isMatch( path, pattern ) {
+		return new RegExp( pattern, 'g' ).test( path );
 	}
-
+	
 });
+
 
