@@ -60,6 +60,8 @@
 		
 		currentCount( true ).setHTML();
 		
+		totalPrice( true, item.price.price ).setHTML();
+		
 		isEmpty();
 		
 		var parentBlock = $('.items-list');
@@ -85,12 +87,14 @@
 	// COUNT API
 	
 	var currentCount = function() {
-		
 		var c = 0;
 		
 		function count( bool ) {
 			bool ? ++c : --c;
 			return count;
+		}
+		count.setHTML = function() {
+			$( cartAmount ).html( c );
 		}
 		count.set = function( val ) {
 			c = val;
@@ -98,8 +102,8 @@
 		count.reset = function() {
 			c = 0;
 		}
-		count.setHTML = function() {
-			$( cartAmount ).html( c );
+		count.save = function() {
+			localStorage.setItem('cartCount', c);
 		}
 		
 		return count;
@@ -108,11 +112,40 @@
 	
 	currentCount.setHTML();
 	
+	// TOTAL PRICE
+	
+	var totalPrice = function() {
+		var total = 0;
+		
+		function execute( bool, num ) {
+			bool ? total += +num : total -= +num;
+			return execute;
+		}
+		execute.setHTML = function() {
+			$('#modalCart .totalPrice .sum').html( total );
+		}
+		execute.set = function(val) {
+			total = val;
+		}
+		execute.reset = function() {
+			total = 0;
+		}
+		execute.save = function() {
+			localStorage.setItem('totalPrice', total);
+		}
+		
+		return execute;
+	}();
+	
 	// REMOVE
 	
 	$( document ).on('click', '.item-close', function() {
 		$( this ).parent().remove();
+		
 		currentCount( false ).setHTML();
+		
+		totalPrice( false, $( this ).parent().find('.price').text() ).setHTML();
+		
 		isEmpty();
 	});
 	
@@ -136,5 +169,12 @@
 		}
 	}
 	
+	// HASITEMS
+	
+	/*
+	function hasItems() {
+		return ( $('#modalCart .items-list').has('section') ) ? true : false;
+	}
+	*/
 	
 });
