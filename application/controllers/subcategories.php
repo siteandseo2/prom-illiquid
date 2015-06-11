@@ -17,7 +17,7 @@ class Subcategories extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
+      
         $this->load->model('main_m');
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');

@@ -13,7 +13,13 @@ class Main extends CI_Controller {
         /* load header */
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
-            $this->data['menu'] = $this->main_m->get_menu();
+//            $access=3;
+            if ($this->data['user']['usercat'] == "seller") {
+                $num = 1;
+            } else {
+                $num = 2;
+            }            
+            $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
@@ -36,27 +42,12 @@ class Main extends CI_Controller {
 
 
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php')) {
+            $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
             if (!file_exists(APPPATH . '/views/userpages/' . $page . '.php')) {
                 show_404();
             }
         } else {
-            switch ($page) {
-                case 'default':
-                     $this->data['slider'] = $this->main_m->get_slider_item();
-                    $this->data['script'] = "<script src='../../../js/autoComplete.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script>
-<script src='../../../js/main.js'></script><script src='../../js/main_tabs.js'></script>";
-                    break;
-                case'registration':
-                    $this->data['script'] = "<script src='../../../js/validation.js'></script>";
-                    break;
-                case'account':
-                    $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
-                    break;
-                default :
-                    $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
-                    break;
-            }
-
+            $this->data['slider'] = $this->main_m->get_slider_item();
             $this->load->view("pages/$page", $this->data);
         }
         $this->load->view("templates/footer", $this->data);
