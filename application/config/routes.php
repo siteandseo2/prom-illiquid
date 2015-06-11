@@ -78,10 +78,10 @@ $route['admin/add_partner']='admin/admin/add_partner';
 
 $route['subcategories/(:any)'] = 'subcategories/get_subgategory/$1';
 $route['user/add_product']='user/add_product';
-$route['company_info']='user/company_info/$1';
+$route['company_info']='user/company_info/';
 $route['company_info/(:any)']='user/company_info/$1';
-$route['account']='user/accout_user/$1';
-$route['account/(:any)']='user/accout_user/$1';
+$route['account']='user/account_user/$1';
+$route['account/(:any)']='user/account_user/$1';
 $route['login'] = 'user/get_user';
 $route['search']='search/get_search';
 $route['cabinet'] = 'cabinet/user_data';

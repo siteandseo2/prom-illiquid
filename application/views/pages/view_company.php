@@ -15,23 +15,40 @@
 
                         <p>
                             <label for="company_name">Название компании</label>
-                            <input type="text" value="<?= $user_data['company'] ?>" id="company_name" name="company_name" class="cabinet-form-input">
+                            <span><?= $user_data['company'] ?></span>
                         </p>
                         <p>
                             <label for="company_email">Email компании</label>
-                            <input type="text" value="<?= $user_data['email'] ?>" id="company_email" name="company_email" class="cabinet-form-input">
+                            <span><?= $user_data['email'] ?></span>
                         </p>
                         <p>
                             <label for="company_phone">Телефон компании</label>
-                            <input type="text" value="<?= $user_data['phone'] ?>" id="company_phone" name="company_phone" class="cabinet-form-input">
+                            <span><?= $user_data['phone'] ?></span>
                         </p>
                         <p>
                             <label for="company_phone_more">Дополнительный телефон</label>
-                            <input type="text" value="<?= $user_data['phone_more'] ?>" id="company_phone_more" name="company_phone_more" class="cabinet-form-input">
+                            <span><?= $user_data['phone_more'] ?></span>
                         </p>
                         <p>
                             <label for="company_country">Страна</label>
-                            <select class="cabinet-form-input" id="company_country" name="company_country" data-map="country">
+                            <span ><?= $user_data['country'] ?></span>
+                        </p>
+                        <p>
+                            <label for="location">Город</label>
+                            <span ><?= $user_data['city'] ?></span>  
+
+                        </p>                       
+                        <p>
+                            <label for="company_street">Улица</label>
+                            <span ><?= $user_data['street'] ?></span> 
+                        </p>
+                        <p>
+                            <label for="company_building">Дом</label>
+                            <span ><?= $user_data['building'] ?></span>       
+                        </p>
+                        <p>
+                          
+                            <select class="cabinet-form-input" id="company_country" name="company_country" data-map="country" hidden="">
                                 <option value="ua"><?= $user_data['country'] ?></option>
                                 <option value="ua">Украина</option>
                                 <option value="ru">Россия</option>
@@ -41,40 +58,24 @@
                                 <!-- AJAX ? -->
                             </select>
                         </p>
+                        
                         <p>
-                            <label for="location">Область</label>
-                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
-                                <?php
-                                foreach ($location as $k) {
-                                    ?>
-                                    <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
-                                    <?php
-                                }
-                                ?>                               
-                            </select>
-                        </p>
-                        <p>
-                            <label for="city">Город</label>
-                            <select id="city" name="city" class="cabinet-form-input" data-map="city">
+                            
+                            <select id="city" name="city" class="cabinet-form-input" data-map="city" hidden>
                                 <option value="zp"><?= $user_data['city'] ?></option>                                
                             </select>
                         </p>
                         <p>
-                            <label for="company_street">Улица</label>
-                            <input type="text" value="<?= $user_data['street'] ?>" id="company_street" name="company_street" class="cabinet-form-input" data-map="street">
+                            
+                            <input type="text" value="<?= $user_data['street'] ?>" id="company_street" name="company_street" class="cabinet-form-input" data-map="street" hidden>
                         </p>
                         <p>
-                            <label for="company_building">Дом</label>
-                            <input type="text" value="<?= $user_data['building'] ?>" id="company_building" name="company_building" class="cabinet-form-input" data-map="building">
+                            
+                            <input type="text" value="<?= $user_data['building'] ?>" id="company_building" name="company_building" class="cabinet-form-input" data-map="building" hidden>
                         </p>
-
                         <hr>
 
-                        <p>
-                            <span class="form-submit">
-                                <input type="button" name="company_submit" id="company_submit" value="Сохранить">
-                            </span>
-                        </p>
+
 
                     </div>
 

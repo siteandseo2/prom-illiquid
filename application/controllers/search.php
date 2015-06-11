@@ -43,8 +43,7 @@ class Search extends CI_Controller {
         $this->load->model('category_m');
         $this->load->model('subcategories_m');
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
-        $this->data['group_list'] = $this->category_m->focus_product_list();
-        $this->script['script'] = "<script src='../../../js/jquery.fancybox.pack.js'></script><script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/product_settings.js'></script><script src='../../../js/main.js'></script>";
+        $this->data['group_list'] = $this->category_m->focus_product_list();       
     }
 
     function get_search() {

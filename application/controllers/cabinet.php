@@ -17,12 +17,16 @@ class Cabinet extends CI_Controller {
         parent::__construct();
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
-            $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script></script><script src='../../js/products.js' type='text/javascript'></script>";
             $this->load->model('main_m');
             $this->load->model('category_m');
             $this->load->model('subcategories_m');
             $this->load->model('product_m');
-            $this->data['menu']=  $this->main_m->get_menu();            
+            if ($this->data['user']['usercat'] == "seller") {
+                $num = 1;
+            } else {
+                $num = 2;
+            }
+            $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
             redirect(base_url('login'));
@@ -35,10 +39,13 @@ class Cabinet extends CI_Controller {
     }
 
     function add_product() {
-
-        $this->data['group_list'] = $this->category_m->focus_product_list();
-        $this->load->view("pages/add_product", $this->data);
-        $this->load->view("templates/footer", $this->data);
+        if ($this->data['user']['usercat'] == "seller") {
+            $this->data['group_list'] = $this->category_m->focus_product_list();
+            $this->load->view("pages/add_product", $this->data);
+            $this->load->view("templates/footer", $this->data);
+        } else {
+            show_404();
+        }
     }
 
 }
