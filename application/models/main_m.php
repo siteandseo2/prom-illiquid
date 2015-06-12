@@ -20,7 +20,7 @@ class Main_m extends CI_Model {
     function get_menu_front($num) {
         if (isset($num)) {
 //        $main = $this->db->where('status', 'enable')->where('access', '3')->where('type', 'r')->get('menu');
-            $main = $this->db->query('SELECT * FROM menu WHERE type="r" AND  access!=' . $num . '');
+            $main = $this->db->query('SELECT * FROM menu WHERE type="r" AND  access!=' . $num . ' AND status="enable"');
             foreach ($main->result_array() as $row) {
                 $arr1[$row['name']] = [$row['id']];
                 $level1 = $this->db->where('status', 'enable')->where('p_id', $row['id'])->get('menu');
