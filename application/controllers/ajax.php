@@ -99,8 +99,9 @@ class Ajax extends CI_Controller {
                 $num = 2;
                 $type = '';
             }
-            $this->data['user'] = @$this->session->userdata('user');
-            $this->data['user']['usercat'] = $type;            
+            $session_data['usercat'] =$type;
+            $this->session->set_userdata(array('user' => $session_data));
+            $this->data['user'] = @$this->session->userdata('user');           
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         }
