@@ -82,11 +82,24 @@ class Ajax extends CI_Controller {
         $menu_list = $this->main_m->get_city_by_id($id);
         $json = array();
         foreach ($menu_list as $num => $column) {
-            foreach ($column as $name => $value) {              
+            foreach ($column as $name => $value) {
                 $json[$name][$num] = $value;
             }
         }
         echo json_encode($json);
+    }
+
+    function change_role() {
+        if (isset($_GET['id'])) {
+            if ($_GET['id'] == "1") {
+                $num = 1;
+            } else {
+                $num = 2;
+            }
+            $this->data['user'] = @$this->session->userdata('user');
+            $this->data['menu'] = $this->main_m->get_menu_front($num);
+            $this->load->view("templates/header_user", $this->data);
+        }
     }
 
 }

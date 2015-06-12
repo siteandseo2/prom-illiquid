@@ -45,7 +45,7 @@
                                         <a href="#" class="submit" data-toggle="modal" data-target="#modalCart" id="topBarCartLink">
                                             <i class="fa fa-shopping-cart"></i>
                                             <span class="top-bar-icon-text">Корзина</span>
-											<span class="num badge" id="cart-amount"></span>
+                                            <span class="num badge" id="cart-amount"></span>
                                         </a>
                                     </div>
                                     <div class="mini-login">
@@ -58,7 +58,7 @@
                                         <a href="#" class="submit">
                                             <form action="<?= base_url(); ?>exit_user" method="POST">
                                                 <i class="fa fa-sign-out"></i>
-												<input onfocus="this.blur();" type="submit" id="exit" name="logout" value="Выйти" class="top-bar-icon-text subm" >
+                                                <input onfocus="this.blur();" type="submit" id="exit" name="logout" value="Выйти" class="top-bar-icon-text subm" >
                                             </form>                                
                                         </a>
                                     </div>
@@ -137,20 +137,21 @@
                                 echo 'Покупатель';
                             ?>
                         </strong>
-						<br>
-						<span class="query">сменить статус ?</span>
-						
-						<div class="changeRole">
-							<input type="checkbox" name="role" data-on-text="Покупатель" data-off-text="Продавец" checked>
-						</div>
-						
+                        <br>
+                        <?php if ($user['usercat'] == 'seller') { ?>
+                            <span class="query">сменить статус ?</span>
+
+                            <div class="changeRole">
+                                <input type="checkbox" name="role" data-on-text="Покупатель" data-off-text="Продавец" checked>
+                            </div>
+                        <?php } ?>
                     </div>
-                   
+
                 </div>
-				
-				
-				<div class="row">
-					 <!-- Search -->
+
+
+                <div class="row">
+                    <!-- Search -->
                     <form action="<?= base_url(); ?>search" method="POST" class="clearfix">
                         <div id="searching">
 
@@ -192,9 +193,9 @@
                         </div>
                     </form>
                     <!-- Search End --> 
-				</div>
-				
-				
+                </div>
+
+
                 <div class="row">
 
                     <!-- Cabinet Navigation -->

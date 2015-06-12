@@ -48,6 +48,7 @@ $route['default_controller'] = "main/index";
 $route['ajax/filter_by_group']='ajax/filter_by_group/$1';
 $route['ajax/filter_by_categories']='ajax/filter_by_categories/$1';
 $route['ajax/change_location']='ajax/change_location';
+$route['ajax/change_role']='ajax/change_role';
 $route['user/add_user'] = 'user/add_user';
 $route['admin/ajax/add_menu_item']='ajax/change_item_menu';
 $route['admin/ajax/filter_by_categories']='ajax/filter_by_categories/$1';
