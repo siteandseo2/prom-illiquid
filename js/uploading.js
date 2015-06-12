@@ -36,6 +36,8 @@
 			break;
 		case '/cabinet':
 			
+			$.getScript('js/bootstrap-switch.js');
+			
 			get.search();
 			
 			$.getScript('js/main_nav.js');

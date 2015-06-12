@@ -1300,21 +1300,34 @@ p .form-submit {
 
 .yoursId, .entrance {
     float: right;
-    padding: 28px 0;
+    padding: 5px 0;
     margin-right: 15px;
 }
 
-.yoursId h5, .entrance h5 {
+.yoursId h4, .entrance h4 {
 	display: inline-block;
+	margin-bottom: 0;
 }
 
-.yoursId h5 + span, .entrance h5 + span {
+.yoursId strong, .entrance strong {
 	font-weight: bold;
-	cursor: pointer;
+	color: #333;
+	font-size: 1.2em;
 }
 
-.yoursId h5 + span:hover, .entrance h5 + span:hover {
-	text-decoration: underline;
+.entrance .query {
+	color: #aaa;
+	cursor: pointer;
+	border-bottom: 1px dashed #888;
+}
+
+.entrance .query:hover {
+	border-bottom: 0;
+}
+
+.changeRole {
+	margin-top: 10px;
+	display: none;
 }
 
 #cabinet-navigation {

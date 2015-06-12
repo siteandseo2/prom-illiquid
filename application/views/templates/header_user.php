@@ -10,6 +10,7 @@
         <link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url(); ?>../../../css/bootstrap-switch.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/perfect-scrollbar.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/jquery.fancybox.css">
@@ -114,8 +115,8 @@
                     </div>
 
                     <div class="yoursId">
-                        <h5>Ваш id: </h5>
-                        <span>
+                        <h4>Ваш id: </h4>
+                        <strong>
                             <?php
                             $id = $user['id'];
                             if (strlen($id) < 8) {
@@ -125,23 +126,33 @@
                             }
                             echo $id;
                             ?>
-                        </span>
+                        </strong>
                     </div>
                     <div class="entrance">
-                        <h5>Вы вошли как: </h5>
-                        <span><?php
+                        <h4>Вы вошли как: </h4>
+                        <strong><?php
                             if ($user['usercat'] == 'seller')
                                 echo 'Продавец';
                             else
                                 echo 'Покупатель';
                             ?>
-                        </span>
+                        </strong>
+						<br>
+						<span class="query">сменить статус ?</span>
+						
+						<div class="changeRole">
+							<input type="checkbox" name="role" data-on-text="Покупатель" data-off-text="Продавец" checked>
+						</div>
+						
                     </div>
-
-
-                    <!-- Search -->
-                    <form action="<?= base_url(); ?>search" method="POST">
-                        <div id="searching" class="clearfix">
+                   
+                </div>
+				
+				
+				<div class="row">
+					 <!-- Search -->
+                    <form action="<?= base_url(); ?>search" method="POST" class="clearfix">
+                        <div id="searching">
 
                             <div class="search-inner clearfix">
                                 <input type="text" placeholder="Я ХОЧУ КУПИТЬ" name="name" class="search-input" autofocus>
@@ -181,9 +192,10 @@
                         </div>
                     </form>
                     <!-- Search End --> 
-                </div>
+				</div>
+				
+				
                 <div class="row">
-
 
                     <!-- Cabinet Navigation -->
 
