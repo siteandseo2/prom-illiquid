@@ -21,6 +21,8 @@
 		case '/default':
 		case '/':
 		
+			debugger;
+		
 			get.search();
 			
 			$.getScript('js/main_tabs.js');
@@ -35,7 +37,7 @@
 			
 			break;
 		case '/cabinet':
-			
+		
 			$.getScript('js/bootstrap-switch.js');
 			
 			get.search();
@@ -44,6 +46,8 @@
 			
 			break;
 		case '/add_product':
+		
+			$.getScript('js/bootstrap-switch.js');
 			
 			get.search();
 			
@@ -53,6 +57,8 @@
 			break;
 		case '/products':
 		case '/search':
+		
+			$.getScript('js/bootstrap-switch.js');
 			
 			get.search();
 			
@@ -62,6 +68,8 @@
 		default:
 		
 			if( isMatch( path, '/account/' ) || isMatch( path, '/company_info/' ) ) {
+				
+				$.post('../../../js/bootstrap-switch.js');
 				
 				get.searchPost();
 			
@@ -82,6 +90,8 @@
 				get.searchPost();
 				
 			}  else if ( isMatch( path, '/subcategories/' ) ){
+				
+				$.getScript('../../../js/bootstrap-switch.js');
 				
 				get.searchPost();
 				

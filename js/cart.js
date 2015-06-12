@@ -5,12 +5,24 @@
 	var topBarCounter = $('#topBarCartLink'),
 		buyBtn = $('.buy-it'),
 		cartAmount = $('#cart-amount'),
+		cartTotalPrice = $('#modalCart .totalPrice .sum'),
+		parentBlock = $('.items-list'),
 		isSession;
 		
 	// WHAT FLOW
 	
-	(function() {
-		sessionStorage.length ? isSession = true : isSession = false;
+	isSession = (function() {
+		
+		if( sessionStorage.length ) {
+			var keys = Object.keys( sessionStorage );
+			var res = keys.some(function(key) {
+				return ~key.indexOf('item_');
+			});
+			return res;
+		}
+		
+		return false;
+		
 	}());
 	
 	console.log( isSession );
@@ -19,6 +31,8 @@
 		
 	$( topBarCounter ).click(function() {
 		isEmpty();
+		
+		if( isSession ) useSession();
 	});
 	
 	// BUYCLICK
@@ -41,11 +55,8 @@
 		img = this.tagName == 'A' ? $( itemBlock ).parent().find('#mainImage').attr('src') : $('#mainImage').attr('src');
 		
 		var item = new Item(id, name, item_price, img);
-		item.save();
 		
-		console.log( sessionStorage );
-		
-		insertItem( item );
+		insertItem( item, isSession );
 		
 	});
 	
@@ -56,50 +67,101 @@
 		this.name = name;
 		this.price = price;
 		this.img = img;
-		this.save = function() {
-			localStorage.setItem('item_' + id, JSON.stringify({
-				id: this.id,
-				name: this.name,
-				price: this.price,
-				img: this.img
-			}));
-		}
 	};
 	
-	// INSERT
+	Item.save = function( item ) {
+		sessionStorage.setItem('item_' + item.id, JSON.stringify({
+			id: item.id,
+			name: item.name,
+			price: item.price,
+			img: item.img
+		}));
+	}
 	
-	function insertItem( item ) {
+	//sessionStorage.clear();
+	
+	// DEFINE VARS
+	
+	function insertItem( item, isSession ) {
 		
-		currentCount( true ).setHTML();
+		// Session Block
+		if( isSession ) useSession();
 		
-		totalPrice( true, item.price.price ).setHTML();
+		Item.save( item );
 		
-		isEmpty();
+		// Client Block
+		currentCount( true ).save().setHTML();
+		totalPrice( true, item.price.price ).save().setHTML();
 		
-		var parentBlock = $('.items-list');
-		
+		fillInVars( 
+			item.id, 
+			item.img, 
+			item.name, 
+			item.price.price, 
+			item.price.currency, 
+			item.price.quantity 
+		);
+	}
+	
+	// CREATE HTML
+	
+	function fillInVars( id, img, name, price, currency, quantity ) {
 		$( parentBlock ).append(' \
-			<section class="cartItemBlock clearfix" id="' + item.id + '"> \
-				<img src="' + item.img + '" width="100" height="100" class="thumb img-thumbnail"> \
+			<section class="cartItemBlock clearfix" id="' + id + '"> \
+				<img src="' + img + '" width="100" height="100" class="thumb img-thumbnail"> \
 				<button type="button" class="close item-close">&times;</button> \
 				<p> \
-					<span class="title">' + item.name + '</span> \
+					<span class="title">' + name + '</span> \
 				</p> \
 				<p> \
-					<span class="price">' + item.price.price + '</span> \
-					<span class="currency">' + item.price.currency + '</span> \
+					<span class="price">' + price + '</span> \
+					<span class="currency">' + currency + '</span> \
 					<span class="separator">за</span> \
-					<span class="quantity">' + item.price.quantity + '</span> \
+					<span class="quantity">' + quantity + '</span> \
 				</p> \
 			</section>'
 		);
+	}
+	
+	// USE SESSION
+	
+	function useSession() {
+		$( parentBlock ).html('');
+			
+		var parsed = parseSession();
 		
+		for( var key in parsed ) {
+			fillInVars( 
+				parsed[key].id, 
+				parsed[key].img, 
+				parsed[key].name, 
+				parsed[key].price.price, 
+				parsed[key].price.currency, 
+				parsed[key].price.quantity 
+			);
+		}
+		
+		currentCount.setHTML();
+		totalPrice.setHTML();
+	}
+	
+	// PARSE SESSION
+	
+	function parseSession() {
+		var items = {};
+		
+		for( var key in sessionStorage ) {
+			if( ~key.indexOf('item_') ) {
+				items[key] = JSON.parse( sessionStorage[key] );
+			}
+		}
+		return items;
 	}
 	
 	// COUNT API
 	
 	var currentCount = function() {
-		var c = 0;
+		var c = sessionStorage['cartCount'] || 0;
 		
 		function count( bool ) {
 			bool ? ++c : --c;
@@ -108,14 +170,15 @@
 		count.setHTML = function() {
 			$( cartAmount ).html( c );
 		}
+		count.save = function() {
+			sessionStorage.setItem('cartCount', c);
+			return count;
+		}
 		count.set = function( val ) {
 			c = val;
 		}
 		count.reset = function() {
 			c = 0;
-		}
-		count.save = function() {
-			localStorage.setItem('cartCount', c);
 		}
 		
 		return count;
@@ -127,23 +190,24 @@
 	// TOTAL PRICE
 	
 	var totalPrice = function() {
-		var total = 0;
+		var total = +sessionStorage['totalPrice'] || 0;
 		
 		function execute( bool, num ) {
 			bool ? total += +num : total -= +num;
 			return execute;
 		}
 		execute.setHTML = function() {
-			$('#modalCart .totalPrice .sum').html( total );
+			$( cartTotalPrice ).html( total );
+		}
+		execute.save = function() {
+			sessionStorage.setItem('totalPrice', total);
+			return execute;
 		}
 		execute.set = function(val) {
 			total = val;
 		}
 		execute.reset = function() {
 			total = 0;
-		}
-		execute.save = function() {
-			localStorage.setItem('totalPrice', total);
 		}
 		
 		return execute;
@@ -153,10 +217,11 @@
 	
 	$( document ).on('click', '.item-close', function() {
 		$( this ).parent().remove();
+		sessionStorage.removeItem( 'item_' + $(this).parent().attr('id') );
 		
-		currentCount( false ).setHTML();
+		currentCount( false ).save().setHTML();
 		
-		totalPrice( false, $( this ).parent().find('.price').text() ).setHTML();
+		totalPrice( false, $( this ).parent().find('.price').text() ).save().setHTML();
 		
 		isEmpty();
 	});
@@ -180,13 +245,5 @@
 			$('#modalCart').find('.empty_cart').hide();
 		}
 	}
-	
-	// HASITEMS
-	
-	/*
-	function hasItems() {
-		return ( $('#modalCart .items-list').has('section') ) ? true : false;
-	}
-	*/
 	
 });
