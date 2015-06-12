@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 12 2015 г., 14:15
+-- Время создания: Июн 12 2015 г., 17:07
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('d1d8c979aa1fa8709fe5e96253a6984c', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36', 1434107603, 'a:2:{s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}s:4:"user";a:10:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:7:"usercat";s:6:"seller";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";}}');
+('4b0f006be7cb84465840ae49759a0ff8', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36', 1434117805, 'a:2:{s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}s:4:"user";a:10:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:7:"usercat";s:6:"seller";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";}}');
 
 -- --------------------------------------------------------
 
@@ -2729,7 +2729,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `min_img2` varchar(200) DEFAULT NULL,
   `min_img3` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Дамп данных таблицы `product`
@@ -2745,7 +2745,8 @@ INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `subcat_id`, `status
 (10, 'Угловая шлифмашина Интерскол УШМ-230/2300М', '../../../uploads/products/_uglovaya-shlifmashina-interskol-ushm-2302300m.jpg', 2000, 8, 'enable', 'Угловая шлифмашина Интерскол УШМ-230/2300М - удобный инструмент при выполнении шлифовальных, обдирочных и отрезных работ любой степени сложности. Болгарка оснащена 2300 Вт электродвигателем, к достоинствам которого можно отнести надежность и достаточный крутящий момент. Изделие рассчитано на работу с 230 мм отрезными дисками, также возможно использование чашечной проволочной насадки, и других принадлежностей – таким образом, достигается возможность расширения области применения инструмента.\n\n\nК преимуществам угловой шлифовальной машины Интерскол УШМ-230/2300М стоит отнести использование надежного и износостойкого редуктора в корпусе из магниевого сплава. Также обратите внимание на систему быстрой замены дисков, использующую возможность блокирования шпинделя.\n\n\nКомпактный корпус инструмента имеет эргономичный дизайн, при этом предоставлен доступ к щеткам двигателя для быстрой их замены.\n\n\nУдобность и мощь разумно сочетаются в данной модели, что делает ее привлекательной для покупки. Чтобы купить эту профессиональную угловую шлифовальную машину Интерскол УШМ-230/2300М по удобной цене, можно обратиться в магазин Клондайк, также у нас богатый выбор болгарок других производителей.\n', 'Грн.', 5180, 'Шт.', 0, 6, 'Б/у', '', '', '', ''),
 (11, 'ТЕПЛОВЕНТИЛЯТОР DELONGHI HVK 1010', '../../../uploads/products/1_174288.jpg', 400, 11, 'enable', 'Официальная гарантия производителя - 1 год. Тепловентилятор Delonghi HVK 1010 может использоваться везде где Вам будет холодно, он там сделает сразу тепло. Компактный напольный тепловентилятор Delonghi HVK 1010 может легко переноситься с помощью встроенной ручки.\n\n', 'Грн.', 47110090, 'Шт.', 1, 8, 'Новое', '', '', '', ''),
 (12, 'ТЕПЛОВЕНТИЛЯТОР SATURN ST HT 8340', '../../../uploads/products/1_1922742.jpg', 300, 11, 'enable', 'Тепловентилятор для 22 кв. м\n\nЕсли вы ищите устройство, которое будет дарить тепло средней площади, то рассмотрите вариант тепловентилятора SATURN ST HT 8340, которому под силу согревать до 22 кв. м или 66 куб м без труда.\n\nОснащенность\n\nДанное устройство оснащено термостатом и регулятором скорости вентилятора. Также этот тепловентилятор имеет два режима обогрева. Достаточно большой функционал дарит обладателям этого обогревающего устройства качество по дотупной цене.\n\nУдобство\n\nПоскольку есть два варианта установки данного тепловентилятора: настольный и напольный, устройство можно пристроить туда, куда вам будет удобнее, что является несомненным плюсом тепловентилятора SATURN ST HT 8340. Более того, оцените и удобство эксплуатации, ведь понятное и простое механическое управление сделает даже первое знакомство с функционалом этого тепловентилятора.', 'Грн.', 71159290, 'Шт.', 1, 10, 'Новое', '', '../../../uploads/products/1_minскачанные файлы.jpg', '../../../uploads/products/1_minsaturn_st-ht8349_1.jpg', '../../../uploads/products/1_min'),
-(13, 'Вилка сцепления Lanos,Nexia,Aveo,Espero,Leganza ', '../../../uploads/products/1_659159065.jpg', 440, 13, 'enable', 'Вилка сцепления Ланос, Авео (рычаг) GM', 'Грн.', 94580796, 'Шт.', 1, 10, 'Новое', '', '../../../uploads/products/1_minDSC_6111.JPG', '../../../uploads/products/1_mind2babb73b74285e5087074cede0f1510.jpeg', NULL);
+(13, 'Вилка сцепления Lanos,Nexia,Aveo,Espero,Leganza ', '../../../uploads/products/1_659159065.jpg', 440, 13, 'enable', 'Вилка сцепления Ланос, Авео (рычаг) GM', 'Грн.', 94580796, 'Шт.', 1, 10, 'Новое', '', '../../../uploads/products/1_minDSC_6111.JPG', '../../../uploads/products/1_mind2babb73b74285e5087074cede0f1510.jpeg', NULL),
+(14, 'Бензиновый генератор SDMO Technic 10000 E-AVR + MO', '../../../uploads/products/1_072c06ed-54a8-4cd0-a4fe-5a2dee28071e.jpg', 63, 14, 'enable', 'Модельный ряд портативных бензиновых и дизельных электростанций SDMO представлен сериями, отличающимися эксплуатационными характеристиками, марками двигателей и другими особенностями, соответствующими требованиям различных ситуаций использования электростанций.\n\nСерия Technic\n\nМодельный ряд профессиональных однофазных и трехфазных бензиновых электростанций SDMO серии Technic на базе японских двигателей Honda и американских Kohler охватывают диапазон мощности от 2,2 до 15,2 кВт (19 kVA). Их отличает высокая нагрузочная способность и повышенная емкость топливная бака, обеспечивающая непрерывную работу электростанции без дозаправки в течение 10 часов и более. Ряд моделей этой серии оборудован электрическим стартером.\n', 'Грн.', 847496, 'Шт.', 1, 10, 'Новое', '', '../../../uploads/products/1_minbenzinovyy-generator-sdmo-technic-6500-e-avr-s-panelyu-modys-i-distancionnym-upravleniem_cdc29ab9cc21546_200x200.jpg', '../../../uploads/products/1_minTechnic 6500E AVR Auto modys.jpg', '../../../uploads/products/1_minFeatured-Image-Style-Essentials-Denim-New-Theme1-1800x700.jpg');
 
 -- --------------------------------------------------------
 
@@ -2786,12 +2787,12 @@ INSERT INTO `slider` (`id`, `path`, `text`, `header`, `status`, `act`) VALUES
 CREATE TABLE IF NOT EXISTS `subcategories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
-  `image_path` varchar(200) NOT NULL,
+  `image_path` varchar(400) NOT NULL,
   `link` varchar(200) NOT NULL,
   `status` varchar(10) NOT NULL,
   `cat_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
 -- Дамп данных таблицы `subcategories`
@@ -2810,7 +2811,28 @@ INSERT INTO `subcategories` (`id`, `name`, `image_path`, `link`, `status`, `cat_
 (10, 'Радиаторы и обогреватели', '../../../uploads/subcat_image/radiator-stalnoi-panelniy.jpg', 'radiatori', 'enable', 5),
 (11, ' Тепловентиляторы бытовые', '../../../uploads/subcat_image/111727200_w640_h640_18541.jpg', 'teploventiliator', 'enable', 5),
 (12, 'Коллекторы', '../../../uploads/subcat_image/kollektor-teplogo-pola-icma-1-h-5-vihodov-s-rashodomerami-ar-162304b.jpg', 'kollektori', 'enable', 5),
-(13, 'Трансмиссия', '../../../uploads/subcat_image/3cff47c22cb507f7a491ecbac18545f8.jpeg', 'transmission', 'enable', 1);
+(13, 'Трансмиссия', '../../../uploads/subcat_image/3cff47c22cb507f7a491ecbac18545f8.jpeg', 'transmission', 'enable', 1),
+(14, 'Генераторы и электростанции', '../../../uploads/subcat_image/127999437_w200_h200_8.jpg', 'generatori_stancii', 'enable', 4),
+(15, 'Металлоизделия промышленного назначения', '../../../uploads/subcat_image/68856263_w100_h100_27411817w100h1008.jpg', 'metalloizdeliya-promyshlennogo-naznacheniya', 'enable', 10),
+(16, 'Пневматический инструмент ', '../../../uploads/subcat_image/1.jpg', 'pnevmaticheskij-instrument', 'enable', 11),
+(17, 'Медицинские принадлежности и расходный материал', '../../../uploads/subcat_image/meditsinskie-prinadlezhnostiскачанные файлы.jpg', 'meditsinskie-prinadlezhnosti', 'enable', 16),
+(18, 'Упаковка для транспортировки', '../../../uploads/subcat_image/upakovka-dlya-transportirovkizashchytnaya_upakovka_dlya_transportyrovky_po_luchshey_tsene__28586192m.jpg', 'upakovka-dlya-transportirovki', 'enable', 17),
+(19, 'Лакокрасочные материалы и покрытия', '../../../uploads/subcat_image/lakokrasochnye-materialy-i-pokrytiyaD_5FCUvE2oI.jpg', 'lakokrasochnye-materialy-i-pokrytiya', 'enable', 18),
+(20, 'Системы и средства пожарной безопасности', '../../../uploads/subcat_image/pozharotushenie70846750_w200_h200_shkovieognetushitelistatya.jpg', 'pozharotushenie', 'enable', 19),
+(21, 'Альтернативные источники энергии', '../../../uploads/subcat_image/alternativnye-istochniki-energiiindustry_19.png', 'alternativnye-istochniki-energii', 'enable', 24),
+(22, 'Оптические приборы и системы', '../../../uploads/subcat_image/opticheskie-pribory-i-sistemy106839634_w200_h200_cid518896_pid48815292-0427499a.jpg', 'opticheskie-pribory-i-sistemy', 'enable', 6),
+(23, 'Техника и электроника', '../../../uploads/subcat_image/tehnika-i-elektronikaaudio-video.jpg', 'tehnika-i-elektronika', 'enable', 7),
+(24, 'Тренажеры', '../../../uploads/subcat_image/trenazhery73842469_w200_h200_cid239667_pid34231555-c6bf42b0.jpg', 'trenazhery', 'enable', 8),
+(25, 'Инструмент для скашивания травы', '../../../uploads/subcat_image/instrument-dlya-skashivaniya-travy175145332_w200_h200_ekspert.jpg', 'instrument-dlya-skashivaniya-travy', 'enable', 9),
+(26, 'Ветеринарные средства и препараты', '../../../uploads/subcat_image/veterinarnye-preparatyfrontline-1.jpg', 'veterinarnye-preparaty', 'enable', 0),
+(27, 'Маски, очки и наборы для плавания', '../../../uploads/subcat_image/maski-dlya-plavaniya112146843_w200_h200_cid1980430_pid38869854-686c2896.jpg', 'maski-dlya-plavaniya', 'enable', 20),
+(28, 'Солнцезащитные очки', '../../../uploads/subcat_image/solntsezaschitnye-ochki184208149_w200_h200_dior.jpeg', 'solntsezaschitnye-ochki', 'enable', 21),
+(29, 'Кушетки и софы', '../../../uploads/subcat_image/kushetki-sofy121150033_w200_h200_kreslomonarh.jpg', 'kushetki-sofy', 'enable', 22),
+(30, 'Гигиенические изделия и средства', '../../../uploads/subcat_image/gigienicheskie-izdeliya171462957_w230_h230_gigiena1.jpg', 'gigienicheskie-izdeliya', 'enable', 23),
+(31, 'Сельскохозяйственная техника', '../../../uploads/subcat_image/selskoe-hozyajstvo178355787_w200_h200_dscn7201.jpg', 'selskoe-hozyajstvo', 'enable', 3),
+(32, 'Юридические услуги', '../../../uploads/subcat_image/yuridicheskie-uslugi74121678_w100_h100_yuridicheskie_uslugi.png', 'yuridicheskie-uslugi', 'enable', 12),
+(33, 'Создание сайтов, реклама в интернете', '../../../uploads/subcat_image/internet-reklamawebsite_development.png', 'internet-reklama', 'enable', 13),
+(34, 'Семинары', '../../../uploads/subcat_image/seminary2015-05-21domnica_seminars.jpg', 'seminary', 'enable', 14);
 
 -- --------------------------------------------------------
 

@@ -21,6 +21,15 @@ class subcategories_m extends CI_Model {
         $query = $this->db->get('subcategories');
         return $query->result_array();
     }
+    
+    function get_subcategories_limit12() {
+        $query = $this->db->get('subcategories', 12, 1);
+        return $query->result_array();
+    }
+    function get_subcategories_pagin($num, $offset) {
+        $query = $this->db->get('subcategories', $num, $offset);
+        return $query->result_array();
+    }
 
     function get_subcategories_list_by_category($id) {
         $query = $this->db->where("cat_id", $id)->get('subcategories');

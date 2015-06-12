@@ -103,6 +103,7 @@ class Subcategories extends CI_Controller {
     /* END  function delete_subcat  */
 
     public function get_subcat_list() {
+        
         $this->load->view('admin/subcategories', $this->data);
         $this->delete_subcat();
         $this->change_type();
@@ -115,10 +116,11 @@ class Subcategories extends CI_Controller {
     public function add_subcategory() {
         if (isset($_POST['add_subcategory'])) {
             if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
-                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/subcat_image/" . $_FILES["prod_photo"]["name"]);
+                $this->data_db['link'] = strtolower($this->input->post('link'));
+                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/subcat_image/" . $this->data_db['link'].$_FILES["prod_photo"]["name"]);
                 $this->data_db['name'] = $this->input->post('name');
                 $this->data_db['link'] = strtolower($this->input->post('link'));
-                $this->data_db['image_path'] = '../../../uploads/subcat_image/' . $_FILES["prod_photo"]["name"];
+                $this->data_db['image_path'] = '../../../uploads/subcat_image/'.$this->data_db['link'] . $_FILES["prod_photo"]["name"];
                 $this->data_db['cat_id'] = strtolower($this->input->post('category'));
                 $this->data_db['status'] = strtolower($this->input->post('status'));
                 $this->subcategories_m->add_subcategory($this->data_db);

@@ -29,15 +29,20 @@
             <div class="col-lg-12 tab_margin_top">               
                 <form action="add_subcategory" method="POST" class="form-submit" enctype="multipart/form-data">
                     <label>Направление</label>
-                    <select class='form-control' name='category'>
+                    <select class='form-control' name='group' id="prod_group">
+                        <option value="default">Выберите Группу</option>
                         <?php
-                        foreach ($cat_list as $item) {
+                        foreach ($fpl as $item) {
                             ?>
                             <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
                             <?php
                         }
                         ?>
                     </select>
+                    <label>Категория товара</label>
+                    <select class='form-control' name='category' id="prod_cat">
+
+                    </select>  
                     <label>Название</label>
                     <input class='form-control' name='name' placeholder="Например Отопление (Максимум 250 символов)" type='text'/>
                     <label>Ссылка</label>

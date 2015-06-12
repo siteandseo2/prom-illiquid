@@ -65,6 +65,7 @@ $route['admin/add_product'] = 'admin/product/add_product';
 $route['admin/add_category'] = 'admin/category/add_category';
 $route['admin/add_focus_product'] = 'admin/category/add_focus_product';
 $route['admin/subcategories'] = 'admin/subcategories/get_subcat_list';
+//$route['admin/subcategories/(:any)'] = 'admin/subcategories/get_subcat_list';
 $route['admin/add_subcategory'] = 'admin/subcategories/add_subcategory';
 $route['admin/subcat'] = 'admin/product/filter_product';
 $route['admin/add_item_menu']='admin/menu/add_menu';

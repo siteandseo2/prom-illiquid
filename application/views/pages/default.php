@@ -106,7 +106,7 @@
 
                     <!-- Home tab Grid -->
                     <div class="col-sm-9 clearfix tabs-content-grid home-tab-grid">
-<?php foreach ($list as $item) {
+<?php foreach ($subcategory_img as $item) {
     ?>
                             <!-- 1st row -->
                             <div class="col-md-3 col-sm-4 tabs-grid-item">
@@ -121,7 +121,8 @@
                                     </a>
                                 </div>
                             </div>
-<?php } ?>
+<?php }
+?>
                     </div>
                     <!-- Home tab grid End -->
 

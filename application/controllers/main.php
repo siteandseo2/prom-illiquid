@@ -18,17 +18,21 @@ class Main extends CI_Controller {
                 $num = 1;
             } else {
                 $num = 2;
-            }            
+            }
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
         }
         /* load category_m */
+        
         $this->load->model('main_m');
         $this->load->model('category_m');
         $this->load->model('subcategories_m');
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
+
+            $this->data['subcategory_img'] = $this->subcategories_m->get_subcategories_limit12();
+
         $this->data['partner'] = $this->main_m->get_partners();
         $this->data['group_list'] = $this->category_m->focus_product_list();
         $this->data['location'] = $this->main_m->get_location();
@@ -46,7 +50,7 @@ class Main extends CI_Controller {
             if (!file_exists(APPPATH . '/views/userpages/' . $page . '.php')) {
                 show_404();
             }
-        } else {
+        } else {           
             $this->data['slider'] = $this->main_m->get_slider_item();
             $this->load->view("pages/$page", $this->data);
         }
