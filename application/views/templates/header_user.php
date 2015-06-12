@@ -138,13 +138,13 @@
                             ?>
                         </strong>
                         <br>
-                        <?php if ($user['usercat'] == 'seller') { ?>
+                        
                             <span class="query">сменить статус ?</span>
 
                             <div class="changeRole">
                                 <input type="checkbox" name="role" data-on-text="Покупатель" data-off-text="Продавец" checked>
                             </div>
-                        <?php } ?>
+                      
                     </div>
 
                 </div>

@@ -93,10 +93,14 @@ class Ajax extends CI_Controller {
         if (isset($_GET['id'])) {
             if ($_GET['id'] == "1") {
                 $num = 1;
-            } else {
+                $type = 'seller';
+            } 
+            if ($_GET['id'] == "0") {
                 $num = 2;
+                $type = '';
             }
             $this->data['user'] = @$this->session->userdata('user');
+            $this->data['user']['usercat'] = $type;            
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         }
