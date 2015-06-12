@@ -10,12 +10,14 @@ class Product extends CI_Controller {
 
     public $data;
     public $data_db;
+    public $data_admin;
 
     function __construct() {
         parent::__construct();
         if (!empty($this->session->userdata('admin'))) {
             /* load header */
             $this->data['admin'] = @$this->session->userdata('admin');
+            $this->data_admin['admin'] = $this->session->userdata('admin');
             $this->load->view("admin/header", $this->data);
             /* load models */
             $this->load->model('product_m');
@@ -102,26 +104,59 @@ class Product extends CI_Controller {
 
     function add_product() {
         if (isset($_POST['add_product'])) {
-            if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
-                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/products/" . '1_' . $_FILES["prod_photo"]["name"]);
-                $this->data_db['name'] = $this->input->post('name');
-                $this->data_db['image_path'] = '../../../uploads/products/' . '1_' . $_FILES["prod_photo"]["name"];
-                $this->data_db['price'] = ($this->input->post('price'));
-                $this->data_db['subcat_id'] = ($this->input->post('subcat_id'));
-                $this->data_db['status'] = strtolower($this->input->post('status'));
-                $this->data_db['description'] = ($this->input->post('description'));
-                $this->data_db['s_description'] = ($this->input->post('s_description'));
-                $this->data_db['prod_type'] = $this->input->post('prod_type');
-                $this->data_db['currency'] = $this->input->post('prod_currency');
-                $this->data_db['prod_quantity'] = $this->input->post('prod_quantity');
-                $this->data_db['availability'] = $this->input->post('prod_is_available');
-                $this->data_db['prod_code'] = $this->input->post('prod_code');
-                $this->data_db['id_user'] = '1';
-                $this->product_m->add_product($this->data_db);
+            unset($this->data);
+            if (is_uploaded_file($_FILES["prod_photo_1"]["tmp_name"])) {
+                move_uploaded_file($_FILES["prod_photo_1"]["tmp_name"], "./uploads/products/" . 1 . '_' . $_FILES["prod_photo_1"]["name"]);
+                if (move_uploaded_file($_FILES["prod_photo_2"]["tmp_name"], "./uploads/products/" . 1 . '_min' . $_FILES["prod_photo_2"]["name"]))
+                    $this->data['min_img1'] = '../../../uploads/products/' . 1 . '_min' . $_FILES["prod_photo_2"]["name"];
+                if (move_uploaded_file($_FILES["prod_photo_3"]["tmp_name"], "./uploads/products/" . 1 . '_min' . $_FILES["prod_photo_3"]["name"]))
+                    $this->data['min_img2'] = '../../../uploads/products/' . 1 . '_min' . $_FILES["prod_photo_3"]["name"];
+                if (move_uploaded_file($_FILES["prod_photo_4"]["tmp_name"], "./uploads/products/" . 1 . '_min' . $_FILES["prod_photo_4"]["name"]))
+                    $this->data['min_img3'] = '../../../uploads/products/' . 1 . '_min' . $_FILES["prod_photo_4"]["name"];
+                $this->data['name'] = $this->input->post('name');
+                $this->data['image_path'] = '../../../uploads/products/' . 1 . '_' . $_FILES["prod_photo_1"]["name"];
+
+
+
+                $this->data['price'] = $this->input->post('price');
+                $this->data['subcat_id'] = $this->input->post('subcat_id');
+                $this->data['status'] = 'enable';
+                $this->data['description'] = $this->input->post('description');
+                $this->data['prod_min_order'] = $this->input->post('min_order');
+                $this->data['currency'] = $this->input->post('currency');
+                $this->data['prod_code'] = $this->input->post('code');
+                $this->data['condition'] = $this->input->post('condition');
+                $this->data['ball'] = $this->input->post('ball');
+                $this->data['prod_quantity'] = $this->input->post('quantity');
+                $this->data['id_user'] = 1;
+                if ($this->product_m->add_product($this->data) == true) {
+                    redirect(base_url('admin/products'));
+                } else {
+                    redirect(base_url('admin/product_add'));
+                }
             }
         }
-        unset($this->data_db);
-        redirect(base_url('admin/products'));
+//        if (isset($_POST['add_product'])) {
+//            if (is_uploaded_file($_FILES["prod_photo_1"]["tmp_name"])) {
+//                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/products/" . '1_' . $_FILES["prod_photo"]["name"]);
+//                $this->data_db['name'] = $this->input->post('name');
+//                $this->data_db['image_path'] = '../../../uploads/products/' . '1_' . $_FILES["prod_photo"]["name"];
+//                $this->data_db['price'] = ($this->input->post('price'));
+//                $this->data_db['subcat_id'] = ($this->input->post('subcat_id'));
+//                $this->data_db['status'] = strtolower($this->input->post('status'));
+//                $this->data_db['description'] = ($this->input->post('description'));
+//                $this->data_db['s_description'] = ($this->input->post('s_description'));
+//                $this->data_db['prod_type'] = $this->input->post('prod_type');
+//                $this->data_db['currency'] = $this->input->post('prod_currency');
+//                $this->data_db['prod_quantity'] = $this->input->post('prod_quantity');
+//                $this->data_db['availability'] = $this->input->post('prod_is_available');
+//                $this->data_db['prod_code'] = $this->input->post('prod_code');
+//                $this->data_db['id_user'] = '1';
+//                $this->product_m->add_product($this->data_db);
+//            }
+//        }
+//        unset($this->data_db);
+//        redirect(base_url('admin/products'));
     }
 
     function products() {

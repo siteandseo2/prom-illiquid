@@ -43,11 +43,111 @@
 
                 <!--NAV START -->
 
-
+                <div class="row">               
+                    <div class="col-lg-12">
+                        <h4 class="page-header">
+                            Меню покупателя
+                            <small>Menu for buyer</small>
+                        </h4>  
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  Меню покупателя
+                            </li>                        
+                        </ol>                    
+                    </div>                 
+                </div>
                 <nav id="cabinet-navigation">
                     <ul id="main-nav" class="clearfix">                           
                         <?php
-                        foreach ($menu as $item => $arr) {
+                        foreach ($menu_buyer as $item => $arr) {
+                            ?>
+                            <li>
+                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <span><?= $item ?></span>
+                                </a>
+                                <?php
+                                if (count($arr) > 1) {
+                                    ?>
+                                    <div class="sub-nav out-level">
+                                        <ul>
+                                            <?php
+                                            foreach ($arr as $id => $array) {
+                                                if ($id == $arr['0']) {
+
+                                                    foreach ($array as $sub => $mass) {
+                                                        if (count($mass) > 1) {
+                                                            ?>
+                                                            <li class="downItem">
+                                                                <a href="<?= base_url(); ?><?= $sub ?>" onclick="return false;" class="clearfix">
+                                                                    <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
+                                                                    <span class="cabinet-nav-icon">
+                                                                        <i class="fa fa-angle-right"></i>
+                                                                    </span>
+                                                                </a>
+                                                                <div class="sub-nav inn-level">
+                                                                    <ul>
+                                                                        <?php
+                                                                        foreach ($mass as $k => $v) {
+                                                                            if (is_array($v)) {
+                                                                                foreach ($v as $key => $zn) {
+                                                                                    ?>
+                                                                                    <li>
+                                                                                        <a href="<?= base_url(); ?><?= $key ?>">
+                                                                                            <span><?= $zn ?></span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <?php
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        ?>                                                                        
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                            <?php
+                                                        } else {
+                                                            ?>                                           
+                                                            <li>
+                                                                <a href="<?= base_url(); ?><?= $sub ?>" class="clearfix">
+                                                                    <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
+                                                                </a>
+                                                            </li>                                                            
+                                                            <?php
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            ?>
+                                        </ul>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                            </li>
+                            <?php
+                        }
+                        ?>
+
+                    </ul>
+                </nav>
+                
+                <div class="row">               
+                    <div class="col-lg-12">
+                        <h4 class="page-header">
+                            Меню продавца
+                            <small>Menu for seller</small>
+                        </h4>  
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  Меню продавца
+                            </li>                        
+                        </ol>                    
+                    </div>                 
+                </div>
+                <nav id="cabinet-navigation">
+                    <ul id="main-nav" class="clearfix">                           
+                        <?php
+                        foreach ($menu_seller as $item => $arr) {
                             ?>
                             <li>
                                 <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">

@@ -119,14 +119,14 @@ class User extends CI_Controller {
             unset($this->data);
             if (is_uploaded_file($_FILES["prod_photo_1"]["tmp_name"])) {
                 move_uploaded_file($_FILES["prod_photo_1"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_' . $_FILES["prod_photo_1"]["name"]);
-                move_uploaded_file($_FILES["prod_photo_2"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_2"]["name"]);
-                move_uploaded_file($_FILES["prod_photo_3"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_3"]["name"]);
-                move_uploaded_file($_FILES["prod_photo_4"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_4"]["name"]);
+                if (move_uploaded_file($_FILES["prod_photo_2"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_2"]["name"]))
+                    $this->data['min_img1'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_2"]["name"];
+                if (move_uploaded_file($_FILES["prod_photo_3"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_3"]["name"]))
+                    $this->data['min_img2'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_3"]["name"];
+                if (move_uploaded_file($_FILES["prod_photo_4"]["tmp_name"], "./uploads/products/" . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_4"]["name"]))
+                    $this->data['min_img3'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_4"]["name"];
                 $this->data['name'] = $this->input->post('prod_name');
                 $this->data['image_path'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_' . $_FILES["prod_photo_1"]["name"];
-                $this->data['min_img1'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_2"]["name"];
-                $this->data['min_img2'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_3"]["name"];
-                $this->data['min_img3'] = '../../../uploads/products/' . $this->data_user['user']['id'] . '_min' . $_FILES["prod_photo_4"]["name"];
                 $this->data['price'] = $this->input->post('prod_price');
                 $this->data['subcat_id'] = $this->input->post('prod_subcat');
                 $this->data['status'] = 'enable';
@@ -171,7 +171,7 @@ class User extends CI_Controller {
 
     function company_info($id) {
         unset($this->data);
-        $this->data['user'] = $this->session->userdata('user');        
+        $this->data['user'] = $this->session->userdata('user');
         $this->data['location'] = $this->main_m->get_location();
         if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'buyer') {
             redirect(base_url('account'));

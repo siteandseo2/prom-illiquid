@@ -26,7 +26,9 @@ class Admin extends CI_Controller {
 
         /* load menu */
         $this->load->model('main_m');
-        $this->data['menu'] = $this->main_m->get_menu();
+        
+        $this->data['menu_buyer'] = $this->main_m->get_menu_front('2');
+        $this->data['menu_seller'] = $this->main_m->get_menu_front('1');
         $this->data['fst_level'] = $this->main_m->get_fst_l();
         $this->data['scnd_level'] = $this->main_m->get_snd_l();
         $this->data['trd_level'] = $this->main_m->get_trd_l();

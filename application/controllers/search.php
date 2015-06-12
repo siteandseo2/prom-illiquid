@@ -54,7 +54,7 @@ class Search extends CI_Controller {
                 $this->data['items'] = $this->product_m->search_prod($item);
             }
             $this->load->view("pages/products", $this->data);
-            $this->load->view("templates/footer", $this->script);
+            $this->load->view("templates/footer");
         }
     }
 

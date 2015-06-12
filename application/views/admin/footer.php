@@ -1,9 +1,7 @@
-<?php
-$a = $_SERVER['REQUEST_URI'];
-?>
+
 <!-- jQuery -->
 <script src="<?= base_url(); ?>../../../js/jquery.js"></script>
-
+<script src="<?= base_url(); ?>../../../js/jquery-ui.js" type="text/javascript"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="<?= base_url(); ?>../../../js/bootstrap.min.js"></script>
 
@@ -13,6 +11,14 @@ $a = $_SERVER['REQUEST_URI'];
 <!-- Main Back Js -->
 <script src="<?= base_url(); ?>../../../js/back_end.js"></script>
 
+<script src="<?= base_url(); ?>../../../js/products.js" type="text/javascript"></script>
+<?php
+$a = $_SERVER['REQUEST_URI'];
+if ($a == 'admin/product_add') {
+   
+}
+?>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $(function () {
@@ -21,7 +27,7 @@ $a = $_SERVER['REQUEST_URI'];
                     $('#page_url').removeAttr("disabled")
                 }
                 else {
-                     $('#page_url').html('').attr('disabled', 'disabled');
+                    $('#page_url').html('').attr('disabled', 'disabled');
                 }
             })
         });
