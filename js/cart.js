@@ -41,6 +41,9 @@
 		img = this.tagName == 'A' ? $( itemBlock ).parent().find('#mainImage').attr('src') : $('#mainImage').attr('src');
 		
 		var item = new Item(id, name, item_price, img);
+		item.save();
+		
+		console.log( sessionStorage );
 		
 		insertItem( item );
 		

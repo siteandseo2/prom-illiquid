@@ -3,7 +3,12 @@ $( document ).ready(function() {
 	/* Fancybox Gallery */
 	
 	try {
-		$('.fancy').fancybox();
+		
+		$('.fancy').click(function(ev) {
+			ev.preventDefault();
+			$('.fancy').fancybox();
+		});
+		
 	} catch ( e ) {
 		console.log( e.type + ' : ' + e.message );
 	}

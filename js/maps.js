@@ -7,8 +7,6 @@ $( document ).ready(function() {
 			street = document.querySelector('[data-map="street"]').value,
 			building = document.querySelector('[data-map="building"]').value;
 		
-		console.log( country, city, street, building );
-		
 		function sendToYandex() {
 			
 			var xhr = new XMLHttpRequest();
