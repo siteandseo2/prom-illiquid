@@ -46,7 +46,7 @@ class Main extends CI_Controller {
 
 
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php')) {
-            $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
+            
             if (!file_exists(APPPATH . '/views/userpages/' . $page . '.php')) {
                 show_404();
             }
@@ -54,6 +54,7 @@ class Main extends CI_Controller {
             $this->data['slider'] = $this->main_m->get_slider_item();
             $this->load->view("pages/$page", $this->data);
         }
+        $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
         $this->load->view("templates/footer", $this->data);
     }
 

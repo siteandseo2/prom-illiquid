@@ -17,11 +17,17 @@ class Subcategories extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-      
+
         $this->load->model('main_m');
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
-            $this->data['menu'] = $this->main_m->get_menu();
+//            $access=3;
+            if ($this->data['user']['usercat'] == "seller") {
+                $num = 1;
+            } else {
+                $num = 2;
+            }
+            $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
@@ -31,7 +37,7 @@ class Subcategories extends CI_Controller {
         $this->load->model('product_m');
     }
 
-    function get_all_subcat() {       
+    function get_all_subcat() {
         $this->data['subcategories'] = $this->subcategories_m->get_subcategories_list();
         if (!empty($this->data['subcategories'])) {
             foreach ($this->data['subcategories'] as $k => $arr) {
@@ -45,7 +51,7 @@ class Subcategories extends CI_Controller {
         $this->load->view("templates/footer", $this->data);
     }
 
-    function get_subgategory($name = '') {      
+    function get_subgategory($name = '') {
         $this->data['category'] = $this->category_m->get_category_name($name);
         $this->data['link'] = $name;
         $this->data['subcategories'] = $this->subcategories_m->get_subcategories($name);

@@ -269,11 +269,11 @@
                         <span>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>                   
                         </span>
-						<span class="totalPrice">
-							<span>Итого</span>
-							<span class="sum"></span>
-							<span class="curr">Грн</span>
-						</span>
+                        <span class="totalPrice">
+                            <span>Итого</span>
+                            <span class="sum"></span>
+                            <span class="curr">Грн</span>
+                        </span>
                     </p>
                 </div>
             </div>
@@ -297,8 +297,8 @@
 <script src="../../../js/bootstrap.js"></script>
 <script src="../../../js/uploading.js"></script>
 <?php
- if (!empty($script))
-  print_r($script); 
+if (!empty($script))
+    print_r($script);
 ?>
 
 

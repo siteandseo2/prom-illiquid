@@ -132,4 +132,15 @@ class Subcategories extends CI_Controller {
     }
 
     /* END function add subcategory */
+    
+    /*filter by categories START*/
+    function filter_cat(){
+        if(isset($_POST['filter'])){
+            $id=$this->input->post('data_cat');
+            $this->data['subcategories_list']=$this->subcategories_m->get_subcategories_list_by_category($id);
+            $this->load->view('admin/subcategories', $this->data);
+            $this->load->view('admin/footer');
+        }
+    }
+    /*filter by categories END*/
 }

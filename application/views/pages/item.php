@@ -84,31 +84,31 @@
                     <? if(!empty($item['prod_min_order'])) {?>
                     <p class="order">
                         <span>Минимальный заказ:</span>
-                        <span class="q"><?=$item['prod_min_order']?></span>
+                        <span class="q"><?= $item['prod_min_order'] ?></span>
                     </p>
                     <? } ?>
-										<!-- 
-						<div class="rating clearfix">
-						<div class="star-rating" title="Rated 5.00 of 5">
-							<i class="fa fa-star-o"></i>
-							<i class="fa fa-star-o"></i>
-							<i class="fa fa-star-o"></i>
-							<i class="fa fa-star-o"></i>
-							<i class="fa fa-star-o"></i>
-						</div>
-						<a href="<?= base_url(); ?>#reviews" class="review-link" rel="nofollow">
-							( <span class="ratingCount">1</span>
-							customer review )
-						</a>
-						</div>
-										-->
-										<!--
-						<div class="description">
-						<p>
-										<?= nl2br($item['s_description']) ?>
-						</p>
-						</div>
-										-->
+                    <!-- 
+    <div class="rating clearfix">
+    <div class="star-rating" title="Rated 5.00 of 5">
+    <i class="fa fa-star-o"></i>
+    <i class="fa fa-star-o"></i>
+    <i class="fa fa-star-o"></i>
+    <i class="fa fa-star-o"></i>
+    <i class="fa fa-star-o"></i>
+    </div>
+    <a href="<?= base_url(); ?>#reviews" class="review-link" rel="nofollow">
+    ( <span class="ratingCount">1</span>
+    customer review )
+    </a>
+    </div>
+                    -->
+                    <!--
+    <div class="description">
+    <p>
+                    <?= nl2br($item['s_description']) ?>
+    </p>
+    </div>
+                    -->
                     <div class="quantity_ clearfix">
                         <input type="number" step="1" min="1" value="1" title="Change quantity" size="4">
                         <div class="add2cart buy-it" data-toggle="modal" data-target="#modalCart" id="<?= $item['id'] ?>">Купить</div>
@@ -152,15 +152,15 @@
                         <h3>Информация о продавце</h3>
                         <span class="company">
                             Компания:
-                            <a href="<?= base_url(); ?>" class="company_value"><?=$user_data['company']?></a>
+                            <a href="<?= base_url('company_info'); ?>/<?= $user_data['id'] ?>" class="company_value"><?= $user_data['company'] ?></a>
                         </span>
                         <span class="email">
                             Email:
-                            <span class="email_value"><?=$user_data['email']?></span>
+                            <span class="email_value"><?= $user_data['email'] ?></span>
                         </span>
                         <span class="phone">
                             Телефон:
-                            <span href="<?= base_url(); ?>" class="phone_value"><?=$user_data['phone']?></span>
+                            <span href="<?= base_url(); ?>" class="phone_value"><?= $user_data['phone'] ?></span>
                         </span>
                     </div>
 
@@ -176,11 +176,11 @@
                     <li class="add_info_tab">
                         <a href="#">Дополнительная информация</a>
                     </li>
-					<!--
-                    <li class="reviews_tab">
-                        <a href="#">Отзывы (1)</a>
-                    </li>
-					-->
+                    <!--
+<li class="reviews_tab">
+    <a href="#">Отзывы (1)</a>
+</li>
+                    -->
                 </ul>
 
                 <section id="description_panel">
@@ -206,123 +206,123 @@
                         </tbody>
                     </table>
                 </section>
-				
-				<!--
-				
-                <section id="reviews_panel" style="display: none;">
-                    <div id="comments">
-                        <h2>1 oтзыв o <?= $item['name'] ?></h2>
-                        <ul class="commentslist">
-                            <li class="comment" id="comment-1">
-                                <div class="comment-container">
-                                    <img src="../../../img/avatar-1.png" alt="" width="60" height="60">
-                                    <div class="comment-text clearfix">
-                                        <div class="star-right clearfix">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
 
-                                        <p class="meta">
-                                            <strong class="author">Alex Greenfield</strong>
-                                            -
-                                            <time datetime="2014-09-16T09:33:34+00:00">September 16, 2014</time>
-                                        </p>
+                <!--
+                
+<section id="reviews_panel" style="display: none;">
+    <div id="comments">
+        <h2>1 oтзыв o <?= $item['name'] ?></h2>
+        <ul class="commentslist">
+            <li class="comment" id="comment-1">
+                <div class="comment-container">
+                    <img src="../../../img/avatar-1.png" alt="" width="60" height="60">
+                    <div class="comment-text clearfix">
+                        <div class="star-right clearfix">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
 
-                                        <div class="descr">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                                                Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                                                sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                                                diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="comment" id="comment-2">
-                                <div class="comment-container">
-                                    <img src="../../../img/avatar-2.png" alt="" width="60" height="60">
-                                    <div class="comment-text clearfix">
-                                        <div class="star-right clearfix">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
+                        <p class="meta">
+                            <strong class="author">Alex Greenfield</strong>
+                            -
+                            <time datetime="2014-09-16T09:33:34+00:00">September 16, 2014</time>
+                        </p>
 
-                                        <p class="meta">
-                                            <strong class="author">Alex Greenfield</strong>
-                                            -
-                                            <time datetime="2014-09-16T09:33:34+00:00">September 16, 2014</time>
-                                        </p>
-
-                                        <div class="descr">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                                                Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                                                sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                                                diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="descr">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
+                                Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
+                                sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
+                                diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
+                        </div>
                     </div>
+                </div>
+            </li>
+            <li class="comment" id="comment-2">
+                <div class="comment-container">
+                    <img src="../../../img/avatar-2.png" alt="" width="60" height="60">
+                    <div class="comment-text clearfix">
+                        <div class="star-right clearfix">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
 
-                    <div class="add-review">
-                        <h3>Add a Review</h3>
-                        <form method="post" action="" id="commentform" class="commentform">
-                            <p class="comment-form-author">
-                                <label for="author">Name *</label>
-                                <input type="text" name="author" size="30" aria-required="true">
-                            </p>
-                            <p class="comment-form-email">
-                                <label for="email">Email *</label>
-                                <input type="text" name="email" size="30" aria-required="true">
-                            </p>
-                            <p class="comment-form-rating">
-                                <label>Your Rating</label>
-                            <p class="stars">
-                                <span>
-                                    <i class="fa fa-star-o"></i>
-                                </span>
-                                <span>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </span>
-                                <span>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </span>
-                                <span>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </span>
-                                <span>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </span>
-                            </p>
-                            </p>
-                            <p class="comment-form-comment">
-                                <label for="comment">Your Review</label>
-                                <textarea name="comment" id="comment" cols="45" rows="8" aria-required="true"></textarea>
-                            </p>
-                            <p class="form-submit">
-                                <input type="submit" name="submit" id="submit" value="Submit">
-                            </p>
-                        </form>
+                        <p class="meta">
+                            <strong class="author">Alex Greenfield</strong>
+                            -
+                            <time datetime="2014-09-16T09:33:34+00:00">September 16, 2014</time>
+                        </p>
+
+                        <div class="descr">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
+                                Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
+                                sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
+                                diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
+                        </div>
                     </div>
-                </section>
-				
-				-->
-				
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="add-review">
+        <h3>Add a Review</h3>
+        <form method="post" action="" id="commentform" class="commentform">
+            <p class="comment-form-author">
+                <label for="author">Name *</label>
+                <input type="text" name="author" size="30" aria-required="true">
+            </p>
+            <p class="comment-form-email">
+                <label for="email">Email *</label>
+                <input type="text" name="email" size="30" aria-required="true">
+            </p>
+            <p class="comment-form-rating">
+                <label>Your Rating</label>
+            <p class="stars">
+                <span>
+                    <i class="fa fa-star-o"></i>
+                </span>
+                <span>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </span>
+                <span>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </span>
+                <span>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </span>
+                <span>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </span>
+            </p>
+            </p>
+            <p class="comment-form-comment">
+                <label for="comment">Your Review</label>
+                <textarea name="comment" id="comment" cols="45" rows="8" aria-required="true"></textarea>
+            </p>
+            <p class="form-submit">
+                <input type="submit" name="submit" id="submit" value="Submit">
+            </p>
+        </form>
+    </div>
+</section>
+                
+                -->
+
             </div>
         </div>
         <?php

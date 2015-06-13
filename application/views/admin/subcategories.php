@@ -10,6 +10,7 @@
                     <h1 class="page-header">
                         Подкатегории
                         <small>Subcategories</small>
+
                     </h1>  
                     <ol class="breadcrumb">
                         <li>
@@ -22,11 +23,39 @@
                 </div>                 
             </div>
             <!-- /.row -->
-            <div class="pull-right col-lg-3 col-sm-auto">
-                <a href="<?= base_url('admin'); ?>/subcategories_add" class="btn btn-primary btn-labeled" style="width: 100%;">
-                    <span class="btn-label icon fa fa-plus"></span>
-                    Добавить подкатегорию
-                </a>
+           <div class="row well" id="prod-nav-bar">
+
+                <!-- Filters -->
+                <form action='<?=base_url('admin/filter_cat')?>' method='POST'/>
+                <!--<div class="col-sm-9 prod-nav-filters">-->
+
+                    <p class="col-sm-12">
+                        <h2 class="col-sm-12 prod-nav-head">Фильтры</h2>
+                    </p>
+
+                    <div class="col-lg-12 btn-group">
+                        <h4>Категория</h4>
+                        <select name="data_cat" class="btn btn-sm" >
+                            <option value="default">Выберите категорию</option>
+                            <?php
+                            foreach ($cat_list as $item) {
+                                ?>
+                                <option value = "<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                        <input type="submit" id="prod-nav-apply" name='filter' class="btn btn-sm btn-success" value="Применить" style="padding: 4px;"> 
+                    </div>
+                <!--</div>-->
+                </form>
+
+                <p class="pull-right col-lg-3 col-sm-auto">
+                    <a href="<?= base_url('admin'); ?>/subcategorues_add" class="btn btn-primary btn-labeled" style="width: 100%;">
+                        <span class="btn-label icon fa fa-plus"></span>
+                        Добавить подкатегорию
+                    </a>
+                </p>
             </div>
             <div class="col-lg-12 tab_margin_top">               
                 <form action="" method="POST" class="form-submit">
@@ -68,7 +97,7 @@
                             <tr>
                                 <td><?= $item['id'] ?> <input class="" type='checkbox' name="id[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"/></td>
                                 <td><input class="form-control" type='text' name="cat[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>
-                                <td><img src='<?=$item['image_path']?>' width="40" alt=""></td>
+                                <td><img src='<?= $item['image_path'] ?>' width="40" alt=""></td>
                                 <td><input class="form-control" type='text' name="link[<?= $item['id'] ?>]" value="<?= $item['link'] ?>"/></td>                                
                                 <td>
                                     <select class='form-control' name='cat_product[<?= $item['id'] ?>]'>                                        
@@ -101,7 +130,7 @@
                     </table>
                 </form>
             </div>
-          
+
         </div>
         <!-- /.container-fluid -->
 

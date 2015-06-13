@@ -22,9 +22,15 @@ class Search extends CI_Controller {
         $this->load->model('subcategories_m');
         $this->load->model('category_m');
         /* load header */
-        if (!empty($this->session->userdata('user'))) {
+         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
-            $this->data['menu'] = $this->main_m->get_menu();
+//            $access=3;
+            if ($this->data['user']['usercat'] == "seller") {
+                $num = 1;
+            } else {
+                $num = 2;
+            }
+            $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");

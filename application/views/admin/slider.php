@@ -67,10 +67,10 @@
                     <th>
                         #id
                     </th>
-                    <th class='col-lg-4'>
+                    <th class='col-lg-3'>
                         Картинка
                     </th>    
-                    <th class='col-lg-1'>
+                    <th class='col-lg-2'>
                         Заглавие
                     </th>      
                     <th class='col-lg-4'>

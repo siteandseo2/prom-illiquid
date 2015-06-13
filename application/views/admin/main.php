@@ -235,7 +235,7 @@
                         </ol>                    
                     </div>                 
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-12">
 
                     <table class='col-lg-6 table-bordered table-responsive table'>
                         <tbody>
@@ -243,9 +243,12 @@
                         <th>
                             #id
                         </th>
-                        <th class='col-lg-9'>
+                        <th class='col-lg-6'>
                             Название
-                        </th>                        
+                        </th>  
+                        <th class='col-lg-3'>                   
+                            Доступно для
+                        </th>  
                         <th class='col-lg-1'>
                             Редактировать
                         </th>  
@@ -267,6 +270,12 @@
                             } else {
                                 $dis = '';
                             }
+                            if( $item['access'] == 1)
+                                $access="Покупатель";
+                            if( $item['access'] ==2)
+                                $access="Продавец";
+                            if( $item['access'] ==3)
+                                $access="Всем";
                             ?>
                             <tr>
                                 <td>
@@ -275,7 +284,8 @@
                                     <input  type='text' name="parent[<?= $item['id'] ?>]" value=" <?= $item['p_id'] ?>" hidden=""/>
                                     <input  type='text' name="parent2[<?= $item['id'] ?>]" value=" <?= $item['p_id2'] ?>" hidden=""/>
                                 </td>
-                                <td><input class="form-control" type='text' name="name[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>               
+                                <td><input class="form-control" type='text' name="name[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>   
+                                <td><input class="form-control" type='text' name="access[<?= $item['id'] ?>]" value="<?= $access?>"/></td>
                                 <td><button class="btn btn-success" type='submit' name="edit[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"><i class="fa fa-pencil"></i> Редактировать</button></td>
                                 <td><button class="btn btn-danger"type='submit' name="delete[<?= $item['id'] ?>]" value="<?= $item['id'] ?>" <?= $dis ?>><i class="fa fa-trash-o"></i> Удалить</button></td>
                                 <td><button class = "btn btn-default"type = 'submit' name = "status[<?= $item['id'] ?>]" value = "<?= $item['status'] ?>"><?= $btn_name ?></button></td>   

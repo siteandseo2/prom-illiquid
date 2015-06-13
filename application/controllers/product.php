@@ -11,9 +11,15 @@ class Product extends CI_Controller {
         parent::__construct();
         $this->load->model('main_m');
         /* load header */
-        if (!empty($this->session->userdata('user'))) {
+         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
-            $this->data['menu'] = $this->main_m->get_menu();
+//            $access=3;
+            if ($this->data['user']['usercat'] == "seller") {
+                $num = 1;
+            } else {
+                $num = 2;
+            }
+            $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
             $this->load->view("templates/header");
