@@ -26,7 +26,7 @@ class Admin extends CI_Controller {
 
         /* load menu */
         $this->load->model('main_m');
-        
+
         $this->data['menu_buyer'] = $this->main_m->get_menu_front('2');
         $this->data['menu_seller'] = $this->main_m->get_menu_front('1');
         $this->data['fst_level'] = $this->main_m->get_fst_l();
@@ -49,6 +49,10 @@ class Admin extends CI_Controller {
         $this->load->model('subcategories_m');
 
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
+
+        /* load main_m */
+        $this->load->model('main_m');
+        $this->data['pages'] = $this->main_m->get_pages();
     }
 
     /*  function login admin  */

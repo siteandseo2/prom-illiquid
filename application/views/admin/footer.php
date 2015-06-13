@@ -11,7 +11,7 @@
 <!-- Main Back Js -->
 <script src="<?= base_url(); ?>../../../js/back_end.js"></script>
 
-<script src="<?= base_url(); ?>../../../js/products.js" type="text/javascript"></script>
+<!--<script src="<?= base_url(); ?>../../../js/products.js" type="text/javascript"></script>-->
 <?php
 $a = $_SERVER['REQUEST_URI'];
 if ($a == 'admin/product_add') {

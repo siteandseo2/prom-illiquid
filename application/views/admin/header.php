@@ -172,7 +172,7 @@
                         <a href="<?= base_url(); ?>admin/main" class="dropped">Главная страница</a>
                     </li>
                     <li>
-                        <a href="#" class="dropped">Страницы</a>
+                        <a href="pages" class="dropped">Страницы</a>
                     </li>
                     <li>
                         <a href="<?= base_url(); ?>admin/slider" class="dropped">Слайдер</a>

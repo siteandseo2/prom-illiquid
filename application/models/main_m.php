@@ -113,4 +113,9 @@ class Main_m extends CI_Model {
         }
     }
 
+    function get_pages() {
+        $partner = $this->db->query('SELECT * FROM menu WHERE link!="#"');
+        return $partner->result_array();
+    }
+
 }

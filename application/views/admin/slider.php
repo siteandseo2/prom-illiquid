@@ -10,7 +10,7 @@
                             Слайдер
                             <small>Slider</small>
 
-                            <div class="pull-right col-lg-3 col-sm-auto">
+                            <div class="pull-right col-lg-4 col-sm-auto">
                                 <a href="<?= base_url('admin'); ?>/slide_add" class="btn btn-primary btn-labeled" style="width: 100%;">
                                     <span class="btn-label icon fa fa-plus"></span>
                                     Добавить изображение в слайдер
@@ -30,7 +30,7 @@
             </div> 
             <form action="<?= base_url('admin') . '/slider' ?>" method="POST"  class="form-submit validate-form" enctype="multipart/form-data">
 
-                <div class='form-container col-lg-6'>
+                <div class='form-container col-lg-10'>
                     <div class='col-lg-3'>
                         <h5><label>Загружается Первым:</label></h5>
                     </div>
