@@ -1,14 +1,25 @@
-/* Fancybox Gallery */
+$( document ).ready(function() {
 	
-	$('.fancy').fancybox();
+	/* Fancybox Gallery */
+	
+	try {
+		
+		$('.fancy').click(function(ev) {
+			ev.preventDefault();
+			$('.fancy').fancybox();
+		});
+		
+	} catch ( e ) {
+		console.log( e.type + ' : ' + e.message );
+	}
 	
 	/* Product Tabs */
 	
 	try {
 		var prodTabs = document.querySelector('.product-tabs .tabs'),
 			descrPanel = document.getElementById('description_panel'),
-			addPanel = document.getElementById('add_info_panel'),
-			revPanel = document.getElementById('reviews_panel');
+			addPanel = document.getElementById('add_info_panel');
+			//revPanel = document.getElementById('reviews_panel');
 	} catch(err) {
 		console.log( err.typr + ' ' + err.message );
 	}
@@ -28,10 +39,10 @@
 		} else if( target.parentNode.className.indexOf('add_info_tab') != -1 ) {
 			target.parentNode.classList.add('active');
 			changeProdPanel( 'add_info_tab' );
-		} else if( target.parentNode.className.indexOf('reviews_tab') != -1 ) {
+		} /* else if( target.parentNode.className.indexOf('reviews_tab') != -1 ) {
 			target.parentNode.classList.add('active');
 			changeProdPanel( 'reviews_tab' );
-		} else {
+		} */ else {
 			return;
 		}
 		
@@ -40,17 +51,17 @@
 				case 'description_tab':
 					descrPanel.style.display = 'block';
 					addPanel.style.display = 'none';
-					revPanel.style.display = 'none';
+					//revPanel.style.display = 'none';
 					break;
 				case 'add_info_tab':
 					descrPanel.style.display = 'none';
 					addPanel.style.display = 'block';
-					revPanel.style.display = 'none';
+					//revPanel.style.display = 'none';
 					break;
 				case 'reviews_tab':
 					descrPanel.style.display = 'none';
 					addPanel.style.display = 'none';
-					revPanel.style.display = 'block';
+					//revPanel.style.display = 'block';
 					break;
 				default:
 					break;
@@ -79,4 +90,7 @@
 			}
 		});
 	});
+	
+	
+});
 	

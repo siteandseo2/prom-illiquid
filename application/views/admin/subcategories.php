@@ -33,11 +33,14 @@
                     <table class='col-lg-12 table-bordered table-responsive table'>
                         <tbody>
                         <thead>
-                        <th class='col-lg-1'>
+                        <th >
                             #id
                         </th>
                         <th class='col-lg-3'>
                             Название
+                        </th>
+                        <th >
+                            Фото 
                         </th>
                         <th class='col-lg-3'>
                             Ссылка <?= base_url('catalog') ?>/
@@ -65,7 +68,8 @@
                             <tr>
                                 <td><?= $item['id'] ?> <input class="" type='checkbox' name="id[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"/></td>
                                 <td><input class="form-control" type='text' name="cat[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>
-                                <td><input class="form-control" type='text' name="link[<?= $item['id'] ?>]" value="<?= $item['link'] ?>"/></td>
+                                <td><img src='<?=$item['image_path']?>' width="40" alt=""></td>
+                                <td><input class="form-control" type='text' name="link[<?= $item['id'] ?>]" value="<?= $item['link'] ?>"/></td>                                
                                 <td>
                                     <select class='form-control' name='cat_product[<?= $item['id'] ?>]'>                                        
                                         <?php

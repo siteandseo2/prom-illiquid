@@ -22,12 +22,61 @@ class subcategories_m extends CI_Model {
         return $query->result_array();
     }
 
-    function get_cat_id($id) {
-        $catid = $this->db->query("SELECT cat_id FROM subcategories WHERE id='$id'");
-        return $catid->num_rows();
+    function get_subcategories_list_by_category($id) {
+        $query = $this->db->where("cat_id", $id)->get('subcategories');
+        return $query->result_array();
     }
-    function add_subcategory($data){
+
+    function get_cat_id($id) {
+       $query = $this->db->where("id", $id)->select('cat_id')->get('subcategories');
+       foreach ($query->result() as $row) {
+            return $row->cat_id;
+        }       
+    }
+
+    function add_subcategory($data) {
         $this->db->insert('subcategories', $data);
     }
 
+    function get_subcategories($name) {
+        $id = $this->db->where("link", $name)->select('id')->get('categories');
+        foreach ($id->result() as $row) {
+            $cat_id = $row->id;
+        }
+        if(!empty($cat_id)){
+        $query = $this->db->where("cat_id", $cat_id)->get('subcategories');
+        return $query->result_array();
+        }
+    }
+
+    function get_subcategories_name_by_id($id) {
+        $query = $this->db->where("id", $id)->select('id,name')->get('subcategories');
+        foreach ($query->result() as $row) {
+            $a['id'] = $row->id;
+            $a['name'] = $row->name;
+            return $a;
+        }
+    }
+
+    function get_subcategory_by_subcat_id($id) {
+        $query = $this->db->where("id", $id)->select('subcat_id')->get('product');
+        foreach ($query->result() as $row) {
+            return $row->subcat_id;
+        }
+    }
+
+    function get_subcategory_by_cat_id($id) {
+        $query = $this->db->where("cat_id", $id)->select('id')->get('subcategories');
+       foreach ($query->result() as $row) {
+            return $row->id;
+        }
+    }
+     function get_subcategories_by_category($id) {
+        $query = $this->db->where("cat_id", $id)->select('name, id')->get('subcategories');
+        return $query->result_array();
+    }     
+     function get_subcategories_by_cat_id($id) {
+        $query = $this->db->where("cat_id", $id)->select('id, name')->get('subcategories');
+        return $query->result_array();
+    }     
 }

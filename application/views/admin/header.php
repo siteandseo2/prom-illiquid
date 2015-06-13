@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
+        <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <title>Prom Admin</title>
 
         <link href="<?= base_url(); ?>../../../../css/admin_style.css" rel="stylesheet">
@@ -158,80 +158,55 @@
         <ul class="nav navbar-nav side-nav" id="sideBar">
             <li>
                 <a href="<?= base_url(); ?>admin/index" data-ajax="index">
-					<i class="fa fa-fw fa-dashboard"></i> 
-					Главная
-				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/charts"  data-ajax="charts">
-					<i class="fa fa-fw fa-bar-chart-o"></i> 
-					Графики
-				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/tables"  data-ajax="tables">
-					<i class="fa fa-fw fa-table"></i> Таблицы
-				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/forms"  data-ajax="forms">
-					<i class="fa fa-fw fa-edit"></i> 
-					Формы
-				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/bootstrap-elements" data-ajax="bootstrap-elements">
-					<i class="fa fa-fw fa-desktop"></i> 
-					Bootstrap Elements
-				</a>
-            </li>
-            <li>
-                <a href="<?= base_url(); ?>admin/bootstrap-grid" data-ajax="bootstrap-grid">
-					<i class="fa fa-fw fa-wrench"></i> 
-					Bootstrap Grid
-				</a>
-            </li>
+                    <i class="fa fa-fw fa-dashboard"></i> 
+                    Главная
+                </a>
+            </li>            
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo">
-					<i class="fa fa-fw fa-arrows-v"></i> Сайт <i class="fa fa-fw fa-caret-down"></i>
-				</a>
+                    <i class="fa fa-fw fa-arrows-v"></i> Сайт <i class="fa fa-fw fa-caret-down"></i>
+                </a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="#" class="dropped">Главная страница</a>
+                        <a href="<?= base_url(); ?>admin/main" class="dropped">Главная страница</a>
                     </li>
                     <li>
                         <a href="#" class="dropped">Страницы</a>
                     </li>
                     <li>
-                        <a href="#" class="dropped">Слайдер</a>
+                        <a href="<?= base_url(); ?>admin/slider" class="dropped">Слайдер</a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url(); ?>admin/partners" class="dropped">Партнеры</a>
                     </li>
                 </ul>
             </li>  
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#item">
-					<i class="fa fa-fw fa-arrows-v"></i> Товары <i class="fa fa-fw fa-caret-down"></i>
-				</a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#item"><i class="fa fa-fw fa-arrows-v"></i> Магазин <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="item" class="collapse">
                     <li>
                         <a href="<?= base_url(); ?>admin/focus_product" data-ajax="focus_product" class="dropped">Группа товаров</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>admin/category" data-ajax="category" class="dropped">Категории</a>
+                        <a href="<?= base_url(); ?>admin/category" data-ajax="category" class="dropped">Категории товаров</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>admin/subcategories" data-ajax="subcategories" class="dropped">Подкатегории</a>
+                        <a href="<?= base_url(); ?>admin/subcategories" data-ajax="subcategories" class="dropped">Подкатегории товаров</a>
                     </li>
                     <li>
-                        <a href="#" class="dropped">Атрибуты</a>
+                        <a href="<?= base_url(); ?>admin/products" data-ajax="products" class="dropped">Товары</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropped">Атрибуты товаров</a>
                     </li>
                 </ul>
             </li>  
             <li>
-                <a href="<?= base_url(); ?>admin/blank-page" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-file"></i> Пользователи</a>
+                <a href="<?= base_url(); ?>admin/users" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-file"></i> Пользователи</a>
             </li>                        
         </ul>
         <!-- Sidebar End -->
 
-        
+
 
 

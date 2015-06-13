@@ -33,4 +33,13 @@ class user_model extends CI_Model {
         return $query->result_array();
     }
 
+    function get_user_by_id($id) {
+        if (isset($id)) {
+            $query = $this->db->where('id', $id)->get('user');
+            return $query->result_array();
+        }else{
+            echo 'FAIL';
+        }
+    }
+
 }

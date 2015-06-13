@@ -9,22 +9,24 @@ $a = $_SERVER['REQUEST_URI'];
 
 <!-- Morris Charts JavaScript -->
 <script src="<?= base_url(); ?>../../../js/plugins/morris/raphael.min.js"></script>
-<?php if ($a == '/admin/charts') { ?>
-    <script src="<?= base_url(); ?>../../../js/plugins/morris/morris.min.js"></script>
-    <script src="<?= base_url(); ?>../../../js/plugins/morris/morris-data.js"></script>
-
-
-    <!-- Flot Charts JavaScript -->
-    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="<?= base_url(); ?>../../../js/plugins/flot/jquery.flot.js"></script>
-    <script src="<?= base_url(); ?>../../../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="<?= base_url(); ?>../../../js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="<?= base_url(); ?>../../../js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="<?= base_url(); ?>../../../js/plugins/flot/flot-data.js"></script>
-
-<?php } ?>
 
 <!-- Main Back Js -->
- <script src="<?= base_url(); ?>../../../js/back_end.js"></script>
+<script src="<?= base_url(); ?>../../../js/back_end.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            $("#change_type").on("click", function () {
+                if ($(this).is(":checked")) {
+                    $('#page_url').removeAttr("disabled")
+                }
+                else {
+                     $('#page_url').html('').attr('disabled', 'disabled');
+                }
+            })
+        });
+
+    });
+</script>
 
 </html>

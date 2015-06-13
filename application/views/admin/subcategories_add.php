@@ -25,15 +25,15 @@
                 </div>                 
             </div>
             <!-- /.row -->
-            
+
             <div class="col-lg-12 tab_margin_top">               
-                <form action="add_subcategory" method="POST" class="form-submit">
+                <form action="add_subcategory" method="POST" class="form-submit" enctype="multipart/form-data">
                     <label>Направление</label>
                     <select class='form-control' name='category'>
                         <?php
                         foreach ($cat_list as $item) {
                             ?>
-                        <option value="<?=$item['id']?>"><?=$item['name']?></option>
+                            <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
                             <?php
                         }
                         ?>
@@ -41,7 +41,11 @@
                     <label>Название</label>
                     <input class='form-control' name='name' placeholder="Например Отопление (Максимум 250 символов)" type='text'/>
                     <label>Ссылка</label>
-                    <input class='form-control' name='link' placeholder="Например otoplenie (Максимум 50 символов)" type='text'/>
+                    <input class='form-control' name='link' placeholder="Например otoplenie (Максимум 50 символов)" type='text'/>                    
+                    <label for="prod_photo">
+                        Фото
+                    </label>
+                    <input type="file" id="prod_photo" name="prod_photo" accept="image/*">                    
                     <label>Позиция</label>
                     <input class='form-control' name='position' placeholder="<?= count($cat_list) + 1 ?>" type='text' disabled=""/>
                     <label>Статус</label>
