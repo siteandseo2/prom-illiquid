@@ -101,7 +101,8 @@
                             <img src="../../../img/logo-regular.png" alt="Logo">
                         </a>
                     </div>
-
+                      <?php if ($user['usercat'] != 'buyer') {
+                            ?>
                     <div id="cabinet-title">
                         <span class="cabinet-icon">
                             <i class="fa fa-briefcase"></i>
@@ -113,7 +114,7 @@
                             </h4>
                         </span>
                     </div>
-
+                             <?php } ?>
                     <div class="yoursId">
                         <h4>Ваш id: </h4>
                         <strong>
@@ -138,13 +139,17 @@
                             ?>
                         </strong>
                         <br>
-                        
+                        <?php
+                        if ($user['usercat'] != 'buyer') {
+                            ?>
                             <span class="query">сменить статус ?</span>
 
                             <div class="changeRole">
                                 <input type="checkbox" name="role" data-on-text="Покупатель" data-off-text="Продавец" checked>
                             </div>
-                      
+                        <?php } ?>
+
+
                     </div>
 
                 </div>

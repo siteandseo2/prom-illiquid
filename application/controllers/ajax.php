@@ -94,14 +94,29 @@ class Ajax extends CI_Controller {
             if ($_GET['id'] == "1") {
                 $num = 1;
                 $type = 'seller';
-            } 
+            }
             if ($_GET['id'] == "0") {
                 $num = 2;
-                $type = '';
+                $type = 'buyer/seller';
             }
-            $session_data['usercat'] =$type;
+            $this->data['user'] = $this->session->userdata('user');
+           
+                $session_data['id'] = $this->data['user']['id'];
+                $session_data['name'] = $this->data['user']['name'];
+                $session_data['surname'] = $this->data['user']['surname'];
+                $session_data['patronymic'] =$this->data['user']['patronymic'];
+                $session_data['email'] = $this->data['user']['email'];
+
+                $session_data['company'] =$this->data['user']['company'];
+                $session_data['password'] =$this->data['user']['password'];
+                $session_data['country'] = $this->data['user']['country'];
+                $session_data['city'] =$this->data['user']['city'];
+  
+            unset( $this->data['user']);
+           
+            $session_data['usercat'] = $type;
             $this->session->set_userdata(array('user' => $session_data));
-            $this->data['user'] = @$this->session->userdata('user');           
+            $this->data['user'] = @$this->session->userdata('user');       
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         }
