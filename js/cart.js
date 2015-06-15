@@ -47,11 +47,13 @@
 		item_price = this.tagName == 'A' ? {
 			price: +$( itemBlock ).find('.price').text(),
 			currency: $( itemBlock ).find('.currency').text(),
-			quantity: $( itemBlock ).find('.quantity').text()
+			quantity: $( itemBlock ).find('.quantity').text(),
+			changedQuantity: $( itemBlock ).find('.quantity').text()
 		} : {
 			price: +$('.summary .price').text(),
 			currency: $('.summary .currency').text(),
-			quantity: $('.summary .quantity').text()
+			quantity: $('.summary .quantity').text(),
+			changedQuantity: $('.summary [type="number"]').val()
 		},
 		img = this.tagName == 'A' ? $( itemBlock ).parent().find('#mainImage').attr('src') : $('#mainImage').attr('src');
 		
@@ -62,17 +64,19 @@
 			parent_id = sellerBlock[sellerBlock.length - 1];
 		}
 		
-		switch( item_price.quantity ) {
+		switch( item_price.changedQuantity ) {
 			case 'Шт.':
 			case 'Упаковку':
-				item_price.quantity = 1;
+				item_price.changedQuantity = 1;
 				break;
 			default:
-				item_price.quantity = parseInt( item_price.quantity );
+				item_price.changedQuantity = parseInt( item_price.changedQuantity );
 				break;
 		}
 		
-		var item = new Item(id, name, item_price, img, parent_id);
+		var countable = this.tagName == 'A' ? false : true;
+		
+		var item = new Item(id, name, item_price, img, parent_id, countable);
 		
 		insertItem( item, isSession );
 		
@@ -80,12 +84,13 @@
 	
 	// CONSTRUCTOR
 	
-	function Item(id, name, price, img, parent) {
+	function Item(id, name, price, img, parent, countable) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.img = img;
 		this.parent = parent;
+		this.countable = countable;
 	};
 	
 	Item.save = function( item ) {
@@ -98,8 +103,7 @@
 	}
 	
 
-//	sessionStorage.clear();
-
+	sessionStorage.clear();
 	
 	// DEFINE VARS
 	
@@ -121,13 +125,15 @@
 			item.price.price, 
 			item.price.currency, 
 			item.price.quantity,
-			item.parent
+			item.price.changedQuantity,
+			item.parent,
+			item.countable
 		);
 	}
 	
 	// CREATE HTML
 	
-	function fillInVars( id, img, name, price, currency, quantity, parent ) {
+	function fillInVars( id, img, name, price, currency, quantity, changedQuantity, parent, countable ) {
 		$( parentBlock ).append(' \
 			<section class="cartItemBlock clearfix" id="' + id + '"> \
 				<img src="' + img + '" width="100" height="100" class="thumb img-thumbnail"> \
@@ -140,11 +146,10 @@
 					<span class="currency">' + currency + '</span> \
 					<span class="separator">за</span> \
 					<span class="quantity">' + quantity + '</span> \
-					<span class="separator">Шт.</span> \
 				</p> \
-				<p> \
+				<p class="left"> \
 					<span>Количество</span> \
-					<input type="number" min="' + quantity + '" step="' + quantity + '" value="' + quantity + '"> \
+					<input type="number" min="' + changedQuantity + '" step="' + changedQuantity + '" value="' + changedQuantity + '"> \
 				</p> \
 				<input type="hidden" name="h_name[' + id + ']" value="' + name + '">\
 				<input type="hidden" name="h_price[' + id + ']" value="' + price + '">\
@@ -155,7 +160,7 @@
 			</section>'
 		);
 		
-		alreadyExist( id );
+		alreadyExist( id, countable );
 	}
 	
 	// ALREADY EXIST
@@ -191,7 +196,9 @@
 				parsed[key].price.price, 
 				parsed[key].price.currency, 
 				parsed[key].price.quantity,
-				parsed[key].parent
+				parsed[key].price.changedQuantity,
+				parsed[key].parent,
+				parsed[key].countable
 			);
 		}
 		

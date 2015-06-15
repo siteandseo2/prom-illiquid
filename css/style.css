@@ -2509,9 +2509,13 @@ p .form-submit {
 	margin-right: 15px;
 }
 
+.cartItemBlock .left {
+	clear: left;
+}
+
 .cartItemBlock .thumb {
 	float: left;
-	margin-right: 15px;
+	margin: 0 15px 10px 0;
 }
 
 .cartItemBlock  .title {
@@ -2535,7 +2539,7 @@ p .form-submit {
 }
 
 .cartItemBlock input[type="number"] {
-	width: 40px;
+	width: 60px;
 	margin-left: 5px;
 	padding-left: 3px;
 	border-radius: 5px;
