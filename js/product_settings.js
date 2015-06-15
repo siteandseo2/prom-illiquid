@@ -107,7 +107,12 @@ $( document ).ready(function() {
 			$( setAmount ).val( parseInt( $( minOrder ).text() ) );
 		}
 		
-	} ());
+		if( $( setAmount ).val() != '1' ) {
+			$( setAmount ).attr( 'step', $( setAmount ).val() );
+			$( setAmount ).attr( 'min', $( setAmount ).val() );
+		}
+		
+	}());
 	
 	
 });

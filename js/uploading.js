@@ -87,6 +87,8 @@
 				
 			} else if( isMatch( path, '/products/' ) ) {
 				
+				//debugger;
+				
 				get.searchPost();
 				
 			}  else if ( isMatch( path, '/subcategories/' ) ){
