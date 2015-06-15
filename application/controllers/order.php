@@ -15,6 +15,7 @@ class Order extends CI_Controller {
 
     public $data_db;
     public $data;
+    public $prep;
 
     function __construct() {
         parent::__construct();
@@ -47,31 +48,32 @@ class Order extends CI_Controller {
             $this->data_db['quantity'] = $this->input->post('h_quantity');
             $this->data_db['item_id'] = $this->input->post('h_id');
 
-            $this->data_db['buyer']['name'] = $this->input->post('name');
-            $this->data_db['buyer']['surname'] = $this->input->post('surname');
-            $this->data_db['buyer']['email'] = $this->input->post('email');
-            $this->data_db['buyer']['phone'] = $this->input->post('phone');
-            $this->data_db['adr']['location'] = $this->input->post('location');
-            $this->data_db['adr']['city'] = $this->input->post('city');
-            $this->data_db['adress'] = serialize($this->data_db['adr']);
-            $this->data_db['buyer_data'] = serialize($this->data_db['buyer']);
-            unset($this->data_db['adr'], $this->data_db['buyer']);
-            
+            $this->prep['buyer']['name'] = $this->input->post('name');
+            $this->prep['buyer']['surname'] = $this->input->post('surname');
+            $this->prep['buyer']['email'] = $this->input->post('email');
+            $this->prep['buyer']['phone'] = $this->input->post('phone');
+            $this->prep['adr']['location'] = $this->input->post('location');
+            $this->prep['adr']['city'] = $this->input->post('city');
 
 
-//            foreach ($this->data_db['item_id'] as $id) {
-//
-//                $a[] = $this->user_model->get_user_by_id($this->product_m->get_user_by_product($id));
-//                foreach ($a as $num => $column) {
-//                    foreach ($column as $name => $value) {
-//                        $this->data_db['type_of_deliverance'][$id] = $this->input->post('type_of_deliverance');
-//                        $this->data_db['type_of_order'][$id] = $this->input->post('type_of_order');
-//                        $this->data_db['status'][$id] = 'Новый';
-//                        $this->data_db['a_status'][$id] = 'new';
-//                        $this->data_db['seller_data'][$id] = serialize($value);
-//                    }
-//                }
-//            }
+
+
+            foreach ($this->data_db['item_id'] as $id) {
+
+                $a[] = $this->user_model->get_user_by_id($this->product_m->get_user_by_product($id));
+                foreach ($a as $num => $column) {
+                    foreach ($column as $name => $value) {
+                        $this->data_db['type_of_deliverance'][$id] = $this->input->post('type_of_deliverance');
+                        $this->data_db['type_of_order'][$id] = $this->input->post('type_of_order');
+                        $this->data_db['status'][$id] = 'Новый';
+                        $this->data_db['a_status'][$id] = 'new';
+                        $this->data_db['seller_data'][$id] = serialize($value);
+                        $this->data_db['adress'][$id] = serialize($this->prep['adr']);
+                        $this->data_db['buyer_data'][$id] = serialize($this->prep['buyer']);
+                        
+                    }
+                }
+            }
 
             foreach ($this->data_db as $num => $column) {
                 foreach ($column as $name => $value) {

@@ -61,6 +61,7 @@
                             }
                             $buyer_data = unserialize($item['buyer_data']);
                             $adress = unserialize($item['adress']);
+                            $seller_data = unserialize($item['seller_data']);
                             ?>
                             <tr <?= $style ?>>
                                 <td><?= $item['id'] ?></td>
@@ -74,7 +75,10 @@
                                     }
                                     ?>
                                 </td>
-                                <td><?= $item['seller_data'] ?></td>                                
+                                <td> <?foreach ($seller_data as $data){
+                                    echo $data.'<br>';
+                                    }                                    
+                                    ?></td>                                
                                 <td><?= $item['price'] ?> <?= $item['currency'] ?></td>                            
                                 <td><?= $item['date'] ?> </td>
                                 <td>
