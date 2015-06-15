@@ -95,7 +95,7 @@
                                         </a>
                                     </div>
                                     <div class="hover-over-btns">
-                                        <a href="#" id="<?= $item['id'] ?>" title="В корзину" data-toggle="modal" data-target="#modalCart" class="buy-it">
+                                        <a href="#" id="<?= $item['id'] ?>" title="В корзину" data-toggle="modal" data-target="#modalCart" class="buy-it" rel="<?= $item['id_user'] ?>">
                                             <div>
                                                 <i class="fa fa-shopping-cart"></i>
                                             </div>

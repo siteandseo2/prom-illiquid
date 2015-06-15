@@ -2534,6 +2534,13 @@ p .form-submit {
 	float: right;
 }
 
+.cartItemBlock input[type="number"] {
+	width: 40px;
+	margin-left: 5px;
+	padding-left: 3px;
+	border-radius: 5px;
+}
+
 #modalCart .empty_cart {
 	display: none;
 }

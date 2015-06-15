@@ -54,7 +54,17 @@
 		},
 		img = this.tagName == 'A' ? $( itemBlock ).parent().find('#mainImage').attr('src') : $('#mainImage').attr('src');
 		
-		var item = new Item(id, name, item_price, img);
+		
+		var parent_id;
+		if( this.tagName == 'A' ) {
+			parent_id = this.getAttribute('rel');
+		} else {
+			var sellerBlock = $( this ).parent().next().next().find('.company a').attr('href').split('/');
+			parent_id = sellerBlock[sellerBlock.length - 1];
+		}
+	
+		
+		var item = new Item(id, name, item_price, img, parent_id);
 		
 		insertItem( item, isSession );
 		
@@ -62,11 +72,12 @@
 	
 	// CONSTRUCTOR
 	
-	function Item(id, name, price, img) {
+	function Item(id, name, price, img, parent) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.img = img;
+		this.parent = parent;
 	};
 	
 	Item.save = function( item ) {
@@ -78,7 +89,7 @@
 		}));
 	}
 	
-	//sessionStorage.clear();
+	sessionStorage.clear();
 	
 	// DEFINE VARS
 	
@@ -99,13 +110,14 @@
 			item.name, 
 			item.price.price, 
 			item.price.currency, 
-			item.price.quantity 
+			item.price.quantity,
+			item.parent
 		);
 	}
 	
 	// CREATE HTML
 	
-	function fillInVars( id, img, name, price, currency, quantity ) {
+	function fillInVars( id, img, name, price, currency, quantity, parent ) {
 		$( parentBlock ).append(' \
 			<section class="cartItemBlock clearfix" id="' + id + '"> \
 				<img src="' + img + '" width="100" height="100" class="thumb img-thumbnail"> \
@@ -119,6 +131,16 @@
 					<span class="separator">за</span> \
 					<span class="quantity">' + quantity + '</span> \
 				</p> \
+				<p> \
+					<span>Количество</span> \
+					<input type="number" min="1" step="1" value="1"> \
+				</p> \
+				<input type="hidden" name="h_name" value="' + name + '">\
+				<input type="hidden" name="h_price" value="' + price + '">\
+				<input type="hidden" name="h_currency" value="' + currency + '">\
+				<input type="hidden" name="h_quantity" value="' + quantity + '">\
+				<input type="hidden" name="h_id" value="' + id + '">\
+				<input type="hidden" name="h_parent" value="' + parent + '">\
 			</section>'
 		);
 	}
@@ -137,7 +159,8 @@
 				parsed[key].name, 
 				parsed[key].price.price, 
 				parsed[key].price.currency, 
-				parsed[key].price.quantity 
+				parsed[key].price.quantity,
+				parsed[key].parent
 			);
 		}
 		

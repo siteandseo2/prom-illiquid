@@ -21,7 +21,7 @@
 		case '/default':
 		case '/':
 		
-			debugger;
+			//debugger;
 		
 			get.search();
 			
@@ -86,6 +86,8 @@
 				$.post('../../../js/product_settings.js');
 				
 			} else if( isMatch( path, '/products/' ) ) {
+				
+				//debugger;
 				
 				get.searchPost();
 				
