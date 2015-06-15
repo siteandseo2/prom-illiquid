@@ -40,6 +40,7 @@
 	$( buyBtn ).click(function() {
 		
 		var itemBlock = $( this ).parent().parent(),
+			parent_id;
 		
 		id = this.id,
 		name = this.tagName == 'A' ? $( itemBlock ).find('#itemName').text().trim() : $('#itemName').text().trim(),
@@ -54,16 +55,12 @@
 		},
 		img = this.tagName == 'A' ? $( itemBlock ).parent().find('#mainImage').attr('src') : $('#mainImage').attr('src');
 		
-		
-		var parent_id;
 		if( this.tagName == 'A' ) {
 			parent_id = this.getAttribute('rel');
 		} else {
 			var sellerBlock = $( this ).parent().next().next().find('.company a').attr('href').split('/');
 			parent_id = sellerBlock[sellerBlock.length - 1];
 		}
-		
-		var isCountable = this.tagName == 'A' ? false : true;
 		
 		switch( item_price.quantity ) {
 			case 'Шт.':
@@ -75,8 +72,7 @@
 				break;
 		}
 		
-		var item = new Item(id, name, item_price, img, parent_id, isCountable);
-		console.log( item );
+		var item = new Item(id, name, item_price, img, parent_id);
 		
 		insertItem( item, isSession );
 		
@@ -84,13 +80,12 @@
 	
 	// CONSTRUCTOR
 	
-	function Item(id, name, price, img, parent, isCountable) {
+	function Item(id, name, price, img, parent) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.img = img;
 		this.parent = parent;
-		this.countable = isCountable;
 	};
 	
 	Item.save = function( item ) {
@@ -124,16 +119,13 @@
 			item.price.price, 
 			item.price.currency, 
 			item.price.quantity,
-			item.parent,
-			item.countable
+			item.parent
 		);
 	}
 	
 	// CREATE HTML
 	
-	function fillInVars( id, img, name, price, currency, quantity, parent, countable ) {
-		if ( countable ) quantity = $('.summary [type="number"]').val();
-		
+	function fillInVars( id, img, name, price, currency, quantity, parent ) {
 		$( parentBlock ).append(' \
 			<section class="cartItemBlock clearfix" id="' + id + '"> \
 				<img src="' + img + '" width="100" height="100" class="thumb img-thumbnail"> \
@@ -160,6 +152,26 @@
 				<input type="hidden" name="h_parent" value="' + parent + '">\
 			</section>'
 		);
+		
+		alreadyExist( id );
+	}
+	
+	// ALREADY EXIST
+	
+	function alreadyExist( id ) {
+		var allItems = $( parentBlock ).children(),
+			matchedInputValue = $( parentBlock ).find('[id="' + id + '"] [type="number"]');
+		
+		var already = [].filter.call(allItems, function(item) {
+			return item.id == id;
+		});
+		
+		if( already.length > 1 ) {
+			$( parentBlock ).find('section:last-child').remove();
+			var itemValue = +$( matchedInputValue ).val();
+			itemValue += itemValue;
+			$( matchedInputValue ).val( itemValue );
+		}
 	}
 	
 	// USE SESSION
@@ -177,8 +189,7 @@
 				parsed[key].price.price, 
 				parsed[key].price.currency, 
 				parsed[key].price.quantity,
-				parsed[key].parent,
-				parsed[key].countable
+				parsed[key].parent
 			);
 		}
 		
