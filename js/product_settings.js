@@ -91,6 +91,24 @@ $( document ).ready(function() {
 		});
 	});
 	
+	/* Item Quantity */
+	
+	(function() {
+		
+		var q = $('.summary .quantity').text(),
+			setAmount = $('[type="number"]'),
+			minOrder = $('.summary .order .q');
+			
+		if( q == 'Шт.' ) q = 1;
+		
+		if( !$( minOrder ).is(':visible') ) {
+			$( setAmount ).val( +q );
+		} else {
+			$( setAmount ).val( parseInt( $( minOrder ).text() ) );
+		}
+		
+	} ());
+	
 	
 });
 	

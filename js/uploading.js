@@ -21,7 +21,7 @@
 		case '/default':
 		case '/':
 		
-			debugger;
+			//debugger;
 		
 			get.search();
 			
