@@ -99,7 +99,7 @@ $( document ).ready(function() {
 			setAmount = $('[type="number"]'),
 			minOrder = $('.summary .order .q');
 			
-		if( q == 'Шт.' ) q = 1;
+		if( q == 'Шт.' || q == 'Упаковку' ) q = 1;
 		
 		if( !$( minOrder ).is(':visible') ) {
 			$( setAmount ).val( +q );
