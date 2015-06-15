@@ -165,18 +165,18 @@
     </div>
 
     <!-- Modal Cart -->
+    <form action="<?= base_url() ?>add_order" method="POST">
+        <div class="modal fade bs-example-modal-lg" id="modalCart" aria-hidden="true" role="dialog">
+            <div class="modal-dialog modal-lg">
 
-    <div class="modal fade bs-example-modal-lg" id="modalCart" aria-hidden="true" role="dialog">
-        <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Оформление заказ</h4>
+                    </div>
+                    <div class="modal-body clearfix">
 
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Оформление заказ</h4>
-                </div>
-                <div class="modal-body clearfix">
-
-                    <form name="modalCartForm" method="POST" class="validate-form">
+                        <!--<form name="modalCartForm" method="POST" class="validate-form">-->
                         <div class="form-fields clearfix">
 
                             <!-- Left Side -->
@@ -239,7 +239,7 @@
                                 </p>
 
                                 <p class="form-name">
-                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" name="email">
+                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" name="phone">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
@@ -256,31 +256,31 @@
                             </div>
 
                         </div>
-                    </form>
+                        </form>
 
-                    <h3 class="empty_cart">Ваша корзина пуста</h3>
+                        <h3 class="empty_cart">Ваша корзина пуста</h3>
 
+                    </div>
+                    <div class="modal-footer" style="text-align: left;">
+                        <p>
+                            <span class="form-submit">
+                                <input type="submit" name="send" value="Оформить заказ" class="validate-submit">                            
+                            </span>
+                            <span>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>                   
+                            </span>
+                            <span class="totalPrice">
+                                <span>Итого</span>
+                                <span class="sum"></span>
+                                <span class="curr">Грн</span>
+                            </span>
+                        </p>
+                    </div>
                 </div>
-                <div class="modal-footer" style="text-align: left;">
-                    <p>
-                        <span class="form-submit">
-                            <input type="button" name="send" value="Оформить заказ" class="validate-submit">                            
-                        </span>
-                        <span>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>                   
-                        </span>
-                        <span class="totalPrice">
-                            <span>Итого</span>
-                            <span class="sum"></span>
-                            <span class="curr">Грн</span>
-                        </span>
-                    </p>
-                </div>
+
             </div>
-
         </div>
-    </div>
-
+    </form>
 
 </footer>
 

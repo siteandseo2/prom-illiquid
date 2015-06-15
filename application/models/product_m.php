@@ -78,5 +78,10 @@ class Product_m extends CI_Model {
      $query = $this->db->like('name', $name)->get('product');
         return $query->result_array();
     }
+    function add_order($data){
+         if ($this->db->insert('order', $data)) {
+            return TRUE;
+        }
+    }
 
 }
