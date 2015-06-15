@@ -70,10 +70,11 @@
                                 <span class="separator"> за </span>
                                 <select name="prod_quantity" class="cabinet-form-input add-prod-name">
                                     <option value="Шт.">Шт.</option>
+									 <option value="10 Шт.">10 Шт.</option>
                                     <option value="100 Шт.">100 Шт.</option>
-                                    <option value="10 Шт.">10 Шт.</option>
-                                    <option value="Упаковку">Упаковка</option>
-                                    <option value="Тысячу">Тысяча</option>
+                                    <option value="500 Шт.">500 Шт.</option>
+                                    <option value="1000 Шт.">1000 Шт.</option>
+                                    <option value="Упаковку">Упаковку</option>
                                 </select>
                             </div>
                         </div> 
