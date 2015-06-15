@@ -89,7 +89,7 @@
 		}));
 	}
 	
-	sessionStorage.clear();
+//	sessionStorage.clear();
 	
 	// DEFINE VARS
 	
@@ -135,12 +135,12 @@
 					<span>Количество</span> \
 					<input type="number" min="1" step="1" value="1"> \
 				</p> \
-				<input type="hidden" name="h_name" value="' + name + '">\
-				<input type="hidden" name="h_price" value="' + price + '">\
-				<input type="hidden" name="h_currency" value="' + currency + '">\
-				<input type="hidden" name="h_quantity" value="' + quantity + '">\
-				<input type="hidden" name="h_id" value="' + id + '">\
-				<input type="hidden" name="h_parent" value="' + parent + '">\
+				<input type="hidden" name="h_name[' + id + ']" value="' + name + '">\
+				<input type="hidden" name="h_price[' + id + ']" value="' + price + '">\
+				<input type="hidden" name="h_currency[' + id + ']" value="' + currency + '">\
+				<input type="hidden" name="h_quantity[' + id + ']" value="' + quantity + '">\
+				<input type="hidden" name="h_id[' + id + ']" value="' + id + '">\
+				<input type="hidden" name="h_parent[' + id + ']" value="' + parent + '">\
 			</section>'
 		);
 	}

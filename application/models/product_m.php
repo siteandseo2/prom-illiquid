@@ -85,11 +85,19 @@ class Product_m extends CI_Model {
         }
     }
 
+    function get_user_by_product($id) {
+        $query = $this->db->where('id', $id)->select('id_user')->get('product');
+      foreach($query->result() as $row){
+          return  $row->id_user;
+      }
+    }
+
     function get_order() {
         $query = $this->db->get('orders');
         return $query->result_array();
     }
-     function get_new_order() {
+
+    function get_new_order() {
         $query = $this->db->where('a_status', 'new')->get('orders');
         return $query->result_array();
     }

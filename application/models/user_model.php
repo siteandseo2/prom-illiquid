@@ -41,5 +41,6 @@ class user_model extends CI_Model {
             echo 'FAIL';
         }
     }
+   
 
 }
