@@ -31,6 +31,8 @@ class Cabinet extends CI_Controller {
         } else {
             redirect(base_url('login'));
         }
+        $this->data['location'] = $this->main_m->get_location();
+        $this->data['city'] = $this->main_m->get_city();
     }
 
     function user_data() {

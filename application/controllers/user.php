@@ -11,7 +11,9 @@ class User extends CI_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('product_m');
-        $this->load->model('main_m');
+         $this->load->model('main_m');
+        $this->data['location'] = $this->main_m->get_location();
+        $this->data['city'] = $this->main_m->get_city();
         $this->data_user['user'] = @$this->session->userdata('user');
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');

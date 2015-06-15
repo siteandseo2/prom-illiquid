@@ -51,7 +51,7 @@
                 </form>
 
                 <p class="pull-right col-lg-3 col-sm-auto">
-                    <a href="<?= base_url('admin'); ?>/subcategorues_add" class="btn btn-primary btn-labeled" style="width: 100%;">
+                    <a href="<?= base_url('admin'); ?>/subcategories_add" class="btn btn-primary btn-labeled" style="width: 100%;">
                         <span class="btn-label icon fa fa-plus"></span>
                         Добавить подкатегорию
                     </a>

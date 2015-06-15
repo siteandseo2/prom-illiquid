@@ -25,13 +25,13 @@ class Main extends CI_Controller {
             $this->load->view("templates/header");
         }
         /* load category_m */
-        
+
         $this->load->model('main_m');
         $this->load->model('category_m');
         $this->load->model('subcategories_m');
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
 
-            $this->data['subcategory_img'] = $this->subcategories_m->get_subcategories_limit12();
+        $this->data['subcategory_img'] = $this->subcategories_m->get_subcategories_limit12();
 
         $this->data['partner'] = $this->main_m->get_partners();
         $this->data['group_list'] = $this->category_m->focus_product_list();
@@ -46,14 +46,14 @@ class Main extends CI_Controller {
 
 
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php')) {
-            
+
             if (!file_exists(APPPATH . '/views/userpages/' . $page . '.php')) {
                 show_404();
             }
-        } else {           
+        } else {
             $this->data['slider'] = $this->main_m->get_slider_item();
             $this->load->view("pages/$page", $this->data);
-        }
+        }        
         $this->data['script'] = "<script src='../../../js/perfect-scrollbar.jquery.js'></script><script src='../../../js/main.js'></script>";
         $this->load->view("templates/footer", $this->data);
     }

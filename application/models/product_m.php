@@ -75,13 +75,23 @@ class Product_m extends CI_Model {
     }
 
     function search_prod($name) {
-     $query = $this->db->like('name', $name)->get('product');
+        $query = $this->db->like('name', $name)->get('product');
         return $query->result_array();
     }
-    function add_order($data){
-         if ($this->db->insert('order', $data)) {
+
+    function add_order($data) {
+        if ($this->db->insert('orders', $data)) {
             return TRUE;
         }
+    }
+
+    function get_order() {
+        $query = $this->db->get('orders');
+        return $query->result_array();
+    }
+     function get_new_order() {
+        $query = $this->db->where('a_status', 'new')->get('orders');
+        return $query->result_array();
     }
 
 }

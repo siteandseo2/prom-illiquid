@@ -53,6 +53,9 @@ class Admin extends CI_Controller {
         /* load main_m */
         $this->load->model('main_m');
         $this->data['pages'] = $this->main_m->get_pages();
+        /* load product_m */
+        $this->load->model('product_m');
+        $this->data['count_order'] = $this->product_m->get_new_order();
     }
 
     /*  function login admin  */
@@ -255,4 +258,13 @@ class Admin extends CI_Controller {
     }
 
     /* add partner END */
+    /* get order START */
+
+    function get_order() {
+        $this->data['order'] = $this->product_m->get_order();
+        $this->load->view("admin/new_orders", $this->data);
+        $this->load->view("admin/footer", $this->data);
+    }
+
+    /* get_order END */
 }

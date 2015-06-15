@@ -77,6 +77,7 @@ $route['admin/category'] = 'admin/category/get_category';
 $route['admin/focus_product'] = 'admin/category/focus_product';
 $route['admin/partners']='admin/admin/partners';
 $route['admin/add_partner']='admin/admin/add_partner';
+$route['admin/new_orders']='admin/admin/get_order';
 
 $route['subcategories/(:any)'] = 'subcategories/get_subgategory/$1';
 $route['user/add_product']='user/add_product';
@@ -85,6 +86,7 @@ $route['company_info/(:any)']='user/company_info/$1';
 $route['account']='user/account_user/$1';
 $route['account/(:any)']='user/account_user/$1';
 $route['login'] = 'user/get_user';
+$route['add_order'] = 'order/add_order';
 $route['search']='search/get_search';
 $route['cabinet'] = 'cabinet/user_data';
 $route['add_product']='cabinet/add_product';

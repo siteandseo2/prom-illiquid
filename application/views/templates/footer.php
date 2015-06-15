@@ -1,5 +1,4 @@
 <!-- Footer -->
-
 <footer id="footer">
 
     <div class="wf-wrap">
@@ -218,8 +217,12 @@
                                 <p>
                                     <label for="location">Область</label>
                                     <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
-                                        <option value="zp">Запорожская</option>
-                                        <!-- foreach -->
+                                        <? foreach ($location as $item){
+                                        ?>
+                                        <option value="<?= $item['name'] ?>"><?= $item['name'] ?></option>
+                                        <?
+                                        }
+                                        ?>
                                     </select>
                                 </p>
 
@@ -299,6 +302,7 @@
 <?php
 if (!empty($script))
     print_r($script);
+
 ?>
 
 
