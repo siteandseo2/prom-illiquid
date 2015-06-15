@@ -15,7 +15,7 @@
 <?php
 $a = $_SERVER['REQUEST_URI'];
  
-if ($a == '/admin/product_add') {
+if ($a == '/admin/product_add'||$a == '/admin/subcategories_add') {
     ?>
     <script src="<?= base_url(); ?>../../../js/products.js" type="text/javascript"></script>
 <?php }

@@ -169,7 +169,7 @@
                 </a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="<?= base_url(); ?>admin/main" class="dropped">Главная страница</a>
+                        <a href="<?= base_url(); ?>admin/main" class="dropped">Меню</a>
                     </li>
                     <li>
                         <a href="pages" class="dropped">Страницы</a>

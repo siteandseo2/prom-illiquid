@@ -8,15 +8,15 @@
             <div class="row">               
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Главная страница
-                        <small>Main page</small>
+                        Управление меню
+                        <small>Setting menu</small>
                     </h1>  
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/index">Главная</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Главная страница
+                            <i class="fa fa-file"></i> Управление меню
                         </li>
                     </ol>                    
                 </div>                 

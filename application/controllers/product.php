@@ -40,6 +40,8 @@ class Product extends CI_Controller {
             }
         }
         /* load model product */
+        $this->data['location'] = $this->main_m->get_location();
+        $this->data['city'] = $this->main_m->get_city();
         $this->data['products'] = $this->product_m->get_all_product();
       
     }
