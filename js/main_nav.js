@@ -51,6 +51,11 @@
 				  url: 'ajax/change_role',
 				  data: {
 					  id: +state
+				  },
+				  success: function( data ) {
+					  
+					  console.log( data );
+					  
 				  }
 			  });
 			  
