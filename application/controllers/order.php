@@ -45,7 +45,7 @@ class Order extends CI_Controller {
             $this->data_db['name'] = $this->input->post('h_name');
             $this->data_db['price'] = $this->input->post('h_price');
             $this->data_db['currency'] = $this->input->post('h_currency');
-            $this->data_db['quantity'] = $this->input->post('h_quantity');
+            $this->data_db['quantity'] = $this->input->post('quantity');
             $this->data_db['item_id'] = $this->input->post('h_id');
 
             $this->prep['buyer']['name'] = $this->input->post('name');
@@ -75,9 +75,7 @@ class Order extends CI_Controller {
                     $json[$name][$num] = $value;
                 }
             }
-            echo '<pre>';
-            print_r($json);
-            echo '</pre>';
+            
             foreach ($json as $k => $v) {
                 $this->product_m->add_order($v);
             }

@@ -145,7 +145,7 @@
 				</p> \
 				<p class="left"> \
 					<span>Количество</span> \
-					<input type="number" min="' + changedQuantity + '" step="' + changedQuantity + '" value="' + changedQuantity + '" data-value="' + changedQuantity + '"> \
+					<input type="number" name="quantity[' + id + ']" min="' + changedQuantity + '" step="' + changedQuantity + '" value="' + changedQuantity + '" data-value="' + changedQuantity + '"> \
 				</p> \
 				<input type="hidden" name="h_name[' + id + ']" value="' + name + '">\
 				<input type="hidden" name="h_price[' + id + ']" value="' + price + '">\

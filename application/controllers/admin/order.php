@@ -51,6 +51,8 @@ class Order extends CI_Controller {
             foreach ($this->input->post('status') as $key => $val) {
                 if ($val == 'new') {
                     $this->db->query("UPDATE orders SET a_status='view' WHERE id='$key'");
+                } else {
+                    $this->db->query("UPDATE orders SET a_status='new' WHERE id='$key'");
                 }
             }
         }

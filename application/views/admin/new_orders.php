@@ -38,13 +38,8 @@
                         <th class='col-lg-4'>
                             Покупатель/Продавец
                         </th>                        
-                        <th  class='col-lg-1'>
-                            Цена за единицу
-                        </th>
-                        <th  class='col-lg-1'>
-                            Цена ИТОГО
-                        </th>
-                        <th class='col-lg-2'>
+
+                        <th class='col-lg-1'>
                             Дата
                         </th>  
                         <th>
@@ -56,9 +51,12 @@
                         foreach ($order as $item) {
                             if ($item['a_status'] == 'new') {
                                 $style = 'style="background-color : rgba(171, 222, 249, 0.48);"';
+                                $btn_name = '<i class = "fa fa-eye"></i>';
                             } else {
                                 $style = '';
+                                $btn_name = '<i class = "fa fa-eye-slash"></i>';
                             }
+
                             $buyer_data = unserialize($item['buyer_data']);
                             $adress = unserialize($item['adress']);
                             $seller_data = unserialize($item['seller_data']);
@@ -66,36 +64,57 @@
                             <tr <?= $style ?>>
                                 <td><?= $item['id'] ?></td>
                                 <td>
-                                    <h3>  <?= $item['name'] ?></h3>
+                                    <h3>
+                                        <?= $item['name'] ?>
+                                    </h3>
+                                    <hr>    
+                                    <img src="<?= $item['image'] ?>" alt="" width="300"> 
+                                    <hr>  
+                                    <table class='col-lg-12 table-bordered table-responsive table' <?= $style ?>>
 
-                                    <hr>
-                                    <h4>Продавец:</h4>
-                                    <?
-                                    echo '<label>Имя: </label>  '.$seller_data['name'].'<br>';
-                                    echo '<label>Фамилия: </label> '.$seller_data['surname'].'<br>';
-                                    echo '<label>Электронная почта: </label>  '.$seller_data['email'].'<br>';                                   
-                                    echo '<label>Телефон:</label> '.$seller_data['phone'].'<br>';
-                                    echo '<label>Cтрана:</label> '.$seller_data['country'].'<br>';
-                                    echo '<label>Город:</label> '.$seller_data['city'].'<br>';  
-                                    echo '<label>Улица:</label> '.$seller_data['street'].' <label>Дом</label> '.$seller_data['building'].'<br>'; 
-                                    ?>
+                                        <thead>
+                                        <th>Цена за единицу</th>
+                                        <th> Кол.</th>
+                                        <th>Цена ИТОГО</th>
+                                        </thead>
+                                        <tr>
+                                            <td><?= $item['price'] ?> <?= $item['currency'] ?></td>   
+                                            <td><?= $item['quantity'] ?></td>
+                                            <td><?= $item['price'] * $item['quantity'] ?> <?= $item['currency'] ?></td>   
+                                        <tr>
+
+                                    </table>
                                 </td>
                                 <td>
                                     <h4>Покупатель:</h4>
                                     <?
                                     echo '<label>Имя: </label>  '.$buyer_data['name'].'<br>';
                                     echo '<label>Фамилия: </label> '.$buyer_data['surname'].'<br>';
-                                    echo '<label>Электронная почта: </label>  '.$buyer_data['email'].'<br>';                                   
+                                    echo '<label>Em@il: </label>  '.$buyer_data['email'].'<br>';                                   
                                     echo '<label>Телефон:</label> '.$buyer_data['phone'].'<br>';
                                     echo '<label>Область:</label> '.$adress['location'].'<br>';
                                     echo '<label>Город:</label> '.$adress['city'].'<br>';                                    
                                     ?>
-                                </td>                                                     
-                                <td><?= $item['price'] ?> <?= $item['currency'] ?></td>    
-                                <td><?= $item['price'] ?> <?= $item['currency'] ?></td>   
+                                    <hr>
+                                    <h4>Продавец:</h4>
+                                    <?
+                                    echo '<label>Имя: </label>  '.$seller_data['name'].'<br>';
+                                    echo '<label>Фамилия: </label> '.$seller_data['surname'].'<br>';
+                                    echo '<label>Em@il: </label>  '.$seller_data['email'].'<br>';                                   
+                                    echo '<label>Телефон:</label> '.$seller_data['phone'].'<br>';
+                                    echo '<label>Cтрана:</label> '.$seller_data['country'].'<br>';
+                                    echo '<label>Город:</label> '.$seller_data['city'].'<br>';  
+                                    echo '<label>Улица:</label> '.$seller_data['street'].' <label>Дом</label> '.$seller_data['building'].'<br>'; 
+                                    ?>
+                                </td>                                
+
                                 <td><?= $item['date'] ?> </td>
                                 <td>
-                                    <button class = "btn btn-info"type = 'submit' name = "status[<?= $item['id'] ?>]"  value = "<?= $item['a_status'] ?>"><?= $item['a_status'] ?></button>
+                                    <div class="btn-group-vertical">
+                                        <button class = "btn btn-info"type = 'submit' name = "status[<?= $item['id'] ?>]"  value = "<?= $item['a_status'] ?>"><?= $btn_name ?></button>
+                                        <button class = "btn btn-danger"type = 'submit' name = "del[<?= $item['id'] ?>]"  value = "<?= $item['id'] ?>"><i class="fa fa-trash-o"></i></button>
+                                        <button class = "btn btn-success"type = 'submit' name = "edit[<?= $item['id'] ?>]"  value = "<?= $item['id'] ?>"><i class="fa fa-pencil"></i></button>
+                                    </div>
                                 </td>
 
                             </tr>
