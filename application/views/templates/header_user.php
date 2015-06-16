@@ -11,6 +11,7 @@
         <link href="<?= base_url(); ?>../../../css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/bootstrap-switch.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url(); ?>../../../css/load_animation.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/perfect-scrollbar.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/jquery.fancybox.css">
@@ -145,7 +146,7 @@
                             <span class="query">сменить статус ?</span>
 
                             <div class="changeRole">
-                                <input type="checkbox" name="role" data-on-text="Покупатель" data-off-text="Продавец" checked>
+                                <input type="checkbox" name="role" data-on-text="" data-off-text="">
                             </div>
                         <?php } ?>
 
@@ -288,5 +289,12 @@
                     </nav>
                     <!-- Cabinet Navigation End -->
                 </div>
-                <!-- Branding & Navigation End -->
+               
+				<div class="bubblingG">
+					<span id="bubblingG_1"></span>
+					<span id="bubblingG_2"></span>
+					<span id="bubblingG_3"></span>
+				</div>
+			   
             </header>
+			
