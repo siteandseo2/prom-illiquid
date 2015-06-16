@@ -54,12 +54,7 @@ class Order extends CI_Controller {
             $this->prep['buyer']['phone'] = $this->input->post('phone');
             $this->prep['adr']['location'] = $this->input->post('location');
             $this->prep['adr']['city'] = $this->input->post('city');
-
-
-
-
             foreach ($this->data_db['item_id'] as $id) {
-
                 $a[] = $this->user_model->get_user_by_id($this->product_m->get_user_by_product($id));
                 foreach ($a as $num => $column) {
                     foreach ($column as $name => $value) {
@@ -70,7 +65,7 @@ class Order extends CI_Controller {
                         $this->data_db['seller_data'][$id] = serialize($value);
                         $this->data_db['adress'][$id] = serialize($this->prep['adr']);
                         $this->data_db['buyer_data'][$id] = serialize($this->prep['buyer']);
-                        
+                        $this->data_db['date'][$id] = date('Y-m-d H:i:s');
                     }
                 }
             }

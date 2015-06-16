@@ -32,14 +32,17 @@
                         <th >
                             #id
                         </th>
-                        <th class='col-lg-2'>
+                        <th class='col-lg-4'>
                             Наименование
                         </th>
-                        <th class='col-lg-5'>
+                        <th class='col-lg-4'>
                             Покупатель/Продавец
                         </th>                        
                         <th  class='col-lg-1'>
-                            Цена
+                            Цена за единицу
+                        </th>
+                        <th  class='col-lg-1'>
+                            Цена ИТОГО
                         </th>
                         <th class='col-lg-2'>
                             Дата
@@ -62,7 +65,21 @@
                             ?>
                             <tr <?= $style ?>>
                                 <td><?= $item['id'] ?></td>
-                                <td><?= $item['name'] ?></td>
+                                <td>
+                                    <h3>  <?= $item['name'] ?></h3>
+
+                                    <hr>
+                                    <h4>Продавец:</h4>
+                                    <?
+                                    echo '<label>Имя: </label>  '.$seller_data['name'].'<br>';
+                                    echo '<label>Фамилия: </label> '.$seller_data['surname'].'<br>';
+                                    echo '<label>Электронная почта: </label>  '.$seller_data['email'].'<br>';                                   
+                                    echo '<label>Телефон:</label> '.$seller_data['phone'].'<br>';
+                                    echo '<label>Cтрана:</label> '.$seller_data['country'].'<br>';
+                                    echo '<label>Город:</label> '.$seller_data['city'].'<br>';  
+                                    echo '<label>Улица:</label> '.$seller_data['street'].' <label>Дом</label> '.$seller_data['building'].'<br>'; 
+                                    ?>
+                                </td>
                                 <td>
                                     <h4>Покупатель:</h4>
                                     <?
@@ -73,19 +90,9 @@
                                     echo '<label>Область:</label> '.$adress['location'].'<br>';
                                     echo '<label>Город:</label> '.$adress['city'].'<br>';                                    
                                     ?>
-                                    <h4>Продавец:</h4>
-                                    <?
-                                    echo '<label>Имя: </label>  '.$seller_data['name'].'<br>';
-                                    echo '<label>Фамилия: </label> '.$seller_data['surname'].'<br>';
-                                    echo '<label>Электронная почта: </label>  '.$seller_data['email'].'<br>';                                   
-                                    echo '<label>Телефон:</label> '.$seller_data['phone'].'<br>';
-                                    echo '<label>Cтрана:</label> '.$seller_data['country'].'<br>';
-                                    echo '<label>Город:</label> '.$seller_data['city'].'<br>';  
-                                    echo '<label>Улица:</label> '.$seller_data['street'].' <label>Дом</label> '.$seller_data['building'].'<br>'; 
-                                    
-                                    ?>
                                 </td>                                                     
-                                <td><?= $item['price'] ?> <?= $item['currency'] ?></td>                            
+                                <td><?= $item['price'] ?> <?= $item['currency'] ?></td>    
+                                <td><?= $item['price'] ?> <?= $item['currency'] ?></td>   
                                 <td><?= $item['date'] ?> </td>
                                 <td>
                                     <button class = "btn btn-info"type = 'submit' name = "status[<?= $item['id'] ?>]"  value = "<?= $item['a_status'] ?>"><?= $item['a_status'] ?></button>
