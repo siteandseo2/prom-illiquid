@@ -252,8 +252,14 @@
 			if ( xhr.status == 200 && url == 'user/add_user' ) {
 				
 				setTimeout(function() {
+					$('#overlay').hide();
+					$('.bubblingG').hide();
+					
 					callback( true );
-				}, 1000);
+				}, 2000);
+				
+				$('#overlay').show();
+				$('.bubblingG').show();
 				
 			} else {
 				
@@ -261,8 +267,14 @@
 				
 				if( url == 'user/add_user' ) {
 					setTimeout(function() {
+						$('#overlay').hide();
+						$('.bubblingG').hide();
+						
 						callback( false );
-					}, 1000);
+					}, 2000);
+					
+					$('#overlay').show();
+					$('.bubblingG').show();
 				}
 				
 			}
@@ -289,7 +301,7 @@
 				$( success ).slideToggle(2000, function() {
 					$( this ).slideUp(2000);
 				});
-			}, 1000);
+			}, 500);
 			
 		} else {
 			
@@ -297,7 +309,7 @@
 				$( danger ).slideToggle(2000, function() {
 					$( this ).slideUp(2000);
 				});
-			}, 1000);
+			}, 500);
 			
 		}
 	}

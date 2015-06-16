@@ -9,6 +9,7 @@
         <link href="<?= base_url(); ?>../../../css/normalize.css" rel="stylesheet" type="text/css"/>
 		<link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url(); ?>../../../css/load_animation.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/perfect-scrollbar.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/jquery.fancybox.css">
@@ -142,7 +143,12 @@
                     <!-- Search End --> 
 
                 </div>
-                <!-- Branding & Navigation End -->
+				
+				<div class="bubblingG">
+					<span id="bubblingG_1"></span>
+					<span id="bubblingG_2"></span>
+					<span id="bubblingG_3"></span>
+				</div>
 
             </header>
 

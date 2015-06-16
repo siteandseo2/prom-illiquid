@@ -146,7 +146,7 @@
                             <span class="query">сменить статус ?</span>
 
                             <div class="changeRole">
-                                <input type="checkbox" name="role" data-on-text="" data-off-text="">
+                                <input type="checkbox" name="role" data-on-text="Продавец" data-off-text="Покупатель">
                             </div>
                         <?php } ?>
 

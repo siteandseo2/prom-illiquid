@@ -14,14 +14,22 @@
 			$.post('../../../js/autoComplete.js');
 			$.post('../../../js/main.js');
 			$.post('../../../js/cart.js');
+		},
+		cabinet: function() {
+			$.getScript('js/bootstrap-switch.js');
+			$.getScript('js/main_nav.js');
+			$.getScript('js/switcher.js');
+		},
+		cabinetPost: function() {
+			$.post('../../../js/bootstrap-switch.js');
+			$.post('../../../js/main_nav.js');
+			$.post('../../../js/switcher.js');
 		}
 	}
 	
 	switch( path ) {
 		case '/default':
 		case '/':
-		
-			//debugger;
 		
 			get.search();
 			
@@ -32,49 +40,38 @@
 		case '/registration':
 		
 			get.search();
-			
 			$.getScript('js/validation.js');
 			
 			break;
 		case '/cabinet':
 		
-			$.getScript('js/bootstrap-switch.js');
-			
 			get.search();
-			
-			$.getScript('js/main_nav.js');
+			get.cabinet();
 			
 			break;
 		case '/add_product':
 		
-			$.getScript('js/bootstrap-switch.js');
-			
 			get.search();
+			get.cabinet();
 			
-			$.getScript('js/main_nav.js');
 			$.getScript('js/products.js');
 		
 			break;
 		case '/products':
 		case '/search':
 		
-			$.getScript('js/bootstrap-switch.js');
-			
 			get.search();
-			
-			$.getScript('js/main_nav.js');
+			get.cabinet();
 		
 			break;
 		default:
 		
 			if( isMatch( path, '/account/' ) || isMatch( path, '/company_info/' ) ) {
 				
-				$.post('../../../js/bootstrap-switch.js');
-				
 				get.searchPost();
+				get.cabinetPost();
 			
 				$.post('../../../js/xml2json.js');
-				$.post('../../../js/main_nav.js');
 				$.post('../../../js/validation.js');
 				$.post('../../../js/maps.js');
 				
@@ -87,18 +84,12 @@
 				
 			} else if( isMatch( path, '/products/' ) ) {
 				
-				//debugger;
-				
 				get.searchPost();
 				
 			}  else if ( isMatch( path, '/subcategories/' ) ){
 				
-				$.getScript('../../../js/bootstrap-switch.js');
-				
 				get.searchPost();
-				
-				$.post('../../../js/main_nav.js');
-				
+				get.cabinetPost();
 			}
 		
 			break;
