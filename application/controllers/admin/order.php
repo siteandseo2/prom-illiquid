@@ -47,7 +47,7 @@ class Order extends CI_Controller {
     }
 
     function order_status() {
-        if (isset($_POST)) {
+        if (isset($_POST['status'])) {
             foreach ($this->input->post('status') as $key => $val) {
                 if ($val == 'new') {
                     $this->db->query("UPDATE orders SET a_status='view' WHERE id='$key'");
@@ -56,7 +56,13 @@ class Order extends CI_Controller {
                 }
             }
         }
+        if (isset($_POST['del'])) {
+            foreach ($this->input->post('del') as $id) {
+                $this->db->where('id', $id)->delete('orders');
+            }
+        }
         redirect(base_url('admin/new_orders'));
     }
+    
 
 }
