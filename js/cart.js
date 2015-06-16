@@ -74,9 +74,7 @@
 				break;
 		}
 		
-		var countable = this.tagName == 'A' ? false : true;
-		
-		var item = new Item(id, name, item_price, img, parent_id, countable);
+		var item = new Item(id, name, item_price, img, parent_id);
 		
 		insertItem( item, isSession );
 		
@@ -90,7 +88,6 @@
 		this.price = price;
 		this.img = img;
 		this.parent = parent;
-		this.countable = countable;
 	};
 	
 	Item.save = function( item ) {
@@ -126,14 +123,13 @@
 			item.price.currency, 
 			item.price.quantity,
 			item.price.changedQuantity,
-			item.parent,
-			item.countable
+			item.parent
 		);
 	}
 	
 	// CREATE HTML
 	
-	function fillInVars( id, img, name, price, currency, quantity, changedQuantity, parent, countable ) {
+	function fillInVars( id, img, name, price, currency, quantity, changedQuantity, parent ) {
 		$( parentBlock ).append(' \
 			<section class="cartItemBlock clearfix" id="' + id + '"> \
 				<img src="' + img + '" width="100" height="100" class="thumb img-thumbnail"> \
@@ -149,7 +145,7 @@
 				</p> \
 				<p class="left"> \
 					<span>Количество</span> \
-					<input type="number" min="' + changedQuantity + '" step="' + changedQuantity + '" value="' + changedQuantity + '"> \
+					<input type="number" min="' + changedQuantity + '" step="' + changedQuantity + '" value="' + changedQuantity + '" data-value="' + changedQuantity + '"> \
 				</p> \
 				<input type="hidden" name="h_name[' + id + ']" value="' + name + '">\
 				<input type="hidden" name="h_price[' + id + ']" value="' + price + '">\
@@ -160,12 +156,12 @@
 			</section>'
 		);
 		
-		alreadyExist( id, countable );
+		alreadyExist( id, changedQuantity );
 	}
 	
 	// ALREADY EXIST
 	
-	function alreadyExist( id ) {
+	function alreadyExist( id, changedQuantity ) {
 		var allItems = $( parentBlock ).children(),
 			matchedInputValue = $( parentBlock ).find('[id="' + id + '"] [type="number"]');
 		
@@ -176,8 +172,11 @@
 		if( already.length > 1 ) {
 			$( parentBlock ).find('section:last-child').remove();
 			var itemValue = +$( matchedInputValue ).val();
-			itemValue += itemValue;
+			itemValue += changedQuantity;
 			$( matchedInputValue ).val( itemValue );
+			
+			currentCount( false ).save().setHTML();
+			isEmpty();
 		}
 	}
 	
@@ -197,8 +196,7 @@
 				parsed[key].price.currency, 
 				parsed[key].price.quantity,
 				parsed[key].price.changedQuantity,
-				parsed[key].parent,
-				parsed[key].countable
+				parsed[key].parent
 			);
 		}
 		
@@ -274,6 +272,37 @@
 		return execute;
 	}();
 	
+	// RECOUNT
+	
+	$( document ).on('change', '#modalCart [type="number"]', function() {
+		var	newValue = +$( this ).val(),
+			prevValue = +$( this ).attr('data-value'),
+			assosPrice = +$( this ).parent().prev().find('.price').text(),
+			parentId = $( this ).parent().parent().attr('id');
+		
+		var dir = direction(newValue, prevValue);
+		
+		if( dir ) {
+			totalPrice( true, assosPrice ).save().setHTML();
+			rewriteSessionQuantity( parentId, newValue );
+		} else {
+			totalPrice( false, assosPrice ).save().setHTML();
+			rewriteSessionQuantity( parentId, newValue );
+		}
+		
+		$( this ).attr('data-value', newValue);
+		
+		function direction(newValue, prevValue) {
+			return newValue > prevValue ? true : false;
+		}
+		
+		function rewriteSessionQuantity(parentId, newValue) {
+			var parsed = JSON.parse( sessionStorage['item_' + parentId] );
+			parsed.price.changedQuantity = newValue;
+			sessionStorage.setItem( 'item_' + parentId, JSON.stringify( parsed ) );
+		}
+	});
+	
 	// REMOVE
 	
 	$( document ).on('click', '.item-close', function() {
@@ -282,7 +311,9 @@
 		
 		currentCount( false ).save().setHTML();
 		
-		totalPrice( false, $( this ).parent().find('.price').text() ).save().setHTML();
+		var mul = $( this ).parent().find('.price').text()*$( this ).parent().find('[type="number"]').val(); 
+		
+		totalPrice( false, mul ).save().setHTML();
 		
 		isEmpty();
 	});
@@ -295,14 +326,14 @@
 		function hide() {
 			$('#modalCart').find('.modal-header').hide();
 			$('#modalCart').find('.modal-footer').hide();
-			$('#modalCart').find('.modal-body form').hide();
+			$('#modalCart').find('.modal-body .form-fields').hide();
 			$('#modalCart').find('.empty_cart').show();
 		}
 		
 		function show() {
 			$('#modalCart').find('.modal-header').show();
 			$('#modalCart').find('.modal-footer').show();
-			$('#modalCart').find('.modal-body form').show();
+			$('#modalCart').find('.modal-body .form-fields').show();
 			$('#modalCart').find('.empty_cart').hide();
 		}
 	}
