@@ -100,7 +100,7 @@
 	}
 	
 
-	sessionStorage.clear();
+//	sessionStorage.clear();
 	
 	// DEFINE VARS
 	

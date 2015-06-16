@@ -164,12 +164,12 @@
     </div>
 
     <!-- Modal Cart -->
-   
-        <div class="modal fade bs-example-modal-lg" id="modalCart" aria-hidden="true" role="dialog">
-            <div class="modal-dialog modal-lg">
 
-			<form action="<?= base_url() ?>add_order" method="POST">
-			
+    <div class="modal fade bs-example-modal-lg" id="modalCart" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <form action="<?= base_url() ?>add_order" method="POST">
+
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -177,89 +177,89 @@
                     </div>
                     <div class="modal-body clearfix">
 
-							<div class="form-fields clearfix">
+                        <div class="form-fields clearfix">
 
-								<!-- Left Side -->
+                            <!-- Left Side -->
 
-								<div class="col-sm-6">
+                            <div class="col-sm-6">
 
-									<p>
-										<label for="type_of_order">Форма заказа</label>
-										<select class="cabinet-form-input" name="type_of_order" id="type_of_order">
-											<option value="cash">Наличные</option>
-											<option value="mail">Наложенный платеж</option>
-											<option value="card">Кредитная карточка</option>
-										</select>
-									</p>
+                                <p>
+                                    <label for="type_of_order">Форма заказа</label>
+                                    <select class="cabinet-form-input" name="type_of_order" id="type_of_order">
+                                        <option value="cash">Наличные</option>
+                                        <option value="mail">Наложенный платеж</option>
+                                        <option value="card">Кредитная карточка</option>
+                                    </select>
+                                </p>
 
-									<p>
-										<label for="type_of_deliverance">Тип доставки</label>
-										<select class="cabinet-form-input" name="type_of_deliverance" id="type_of_deliverance">
-											<option value="nova_poshta">Нова Пошта</option>
-											<option value="self">Самовывоз</option>
-											<option value="intime">Интайм</option>
-										</select>
-									</p>
+                                <p>
+                                    <label for="type_of_deliverance">Тип доставки</label>
+                                    <select class="cabinet-form-input" name="type_of_deliverance" id="type_of_deliverance">
+                                        <option value="nova_poshta">Нова Пошта</option>
+                                        <option value="self">Самовывоз</option>
+                                        <option value="intime">Интайм</option>
+                                    </select>
+                                </p>
 
-									<span class="form-name">
-										<input type="text" class="validate" data-validate="w" placeholder="Имя *" name="name">
-										<span class="form-icon">
-											<i class="fa"></i>
-										</span>
-									</span>
+                                <span class="form-name">
+                                    <input type="text" class="validate" data-validate="w" placeholder="Имя *" name="name">
+                                    <span class="form-icon">
+                                        <i class="fa"></i>
+                                    </span>
+                                </span>
 
-									<span class="form-name">
-										<input type="text" class="validate" data-validate="w" placeholder="Фамилия *" name="surname">
-										<span class="form-icon">
-											<i class="fa"></i>
-										</span>
-									</span>
+                                <span class="form-name">
+                                    <input type="text" class="validate" data-validate="w" placeholder="Фамилия *" name="surname">
+                                    <span class="form-icon">
+                                        <i class="fa"></i>
+                                    </span>
+                                </span>
 
-									<p>
-										<label for="location">Область</label>
-										<select class="cabinet-form-input" name="location" id="location" data-ajax="region">
-											<? foreach ($location as $item){
-											?>
-											<option value="<?= $item['name'] ?>"><?= $item['name'] ?></option>
-											<?
-											}
-											?>
-										</select>
-									</p>
+                                <p>
+                                    <label for="location">Область</label>
+                                    <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                                        <? foreach ($location as $item){
+                                        ?>
+                                        <option value="<?= $item['name'] ?>"><?= $item['name'] ?></option>
+                                        <?
+                                        }
+                                        ?>
+                                    </select>
+                                </p>
 
-									<p>
-										<label for="city">Область</label>
-										<select class="cabinet-form-input" name="city" id="city">
-											<option value="zp">Запорожье</option>
-											<!-- ajax -->
-										</select>
-									</p>
+                                <p>
+                                    <label for="city">Город</label>
+                                    <select class="cabinet-form-input" name="city" id="city">
+                                        <option value="zp">Запорожье</option>
+                                        <!-- ajax -->
+                                    </select>
+                                </p>
 
-									<p class="form-name">
-										<input type="text" class="validate" data-validate="e" placeholder="Email *" name="email">
-										<span class="form-icon">
-											<i class="fa"></i>
-										</span>
-									</p>
+                                <p class="form-name">
+                                    <input type="text" class="validate" data-validate="e" placeholder="Email *" name="email">
+                                    <span class="form-icon">
+                                        <i class="fa"></i>
+                                    </span>
+                                </p>
 
-									<p class="form-name">
-										<input type="text" class="validate" data-validate="p" placeholder="Телефон *" name="phone">
-										<span class="form-icon">
-											<i class="fa"></i>
-										</span>
-									</p>
+                                <p class="form-name">
+                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" name="phone">
+                                    <span class="form-icon">
+                                        <i class="fa"></i>
+                                    </span>
+                                </p>
 
-								</div>
+                            </div>
 
-								<!-- Right Side -->
+                            <!-- Right Side -->
 
-								<div class="col-sm-6 items-list">
+                            <div class="col-sm-6 items-list">
 
-									<!-- Item Block --> 
+                                <!-- Item Block --> 
 
-								</div>
+                            </div>
 
-							</div>
+                        </div>
 
                         <h3 class="empty_cart">Ваша корзина пуста</h3>
 
@@ -280,12 +280,12 @@
                         </p>
                     </div>
                 </div>
-				
-			</form>
 
-            </div>
+            </form>
+
         </div>
-   
+    </div>
+
 
 </footer>
 
@@ -304,7 +304,6 @@
 <?php
 if (!empty($script))
     print_r($script);
-
 ?>
 
 
