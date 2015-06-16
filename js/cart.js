@@ -25,7 +25,7 @@
 		
 	}());
 	
-	console.log( isSession );
+	//console.log( isSession );
 	
 	// TOPBAR CLICK
 		
