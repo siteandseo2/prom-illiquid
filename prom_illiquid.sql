@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 16 2015 г., 17:54
+-- Время создания: Июн 17 2015 г., 12:13
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('1ac527da3dac63a7f6a12c980277910e', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.125 Safari/537.36', 1434466360, 'a:2:{s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}s:4:"user";a:11:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";s:7:"usercat";s:12:"buyer/seller";}}');
+('3ee80001e7b56e2388296213310dd3e6', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.125 Safari/537.36', 1434532168, 'a:3:{s:9:"user_data";s:0:"";s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}s:4:"user";a:11:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";s:7:"usercat";s:12:"buyer/seller";}}');
 
 -- --------------------------------------------------------
 
@@ -2651,31 +2651,33 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `link` varchar(50) NOT NULL,
   `owner` varchar(10) NOT NULL,
   `access` varchar(10) NOT NULL,
+  `main_link` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
 
 --
 -- Дамп данных таблицы `menu`
 --
 
-INSERT INTO `menu` (`id`, `name`, `type`, `p_id`, `p_id2`, `status`, `link`, `owner`, `access`) VALUES
-(1, 'Главная', 'r', 0, 0, 'enable', '#', 'admin', '3'),
-(2, 'Контактные данные', 'd', 46, 0, 'enable', 'account', 'admin', ''),
-(5, 'Мои Товары/Услуги', 'r', 0, 0, 'enable', '#', 'admin', '2'),
-(6, 'Добавить товар', 'd', 5, 0, 'enable', 'add_product', 'admin', ''),
-(41, 'Мои Заказы', 'r', 0, 0, 'disable', '#', 'admin', '3'),
-(42, 'Мои сообщения', 'r', 0, 0, 'disable', '#', 'admin', '3'),
-(43, 'Мои Отзывы', 'r', 0, 0, 'enable', '#', 'admin', '3'),
-(44, 'Настройки Компании', 'r', 0, 0, 'enable', '#', 'admin', '2'),
-(45, 'Статистика', 'r', 0, 0, 'disable', '#', 'admin', '2'),
-(46, 'Мои Данные', 'r', 0, 0, 'enable', '#', 'admin', '3'),
-(47, 'Изменить логин', 'd', 46, 0, 'enable', 'change_login', 'admin', ''),
-(48, 'Изменить Пароль', 'd', 46, 0, 'enable', 'change_password', 'admin', ''),
-(49, 'Справка', 'r', 0, 0, 'enable', '#', 'admin', '1'),
-(50, 'Настройка Рассылки', 'd', 46, 0, 'enable', 'set_email', 'admin', ''),
-(51, 'Удалить учетную запись', 'd', 46, 0, 'enable', 'delete_user', 'admin', ''),
-(52, 'Общие Настройки', 'd', 44, 0, 'enable', 'company_info', 'user', ''),
-(54, 'Регистрационные документы', 'd', 44, 0, 'enable', 'documents', 'user', '');
+INSERT INTO `menu` (`id`, `name`, `type`, `p_id`, `p_id2`, `status`, `link`, `owner`, `access`, `main_link`) VALUES
+(1, 'Главная', 'r', 0, 0, 'enable', '#', 'admin', '3', 'cabinet'),
+(2, 'Контактные данные', 'd', 46, 0, 'enable', 'account', 'admin', '', ''),
+(5, 'Мои Товары/Услуги', 'r', 0, 0, 'enable', '#', 'admin', '2', ''),
+(6, 'Добавить товар', 'd', 5, 0, 'enable', 'add_product', 'admin', '', ''),
+(41, 'Мои Заказы', 'r', 0, 0, 'enable', '#', 'admin', '3', ''),
+(42, 'Мои сообщения', 'r', 0, 0, 'enable', '#', 'admin', '3', ''),
+(43, 'Мои Отзывы', 'r', 0, 0, 'enable', '#', 'admin', '3', ''),
+(44, 'Настройки Компании', 'r', 0, 0, 'enable', '#', 'admin', '2', ''),
+(45, 'Статистика', 'r', 0, 0, 'enable', '#', 'admin', '2', ''),
+(46, 'Мои Данные', 'r', 0, 0, 'enable', '#', 'admin', '3', ''),
+(47, 'Изменить логин', 'd', 46, 0, 'enable', 'change_login', 'admin', '', ''),
+(48, 'Изменить Пароль', 'd', 46, 0, 'enable', 'change_password', 'admin', '', ''),
+(49, 'Справка', 'r', 0, 0, 'enable', '#', 'admin', '1', ''),
+(50, 'Настройка Рассылки', 'd', 46, 0, 'enable', 'set_email', 'admin', '', ''),
+(51, 'Удалить учетную запись', 'd', 46, 0, 'enable', 'delete_user', 'admin', '', ''),
+(52, 'Общие Настройки', 'd', 44, 0, 'enable', 'company_info', 'user', '', ''),
+(54, 'Регистрационные документы', 'd', 44, 0, 'enable', 'documents', 'user', '', ''),
+(55, 'Редактировать товары', 'd', 5, 0, 'enable', 'edit_item', 'admin', '', '');
 
 -- --------------------------------------------------------
 
@@ -2709,7 +2711,7 @@ INSERT INTO `orders` (`id`, `name`, `price`, `buyer_data`, `status`, `a_status`,
 (3, 'Саморез Обыкновенный', 30, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";}', 'Новый', 'view', 'Наличные', 'Нова Пошта', 'a:15:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";}', 'a:2:{s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}', '2015-06-16 17:44:59', 'Грн.', '200', 15),
 (4, 'Угловая шлифмашина Metabo W 820-125', 1243, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";}', 'Новый', 'view', 'Наличные', 'Нова Пошта', 'a:15:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";}', 'a:2:{s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}', '2015-06-16 17:44:59', 'Грн.', '1', 9),
 (5, 'Кирпич Куйбышево М-100 250х120х65', 3.85, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";}', 'Новый', 'view', 'Наличные', 'Нова Пошта', 'a:15:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";}', 'a:2:{s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}', '2015-06-16 17:44:59', 'Грн.', '60', 4),
-(6, 'Бензиновый генератор SDMO Technic 10000 E-AVR + MO', 63000, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:13:"+380938246066";}', 'Новый', 'new', 'Кредитная карточка', 'Интайм', 'a:15:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";}', 'a:2:{s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}', '2015-06-16 17:47:58', 'Грн.', '1', 14);
+(6, 'Бензиновый генератор SDMO Technic 10000 E-AVR + MO', 63000, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:13:"+380938246066";}', 'Новый', 'view', 'Кредитная карточка', 'Интайм', 'a:15:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";}', 'a:2:{s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}', '2015-06-16 17:47:58', 'Грн.', '1', 14);
 
 -- --------------------------------------------------------
 
@@ -2898,19 +2900,21 @@ CREATE TABLE IF NOT EXISTS `user` (
   `street` varchar(30) NOT NULL,
   `building` varchar(10) NOT NULL,
   `phone_more` varchar(15) NOT NULL,
+  `location` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548250 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548251 ;
 
 --
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `company`, `user_type`, `usercat`, `surname`, `patronymic`, `country`, `city`, `phone`, `street`, `building`, `phone_more`) VALUES
-(1, 'Admin', 'admin', 'prom_admin', 'Admin', 'admin', 'Maks', 'Prihodko', 'Alexandrovich', 'Украина', 'Запорожье', '380938246066', 'Ладожская ', '17', ''),
-(2548244, 'Максим', 'mprihodko92@gmail.com', 'qwer0987', 'Site&Seo', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '380938246066', 'Ладожская ', '17а', ''),
-(2548247, 'Макс', 'baccardi92@mail.ru', '24june92', 'NULL', 'user', 'buyer', 'Приходько', 'Александрович', 'Украина ', 'Киев', '0505315548', 'Бульвар Верховного Совета', '24', ''),
-(2548248, 'Максим', 'John@gmail.com', '24june92', 'Желтый дезик', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '2712259', 'пр. Ленина ', '164', '380938246066'),
-(2548249, 'Maks', 'dji@fng.fgkmjd', 'qwer0987', 'NULL', 'user', 'buyer', 'Pryh', 'Alex', 'Украина ', 'Запорожье', '3578348343', 'пр. Ленина', '34', '');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `company`, `user_type`, `usercat`, `surname`, `patronymic`, `country`, `city`, `phone`, `street`, `building`, `phone_more`, `location`) VALUES
+(1, 'Admin', 'admin', 'prom_admin', 'Admin', 'admin', 'Maks', 'Prihodko', 'Alexandrovich', 'Украина', 'Запорожье', '380938246066', 'Ладожская ', '17', '', 'Запорожская область'),
+(2548244, 'Максим', 'mprihodko92@gmail.com', 'qwer0987', 'Site&Seo', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '380938246066', 'Ладожская ', '17а', '', 'Запорожская область'),
+(2548247, 'Макс', 'baccardi92@mail.ru', '24june92', 'NULL', 'user', 'buyer', 'Приходько', 'Александрович', 'Украина ', 'Киев', '0505315548', 'Бульвар Верховного Совета', '24', '', 'Киевская область'),
+(2548248, 'Максим', 'John@gmail.com', '24june92', 'Желтый дезик', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '2712259', 'пр. Ленина ', '164', '380938246066', 'Запорожская область'),
+(2548249, 'Maks', 'dji@fng.fgkmjd', 'qwer0987', 'NULL', 'user', 'buyer', 'Pryh', 'Alex', 'Украина ', 'Запорожье', '3578348343', 'пр. Ленина', '34', '', 'Запорожская область'),
+(2548250, 'Максим', 'max@gmail.com', 'qwer0987', 'NULL', 'user', 'buyer', 'Приходько', 'Александрович', 'Украина', 'Запорожье', '380935154324', 'проспект Ленина', '166', '', 'Запорожская область');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
