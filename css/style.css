@@ -2164,6 +2164,7 @@ section .add-review input[type="submit"]:hover {
 .widget-product-categories .product-cat .cat-item .children {
     padding-top: 10px;
     margin-left: 20px;
+	display: none;
 }
 
 .widget-top-rated .widget-cart-list li img {

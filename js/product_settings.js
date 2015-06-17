@@ -19,12 +19,13 @@ $( document ).ready(function() {
 		var prodTabs = document.querySelector('.product-tabs .tabs'),
 			descrPanel = document.getElementById('description_panel'),
 			addPanel = document.getElementById('add_info_panel');
-			//revPanel = document.getElementById('reviews_panel');
+			
+			prodTabs.addEventListener('click', changeTabs);
 	} catch(err) {
-		console.log( err.typr + ' ' + err.message );
+		console.log( err.typr + ' : ' + err.message );
 	}
 	
-	prodTabs.addEventListener('click', function(ev) {
+	function changeTabs(ev) {
 		ev.preventDefault();
 		
 		[].forEach.call(prodTabs.children, function(tab) {
@@ -39,10 +40,7 @@ $( document ).ready(function() {
 		} else if( target.parentNode.className.indexOf('add_info_tab') != -1 ) {
 			target.parentNode.classList.add('active');
 			changeProdPanel( 'add_info_tab' );
-		} /* else if( target.parentNode.className.indexOf('reviews_tab') != -1 ) {
-			target.parentNode.classList.add('active');
-			changeProdPanel( 'reviews_tab' );
-		} */ else {
+		} else {
 			return;
 		}
 		
@@ -51,43 +49,49 @@ $( document ).ready(function() {
 				case 'description_tab':
 					descrPanel.style.display = 'block';
 					addPanel.style.display = 'none';
-					//revPanel.style.display = 'none';
 					break;
 				case 'add_info_tab':
 					descrPanel.style.display = 'none';
 					addPanel.style.display = 'block';
-					//revPanel.style.display = 'none';
 					break;
 				case 'reviews_tab':
 					descrPanel.style.display = 'none';
 					addPanel.style.display = 'none';
-					//revPanel.style.display = 'block';
 					break;
 				default:
 					break;
 			}
 		}
-		
-	});
+	}
+	
 	
 	/* Stars Rating */
+	var	starSpans = document.querySelectorAll('.add-review .stars span'),
+		inputRate = document.querySelector('[name="star_rating"]');
 	
-	var starSpans = document.querySelectorAll('.add-review .stars span');
 	[].forEach.call(starSpans, function(span) {
-		span.addEventListener('mouseover', function() {
+		span.addEventListener('click', function() {
 			var stars = this.children;
+			
+			[].forEach.call(starSpans, function(span) {
+				if( span.children[0].classList.contains('fa-star') ) {
+					
+					for(var i = 0; i<span.children.length; i++) {
+						span.children[i].classList.remove('fa-star');
+						span.children[i].classList.add('fa-star-o');
+					}
+					
+				}
+			});
+			
 			for(var i = 0; i<stars.length; i++) {
 				stars[i].classList.remove('fa-star-o');
 				stars[i].classList.add('fa-star');
 			}
-		});
-		
-		span.addEventListener('mouseout', function() {
-			var stars = this.children;
-			for(var i = 0; i<stars.length; i++) {
-				stars[i].classList.remove('fa-star');
-				stars[i].classList.add('fa-star-o');
-			}
+			
+			var value = stars.length;
+			inputRate.value = value;
+			
 		});
 	});
 	

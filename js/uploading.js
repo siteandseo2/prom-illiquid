@@ -66,6 +66,7 @@ $(function() {
 		
 			get.search();
 			get.cabinet();
+			$.getScript('js/sidebar.js');
 		
 			break;
 		default:
@@ -91,11 +92,13 @@ $(function() {
 			} else if( isMatch( path, '/products/' ) ) {
 				
 				get.searchPost();
+				$.post('../../../js/sidebar.js');
 				
 			}  else if ( isMatch( path, '/subcategories/' ) ){
 				
 				get.searchPost();
 				get.cabinetPost();
+				$.post('../../../js/sidebar.js');
 			}
 		
 			break;

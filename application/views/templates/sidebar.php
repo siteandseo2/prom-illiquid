@@ -3,7 +3,8 @@
 
         <aside id="sidebar" class="sidebar"> 
             <div class="sidebar-content">
-
+				
+				<!--
                 <section class="widget-shopping-cart">
                     <div class="widget-title">Корзина</div>
                     <ul class="widget-cart-list">
@@ -21,7 +22,8 @@
                         </span>
                     </form>
                 </section>
-
+				-->
+				
                 <section class="widget-product-categories">
                     <div class="widget-title">Категории</div>
                     <ul class="product-cat">                        

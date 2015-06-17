@@ -210,6 +210,7 @@
 													<i class="fa fa-star-o"></i>
 												</span>
 											</p>
+											<input type="hidden" name="star_rating" value="">
 										</div>
 										<div class="comment-form-comment">
 											<label for="comment">Ваш комментарий</label>
