@@ -55,7 +55,7 @@ $route['admin/ajax/filter_by_categories']='ajax/filter_by_categories/$1';
 $route['admin/ajax/filter_by_group']='ajax/filter_by_group/$1';
 $route['account/ajax/change_location']='ajax/change_location';
 $route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
-$route['company_info/ajax/change_location']='ajax/change_location';
+$route['(:any)/ajax/change_location']='ajax/change_location';
 
 $route['admin'] = 'admin/admin/get_admin';
 $route['admin/(:any)'] = 'admin/admin/admin_pages/$1';

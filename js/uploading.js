@@ -32,7 +32,7 @@
 		case '/':
 		
 			get.search();
-			
+			get.cabinet();
 			$.getScript('js/main_tabs.js');
 		
 			break;
@@ -40,6 +40,7 @@
 		case '/registration':
 		
 			get.search();
+			get.cabinet();
 			$.getScript('js/validation.js');
 			
 			break;
