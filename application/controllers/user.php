@@ -17,6 +17,7 @@ class User extends CI_Controller {
         $this->data_user['user'] = @$this->session->userdata('user');
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
+            $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
             if ($this->data['user']['usercat'] == "seller") {
                 $num = 1;
             } else {
@@ -47,7 +48,7 @@ class User extends CI_Controller {
                 $this->data['country'] = $this->input->post('country');
                 $location_id = $this->input->post('location');
                 $this->data['location'] = $this->user_model->get_location($location_id);
-                $city=$this->input->post('city');
+                $city = $this->input->post('city');
                 $this->data['city'] = $this->user_model->get_city($city);
                 $this->data['street'] = $this->input->post('street');
                 $this->data['building'] = $this->input->post('building');
@@ -171,36 +172,36 @@ class User extends CI_Controller {
             } else {
                 redirect(base_url('account') . '/' . $this->data['user']['id']);
             }
-        }else{
-             redirect(base_url());
+        } else {
+            redirect(base_url());
         }
     }
 
     function company_info($id) {
+        if (empty($this->session->userdata('user'))) {
+            redirect(base_url());
+        }
         unset($this->data);
         $this->data['user'] = $this->session->userdata('user');
         $this->data['location'] = $this->main_m->get_location();
-        if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'buyer') {
+        if ($this->data['user']['usercat'] == 'buyer') {
             redirect(base_url('account'));
         }
-        else {
-            $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
-            if ($this->data['user_data2'] == true) {
-                foreach ($this->data['user_data2'] as $key => $val) {
-                    foreach ($val as $k => $v) {
-                        $this->data['user_data'][$k] = $v;
-                    }
+        $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
+        if ($this->data['user_data2'] == true) {
+            foreach ($this->data['user_data2'] as $key => $val) {
+                foreach ($val as $k => $v) {
+                    $this->data['user_data'][$k] = $v;
                 }
-                if ($this->data['user']['usercat'] == 'seller' && $this->data['user']['id'] == $id) {
-                    $this->load->view('pages/company_info', $this->data);
-                } else {
-                    $this->load->view('pages/view_company', $this->data);
-                }
-                $this->load->view('templates/footer', $this->data);
-            } else {
-                redirect(base_url('company_info') . '/' . $this->data['user']['id']);
             }
         }
+        if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'seller') {
+            $this->load->view('pages/company_info', $this->data);
+        }       
+        if ($this->data['user']['id'] != $id && $this->data['user']['usercat'] == 'seller') {
+            $this->load->view('pages/view_company', $this->data);
+        }        
+        $this->load->view('templates/footer', $this->data);
     }
 
 }

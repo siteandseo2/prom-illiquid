@@ -10,6 +10,7 @@ class Ajax extends CI_Controller {
         $this->load->model('subcategories_m');
         $this->load->model('product_m');
         $this->load->model('main_m');
+        $this->load->model('user_model');
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
     }
@@ -99,7 +100,7 @@ class Ajax extends CI_Controller {
             }
             if ($_GET['id'] == "0") {
                 $num = 2;
-                $type = 'buyer/seller';
+                $type = 'buyer';
             }
             $this->data['user'] = $this->session->userdata('user');
 
@@ -117,6 +118,7 @@ class Ajax extends CI_Controller {
             unset($this->data['user']);
 
             $session_data['usercat'] = $type;
+            $this->data['user_category'] = $type;
             $this->session->set_userdata(array('user' => $session_data));
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['menu'] = $this->main_m->get_menu_front($num);

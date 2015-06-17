@@ -141,7 +141,7 @@
                         </strong>
                         <br>
                         <?php
-                        if ($user['usercat'] != 'buyer') {
+                        if ($user_category != 'buyer') {
                             ?>
                             <span class="query">сменить статус ?</span>
 
@@ -200,7 +200,7 @@
                     </form>
                     <!-- Search End --> 
                 </div>
-     
+
                 <div class="row">
 
                     <!-- Cabinet Navigation -->
@@ -209,13 +209,13 @@
                         <ul id="main-nav" class="clearfix">                           
                             <?php
                             foreach ($menu as $item => $arr) {
-                                if(empty($arr['1']))
-                                    $disable_link='onclick="return false;"';
+                                if (empty($arr['1']))
+                                    $disable_link = 'onclick="return false;"';
                                 else
-                                     $disable_link='';
+                                    $disable_link = '';
                                 ?>
                                 <li>
-                                    <a href="<?= base_url($arr['1']); ?>" <?=$disable_link?> class="topItem">
+                                    <a href="<?= base_url($arr['1']); ?>" <?= $disable_link ?> class="topItem">
                                         <span><?= $item ?></span>
                                     </a>
                                     <?php
@@ -265,6 +265,9 @@
                                                             } else {
                                                                 if ($sub == 'account') {
                                                                     $sub = 'account/' . $user['id'];
+                                                                }
+                                                                if ($sub == 'company_info') {
+                                                                    $sub = 'company_info/' . $user['id'];
                                                                 }
                                                                 ?>                                           
                                                                 <li>

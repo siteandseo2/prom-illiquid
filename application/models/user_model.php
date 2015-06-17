@@ -42,12 +42,20 @@ class user_model extends CI_Model {
         }
     }
 
+    function get_usercat_byID($id) {
+        $query = $this->db->where('id', $id)->select('usercat')->get('user');
+        foreach ($query->result() as $row) {
+            return $row->usercat;
+        }
+    }
+
     function get_location($id) {
         $query = $this->db->where('id', $id)->select('name')->get('city');
         foreach ($query->result() as $row) {
             return $row->name;
         }
     }
+
     function get_city($id) {
         $query = $this->db->where('id', $id)->select('name')->get('locality');
         foreach ($query->result() as $row) {

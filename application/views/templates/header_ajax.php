@@ -115,7 +115,7 @@
             </strong>
             <br>
             <?php
-            if ($user['usercat'] != 'buyer') {
+            if ($user_category != 'buyer') {
                 ?>
                 <span class="query">сменить статус ?</span>
 

@@ -12,13 +12,25 @@
 			
 			$('[name="role"]').bootstrapSwitch({ state: true }).on('switchChange.bootstrapSwitch', function(event, state) {
 				
-			  $.ajax({
-				  type: 'GET',
-				  url: 'ajax/change_role',
-				  data: {
+				sendAjax( state, 'ajax/change_role' );
+				
+			});
+					
+		} catch( e ) {
+			console.log( e.type + ' : ' + e.message );
+		}
+		
+		function sendAjax( state, url ) {
+			
+			console.log( '%s, %s', url, state );
+			
+			$.ajax({
+				type: 'GET',
+				url: url,
+				data: {
 					  id: +state
-				  },
-				  success: function( data ) {
+				},
+				success: function( data ) {
 					  
 					setTimeout(function() {
 						$('#overlay').hide();
@@ -36,13 +48,9 @@
 					$('#overlay').show();
 					$('.bubblingG').show();
 					  
-				  }
-			  });
-			  
+				}
 			});
-					
-		} catch( e ) {
-			console.log( e.type + ' : ' + e.message );
+		  
 		}
 		
 		var get = {

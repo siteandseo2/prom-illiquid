@@ -17,10 +17,11 @@ class Subcategories extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-
+         $this->load->model('user_model');
         $this->load->model('main_m');
         if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
+            $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
 //            $access=3;
             if ($this->data['user']['usercat'] == "seller") {
                 $num = 1;

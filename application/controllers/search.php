@@ -21,9 +21,11 @@ class Search extends CI_Controller {
         $this->load->model('main_m');
         $this->load->model('subcategories_m');
         $this->load->model('category_m');
+         $this->load->model('user_model');
         /* load header */
          if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
+            $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
 //            $access=3;
             if ($this->data['user']['usercat'] == "seller") {
                 $num = 1;

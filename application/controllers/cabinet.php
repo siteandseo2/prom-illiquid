@@ -15,8 +15,10 @@ class Cabinet extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+         $this->load->model('user_model');
         if (!empty($this->session->userdata('user'))) {
-            $this->data['user'] = @$this->session->userdata('user');
+            $this->data['user'] = @$this->session->userdata('user');          
+            $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
             $this->load->model('main_m');
             $this->load->model('category_m');
             $this->load->model('subcategories_m');
@@ -31,6 +33,7 @@ class Cabinet extends CI_Controller {
         } else {
             redirect(base_url('login'));
         }
+        
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
     }

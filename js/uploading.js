@@ -32,7 +32,7 @@ $(function() {
 		case '/':
 		
 			get.search();
-			
+			get.cabinet();
 			$.getScript('js/main_tabs.js');
 		
 			break;
@@ -40,6 +40,7 @@ $(function() {
 		case '/registration':
 		
 			get.search();
+			get.cabinet();
 			$.getScript('js/validation.js');
 			
 			break;
@@ -74,6 +75,7 @@ $(function() {
 				$.post('../../../js/xml2json.js');
 				$.post('../../../js/validation.js');
 				$.post('../../../js/maps.js');
+				$.post('../../../js/product_settings.js');
 				
 			} else if ( isMatch( path, '/products/item/' ) ) {
 				
