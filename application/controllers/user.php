@@ -183,9 +183,6 @@ class User extends CI_Controller {
         if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'buyer') {
             redirect(base_url('account'));
         }
-//        if (empty($this->session->userdata('user'))) {
-//            redirect(base_url());
-//        } 
         else {
             $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
             if ($this->data['user_data2'] == true) {
@@ -194,7 +191,7 @@ class User extends CI_Controller {
                         $this->data['user_data'][$k] = $v;
                     }
                 }
-                if ($this->data['user']['usercat'] == 'seller') {
+                if ($this->data['user']['usercat'] == 'seller' && $this->data['user']['id'] == $id) {
                     $this->load->view('pages/company_info', $this->data);
                 } else {
                     $this->load->view('pages/view_company', $this->data);

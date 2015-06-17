@@ -1,4 +1,4 @@
-﻿/* Custom Autocomplete */
+/* Custom Autocomplete */
 /*
 	function autoComplete(input, arr) {
 		

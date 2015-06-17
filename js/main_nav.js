@@ -1,4 +1,4 @@
-﻿/* Navigation dropdowns */
+/* Navigation dropdowns */
 	
 	$('#main-nav > li').hover(
 		function() {
