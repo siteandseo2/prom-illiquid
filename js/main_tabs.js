@@ -1,4 +1,4 @@
-﻿/* Tabs */
+/* Tabs */
 	
 	$('.tabs-buttons li').click(function(ev) {
 		ev.preventDefault();
