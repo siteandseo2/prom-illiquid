@@ -1,7 +1,5 @@
 ﻿/* Cabinet Switch */
 	
-	alert('Switcher!');
-	
 	$(function() {
 		
 		$('.entrance .query').click(function() {
