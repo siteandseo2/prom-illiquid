@@ -44,6 +44,7 @@
                         <p>
                             <label for="location">Область</label>
                             <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                                <option value="<?= $user_data['location'] ?>"><?= $user_data['location'] ?></option>
                                 <?php
                                 foreach ($location as $k) {
                                     ?>
