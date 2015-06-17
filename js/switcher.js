@@ -11,14 +11,14 @@
 		try {
 			
 			$('[name="role"]').bootstrapSwitch({ state: true }).on('switchChange.bootstrapSwitch', function(event, state) {
-				
 				sendAjax( state, 'ajax/change_role' );
-				
 			});
-					
+			
 		} catch( e ) {
 			console.log( e.type + ' : ' + e.message );
 		}
+		
+		
 		
 		function sendAjax( state, url ) {
 			
@@ -37,6 +37,11 @@
 						$('.bubblingG').hide();
 						
 						document.querySelector('#page').removeChild( document.querySelector('header') );
+						
+						if( window.location.pathname == '/' || window.location.pathname == '/default' ) {
+							document.querySelector('#main-carousel').insertAdjacentHTML( 'beforeBegin', data );
+						}
+						
 						document.querySelector('#main').insertAdjacentHTML( 'beforeBegin', data );
 						
 						get.search();
@@ -59,12 +64,14 @@
 				$.getScript('js/autoComplete.js');
 				$.getScript('js/main.js');
 				$.getScript('js/cart.js');
+				$.getScript('js/ajax_select.js');
 			},
 			searchPost: function() {
 				$.post('../../../js/perfect-scrollbar.jquery.js');
 				$.post('../../../js/autoComplete.js');
 				$.post('../../../js/main.js');
 				$.post('../../../js/cart.js');
+				$.post('../../../js/ajax_select.js');
 			},
 			cabinet: function() {
 				$.getScript('js/bootstrap-switch.js');
