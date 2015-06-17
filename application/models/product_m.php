@@ -18,12 +18,26 @@ class Product_m extends CI_Model {
         parent::__construct();
     }
 
-    function get_all_product() {
-        $query = $this->db->get('product');
+    function get_all_product($num, $offset) {
+        $query = $this->db->get('product', $num, $offset);
         return $query->result_array();
     }
 
-    function get_products($link) {
+    function count_prod() {
+        $query = $this->db->get('product');
+        return $query->num_rows();
+    }
+
+    function get_products($link, $num, $offset) {
+        $query = $this->db->where('link', $link)->select('id')->get('subcategories');
+        foreach ($query->result() as $row) {
+            $subcat_id = $row->id;
+        }
+        $query = $this->db->where('subcat_id', $subcat_id)->get('product', $num, $offset);
+        return $query->result_array();
+    }
+
+    function get_products_byLINK($link) {
         $query = $this->db->where('link', $link)->select('id')->get('subcategories');
         foreach ($query->result() as $row) {
             $subcat_id = $row->id;
@@ -74,7 +88,12 @@ class Product_m extends CI_Model {
         return $query->result_array();
     }
 
-    function search_prod($name) {
+    function search_prod($name, $num, $offset) {
+        $query = $this->db->like('name', $name)->get('product', $num, $offset);
+        return $query->result_array();
+    }
+
+    function search_by($name) {
         $query = $this->db->like('name', $name)->get('product');
         return $query->result_array();
     }

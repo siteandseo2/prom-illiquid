@@ -56,7 +56,7 @@
 
         <div id="content" class="content">
 
-            <p class="cat-result-count">Найдено <?= count($items) ?> позиции</p>
+            <p class="cat-result-count">Показано <?= count($items) ?> позиции из <?=$total_rows?></p>
 
             <div class="cat-ordering">
                 <select>
@@ -134,7 +134,9 @@
                     </div>
                     <?php
                 }
-                ?>     
+                 echo $this->pagination->create_links();
+                ?>  
+                
             </div>
 
         </div>
