@@ -150,7 +150,7 @@ $( document ).ready(function() {
 				<input type="hidden" name="h_name[' + id + ']" value="' + name + '">\
 				<input type="hidden" name="h_price[' + id + ']" value="' + price + '">\
 				<input type="hidden" name="h_currency[' + id + ']" value="' + currency + '">\
-				<input type="hidden" name="h_quantity[' + id + ']" value="' + quantity + '">\
+				<input type="hidden" name="h_quantity[' + id + ']" value="' + changedQuantity + '">\
 				<input type="hidden" name="h_id[' + id + ']" value="' + id + '">\
 				<input type="hidden" name="h_parent[' + id + ']" value="' + parent + '">\
 			</section>'
@@ -337,5 +337,6 @@ $( document ).ready(function() {
 			$('#modalCart').find('.empty_cart').hide();
 		}
 	}
+	
 	
 });

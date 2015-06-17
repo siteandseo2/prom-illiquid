@@ -8,12 +8,14 @@ $(function() {
 			$.getScript('js/autoComplete.js');
 			$.getScript('js/main.js');
 			$.getScript('js/cart.js');
+			$.getScript('js/ajax_select.js');
 		},
 		searchPost: function() {
 			$.post('../../../js/perfect-scrollbar.jquery.js');
 			$.post('../../../js/autoComplete.js');
 			$.post('../../../js/main.js');
 			$.post('../../../js/cart.js');
+			$.post('../../../js/ajax_select.js');
 		},
 		cabinet: function() {
 			$.getScript('js/bootstrap-switch.js');
@@ -42,6 +44,7 @@ $(function() {
 			get.search();
 			get.cabinet();
 			$.getScript('js/validation.js');
+			$.getScript('js/ajax_select.js');
 			
 			break;
 		case '/cabinet':
@@ -74,6 +77,7 @@ $(function() {
 			
 				$.post('../../../js/xml2json.js');
 				$.post('../../../js/validation.js');
+				$.post('../../../js/ajax_select.js');
 				$.post('../../../js/maps.js');
 				$.post('../../../js/product_settings.js');
 				

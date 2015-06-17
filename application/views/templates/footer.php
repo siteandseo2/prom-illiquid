@@ -220,7 +220,7 @@
                                     <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
                                         <? foreach ($location as $item){
                                         ?>
-                                        <option value="<?= $item['name'] ?>"><?= $item['name'] ?></option>
+                                        <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
                                         <?
                                         }
                                         ?>
