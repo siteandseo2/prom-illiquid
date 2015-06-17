@@ -167,8 +167,12 @@ class User extends CI_Controller {
                         $this->data['user_data'][$k] = $v;
                     }
                 }
-                $this->load->view('pages/account', $this->data);
-                $this->load->view('templates/footer', $this->data);
+                if ($this->data['user']['id'] == $id) {
+                    $this->load->view('pages/account', $this->data);
+                    $this->load->view('templates/footer', $this->data);
+                }else{
+                     redirect(base_url('account') . '/' . $this->data['user']['id']);
+                }
             } else {
                 redirect(base_url('account') . '/' . $this->data['user']['id']);
             }
