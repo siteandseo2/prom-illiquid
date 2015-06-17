@@ -78,23 +78,29 @@ class Search extends CI_Controller {
 
     function get_search() {
 
-        $link='';
+        $link = '';
         $name = $this->session->userdata('search');
-        foreach ($name as $item) {
-            $arr = $this->product_m->search_by($item);
-            $link.=$item.' ';
+        if (empty($name)) {
+            $arr = $this->product_m->search_by($name);
+            $config['base_url'] = base_url() . 'search/prod';
+            $this->data['items'] = $this->product_m->search_prod($name, 9, $this->uri->segment(3));
+            $this->data['total_rows'] = count($arr);
+        } else {
+            foreach ($name as $item) {
+                $arr = $this->product_m->search_by($item);
+                $link.=$item . ' ';
+            }
+            $this->data['total_rows'] = count($arr);
+            $config['base_url'] = base_url() . 'search/' . $link;
+            foreach ($name as $item) {
+                $this->data['items'] = $this->product_m->search_prod($item, 9, $this->uri->segment(3));
+            }
         }
-        $this->data['total_rows']=count($arr);
-        $config['base_url'] = base_url() . 'search/' . $link;
+        if ($name)
+            $this->session->unset_userdata('search');
         $config['total_rows'] = count($arr);
         $config['per_page'] = '9';
-//        print_r($name);
         $this->pagination->initialize($config);
-//        $name = $this->input->post('name');
-//        $name = explode(" ", $name);
-        foreach ($name as $item) {
-            $this->data['items'] = $this->product_m->search_prod($item, $config['per_page'], $this->uri->segment(3));
-        }
         $this->load->view("pages/products", $this->data);
 
         $this->load->view("templates/footer");
