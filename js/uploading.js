@@ -99,6 +99,13 @@ $(function() {
 				get.searchPost();
 				get.cabinetPost();
 				$.post('../../../js/sidebar.js');
+			} else if ( isMatch( path, '/search/' ) ) {
+				
+				
+				get.searchPost();
+				get.cabinetPost();
+				$.post('../../../js/sidebar.js');
+				
 			}
 		
 			break;
