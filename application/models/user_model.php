@@ -37,10 +37,22 @@ class user_model extends CI_Model {
         if (isset($id)) {
             $query = $this->db->where('id', $id)->get('user');
             return $query->result_array();
-        }else{
+        } else {
             echo 'FAIL';
         }
     }
-   
+
+    function get_location($id) {
+        $query = $this->db->where('id', $id)->select('name')->get('city');
+        foreach ($query->result() as $row) {
+            return $row->name;
+        }
+    }
+    function get_city($id) {
+        $query = $this->db->where('id', $id)->select('name')->get('locality');
+        foreach ($query->result() as $row) {
+            return $row->name;
+        }
+    }
 
 }

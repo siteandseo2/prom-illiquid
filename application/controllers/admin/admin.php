@@ -261,7 +261,14 @@ class Admin extends CI_Controller {
     /* get order START */
 
     function get_order() {
-        $this->data['order'] = $this->product_m->get_order();
+        $this->data['prepare'] = $this->product_m->get_order();
+        foreach ($this->data['prepare'] as $k => $v) {
+            $this->data['order'][$v['item_id']]=$v;
+            $this->data['order'][$v['item_id']]['image']=  $this->product_m->get_order_img($v['item_id']);
+        }
+//        echo'<pre>';
+//        print_r($this->data['order']);
+//        echo'</pre>';
         $this->load->view("admin/new_orders", $this->data);
         $this->load->view("admin/footer", $this->data);
     }

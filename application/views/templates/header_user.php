@@ -102,20 +102,20 @@
                             <img src="../../../img/logo-regular.png" alt="Logo">
                         </a>
                     </div>
-                      <?php if ($user['usercat'] != 'buyer') {
-                            ?>
-                    <div id="cabinet-title">
-                        <span class="cabinet-icon">
-                            <i class="fa fa-briefcase"></i>
-                        </span>
-                        <span class="cabinet-name">
-                            <h3>Кабинет компании</h3>
-                            <h4>
-                                <?= $user['company']; ?>
-                            </h4>
-                        </span>
-                    </div>
-                             <?php } ?>
+                    <?php if ($user['usercat'] != 'buyer') {
+                        ?>
+                        <div id="cabinet-title">
+                            <span class="cabinet-icon">
+                                <i class="fa fa-briefcase"></i>
+                            </span>
+                            <span class="cabinet-name">
+                                <h3>Кабинет компании</h3>
+                                <h4>
+                                    <?= $user['company']; ?>
+                                </h4>
+                            </span>
+                        </div>
+                    <?php } ?>
                     <div class="yoursId">
                         <h4>Ваш id: </h4>
                         <strong>
@@ -200,8 +200,7 @@
                     </form>
                     <!-- Search End --> 
                 </div>
-
-
+     
                 <div class="row">
 
                     <!-- Cabinet Navigation -->
@@ -210,13 +209,17 @@
                         <ul id="main-nav" class="clearfix">                           
                             <?php
                             foreach ($menu as $item => $arr) {
+                                if(empty($arr['1']))
+                                    $disable_link='onclick="return false;"';
+                                else
+                                     $disable_link='';
                                 ?>
                                 <li>
-                                    <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <a href="<?= base_url($arr['1']); ?>" <?=$disable_link?> class="topItem">
                                         <span><?= $item ?></span>
                                     </a>
                                     <?php
-                                    if (count($arr) > 1) {
+                                    if (count($arr) > 2) {
                                         ?>
                                         <div class="sub-nav out-level">
                                             <ul>
@@ -289,12 +292,12 @@
                     </nav>
                     <!-- Cabinet Navigation End -->
                 </div>
-               
-				<div class="bubblingG">
-					<span id="bubblingG_1"></span>
-					<span id="bubblingG_2"></span>
-					<span id="bubblingG_3"></span>
-				</div>
-			   
+
+                <div class="bubblingG">
+                    <span id="bubblingG_1"></span>
+                    <span id="bubblingG_2"></span>
+                    <span id="bubblingG_3"></span>
+                </div>
+
             </header>
-			
+

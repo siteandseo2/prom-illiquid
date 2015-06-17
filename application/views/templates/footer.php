@@ -186,30 +186,30 @@
                                 <p>
                                     <label for="type_of_order">Форма заказа</label>
                                     <select class="cabinet-form-input" name="type_of_order" id="type_of_order">
-                                        <option value="cash">Наличные</option>
-                                        <option value="mail">Наложенный платеж</option>
-                                        <option value="card">Кредитная карточка</option>
+                                        <option value="Наличные">Наличные</option>
+                                        <option value="Наложенный платеж">Наложенный платеж</option>
+                                        <option value="Кредитная карточка">Кредитная карточка</option>
                                     </select>
                                 </p>
 
                                 <p>
                                     <label for="type_of_deliverance">Тип доставки</label>
                                     <select class="cabinet-form-input" name="type_of_deliverance" id="type_of_deliverance">
-                                        <option value="nova_poshta">Нова Пошта</option>
-                                        <option value="self">Самовывоз</option>
-                                        <option value="intime">Интайм</option>
+                                        <option value="Нова Пошта">Нова Пошта</option>
+                                        <option value="Самовывоз">Самовывоз</option>
+                                        <option value="Интайм">Интайм</option>
                                     </select>
                                 </p>
 
                                 <span class="form-name">
-                                    <input type="text" class="validate" data-validate="w" placeholder="Имя *" name="name">
+                                    <input type="text" class="validate" data-validate="w" placeholder="Имя *" value="<?=@$user['name']?>" name="name">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
                                 </span>
 
                                 <span class="form-name">
-                                    <input type="text" class="validate" data-validate="w" placeholder="Фамилия *" name="surname">
+                                    <input type="text" class="validate" data-validate="w" placeholder="Фамилия *" value="<?=@$user['surname']?>" name="surname">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
@@ -230,20 +230,20 @@
                                 <p>
                                     <label for="city">Город</label>
                                     <select class="cabinet-form-input" name="city" id="city">
-                                        <option value="zp">Запорожье</option>
+                                        <option value="Запорожье">Запорожье</option>
                                         <!-- ajax -->
                                     </select>
                                 </p>
 
                                 <p class="form-name">
-                                    <input type="text" class="validate" data-validate="e" placeholder="Email *" name="email">
+                                    <input type="text" class="validate" data-validate="e" placeholder="Email *" value="<?=@$user['email']?>"name="email">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
                                 </p>
 
                                 <p class="form-name">
-                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" name="phone">
+                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" value="<?=@$user['phone']?>"name="phone">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>

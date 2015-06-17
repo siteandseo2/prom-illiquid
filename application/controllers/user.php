@@ -11,7 +11,7 @@ class User extends CI_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('product_m');
-         $this->load->model('main_m');
+        $this->load->model('main_m');
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
         $this->data_user['user'] = @$this->session->userdata('user');
@@ -45,7 +45,10 @@ class User extends CI_Controller {
                 $this->data['email'] = $this->input->post('email');
                 $this->data['phone'] = $this->input->post('phone');
                 $this->data['country'] = $this->input->post('country');
-                $this->data['city'] = $this->input->post('city');
+                $location_id = $this->input->post('location');
+                $this->data['location'] = $this->user_model->get_location($location_id);
+                $city=$this->input->post('city');
+                $this->data['city'] = $this->user_model->get_city($city);
                 $this->data['street'] = $this->input->post('street');
                 $this->data['building'] = $this->input->post('building');
                 $email = $this->input->post('email');
@@ -90,10 +93,12 @@ class User extends CI_Controller {
                     $session_data['surname'] = $item['surname'];
                     $session_data['patronymic'] = $item['patronymic'];
                     $session_data['email'] = $item['email'];
+                    $session_data['phone'] = $item['phone'];
                     $session_data['usercat'] = $item['usercat'];
                     $session_data['company'] = $item['company'];
                     $session_data['password'] = $item['user_type'];
                     $session_data['country'] = $item['country'];
+                    $session_data['location'] = $item['location'];
                     $session_data['city'] = $item['city'];
                 }
                 $this->session->set_userdata(array('user' => $session_data));
@@ -178,9 +183,10 @@ class User extends CI_Controller {
         if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'buyer') {
             redirect(base_url('account'));
         }
-        if (empty($this->session->userdata('user'))) {
-            redirect(base_url());
-        } else {
+//        if (empty($this->session->userdata('user'))) {
+//            redirect(base_url());
+//        } 
+        else {
             $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
             if ($this->data['user_data2'] == true) {
                 foreach ($this->data['user_data2'] as $key => $val) {

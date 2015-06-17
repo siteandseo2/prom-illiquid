@@ -23,6 +23,7 @@ class Main_m extends CI_Model {
             $main = $this->db->query('SELECT * FROM menu WHERE type="r" AND  access!=' . $num . ' AND status="enable"');
             foreach ($main->result_array() as $row) {
                 $arr1[$row['name']] = [$row['id']];
+                $arr1[$row['name']][] = $row['main_link'];
                 $level1 = $this->db->where('status', 'enable')->where('p_id', $row['id'])->get('menu');
                 foreach ($level1->result_array() as $r) {
                     $arr1[$row['name']][$row['id']][$r['link']] = [$r['name']];

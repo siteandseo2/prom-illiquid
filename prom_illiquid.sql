@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 15 2015 г., 17:57
+-- Время создания: Июн 16 2015 г., 17:54
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -48,21 +48,21 @@ INSERT INTO `categories` (`id`, `name`, `status`, `link`, `fp_id`) VALUES
 (6, 'Военторг', 'enable', 'voentorg', 2),
 (7, 'Техника и электроника', 'enable', 'device', 2),
 (8, 'Спорт, развлечения, хобби', 'enable', 'sport', 2),
-(9, 'Товары для сада', 'enable', 'dso', 2),
-(10, 'Металл, пластик, резина', 'enable', 'metal_plastik_rezina', 1),
+(9, 'Товары для сада', 'disable', 'dso', 2),
+(10, 'Металл, пластик, резина', 'disable', 'metal_plastik_rezina', 1),
 (11, 'Инструмент', 'enable', 'instrument', 1),
-(12, 'Деловые услуги', 'enable', 'delovie_uslugi', 3),
-(13, 'Услуги в сфере IT', 'enable', 'it_service', 3),
-(14, 'Образование и тренинги', 'enable', 'study&training', 3),
-(15, 'Зоотовары', 'enable', 'zoo_items', 2),
-(16, 'Медицина', 'enable', 'medical', 1),
-(17, 'Тара и упаковка', 'enable', 'tara_upakovka', 1),
-(18, 'Промышленная химия', 'enable', 'prom_himia', 1),
-(19, 'Безопасность и защита', 'enable', 'security', 1),
-(20, 'Все для пляжа', 'enable', 'beach_item', 2),
-(21, 'Одежда, обувь, аксессуары', 'enable', 'odezhda_obuv', 2),
-(22, 'Мебель и фурнитура', 'enable', 'mebel_furnitura', 2),
-(23, 'Красота и здоровье', 'enable', 'beauty_health', 2),
+(12, 'Деловые услуги', 'disable', 'delovie_uslugi', 3),
+(13, 'Услуги в сфере IT', 'disable', 'it_service', 3),
+(14, 'Образование и тренинги', 'disable', 'study&training', 3),
+(15, 'Зоотовары', 'disable', 'zoo_items', 2),
+(16, 'Медицина', 'disable', 'medical', 1),
+(17, 'Тара и упаковка', 'disable', 'tara_upakovka', 1),
+(18, 'Промышленная химия', 'disable', 'prom_himia', 1),
+(19, 'Безопасность и защита', 'disable', 'security', 1),
+(20, 'Все для пляжа', 'disable', 'beach_item', 2),
+(21, 'Одежда, обувь, аксессуары', 'disable', 'odezhda_obuv', 2),
+(22, 'Мебель и фурнитура', 'disable', 'mebel_furnitura', 2),
+(23, 'Красота и здоровье', 'disable', 'beauty_health', 2),
 (24, 'Промышленное оборудование, станки', 'enable', 'prom_machine', 1);
 
 -- --------------------------------------------------------
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('c78f698c4d6a648afdf519d3c75c8770', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.125 Safari/537.36', 1434380030, 'a:2:{s:9:"user_data";s:0:"";s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}');
+('1ac527da3dac63a7f6a12c980277910e', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.125 Safari/537.36', 1434466360, 'a:2:{s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}s:4:"user";a:11:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";s:7:"usercat";s:12:"buyer/seller";}}');
 
 -- --------------------------------------------------------
 
@@ -2687,19 +2687,29 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `price` float NOT NULL,
-  `buyer_data` varchar(2000) NOT NULL,
+  `buyer_data` varchar(3000) NOT NULL,
   `status` varchar(50) NOT NULL,
   `a_status` varchar(50) NOT NULL,
   `type_of_order` varchar(50) NOT NULL,
   `type_of_deliverance` varchar(50) NOT NULL,
-  `seller_data` varchar(2000) NOT NULL,
+  `seller_data` varchar(3000) NOT NULL,
   `adress` varchar(1000) NOT NULL,
   `date` datetime NOT NULL,
   `currency` varchar(10) NOT NULL,
   `quantity` varchar(25) NOT NULL,
   `item_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `price`, `buyer_data`, `status`, `a_status`, `type_of_order`, `type_of_deliverance`, `seller_data`, `adress`, `date`, `currency`, `quantity`, `item_id`) VALUES
+(3, 'Саморез Обыкновенный', 30, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";}', 'Новый', 'view', 'Наличные', 'Нова Пошта', 'a:15:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";}', 'a:2:{s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}', '2015-06-16 17:44:59', 'Грн.', '200', 15),
+(4, 'Угловая шлифмашина Metabo W 820-125', 1243, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";}', 'Новый', 'view', 'Наличные', 'Нова Пошта', 'a:15:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";}', 'a:2:{s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}', '2015-06-16 17:44:59', 'Грн.', '1', 9),
+(5, 'Кирпич Куйбышево М-100 250х120х65', 3.85, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";}', 'Новый', 'view', 'Наличные', 'Нова Пошта', 'a:15:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";}', 'a:2:{s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}', '2015-06-16 17:44:59', 'Грн.', '60', 4),
+(6, 'Бензиновый генератор SDMO Technic 10000 E-AVR + MO', 63000, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:13:"+380938246066";}', 'Новый', 'new', 'Кредитная карточка', 'Интайм', 'a:15:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";}', 'a:2:{s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}', '2015-06-16 17:47:58', 'Грн.', '1', 14);
 
 -- --------------------------------------------------------
 
@@ -2774,8 +2784,8 @@ INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `subcat_id`, `status
 (16, 'Клипса вареная автомобильная', '../../../uploads/products/1_AutoClips.jpg', 50, 35, 'enable', 'Клипса вареная автомобильная, заебатая', 'Грн.', 543634634, '10 Шт.', 1, 9, 'Новое', '100 штук', '../../../uploads/products/1_min2140017955.png', '../../../uploads/products/1_minclips_250.jpg', NULL),
 (17, 'Амортизатор KLS задний', '../../../uploads/products/1_77748115_w640_h640_kls_na_tavriyuslavutu._001.jpg', 712, 2, 'enable', 'Амортизатор KLS задний Таврия Славута.\n\nАмортизаторы масляные, в сборе с сайлентблоками заднего амортизатора. Производитель CRB-KLS. На упаковке написано сделано в Корее, по факту производятся в Китае. По качеству "уверенный середнячок".\n\nЦена указана за пару, две штуки. ', 'Грн.', 2915006, 'Шт.', 1, 10, 'Новое', '2 шт.', '../../../uploads/products/1_minamortizator-tavriya-1102-perednij-vkladysh-kls-srb00001.jpg', NULL, NULL),
 (18, 'Болт крепления заднего колеса завод', '../../../uploads/products/1_b12a1fa88f0a4f33c56c32a97ce81223.jpg', 120, 2, 'enable', 'Болт крепления заднего колеса Таврия Славута.\n\nЦена за 10 штук. Количество необходимое на одно колесо 3 штуки. Обиходное название: колёсная шпилька заднего диска. \n\nПроизводство ЗАЗ. ', 'Грн.', 3101047, 'Шт.', 1, 7, 'Новое', '3 штуки', '../../../uploads/products/1_min3101047-900x500.jpg', NULL, NULL),
-(19, '	 Болт крепления рычага и задней балки к кузову', '../../../uploads/products/1_12.jpg', 80, 2, 'enable', 'В сборе с гровером и гайкой. Цена за 1 шт. Болты крепления задней балки к кузову и крепления переднего рычага к кузову одинаковые.', 'Грн.', 2901024, '10 Шт.', 1, 9, 'Новое', '10', NULL, NULL, NULL),
-(20, '	 Сайлентблок заднего амортизатора (к-т 2 шт)', '../../../uploads/products/1_saylentblok-zadnego-am-ra-tavriya-k-kt-2-sht-avtozaz-1102-2915580_81cfdabf606c006_800x600_1.jpg', 940, 2, 'enable', 'Сайлентблок заднего амортизатора Таврия ЗАЗ 1102 Славута ЗАЗ 1103 Дана 1105 Пикап 110550.\n\nОбиходное название - втулка заднего амортизатора.\n\nПодходит: все амортизаторы производства агат мелитополь (стандарт , экстра , спорт  , газонаполненные ), все "кооперативные" амортизаторы, белорусские феникс, российские плаза.\n\nНе подходит: польские "кросно" или "делфи", для всех китайских амортизаторов - LSA, Zolex, AT, Master Sport, KLS и прочих китайцев. \n\nПроизводитель ЗАЗ, цена за 2 штуки. ', 'Грн.', 2915580, '10 Шт.', 1, 8, 'Новое', '100шт', '../../../uploads/products/1_minsaylentblok-zadnego-amortizatora-aveo-koreya-96535159_d461e9e8793b2d6_800x600.jpg', '../../../uploads/products/1_min318432.jpg', NULL),
+(19, 'Болт крепления рычага и задней балки к кузову', '../../../uploads/products/1_12.jpg', 80, 2, 'enable', 'В сборе с гровером и гайкой. Цена за 1 шт. Болты крепления задней балки к кузову и крепления переднего рычага к кузову одинаковые.', 'Грн.', 2901024, '10 Шт.', 1, 9, 'Новое', '10', NULL, NULL, NULL),
+(20, 'Сайлентблок заднего амортизатора (к-т 2 шт)', '../../../uploads/products/1_saylentblok-zadnego-am-ra-tavriya-k-kt-2-sht-avtozaz-1102-2915580_81cfdabf606c006_800x600_1.jpg', 940, 2, 'enable', 'Сайлентблок заднего амортизатора Таврия ЗАЗ 1102 Славута ЗАЗ 1103 Дана 1105 Пикап 110550.\n\nОбиходное название - втулка заднего амортизатора.\n\nПодходит: все амортизаторы производства агат мелитополь (стандарт , экстра , спорт  , газонаполненные ), все "кооперативные" амортизаторы, белорусские феникс, российские плаза.\n\nНе подходит: польские "кросно" или "делфи", для всех китайских амортизаторов - LSA, Zolex, AT, Master Sport, KLS и прочих китайцев. \n\nПроизводитель ЗАЗ, цена за 2 штуки. ', 'Грн.', 2915580, '10 Шт.', 1, 8, 'Новое', '100шт', '../../../uploads/products/1_minsaylentblok-zadnego-amortizatora-aveo-koreya-96535159_d461e9e8793b2d6_800x600.jpg', '../../../uploads/products/1_min318432.jpg', NULL),
 (21, 'Шайба задней ступицы Т', '../../../uploads/products/1_hdfgdfdfgdfdfhhjj.jpg', 40, 2, 'enable', 'Шайба задней ступицы Таврия Славута.\n\nУстанавливается на заднюю ступицу между гайкой ступицы и наружным подшипником. Цена за 1 шт. Название по каталогу ЗАЗа - шайба специальная. ', 'Грн.', 3104055, '100 Шт.', 1, 7, 'Новое', '10 шт', '../../../uploads/products/1_minrweqwrdsd.jpg', NULL, NULL),
 (22, 'Вкладыши коренные 0,25', '../../../uploads/products/1_0003.jpg', 55, 1, 'enable', 'Коренные вкладыши Таврия Славута Сенс Ланос 1.4.\n\nРазмер вкладышей +0,25 мм. В комплекте 10 вкладышей, цена за комплект на 1 двигатель.\n\nПодробней о размерах производителе и пр. на странице коренных вкладышей стандартного размера . ', 'Грн.', 1000102, 'Упаковку', 1, 10, 'Новое', '1уп.', '../../../uploads/products/1_min372.jpg', '../../../uploads/products/1_min2014_08_19_I8G_101318.jpg', NULL);
 
@@ -2834,36 +2844,36 @@ INSERT INTO `subcategories` (`id`, `name`, `image_path`, `link`, `status`, `cat_
 (2, 'Ходовая часть', '../../../uploads/subcat_image/hodovaya.jpg', 'hodovaja', 'enable', 1),
 (3, 'Кирпич', '../../../uploads/subcat_image/2757_32_big.jpg', 'kirpich', 'enable', 2),
 (4, 'Электростанок', '../../../uploads/subcat_image/201245567_3_644x461_prodam-derevoobrabatyvayuschiy-stanok-elektro-pila-tsirkulyarka-pilorama-elektroinstrument_rev015.jpg', 'stanok', 'enable', 24),
-(5, 'Бытовые насосы', '../../../uploads/subcat_image/bit_nasosi_2.jpg', 'bit_nasos', 'enable', 5),
-(6, 'Котлы твердотопливные', '../../../uploads/subcat_image/vatra-12.png', 'kotli', 'enable', 5),
+(5, 'Бытовые насосы', '../../../uploads/subcat_image/bit_nasosi_2.jpg', 'bit_nasos', 'disable', 5),
+(6, 'Котлы твердотопливные', '../../../uploads/subcat_image/vatra-12.png', 'kotli', 'disable', 5),
 (7, 'Шурупы, саморезы', '../../../uploads/subcat_image/109339350_w200_h200_cid1037011_pid50135061-dd1fc3c2.jpg', 'shurupi_samorezi', 'enable', 2),
 (8, 'Строительный инструмент', '../../../uploads/subcat_image/117662245_w640_h640_10385_500x500.jpg', 'stroitelniy_instrument', 'enable', 2),
-(9, 'Вентиляционные системы', '../../../uploads/subcat_image/149630520_w640_h640_cid2151576_pid75489351-e01f277b.jpg', 'ventiliaciya', 'enable', 2),
-(10, 'Радиаторы и обогреватели', '../../../uploads/subcat_image/radiator-stalnoi-panelniy.jpg', 'radiatori', 'enable', 5),
+(9, 'Вентиляционные системы', '../../../uploads/subcat_image/149630520_w640_h640_cid2151576_pid75489351-e01f277b.jpg', 'ventiliaciya', 'disable', 2),
+(10, 'Радиаторы и обогреватели', '../../../uploads/subcat_image/radiator-stalnoi-panelniy.jpg', 'radiatori', 'disable', 5),
 (11, ' Тепловентиляторы бытовые', '../../../uploads/subcat_image/111727200_w640_h640_18541.jpg', 'teploventiliator', 'enable', 5),
-(12, 'Коллекторы', '../../../uploads/subcat_image/kollektor-teplogo-pola-icma-1-h-5-vihodov-s-rashodomerami-ar-162304b.jpg', 'kollektori', 'enable', 5),
+(12, 'Коллекторы', '../../../uploads/subcat_image/kollektor-teplogo-pola-icma-1-h-5-vihodov-s-rashodomerami-ar-162304b.jpg', 'kollektori', 'disable', 5),
 (13, 'Трансмиссия', '../../../uploads/subcat_image/3cff47c22cb507f7a491ecbac18545f8.jpeg', 'transmission', 'enable', 1),
 (14, 'Генераторы и электростанции', '../../../uploads/subcat_image/127999437_w200_h200_8.jpg', 'generatori_stancii', 'enable', 4),
-(15, 'Металлоизделия промышленного назначения', '../../../uploads/subcat_image/68856263_w100_h100_27411817w100h1008.jpg', 'metalloizdeliya-promyshlennogo-naznacheniya', 'enable', 10),
-(16, 'Пневматический инструмент ', '../../../uploads/subcat_image/1.jpg', 'pnevmaticheskij-instrument', 'enable', 11),
-(17, 'Медицинские принадлежности и расходный материал', '../../../uploads/subcat_image/meditsinskie-prinadlezhnostiскачанные файлы.jpg', 'meditsinskie-prinadlezhnosti', 'enable', 16),
-(18, 'Упаковка для транспортировки', '../../../uploads/subcat_image/upakovka-dlya-transportirovkizashchytnaya_upakovka_dlya_transportyrovky_po_luchshey_tsene__28586192m.jpg', 'upakovka-dlya-transportirovki', 'enable', 17),
-(19, 'Лакокрасочные материалы и покрытия', '../../../uploads/subcat_image/lakokrasochnye-materialy-i-pokrytiyaD_5FCUvE2oI.jpg', 'lakokrasochnye-materialy-i-pokrytiya', 'enable', 18),
-(20, 'Системы и средства пожарной безопасности', '../../../uploads/subcat_image/pozharotushenie70846750_w200_h200_shkovieognetushitelistatya.jpg', 'pozharotushenie', 'enable', 19),
-(21, 'Альтернативные источники энергии', '../../../uploads/subcat_image/alternativnye-istochniki-energiiindustry_19.png', 'alternativnye-istochniki-energii', 'enable', 24),
-(22, 'Оптические приборы и системы', '../../../uploads/subcat_image/opticheskie-pribory-i-sistemy106839634_w200_h200_cid518896_pid48815292-0427499a.jpg', 'opticheskie-pribory-i-sistemy', 'enable', 6),
-(23, 'Техника и электроника', '../../../uploads/subcat_image/tehnika-i-elektronikaaudio-video.jpg', 'tehnika-i-elektronika', 'enable', 7),
-(24, 'Тренажеры', '../../../uploads/subcat_image/trenazhery73842469_w200_h200_cid239667_pid34231555-c6bf42b0.jpg', 'trenazhery', 'enable', 8),
-(25, 'Инструмент для скашивания травы', '../../../uploads/subcat_image/instrument-dlya-skashivaniya-travy175145332_w200_h200_ekspert.jpg', 'instrument-dlya-skashivaniya-travy', 'enable', 9),
-(26, 'Ветеринарные средства и препараты', '../../../uploads/subcat_image/veterinarnye-preparatyfrontline-1.jpg', 'veterinarnye-preparaty', 'enable', 0),
-(27, 'Маски, очки и наборы для плавания', '../../../uploads/subcat_image/maski-dlya-plavaniya112146843_w200_h200_cid1980430_pid38869854-686c2896.jpg', 'maski-dlya-plavaniya', 'enable', 20),
-(28, 'Солнцезащитные очки', '../../../uploads/subcat_image/solntsezaschitnye-ochki184208149_w200_h200_dior.jpeg', 'solntsezaschitnye-ochki', 'enable', 21),
-(29, 'Кушетки и софы', '../../../uploads/subcat_image/kushetki-sofy121150033_w200_h200_kreslomonarh.jpg', 'kushetki-sofy', 'enable', 22),
-(30, 'Гигиенические изделия и средства', '../../../uploads/subcat_image/gigienicheskie-izdeliya171462957_w230_h230_gigiena1.jpg', 'gigienicheskie-izdeliya', 'enable', 23),
-(31, 'Сельскохозяйственная техника', '../../../uploads/subcat_image/selskoe-hozyajstvo178355787_w200_h200_dscn7201.jpg', 'selskoe-hozyajstvo', 'enable', 3),
-(32, 'Юридические услуги', '../../../uploads/subcat_image/yuridicheskie-uslugi74121678_w100_h100_yuridicheskie_uslugi.png', 'yuridicheskie-uslugi', 'enable', 12),
-(33, 'Создание сайтов, реклама в интернете', '../../../uploads/subcat_image/internet-reklamawebsite_development.png', 'internet-reklama', 'enable', 13),
-(34, 'Семинары', '../../../uploads/subcat_image/seminary2015-05-21domnica_seminars.jpg', 'seminary', 'enable', 14),
+(15, 'Металлоизделия промышленного назначения', '../../../uploads/subcat_image/68856263_w100_h100_27411817w100h1008.jpg', 'metalloizdeliya-promyshlennogo-naznacheniya', 'disable', 10),
+(16, 'Пневматический инструмент ', '../../../uploads/subcat_image/1.jpg', 'pnevmaticheskij-instrument', 'disable', 11),
+(17, 'Медицинские принадлежности и расходный материал', '../../../uploads/subcat_image/meditsinskie-prinadlezhnostiскачанные файлы.jpg', 'meditsinskie-prinadlezhnosti', 'disable', 16),
+(18, 'Упаковка для транспортировки', '../../../uploads/subcat_image/upakovka-dlya-transportirovkizashchytnaya_upakovka_dlya_transportyrovky_po_luchshey_tsene__28586192m.jpg', 'upakovka-dlya-transportirovki', 'disable', 17),
+(19, 'Лакокрасочные материалы и покрытия', '../../../uploads/subcat_image/lakokrasochnye-materialy-i-pokrytiyaD_5FCUvE2oI.jpg', 'lakokrasochnye-materialy-i-pokrytiya', 'disable', 18),
+(20, 'Системы и средства пожарной безопасности', '../../../uploads/subcat_image/pozharotushenie70846750_w200_h200_shkovieognetushitelistatya.jpg', 'pozharotushenie', 'disable', 19),
+(21, 'Альтернативные источники энергии', '../../../uploads/subcat_image/alternativnye-istochniki-energiiindustry_19.png', 'alternativnye-istochniki-energii', 'disable', 24),
+(22, 'Оптические приборы и системы', '../../../uploads/subcat_image/opticheskie-pribory-i-sistemy106839634_w200_h200_cid518896_pid48815292-0427499a.jpg', 'opticheskie-pribory-i-sistemy', 'disable', 6),
+(23, 'Техника и электроника', '../../../uploads/subcat_image/tehnika-i-elektronikaaudio-video.jpg', 'tehnika-i-elektronika', 'disable', 7),
+(24, 'Тренажеры', '../../../uploads/subcat_image/trenazhery73842469_w200_h200_cid239667_pid34231555-c6bf42b0.jpg', 'trenazhery', 'disable', 8),
+(25, 'Инструмент для скашивания травы', '../../../uploads/subcat_image/instrument-dlya-skashivaniya-travy175145332_w200_h200_ekspert.jpg', 'instrument-dlya-skashivaniya-travy', 'disable', 9),
+(26, 'Ветеринарные средства и препараты', '../../../uploads/subcat_image/veterinarnye-preparatyfrontline-1.jpg', 'veterinarnye-preparaty', 'disable', 0),
+(27, 'Маски, очки и наборы для плавания', '../../../uploads/subcat_image/maski-dlya-plavaniya112146843_w200_h200_cid1980430_pid38869854-686c2896.jpg', 'maski-dlya-plavaniya', 'disable', 20),
+(28, 'Солнцезащитные очки', '../../../uploads/subcat_image/solntsezaschitnye-ochki184208149_w200_h200_dior.jpeg', 'solntsezaschitnye-ochki', 'disable', 21),
+(29, 'Кушетки и софы', '../../../uploads/subcat_image/kushetki-sofy121150033_w200_h200_kreslomonarh.jpg', 'kushetki-sofy', 'disable', 22),
+(30, 'Гигиенические изделия и средства', '../../../uploads/subcat_image/gigienicheskie-izdeliya171462957_w230_h230_gigiena1.jpg', 'gigienicheskie-izdeliya', 'disable', 23),
+(31, 'Сельскохозяйственная техника', '../../../uploads/subcat_image/selskoe-hozyajstvo178355787_w200_h200_dscn7201.jpg', 'selskoe-hozyajstvo', 'disable', 3),
+(32, 'Юридические услуги', '../../../uploads/subcat_image/yuridicheskie-uslugi74121678_w100_h100_yuridicheskie_uslugi.png', 'yuridicheskie-uslugi', 'disable', 12),
+(33, 'Создание сайтов, реклама в интернете', '../../../uploads/subcat_image/internet-reklamawebsite_development.png', 'internet-reklama', 'disable', 13),
+(34, 'Семинары', '../../../uploads/subcat_image/seminary2015-05-21domnica_seminars.jpg', 'seminary', 'disable', 14),
 (35, 'Детали салона', '../../../uploads/subcat_image/detali_avtosalonakraskivsalon.jpg', 'detali_avtosalona', 'enable', 1);
 
 -- --------------------------------------------------------

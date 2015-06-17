@@ -65,6 +65,7 @@
                         <p>
                             <label for="location">Область</label>
                             <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                                <option value="<?= $user_data['location'] ?>"><?= $user_data['location'] ?></option>
                                 <?php
                                 foreach ($location as $k) {
                                     ?>
@@ -73,14 +74,14 @@
                                 }
                                 ?>                               
                             </select>
-						</p>
-						<p>
+                        </p>
+                        <p>
                             <label for="city">Город</label>
                             <select id="city" name="city" class="cabinet-form-input" data-map="city">
-                                <option val='<?=$user_data['city']?>'><?=$user_data['city']?></option>
+                                <option val='<?= $user_data['city'] ?>'><?= $user_data['city'] ?></option>
                             </select>
                         </p>
-                        
+
                         <p>
                             <label for="account_street">Улица</label>
                             <input type="text" value="<?= $user_data['street'] ?>" id="account_street" name="account_street" class="cabinet-form-input" data-map="street">
