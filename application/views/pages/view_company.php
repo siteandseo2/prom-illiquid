@@ -11,44 +11,42 @@
 
                 <form id="cabinet-company-info" class="form-submit clearfix" method="POST" enctype="multipart/form-data">
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 company_view">
 
-                        <p>
-                            <label for="company_name">Название компании</label>
+                        <div>
+                            <h4>Название компании:</h4>
                             <span><?= $user_data['company'] ?></span>
-                        </p>
-                        <p>
-                            <label for="company_email">Email компании</label>
+                        </div>
+                        <div>
+                            <h4>Email компании:</h4>
                             <span><?= $user_data['email'] ?></span>
-                        </p>
-                        <p>
-                            <label for="company_phone">Телефон компании</label>
+                        </div>
+                        <div>
+                            <h4>Телефон компании:</h4>
                             <span><?= $user_data['phone'] ?></span>
-                        </p>
-                        <p>
-                            <label for="company_phone_more">Дополнительный телефон</label>
+                        </div>
+                        <div>
+                            <h4>Дополнительный телефон:</h4>
                             <span><?= $user_data['phone_more'] ?></span>
-                        </p>
-                        <p>
-                            <label for="company_country">Страна</label>
+                        </div>
+                        <div>
+                            <h4>Страна:</h4>
                             <span ><?= $user_data['country'] ?></span>
-                        </p>
-                        <p>
-                            <label for="location">Город</label>
+                        </div>
+                        <div>
+                            <h4>Город:</h4>
                             <span ><?= $user_data['city'] ?></span>  
-
-                        </p>                       
-                        <p>
-                            <label for="company_street">Улица</label>
+                        </div>                       
+                        <div>
+                            <h4>Улица:</h4>
                             <span ><?= $user_data['street'] ?></span> 
-                        </p>
-                        <p>
-                            <label for="company_building">Дом</label>
+                        </div>
+                        <div>
+                            <h4>Дом:</h4>
                             <span ><?= $user_data['building'] ?></span>       
-                        </p>
+                        </div>
                         <p>
-                          
-                            <select class="cabinet-form-input" id="company_country" name="company_country" data-map="country" hidden="">
+                            <select class="cabinet-form-input" id="company_country" name="company_country" data-map="country" hidden>
                                 <option value="ua"><?= $user_data['country'] ?></option>
                                 <option value="ua">Украина</option>
                                 <option value="ru">Россия</option>
@@ -60,7 +58,6 @@
                         </p>
                         
                         <p>
-                            
                             <select id="city" name="city" class="cabinet-form-input" data-map="city" hidden>
                                 <option value="zp"><?= $user_data['city'] ?></option>                                
                             </select>
@@ -73,7 +70,22 @@
                             
                             <input type="text" value="<?= $user_data['building'] ?>" id="company_building" name="company_building" class="cabinet-form-input" data-map="building" hidden>
                         </p>
+						
                         <hr>
+						
+						<div class="rating clearfix">
+							<div class="star-rating" title="Rated 5.00 of 5">
+								<i class="fa fa-star-o"></i>
+								<i class="fa fa-star-o"></i>
+								<i class="fa fa-star-o"></i>
+								<i class="fa fa-star-o"></i>
+								<i class="fa fa-star-o"></i>
+							</div>
+							<a href="<?= base_url(); ?>#reviews" class="review-link" rel="nofollow">
+							( <span class="ratingCount">1</span>
+							customer review )
+							</a>
+						</div>
 
 
 
@@ -83,7 +95,7 @@
 
                         <p>
                             <label>Местоположение на карте</label>
-                        <div id="map"></div>
+							<div id="map"></div>
                         </p>
 
 

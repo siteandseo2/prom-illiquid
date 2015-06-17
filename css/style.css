@@ -1459,6 +1459,17 @@ p .form-submit {
 	height: 500px;
 }
 
+/* Company view */
+
+#cabinet-company-info .company_view > div > h4 {
+	display: inline-block;
+	margin-right: 20px;
+}
+#cabinet-company-info .company_view > div > span {
+	color: #333;
+	font-size: 1.5em;
+}
+
 /* Categories */
 
 .cat-row {
