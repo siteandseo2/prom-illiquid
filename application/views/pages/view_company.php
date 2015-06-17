@@ -25,10 +25,13 @@
                             <label for="company_phone">Телефон компании</label>
                             <span><?= $user_data['phone'] ?></span>
                         </p>
+                        <? if (!empty($user_data['phone_more']){
+                        ?>
                         <p>
                             <label for="company_phone_more">Дополнительный телефон</label>
                             <span><?= $user_data['phone_more'] ?></span>
                         </p>
+                        <? } ?>
                         <p>
                             <label for="company_country">Страна</label>
                             <span ><?= $user_data['country'] ?></span>

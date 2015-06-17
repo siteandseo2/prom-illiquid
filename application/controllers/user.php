@@ -158,9 +158,7 @@ class User extends CI_Controller {
         unset($this->data);
         $this->data['user'] = $this->session->userdata('user');
         $this->data['location'] = $this->main_m->get_location();
-        if (empty($this->session->userdata('user'))) {
-            redirect(base_url());
-        } else {
+        if (!empty($this->session->userdata('user'))) {
             $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
             if ($this->data['user_data2'] == true) {
                 foreach ($this->data['user_data2'] as $key => $val) {
@@ -173,6 +171,8 @@ class User extends CI_Controller {
             } else {
                 redirect(base_url('account') . '/' . $this->data['user']['id']);
             }
+        }else{
+             redirect(base_url());
         }
     }
 
