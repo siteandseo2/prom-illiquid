@@ -25,13 +25,13 @@
                             <h4>Телефон компании:</h4>
                             <span><?= $user_data['phone'] ?></span>
                         </div>
-<!--                        <? if (!empty($user_data['phone_more']){
-                        ?>-->
+                        <?php  if(!empty($user_data['phone_more'])){
+                        ?>
                         <div>
                             <h4>Дополнительный телефон:</h4>
                             <span><?= $user_data['phone_more'] ?></span>
                         </div>
-                        <!--<? } ?>-->
+                        <?php } ?>
                         <div>
                             <h4>Страна:</h4>
                             <span ><?= $user_data['country'] ?></span>

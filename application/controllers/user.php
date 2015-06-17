@@ -184,7 +184,7 @@ class User extends CI_Controller {
         unset($this->data);
         $this->data['user'] = $this->session->userdata('user');
         $this->data['location'] = $this->main_m->get_location();
-        if ($this->data['user']['usercat'] == 'buyer') {
+        if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'buyer') {
             redirect(base_url('account'));
         }
         $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
@@ -194,13 +194,30 @@ class User extends CI_Controller {
                     $this->data['user_data'][$k] = $v;
                 }
             }
+
+            if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'seller') {
+                $this->load->view('pages/company_info', $this->data);
+            } else {
+                redirect('view_company/' . $id);
+            }
+        } else {
+            redirect('company_info/' . $this->data['user']['id']);
         }
-        if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'seller') {
-            $this->load->view('pages/company_info', $this->data);
-        }       
-        if ($this->data['user']['id'] != $id && $this->data['user']['usercat'] == 'seller') {
-            $this->load->view('pages/view_company', $this->data);
-        }        
+        $this->load->view('templates/footer', $this->data);
+    }
+
+    function view_company($id) {
+        $this->data['user'] = $this->session->userdata('user');
+        $this->data['location'] = $this->main_m->get_location();
+        $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
+        if ($this->data['user_data2'] == true) {
+            foreach ($this->data['user_data2'] as $key => $val) {
+                foreach ($val as $k => $v) {
+                    $this->data['user_data'][$k] = $v;
+                }
+            }
+        }
+        $this->load->view('pages/view_company', $this->data);
         $this->load->view('templates/footer', $this->data);
     }
 

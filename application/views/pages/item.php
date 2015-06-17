@@ -130,7 +130,7 @@
                         <h3>Информация о продавце</h3>
                         <span class="company">
                             Компания:
-                            <a href="<?= base_url('company_info'); ?>/<?= $user_data['id'] ?>" class="company_value"><?= $user_data['company'] ?></a>
+                            <a href="<?= base_url('view_company'); ?>/<?= $user_data['id'] ?>" class="company_value"><?= $user_data['company'] ?></a>
                         </span>
                         <span class="email">
                             Email:

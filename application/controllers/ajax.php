@@ -114,11 +114,11 @@ class Ajax extends CI_Controller {
             $session_data['password'] = $this->data['user']['password'];
             $session_data['country'] = $this->data['user']['country'];
             $session_data['city'] = $this->data['user']['city'];
-
+            $this->data['user_category'] = 'seller';
             unset($this->data['user']);
 
             $session_data['usercat'] = $type;
-            $this->data['user_category'] = $type;
+
             $this->session->set_userdata(array('user' => $session_data));
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['menu'] = $this->main_m->get_menu_front($num);

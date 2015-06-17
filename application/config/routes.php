@@ -85,6 +85,7 @@ $route['subcategories/(:any)'] = 'subcategories/get_subgategory/$1';
 $route['user/add_product'] = 'user/add_product';
 $route['company_info'] = 'user/company_info/';
 $route['company_info/(:any)'] = 'user/company_info/$1';
+$route['view_company/(:any)'] = 'user/view_company/$1';
 $route['account'] = 'user/account_user/$1';
 $route['account/(:any)'] = 'user/account_user/$1';
 $route['login'] = 'user/get_user';
