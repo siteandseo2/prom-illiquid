@@ -10,7 +10,7 @@ class Product extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('main_m');
-         $this->load->model('user_model');
+        $this->load->model('user_model');
 
         /* load header */
         if (!empty($this->session->userdata('user'))) {
@@ -43,20 +43,38 @@ class Product extends CI_Controller {
             }
         }
         /* load model product */
+//        $config['base_url'] = base_url() . 'search';
+//        $config['total_rows'] = $this->product_m->count_prod();
+//
+//        $config['per_page'] = '3';
+//        $this->pagination->initialize($config);
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
-        $this->data['products'] = $this->product_m->get_all_product();
+//        $this->data['products'] = $this->product_m->get_all_product($config['per_page'], $this->uri->segment(3));
     }
 
     function get_all_product() {
-
-        $this->data_db['items'] = $this->product_m->get_all_product();
+        $config['base_url'] = base_url() . 'prod/all';
+        $config['total_rows'] = $this->product_m->count_prod();
+        $this->data_db['total_rows'] = $this->product_m->count_prod();
+        $config['per_page'] = '9';
+        $this->pagination->initialize($config);
+        $this->data_db['items'] = $this->product_m->get_all_product($config['per_page'], $this->uri->segment(3));
         $this->load->view("pages/products", $this->data_db);
         $this->load->view("templates/footer", $this->data);
     }
 
     function get_products($link) {
-        $this->data_db['items'] = $this->product_m->get_products($link);
+        if ($link == '$1') {
+            redirect(base_url() . 'prod/all');
+        }
+        $config['base_url'] = base_url() . 'products/' . $link;
+        $config['total_rows'] = count($this->product_m->get_products_byLINK($link));
+        $this->data_db['total_rows'] = count($this->product_m->get_products_byLINK($link));
+        $config['per_page'] = '9';
+
+        $this->pagination->initialize($config);
+        $this->data_db['items'] = $this->product_m->get_products($link, $config['per_page'], $this->uri->segment(3));
         $this->data_db['subcat_name'] = $this->product_m->get_subcat_name($link);
         $this->data_db['cat_name'] = $this->product_m->get_cat_name($link);
         $this->data_db['link'] = $link;

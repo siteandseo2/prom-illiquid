@@ -7,9 +7,9 @@
         <meta name="keywords" content="Неликвиды, купля, продажа">
         <meta name="author" content="SITE&SEO">        
         <link href="<?= base_url(); ?>../../../css/normalize.css" rel="stylesheet" type="text/css"/>
-		<link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-		<link href="<?= base_url(); ?>../../../css/load_animation.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url(); ?>../../../css/load_animation.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/perfect-scrollbar.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/jquery.fancybox.css">
@@ -17,8 +17,8 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/responsive.css">
-		
-		<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+        <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     </head>   
     <body>        
         <section id="page">              
@@ -40,13 +40,13 @@
                                 <!-- Top bar conctacts icons End -->
 
                                 <div class="right-block wf-td clearfix">
-									<div class="mini-login">
-										<a href="#" class="submit" data-toggle="modal" data-target="#modalCart" id="topBarCartLink"> 
-											<i class="fa fa-shopping-cart"></i>
-											<span class="top-bar-icon-text">Корзина</span>
-											<span class="num badge" id="cart-amount"></span>
-										</a>
-									</div>
+                                    <div class="mini-login">
+                                        <a href="#" class="submit" data-toggle="modal" data-target="#modalCart" id="topBarCartLink"> 
+                                            <i class="fa fa-shopping-cart"></i>
+                                            <span class="top-bar-icon-text">Корзина</span>
+                                            <span class="num badge" id="cart-amount"></span>
+                                        </a>
+                                    </div>
                                     <div class="mini-login">
                                         <a href="<?= base_url(); ?>login" class="submit">
                                             <i class="fa fa-sign-in"></i>
@@ -145,12 +145,12 @@
                     <!-- Search End --> 
 
                 </div>
-				
-				<div class="bubblingG">
-					<span id="bubblingG_1"></span>
-					<span id="bubblingG_2"></span>
-					<span id="bubblingG_3"></span>
-				</div>
+
+                <div class="bubblingG">
+                    <span id="bubblingG_1"></span>
+                    <span id="bubblingG_2"></span>
+                    <span id="bubblingG_3"></span>
+                </div>
 
             </header>
 

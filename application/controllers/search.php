@@ -17,13 +17,14 @@ class Search extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+
         $this->load->model('product_m');
         $this->load->model('main_m');
         $this->load->model('subcategories_m');
         $this->load->model('category_m');
-         $this->load->model('user_model');
+        $this->load->model('user_model');
         /* load header */
-         if (!empty($this->session->userdata('user'))) {
+        if (!empty($this->session->userdata('user'))) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
 //            $access=3;
@@ -53,19 +54,50 @@ class Search extends CI_Controller {
         $this->load->model('category_m');
         $this->load->model('subcategories_m');
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
-        $this->data['group_list'] = $this->category_m->focus_product_list();       
+        $this->data['group_list'] = $this->category_m->focus_product_list();
+        if (isset($_POST['search'])) {
+            
+        }
+    }
+
+    function search_name() {
+        if (isset($_POST['search'])) {
+            $name1 = $this->input->post('name');
+            if (empty($name1)) {
+                redirect(base_url('search/prod'));
+            } else {
+                $name = explode(" ", $name1);
+                foreach ($name as $item) {
+                    $session_data[] = $item;
+                }
+                $this->session->set_userdata(array('search' => $session_data));
+                redirect(base_url('search/' . $name1));
+            }
+        }
     }
 
     function get_search() {
-        if (isset($_POST['search'])) {
-            $name = $this->input->post('name');
-            $name = explode(" ", $name);
-            foreach ($name as $item) {
-                $this->data['items'] = $this->product_m->search_prod($item);
-            }
-            $this->load->view("pages/products", $this->data);
-            $this->load->view("templates/footer");
+
+        $link='';
+        $name = $this->session->userdata('search');
+        foreach ($name as $item) {
+            $arr = $this->product_m->search_by($item);
+            $link.=$item.' ';
         }
+        $this->data['total_rows']=count($arr);
+        $config['base_url'] = base_url() . 'search/' . $link;
+        $config['total_rows'] = count($arr);
+        $config['per_page'] = '9';
+//        print_r($name);
+        $this->pagination->initialize($config);
+//        $name = $this->input->post('name');
+//        $name = explode(" ", $name);
+        foreach ($name as $item) {
+            $this->data['items'] = $this->product_m->search_prod($item, $config['per_page'], $this->uri->segment(3));
+        }
+        $this->load->view("pages/products", $this->data);
+
+        $this->load->view("templates/footer");
     }
 
 }
