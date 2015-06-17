@@ -1461,13 +1461,157 @@ p .form-submit {
 
 /* Company view */
 
-#cabinet-company-info .company_view > div > h4 {
+.company_view > div > h4 {
 	display: inline-block;
 	margin-right: 20px;
 }
-#cabinet-company-info .company_view > div > span {
+.company_view > div > span {
 	color: #333;
 	font-size: 1.5em;
+}
+.company_view .rating {
+    margin-bottom: 10px;
+    line-height: 2em;
+    display: block;
+}
+.company_view .star-rating {
+    margin: .5em 4px 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 2em;
+    line-height: 2em;
+    font-size: 2em;
+    color: #f00;
+}
+section #comments h2 {
+    margin-bottom: 20px;
+    font: normal normal 26px / 34px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+    text-transform: none;
+    color: #333;
+}
+
+section #comments .commentslist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+section #comments .commentslist li {
+    width: 100%;
+    padding: 0 0 0 90px;
+    margin: 0 0 30px 0;
+    box-sizing: border-box;
+}
+
+section #comments .commentslist li .comment-container {
+    border: none;
+    background: rgba(119,119,119,0.08);
+    color: #777;
+    position: relative;
+    padding: 25px 20px 15px;
+    border-radius: 4px;
+}
+
+section #comments .commentslist li .comment-container img {
+    float: left;
+    margin-right: 20px;
+    border-radius: 50%;
+    margin: -25px 0 15px -120px;
+    border: 0;
+}
+
+section #comments .commentslist li .comment-container .star-right {
+    float: right;
+    overflow: hidden;
+    position: relative;
+    height: 1em;
+    line-height: 1em;
+    font-size: 1em;
+    color: #f00;
+}
+
+section #comments .commentslist li .comment-container .star-right i {
+    float: left;
+    margin-right: 3px;
+}
+
+.comment-container .meta {
+    font-size: 14px;
+    line-height: 25px;
+    color: #333;
+}
+
+section .add-review h3 {
+    color: #333;
+    font: normal normal normal 26px / 34px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+}
+
+section .add-review {
+    margin: 0;
+}
+
+section .add-review input {
+    max-width: 270px;
+    font: normal normal normal 14px / 25px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 7px 15px;
+    border: 1px solid #e0e1e1;
+    background: #fbfcfc;
+    color: #b8bcbe;
+    box-sizing: border-box;
+}
+
+section .add-review .stars {
+    position: relative;
+    font-size: 1em;
+    color: #f00;
+}
+section .add-review .stars > span {
+    border-left: 1px solid rgba(119,119,119,0.15);
+    padding: 0 1em;
+    display: inline-block;
+    cursor: pointer;
+}
+
+section .add-review .stars > span:first-child {
+    border-left: 0;
+}
+
+section .add-review textarea {
+    margin: 10px 0;
+    width: 100%;
+    background: #fbfcfc;
+    border:1px solid #eaeaea;
+    font: normal normal normal 14px / 25px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 7px 15px;
+    color: #b8bcbe;
+    overflow: auto;
+    vertical-align: top;
+}
+
+section .add-review input[type="submit"] {
+    display: inline-block;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+    transition: all .2s;
+    line-height: 27px;
+    vertical-align: middle;
+    padding-top: 6px;
+    padding-bottom: 7px;
+    font: normal 500 14px / 31px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+    padding-left: 14.3px;
+    padding-right: 14.3px;
+    color: #fff;
+    border-radius: 4px;
+    background: #aaa;
+    cursor: pointer;
+    width: 15%;
+}
+section .add-review input[type="submit"]:hover {
+    box-shadow: 0 1px 6px 3px rgba(0,0,0,0.12);
 }
 
 /* Categories */
@@ -1730,39 +1874,6 @@ p .form-submit {
 	font-size: 1.3em;
 }
 
-.summary .rating {
-    margin-bottom: 10px;
-    line-height: 2em;
-    display: block;
-}
-
-.summary .rating .star-rating {
-    margin: .5em 4px 0 0;
-    float: left;
-    overflow: hidden;
-    position: relative;
-    height: 1em;
-    line-height: 1em;
-    font-size: 1em;
-    color: #f00;
-}
-
-.summary .rating .star-rating i {
-    float: left;
-    margin-right: 3px;
-}
-
-.summary .rating .review-link {
-    color: rgba(119,119,119,0.5);
-    font-size: 13px;
-    line-height: 23px;
-    margin-left: 5px;
-}
-
-.summary .rating .review-link:hover {
-    text-decoration: none;
-}
-
 .description {
     margin: 25px 0;
 }
@@ -1914,138 +2025,6 @@ p .form-submit {
 
 .product-tabs section table p {
     margin-bottom: 0;
-}
-
-.product-tabs section #comments h2 {
-    margin-bottom: 20px;
-    font: normal normal 26px / 34px "Roboto", Helvetica, Arial, Verdana, sans-serif;
-    text-transform: none;
-    color: #333;
-}
-
-.product-tabs section #comments .commentslist {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.product-tabs section #comments .commentslist li {
-    width: 100%;
-    padding: 0 0 0 90px;
-    margin: 0 0 30px 0;
-    box-sizing: border-box;
-}
-
-.product-tabs section #comments .commentslist li .comment-container {
-    border: none;
-    background: rgba(119,119,119,0.08);
-    color: #777;
-    position: relative;
-    padding: 25px 20px 15px;
-    border-radius: 4px;
-}
-
-.product-tabs section #comments .commentslist li .comment-container img {
-    float: left;
-    margin-right: 20px;
-    border-radius: 50%;
-    margin: -25px 0 15px -120px;
-    border: 0;
-}
-
-.product-tabs section #comments .commentslist li .comment-container .star-right {
-    float: right;
-    overflow: hidden;
-    position: relative;
-    height: 1em;
-    line-height: 1em;
-    font-size: 1em;
-    color: #f00;
-}
-
-.product-tabs section #comments .commentslist li .comment-container .star-right i {
-    float: left;
-    margin-right: 3px;
-}
-
-.comment-container .meta {
-    font-size: 14px;
-    line-height: 25px;
-    color: #333;
-}
-
-.add-review h3 {
-    color: #333;
-    font: normal normal normal 26px / 34px "Roboto", Helvetica, Arial, Verdana, sans-serif;
-}
-
-.add-review form {
-    margin: 0;
-}
-
-.add-review form input {
-    max-width: 270px;
-    font: normal normal normal 14px / 25px "Roboto", Helvetica, Arial, Verdana, sans-serif;
-    font-size: 14px;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 7px 15px;
-    border: 1px solid #e0e1e1;
-    background: #fbfcfc;
-    color: #b8bcbe;
-    box-sizing: border-box;
-}
-
-.add-review form .stars {
-    position: relative;
-    font-size: 1em;
-    color: #f00;
-}
-
-.add-review form .stars > span {
-    border-left: 1px solid rgba(119,119,119,0.15);
-    padding: 0 1em;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.add-review form .stars > span:first-child {
-    border-left: 0;
-}
-
-.add-review form textarea {
-    margin: 10px 0;
-    width: 100%;
-    background: #fbfcfc;
-    border:1px solid #eaeaea;
-    font: normal normal normal 14px / 25px "Roboto", Helvetica, Arial, Verdana, sans-serif;
-    font-size: 14px;
-    border-radius: 4px;
-    padding: 7px 15px;
-    color: #b8bcbe;
-    overflow: auto;
-    vertical-align: top;
-}
-
-.add-review form input[type="submit"] {
-    display: inline-block;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.12);
-    transition: all .2s;
-    line-height: 27px;
-    vertical-align: middle;
-    padding-top: 6px;
-    padding-bottom: 7px;
-    font: normal 500 14px / 31px "Roboto", Helvetica, Arial, Verdana, sans-serif;
-    padding-left: 14.3px;
-    padding-right: 14.3px;
-    color: #fff;
-    border-radius: 4px;
-    background: #aaa;
-    cursor: pointer;
-    width: 15%;
-}
-.add-review form input[type="submit"]:hover {
-    box-shadow: 0 1px 6px 3px rgba(0,0,0,0.12);
 }
 
 /* Sidebar */

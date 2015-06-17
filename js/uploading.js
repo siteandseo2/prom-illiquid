@@ -70,7 +70,7 @@ $(function() {
 			break;
 		default:
 		
-			if( isMatch( path, '/account/' ) || isMatch( path, '/company_info/' ) ) {
+			if( isMatch( path, '/account/' ) || isMatch( path, '/company_info/' ) || isMatch( path, '/view_company/' ) ) {
 				
 				get.searchPost();
 				get.cabinetPost();
