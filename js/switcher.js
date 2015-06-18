@@ -40,9 +40,9 @@
 						
 						if( window.location.pathname == '/' || window.location.pathname == '/default' ) {
 							document.querySelector('#main-carousel').insertAdjacentHTML( 'beforeBegin', data );
+						} else {
+							document.querySelector('#main').insertAdjacentHTML( 'beforeBegin', data );
 						}
-						
-						document.querySelector('#main').insertAdjacentHTML( 'beforeBegin', data );
 						
 						get.search();
 						get.cabinet();

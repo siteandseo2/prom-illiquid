@@ -209,6 +209,19 @@ $(document).ready(function() {
 				clearInterval( top );
 			}
 		}, 10);
-	});	
+	});
+	
+	/* Edit Item. Sortable */
+	
+	$(function() {
+		
+		try {
+			$('.sortable').sortable();
+		} catch( e ) {
+			console.log( e.type + ' : ' + e.message );
+		} 
+		
+		
+	});
 	
 });

@@ -54,6 +54,7 @@ $(function() {
 			
 			break;
 		case '/add_product':
+		case '/edit_item':
 		
 			get.search();
 			get.cabinet();
@@ -99,6 +100,13 @@ $(function() {
 				get.searchPost();
 				get.cabinetPost();
 				$.post('../../../js/sidebar.js');
+			} else if ( isMatch( path, '/search/' ) ) {
+				
+				
+				get.searchPost();
+				get.cabinetPost();
+				$.post('../../../js/sidebar.js');
+				
 			}
 		
 			break;

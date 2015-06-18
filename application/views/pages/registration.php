@@ -22,7 +22,17 @@
     </div>
 </div>
 
-<!-- Page title -->
+<!-- Page title End -->
+
+<!-- Animation -->
+
+ <div class="bubblingG registrBubbling">
+	<span id="bubblingG_1"></span>
+	<span id="bubblingG_2"></span>
+	<span id="bubblingG_3"></span>
+</div>
+
+<!-- Animation  End -->
 
 <!-- Main Content -->
 

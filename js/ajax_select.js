@@ -21,7 +21,9 @@
 		$.ajax({
 			type: 'POST',
 			url: 'ajax/change_location',
-			data: 'id='+ val,
+			data: {
+				id: val
+			},
 			success: function( data ) {
 				deploy( data, self );
 			}
