@@ -46,6 +46,7 @@ class Product extends CI_Controller {
         /* load model product */
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
+        $this->script['location'] = $this->main_m->get_location();
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
                 . "<script src='../../../js/ajax_select.js'></script>"
                 . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
@@ -57,7 +58,6 @@ class Product extends CI_Controller {
                 . "<script src='../../../js/main_nav.js'></script>"
                 . "<script src='../../../js/switcher.js'></script>"
                 . "<script src='../../../js/sidebar.js'></script>";
-               
     }
 
     function get_all_product() {
@@ -81,7 +81,21 @@ class Product extends CI_Controller {
         $config['per_page'] = '9';
 
         $this->pagination->initialize($config);
-        $this->data_db['items'] = $this->product_m->get_products($link, $config['per_page'], $this->uri->segment(3));
+        $this->data_db['prep'] = $this->product_m->get_products($link, $config['per_page'], $this->uri->segment(3));
+        $arr_names = $this->product_m->get_product_name($link, $config['per_page'], $this->uri->segment(3));
+        foreach($this->data_db['prep'] as $k=>$v){
+            foreach($v as $key=>$val){
+                if($key=='name'){
+                     $this->data_db['items'][$k]['trans']=  $this->translit($val);
+                }
+                $this->data_db['items'][$k][$key]=$val;
+                
+            }
+        }
+//       array_push($this->data_db['items'], $arr);
+//        echo '<pre>';
+//        print_r($this->data_db['items']);
+//        echo '</pre>';
         $this->data_db['subcat_name'] = $this->product_m->get_subcat_name($link);
         $this->data_db['cat_name'] = $this->product_m->get_cat_name($link);
         $this->data_db['link'] = $link;
@@ -124,6 +138,12 @@ class Product extends CI_Controller {
         }
         $this->load->view("pages/item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
+    }
+
+    function translit($str) {
+        $rus = array('А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я', ' ');
+        $lat = array('A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya', '-');
+        return str_replace($rus, $lat, $str);
     }
 
 }

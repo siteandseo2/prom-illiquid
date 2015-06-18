@@ -40,6 +40,7 @@ class Main extends CI_Controller {
         $this->data['partner'] = $this->main_m->get_partners();
         $this->data['group_list'] = $this->category_m->focus_product_list();
         $this->data['location'] = $this->main_m->get_location();
+        $this->script['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
 
         /* load subcategories_m */

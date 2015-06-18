@@ -22,6 +22,10 @@ class Product_m extends CI_Model {
         $query = $this->db->get('product', $num, $offset);
         return $query->result_array();
     }
+     function get_all_products() {
+        $query = $this->db->get('product');
+        return $query->result_array();
+    }
 
     function count_prod() {
         $query = $this->db->get('product');
@@ -127,5 +131,12 @@ class Product_m extends CI_Model {
         $query = $this->db->where('a_status', 'new')->get('orders');
         return $query->result_array();
     }
-
+function get_product_name($link, $num, $offset) {
+     $query = $this->db->where('link', $link)->select('id')->get('subcategories');
+        foreach ($query->result() as $row) {
+            $subcat_id = $row->id;
+        }
+        $query = $this->db->where('subcat_id', $subcat_id)->select('name')->get('product', $num, $offset);
+        return $query->result_array();        
+    }
 }

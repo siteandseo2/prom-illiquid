@@ -13,6 +13,7 @@ class User extends CI_Controller {
         $this->load->model('user_model');
         $this->load->model('product_m');
         $this->load->model('main_m');
+        $this->script['location'] = $this->main_m->get_location();
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
         $this->data_user['user'] = @$this->session->userdata('user');
@@ -167,7 +168,7 @@ class User extends CI_Controller {
     }
 
     function account_user($id) {
-         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
+        $this->script['script'] = "<script src='../../../js/validation.js'></script>"
                 . "<script src='../../../js/ajax_select.js'></script>"
                 . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
                 . "<script src='../../../js/autoComplete.js'></script>"
@@ -179,7 +180,7 @@ class User extends CI_Controller {
                 . "<script src='../../../js/switcher.js'></script>"
                 . "<script src='../../../js/xml2json.js'></script>"
                 . "<script src='../../../js/maps.js'></script>";
-                
+
         unset($this->data);
         $this->data['user'] = $this->session->userdata('user');
         $this->data['location'] = $this->main_m->get_location();
@@ -219,7 +220,8 @@ class User extends CI_Controller {
                 . "<script src='../../../js/switcher.js'></script>"
                 . "<script src='../../../js/xml2json.js'></script>"
                 . "<script src='../../../js/maps.js'></script>";
-        if (empty($this->session->userdata('user'))) {
+        $session = $this->session->userdata('user');
+        if (empty($session)) {
             redirect(base_url());
         }
         unset($this->data);

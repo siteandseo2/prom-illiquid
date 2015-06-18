@@ -87,10 +87,7 @@
                                                 <?= $item['name'] ?><!--name-->
                                             </h4>
                                             <span class="item_price">
-                                                <span class="price"><?= $item['price'] ?></span>
-												<span class="currency"><?= $item['currency'] ?></span>
-												<span class="separator">за</span>
-												<span class="quantity"><?= $item['prod_quantity'] ?></span>
+                                                <span class="price"><?= $item['price'] ?></span>					<span class="quantity"><?= $item['prod_quantity'] ?></span>
                                             </span>
                                         </a>
                                     </div>
@@ -100,7 +97,7 @@
                                                 <i class="fa fa-shopping-cart"></i>
                                             </div>
                                         </a>
-                                        <a href="<?= base_url('products/item/' . $item['id']); ?>" title="К товару">
+                                        <a href="<?= base_url('products/item/' . $item['id']); ?>-<?=$item['trans']?>" title="К товару">
                                             <div class="show-it">
                                                 <i class="fa fa-share"></i>
                                             </div>

@@ -39,6 +39,7 @@ class Subcategories extends CI_Controller {
         $this->load->model('category_m');
         $this->load->model('product_m');
         $this->load->model('main_m');
+        $this->script['location'] = $this->main_m->get_location();
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"

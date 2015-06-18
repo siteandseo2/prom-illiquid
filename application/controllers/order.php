@@ -32,6 +32,7 @@ class Order extends CI_Controller {
             } else {
                 $num = 2;
             }
+            $this->script['location'] = $this->main_m->get_location();
             $this->data['location'] = $this->main_m->get_location();
             $this->data['city'] = $this->main_m->get_city();
             $this->data['menu'] = $this->main_m->get_menu_front($num);

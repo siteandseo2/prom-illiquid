@@ -52,6 +52,7 @@ class Search extends CI_Controller {
         }
         /* load category_m */
         $this->data['location'] = $this->main_m->get_location();
+        $this->script['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
         $this->load->model('category_m');
         $this->load->model('subcategories_m');
