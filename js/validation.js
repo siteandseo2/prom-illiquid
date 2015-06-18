@@ -250,7 +250,6 @@
 			if (xhr.readyState != 4) return;
 
 			if ( xhr.status == 200 && url == 'user/add_user' ) {
-				
 				setTimeout(function() {
 					$('#overlay').hide();
 					$('.bubblingG').hide();
@@ -264,7 +263,6 @@
 			} else {
 				
 				console.error(xhr.status + ' : ' + xhr.statusText);
-				
 				if( url == 'user/add_user' ) {
 					setTimeout(function() {
 						$('#overlay').hide();
@@ -299,7 +297,9 @@
 			
 			setTimeout(function() {
 				$( success ).slideToggle(2000, function() {
-					$( this ).slideUp(2000);
+					$( this ).slideUp(2000, function() {
+						clearAll();
+					});
 				});
 			}, 500);
 			
@@ -307,11 +307,25 @@
 			
 			setTimeout(function() {
 				$( danger ).slideToggle(2000, function() {
-					$( this ).slideUp(2000);
+					$( this ).slideUp(2000, function() {
+						clearAll();
+					});
 				});
 			}, 500);
 			
 		}
+		
 	}
-
+	
+	function clearAll() {
+		var inputs = form.querySelectorAll('input:not([type="radio"]):not([type="button"])');
+		[].forEach.call(inputs, function(input) {
+			input.value = '';
+			if( input.classList.contains('validateInputTrue') ) input.classList.remove('validateInputTrue');
+			if( input.nextElementSibling.classList.contains('validateIconTrue') ) input.nextElementSibling.classList.remove('validateIconTrue');
+		});
+		
+		window.location.assign( window.location.origin + '/login' );
+	}
+	
 });

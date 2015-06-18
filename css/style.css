@@ -378,8 +378,8 @@ body.no-bg {
     opacity: .8;
 }
 
-#navigation #main-nav > li:last-child .sub-nav {
-    left: -150px;
+#main-nav > li:last-child .sub-nav {
+    left: -132px;
 }
 
 #main-nav > li.act > a {
@@ -1355,11 +1355,11 @@ p .form-submit {
 #cabinet-navigation #main-nav > li {
     margin: 0 25px;
 }
-
+/*
 #cabinet-navigation #main-nav > li:last-child  > .sub-nav {
     left: 0;
 }
-
+*/
 .cabinet-nav-icon {
     float: right;
     font-size: 1.2em;

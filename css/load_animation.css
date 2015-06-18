@@ -6,6 +6,12 @@ margin: 0 auto;
 display: none;
 }
 
+.registrBubbling {
+z-index: 250;
+position: relative;
+top: 300px;
+}
+
 .bubblingG span {
 display: inline-block;
 vertical-align: middle;

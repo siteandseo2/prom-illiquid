@@ -54,6 +54,7 @@ $(function() {
 			
 			break;
 		case '/add_product':
+		case '/edit_item':
 		
 			get.search();
 			get.cabinet();
