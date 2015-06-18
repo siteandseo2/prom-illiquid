@@ -15,7 +15,8 @@ class Order extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if (!empty($this->session->userdata('admin'))) {
+        $session = $this->session->userdata('admin');
+        if (!empty($session)) {
             $this->data['admin'] = $this->session->userdata('admin');
             $this->load->view("admin/header", $this->data);
         }
@@ -63,6 +64,5 @@ class Order extends CI_Controller {
         }
         redirect(base_url('admin/new_orders'));
     }
-    
 
 }

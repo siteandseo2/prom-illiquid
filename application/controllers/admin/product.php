@@ -14,7 +14,8 @@ class Product extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if (!empty($this->session->userdata('admin'))) {
+        $session = $this->session->userdata('admin');
+        if (!empty($session)) {
             /* load header */
             $this->data['admin'] = @$this->session->userdata('admin');
             $this->data_admin['admin'] = $this->session->userdata('admin');

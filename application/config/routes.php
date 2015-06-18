@@ -82,6 +82,7 @@ $route['admin/new_orders'] = 'admin/admin/get_order';
 $route['admin/order_status'] = 'admin/order/order_status';
 
 $route['subcategories/(:any)'] = 'subcategories/get_subgategory/$1';
+$route['subcategories'] = 'subcategories/get_all_subcat';
 $route['user/add_product'] = 'user/add_product';
 $route['company_info'] = 'user/company_info/';
 $route['company_info/(:any)'] = 'user/company_info/$1';
@@ -95,7 +96,6 @@ $route['search/prod'] = 'search/get_search/$1';
 $route['search/(:any)'] = 'search/get_search/$1';
 $route['cabinet'] = 'cabinet/user_data';
 $route['add_product'] = 'cabinet/add_product';
-$route['subcategories'] = 'subcategories/get_all_subcat';
 $route['products'] = 'product/get_products/$1';
 $route['prod/all']='product/get_all_product/$1';
 $route['prod/all/(:any)']='product/get_all_product/$1';

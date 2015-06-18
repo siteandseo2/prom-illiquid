@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class User extends CI_Controller {
 
     public $data;
+    public $script;
 
     function __construct() {
         parent::__construct();
@@ -15,7 +16,8 @@ class User extends CI_Controller {
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
         $this->data_user['user'] = @$this->session->userdata('user');
-        if (!empty($this->session->userdata('user'))) {
+        $session = $this->session->userdata('user');
+        if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
             if ($this->data['user']['usercat'] == "seller") {
@@ -79,9 +81,18 @@ class User extends CI_Controller {
     /* function login user from database */
 
     function get_user() {
-//        $this->data['script'] = "<script src='../../../js/validation.js'></script>";        
+        $this->script['script'] = "<script src='../../../js/validation.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                . "<script src='../../../js/autoComplete.js'></script>"
+                . "<script src='../../../js/main.js'></script>"
+                . "<script src='../../../js/cart.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/bootstrap-switch.js'></script>"
+                . "<script src='../../../js/main_nav.js'></script>"
+                . "<script src='../../../js/switcher.js'></script>";
         $this->load->view('pages/login');
-        $this->load->view('templates/footer', $this->data);
+        $this->load->view('templates/footer', $this->script);
         if (isset($_POST['login'])) {
             $email = $this->input->post('email');
             $password = $this->input->post('password');
@@ -156,10 +167,24 @@ class User extends CI_Controller {
     }
 
     function account_user($id) {
+         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                . "<script src='../../../js/autoComplete.js'></script>"
+                . "<script src='../../../js/main.js'></script>"
+                . "<script src='../../../js/cart.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/bootstrap-switch.js'></script>"
+                . "<script src='../../../js/main_nav.js'></script>"
+                . "<script src='../../../js/switcher.js'></script>"
+                . "<script src='../../../js/xml2json.js'></script>"
+                . "<script src='../../../js/maps.js'></script>";
+                
         unset($this->data);
         $this->data['user'] = $this->session->userdata('user');
         $this->data['location'] = $this->main_m->get_location();
-        if (!empty($this->session->userdata('user'))) {
+        $session = $this->session->userdata('user');
+        if (!empty($session)) {
             $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
             if ($this->data['user_data2'] == true) {
                 foreach ($this->data['user_data2'] as $key => $val) {
@@ -169,9 +194,9 @@ class User extends CI_Controller {
                 }
                 if ($this->data['user']['id'] == $id) {
                     $this->load->view('pages/account', $this->data);
-                    $this->load->view('templates/footer', $this->data);
-                }else{
-                     redirect(base_url('account') . '/' . $this->data['user']['id']);
+                    $this->load->view('templates/footer', $this->script);
+                } else {
+                    redirect(base_url('account') . '/' . $this->data['user']['id']);
                 }
             } else {
                 redirect(base_url('account') . '/' . $this->data['user']['id']);
@@ -182,6 +207,18 @@ class User extends CI_Controller {
     }
 
     function company_info($id) {
+        $this->script['script'] = "<script src='../../../js/validation.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                . "<script src='../../../js/autoComplete.js'></script>"
+                . "<script src='../../../js/main.js'></script>"
+                . "<script src='../../../js/cart.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/bootstrap-switch.js'></script>"
+                . "<script src='../../../js/main_nav.js'></script>"
+                . "<script src='../../../js/switcher.js'></script>"
+                . "<script src='../../../js/xml2json.js'></script>"
+                . "<script src='../../../js/maps.js'></script>";
         if (empty($this->session->userdata('user'))) {
             redirect(base_url());
         }
@@ -207,10 +244,22 @@ class User extends CI_Controller {
         } else {
             redirect('company_info/' . $this->data['user']['id']);
         }
-        $this->load->view('templates/footer', $this->data);
+        $this->load->view('templates/footer', $this->script);
     }
 
     function view_company($id) {
+        $this->script['script'] = "<script src='../../../js/validation.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                . "<script src='../../../js/autoComplete.js'></script>"
+                . "<script src='../../../js/main.js'></script>"
+                . "<script src='../../../js/cart.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/bootstrap-switch.js'></script>"
+                . "<script src='../../../js/main_nav.js'></script>"
+                . "<script src='../../../js/switcher.js'></script>"
+                . "<script src='../../../js/xml2json.js'></script>"
+                . "<script src='../../../js/maps.js'></script>";
         $this->data['user'] = $this->session->userdata('user');
         $this->data['location'] = $this->main_m->get_location();
         $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
@@ -222,7 +271,7 @@ class User extends CI_Controller {
             }
         }
         $this->load->view('pages/view_company', $this->data);
-        $this->load->view('templates/footer', $this->data);
+        $this->load->view('templates/footer', $this->script);
     }
 
 }

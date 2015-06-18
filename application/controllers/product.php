@@ -13,7 +13,8 @@ class Product extends CI_Controller {
         $this->load->model('user_model');
 
         /* load header */
-        if (!empty($this->session->userdata('user'))) {
+        $session = $this->session->userdata('user');
+        if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
 //            $access=3;
@@ -43,14 +44,20 @@ class Product extends CI_Controller {
             }
         }
         /* load model product */
-//        $config['base_url'] = base_url() . 'search';
-//        $config['total_rows'] = $this->product_m->count_prod();
-//
-//        $config['per_page'] = '3';
-//        $this->pagination->initialize($config);
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
-//        $this->data['products'] = $this->product_m->get_all_product($config['per_page'], $this->uri->segment(3));
+        $this->script['script'] = "<script src='../../../js/validation.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                . "<script src='../../../js/autoComplete.js'></script>"
+                . "<script src='../../../js/main.js'></script>"
+                . "<script src='../../../js/cart.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/bootstrap-switch.js'></script>"
+                . "<script src='../../../js/main_nav.js'></script>"
+                . "<script src='../../../js/switcher.js'></script>"
+                . "<script src='../../../js/sidebar.js'></script>";
+               
     }
 
     function get_all_product() {
@@ -61,7 +68,7 @@ class Product extends CI_Controller {
         $this->pagination->initialize($config);
         $this->data_db['items'] = $this->product_m->get_all_product($config['per_page'], $this->uri->segment(3));
         $this->load->view("pages/products", $this->data_db);
-        $this->load->view("templates/footer", $this->data);
+        $this->load->view("templates/footer", $this->script);
     }
 
     function get_products($link) {
@@ -88,10 +95,23 @@ class Product extends CI_Controller {
             }
         }
         $this->load->view("pages/products", $this->data_db);
-        $this->load->view("templates/footer", $this->data);
+        $this->load->view("templates/footer", $this->script);
     }
 
     function get_product($id) {
+        $this->script['script'] = "<script src='../../../js/validation.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                . "<script src='../../../js/autoComplete.js'></script>"
+                . "<script src='../../../js/main.js'></script>"
+                . "<script src='../../../js/cart.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/bootstrap-switch.js'></script>"
+                . "<script src='../../../js/main_nav.js'></script>"
+                . "<script src='../../../js/switcher.js'></script>"
+                . "<script src='../../../js/sidebar.js'></script>"
+                . "<script src='../../../js/jquery.fancybox.pack.js'></script>"
+                . "<script src='../../../js/product_settings.js'></script>";
         $this->data_db['product'] = $this->product_m->get_product($id);
         $this->data_db['cat_name'] = $this->product_m->get_product_cat($this->data_db['product']['0']['subcat_id']);
         $this->data_db['subcat_name'] = $this->product_m->get_cat_name($this->data_db['cat_name']['0']['link']);
@@ -103,7 +123,7 @@ class Product extends CI_Controller {
             }
         }
         $this->load->view("pages/item", $this->data_db);
-        $this->load->view("templates/footer", $this->data);
+        $this->load->view("templates/footer", $this->script);
     }
 
 }

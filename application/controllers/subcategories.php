@@ -14,12 +14,14 @@
 class Subcategories extends CI_Controller {
 
     public $data;
+    public $script;
 
     function __construct() {
         parent::__construct();
-         $this->load->model('user_model');
+        $this->load->model('user_model');
         $this->load->model('main_m');
-        if (!empty($this->session->userdata('user'))) {
+        $session = $this->session->userdata('user');
+        if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
 //            $access=3;
@@ -39,11 +41,23 @@ class Subcategories extends CI_Controller {
         $this->load->model('main_m');
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
+        $this->script['script'] = "<script src='../../../js/validation.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                . "<script src='../../../js/autoComplete.js'></script>"
+                . "<script src='../../../js/main.js'></script>"
+                . "<script src='../../../js/cart.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/bootstrap-switch.js'></script>"
+                . "<script src='../../../js/main_nav.js'></script>"
+                . "<script src='../../../js/switcher.js'></script>"
+                . "<script src='../../../js/sidebar.js'></script>";
     }
 
     function get_all_subcat() {
         $this->data['subcategories'] = $this->subcategories_m->get_subcategories_list();
-        if (!empty($this->data['subcategories'])) {
+        $sub = $this->data['subcategories'];
+        if (!empty($sub)) {
             foreach ($this->data['subcategories'] as $k => $arr) {
                 $id[] = $arr['id'];
             }
@@ -52,14 +66,15 @@ class Subcategories extends CI_Controller {
             }
         }
         $this->load->view("pages/subcategories", $this->data);
-        $this->load->view("templates/footer", $this->data);
+        $this->load->view("templates/footer", $this->script);
     }
 
     function get_subgategory($name = '') {
         $this->data['category'] = $this->category_m->get_category_name($name);
         $this->data['link'] = $name;
         $this->data['subcategories'] = $this->subcategories_m->get_subcategories($name);
-        if (!empty($this->data['subcategories'])) {
+        $sub = $this->data['subcategories'];
+        if (!empty($sub)) {
             foreach ($this->data['subcategories'] as $k => $arr) {
                 $id[] = $arr['id'];
             }
@@ -68,7 +83,7 @@ class Subcategories extends CI_Controller {
             }
         }
         $this->load->view("pages/subcategories", $this->data);
-        $this->load->view("templates/footer", $this->data);
+        $this->load->view("templates/footer", $this->script);
     }
 
 }

@@ -7,7 +7,8 @@ class Category extends CI_Controller {
 
     function __construct($page = 'index') {
         parent::__construct();
-        if(!empty($this->session->userdata('admin'))){
+        $session=$this->session->userdata('admin');
+        if(!empty($session)){
         $this->load->model('category_m');
         $this->data['admin'] = @$this->session->userdata('admin');
         $this->load->view("admin/header", $this->data);

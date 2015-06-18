@@ -18,7 +18,8 @@ class Admin extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if (!empty($this->session->userdata('admin'))) {
+        $session = $this->session->userdata('admin');
+        if (!empty($session)) {
             $this->data['admin'] = $this->session->userdata('admin');
             $this->load->view("admin/header", $this->data);
         }
@@ -61,7 +62,8 @@ class Admin extends CI_Controller {
     /*  function login admin  */
 
     function get_admin() {
-        if (!empty($this->session->userdata('admin'))) {
+        $session = $this->session->userdata('admin');
+        if (!empty($session)) {
             redirect(base_url('admin/index'));
         } else {
             $email = $this->input->post('email');
@@ -160,7 +162,9 @@ class Admin extends CI_Controller {
     function slide_add() {
         if (isset($_POST['slide_add'])) {
             unset($this->data);
-            if (!empty($this->input->post('header')) && !empty($this->input->post('text'))) {
+            $header = $this->input->post('text');
+            $text = $this->input->post('header');
+            if (!empty($header) && !empty($text)) {
                 if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
                     $this->data['header'] = $this->input->post('header');
                     $this->data['text'] = $this->input->post('text');
@@ -231,7 +235,8 @@ class Admin extends CI_Controller {
 
     function add_partner() {
         if (isset($_POST['add_partner'])) {
-            if (!empty($this->input->post('name'))) {
+            $name=$this->input->post('name');
+            if (!empty($name)) {
                 if (is_uploaded_file($_FILES["logo"]["tmp_name"])) {
                     unset($this->data);
                     $this->data['link'] = $this->input->post('link');
@@ -263,8 +268,8 @@ class Admin extends CI_Controller {
     function get_order() {
         $this->data['prepare'] = $this->product_m->get_order();
         foreach ($this->data['prepare'] as $k => $v) {
-            $this->data['order'][$v['item_id']]=$v;
-            $this->data['order'][$v['item_id']]['image']=  $this->product_m->get_order_img($v['item_id']);
+            $this->data['order'][$v['item_id']] = $v;
+            $this->data['order'][$v['item_id']]['image'] = $this->product_m->get_order_img($v['item_id']);
         }
 //        echo'<pre>';
 //        print_r($this->data['order']);

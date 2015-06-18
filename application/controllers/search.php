@@ -14,6 +14,7 @@
 class Search extends CI_Controller {
 
     public $data;
+    public $script;
 
     function __construct() {
         parent::__construct();
@@ -24,7 +25,8 @@ class Search extends CI_Controller {
         $this->load->model('category_m');
         $this->load->model('user_model');
         /* load header */
-        if (!empty($this->session->userdata('user'))) {
+        $session = $this->session->userdata('user');
+        if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
 //            $access=3;
@@ -102,8 +104,18 @@ class Search extends CI_Controller {
         $config['per_page'] = '9';
         $this->pagination->initialize($config);
         $this->load->view("pages/products", $this->data);
-
-        $this->load->view("templates/footer");
+        $this->script['script'] = "<script src='../../../js/validation.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
+                . "<script src='../../../js/autoComplete.js'></script>"
+                . "<script src='../../../js/main.js'></script>"
+                . "<script src='../../../js/cart.js'></script>"
+                . "<script src='../../../js/ajax_select.js'></script>"
+                . "<script src='../../../js/bootstrap-switch.js'></script>"
+                . "<script src='../../../js/main_nav.js'></script>"
+                . "<script src='../../../js/switcher.js'></script>"
+                . "<script src='../../../js/sidebar.js'></script>";
+        $this->load->view("templates/footer", $this->script);
     }
 
 }

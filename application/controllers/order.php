@@ -23,7 +23,8 @@ class Order extends CI_Controller {
         $this->load->model('product_m');
         $this->load->model('main_m');
         $this->data_user['user'] = @$this->session->userdata('user');
-        if (!empty($this->session->userdata('user'))) {
+        $session = $this->session->userdata('user');
+        if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
             if ($this->data['user']['usercat'] == "seller") {
@@ -76,7 +77,7 @@ class Order extends CI_Controller {
                     $json[$name][$num] = $value;
                 }
             }
-            
+
             foreach ($json as $k => $v) {
                 $this->product_m->add_order($v);
             }

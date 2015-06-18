@@ -303,7 +303,7 @@
 <script src="../../../js/jquery-1.11.0.min.js"></script>
 <script src="../../../js/jquery-ui.js"></script> 
 <script src="../../../js/bootstrap.js"></script>
-<script src="../../../js/uploading.js"></script>
+<!--<script src="../../../js/uploading.js"></script>-->
 <?php
 if (!empty($script))
     print_r($script);
