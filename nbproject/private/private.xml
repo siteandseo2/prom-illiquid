@@ -5,8 +5,8 @@
         <group>
             <file>file:/var/www/prom.loc/application/controllers/user.php</file>
             <file>file:/var/www/prom.loc/application/config/routes.php</file>
-            <file>file:/var/www/prom.loc/application/views/pages/view_company.php</file>
-            <file>file:/var/www/prom.loc/application/models/main_m.php</file>
+            <file>file:/var/www/prom.loc/application/views/pages/account.php</file>
+            <file>file:/var/www/prom.loc/application/views/pages/company_info.php</file>
             <file>file:/var/www/prom.loc/application/models/user_model.php</file>
             <file>file:/var/www/prom.loc/application/controllers/order.php</file>
         </group>
