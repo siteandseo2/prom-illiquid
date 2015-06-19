@@ -45,7 +45,8 @@ $(document).ready(function() {
 		var self = this;
 		
 		if( ev.target.tagName == 'SPAN' ) {
-			this.previousElementSibling.previousElementSibling.innerHTML = ev.target.innerHTML;
+			this.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML = ev.target.innerHTML;
+			this.previousElementSibling.previousElementSibling.value = ev.target.innerHTML;
 		} else if( ev.target.tagName == 'INPUT' ) {
 			ev.stopPropagation();
 		}
@@ -70,9 +71,9 @@ $(document).ready(function() {
 		if( $( subNav ).css('opacity') == 0 ) {
 			$( subNav ).css('visibility', 'visible');
 			$( subNav ).animate({
-				opacity: .8,
+				opacity: 1,
 				top: '100%',
-				width: $('#location-select-button').width() + 40 + 'px'
+				width: $('#location-select-button').width() + 40 + 'px',
 			}, 300);
 			
 			$( helpInput ).val('');
@@ -84,14 +85,13 @@ $(document).ready(function() {
 		} else {
 			$( subNav ).animate({
 				opacity: 0,
-				top: '110%'
+				top: '110%',
 			}, 300, function() {
 				$( this ).css('visibility', 'hidden');
 			});
 		}
 		
 	}
-	
 	
 	/* Fill in search dropdown */
 	
@@ -147,7 +147,10 @@ $(document).ready(function() {
 	
 	(function() {
 		
+		console.log( navigator.userAgent );
+		
 		$('#location-select-button .sub-nav ul').perfectScrollbar();
+		//$('#location-select-button .sub-nav .scrollbar-inner').scrollbar();
 		
 	}());
 	

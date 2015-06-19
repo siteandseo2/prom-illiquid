@@ -443,6 +443,11 @@ body.no-bg {
     text-align: left;
     text-decoration: none;
     line-height: 20px;
+	 color: #3a3a3a;
+}
+
+.sub-nav li:hover a {
+	background-color: rgba(58,58,58,0.07);
 }
 
 .sub-nav li a > span {
@@ -1661,6 +1666,7 @@ section .add-review input[type="submit"]:hover {
     font: normal normal 20px / 28px "Roboto", Helvetica, Arial, Verdana, sans-serif;
     text-transform: none;
     color: #333;
+	height: 56px;
 }
 
 .cat-item-title a  h3 .count {
@@ -1734,7 +1740,7 @@ section .add-review input[type="submit"]:hover {
    font-size: 1.2em;
 }
 
-
+/*
 .cat-item-hover-effect:after {
     content: '';
     width: 100%;
@@ -1755,7 +1761,7 @@ section .add-review input[type="submit"]:hover {
 .cat-item-hover-effect:hover:after {
     opacity: .3;
 }
-
+*/
 
 .hover-over-btns {
     width: 77%;
@@ -2443,7 +2449,7 @@ section .add-review input[type="submit"]:hover {
 }
 
 /* Cross browser hacks */
-/*
+
 @-moz-document url-prefix() {
     .tabs-buttons li:hover:not(.activeTab) a,
         #footer .foot-accordion a .color-primary:hover,
@@ -2451,12 +2457,11 @@ section .add-review input[type="submit"]:hover {
         color: #2578E9;
         background: transparent;
     }
-	
     #searching {
         top: 100px;
     }
 }
-*/
+
 
 .subm {
     background: none;
