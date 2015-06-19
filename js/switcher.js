@@ -38,7 +38,7 @@
 						
 						if( window.location.pathname == '/' || window.location.pathname == '/default' ) {
 							document.querySelector('#main-carousel').insertAdjacentHTML( 'beforeBegin', data );
-						} else if( $('#page').has('.page-title') ) {
+						} else if( $('#page').has('.page-title').length ) {
 							document.querySelector('.page-title').insertAdjacentHTML( 'beforeBegin', data );
 						} else {
 							document.querySelector('#main').insertAdjacentHTML( 'beforeBegin', data );
