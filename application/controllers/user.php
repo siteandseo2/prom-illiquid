@@ -317,4 +317,52 @@ class User extends CI_Controller {
         }
     }
 
+    function edit_user_data() {
+        if (isset($_POST['account_submit'])) {
+            unset($this->data);
+            $id = $this->input->post('id');
+            $this->data['name'] = $this->input->post('account_name');
+            $this->data['surname'] = $this->input->post('account_surname');
+            $this->data['patronymic'] = $this->input->post('account_patronymic');
+            $this->data['email'] = $this->input->post('account_email');
+            $this->data['phone'] = $this->input->post('account_phone');
+            $this->data['country'] = $this->input->post('account_country');
+            $location = $this->input->post('location');
+            $this->data['location'] = $this->user_model->get_location($location);
+            $city = $this->input->post('city');
+            if (!(int) $city) {
+                $this->data['city'] = $city;
+            } else {
+                $this->data['city'] = $this->user_model->get_city($city);
+            }
+            $this->data['street'] = $this->input->post('account_street');
+            $this->data['building'] = $this->input->post('account_building');
+            $this->db->where('id', $id)->update('user', $this->data);
+            redirect(base_url() . 'account');
+        }
+    }
+    function edit_company_data() {
+        if (isset($_POST['company_submit'])) {
+            unset($this->data);
+            $id = $this->input->post('company_id');
+            $this->data['company'] = $this->input->post('company_name');       
+            $this->data['phone_more'] = $this->input->post('company_phone_more');
+            $this->data['email'] = $this->input->post('company_email');
+            $this->data['phone'] = $this->input->post('company_phone');
+            $this->data['country'] = $this->input->post('company_country');
+            $location = $this->input->post('location');
+            $this->data['location'] = $this->user_model->get_location($location);
+            $city = $this->input->post('city');
+            if (!(int) $city) {
+                $this->data['city'] = $city;
+            } else {
+                $this->data['city'] = $this->user_model->get_city($city);
+            }
+            $this->data['street'] = $this->input->post('company_street');
+            $this->data['building'] = $this->input->post('company_building');
+            $this->db->where('id', $id)->update('user', $this->data);
+            redirect(base_url() . 'company_info/'.$id);
+        }
+    }
+
 }

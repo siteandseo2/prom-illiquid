@@ -90,6 +90,10 @@ $route['view_company/(:any)'] = 'user/view_company/$1';
 $route['account'] = 'user/account_user/$1';
 $route['account/(:any)'] = 'user/account_user/$1';
 $route['login'] = 'user/get_user';
+$route['edit_user_data']='user/edit_user_data';
+$route['edit_company_data']='user/edit_company_data';
+$route['exit_user'] = 'user/exit_user';
+$route['add_commit']='user/add_commit';
 $route['add_order'] = 'order/add_order';
 $route['search'] = 'search/search_name';
 $route['search/prod'] = 'search/get_search/$1';
@@ -103,8 +107,7 @@ $route['prod/all']='product/get_all_product/$1';
 $route['prod/all/(:any)']='product/get_all_product/$1';
 $route['products/item/(:any)'] = 'product/get_product/$1';
 $route['products/(:any)'] = 'product/get_products/$1';
-$route['exit_user'] = 'user/exit_user';
-$route['add_commit']='user/add_commit';
+
 
 $route['(:any)'] = 'main/index/$1';
 

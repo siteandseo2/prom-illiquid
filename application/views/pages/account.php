@@ -12,11 +12,12 @@
                 <h2 class="cabinetHead">Персональные данные</h2>
 
                 <!-- Account -->
-                <form id="cabinet-my-account" class="form-submit clearfix" method="POST" enctype="multipart/form-data">
+                <form id="cabinet-my-account" class="form-submit clearfix" action="<?= base_url() ?>edit_user_data" method="POST" enctype="multipart/form-data">
 
                     <div class="col-sm-6">
                         <p>
                             <label for="account_name">Имя</label>
+                            <input type="hidden" value="<?= $user_data['id'] ?>" id="company_name" name="id" class="cabinet-form-input" >
                             <input type="text" value="<?= $user_data['name'] ?>" id="account_name" name="account_name" class="cabinet-form-input">
                         </p>
                         <p>
@@ -33,7 +34,7 @@
                         </p>
                         <p>
                             <label for="account_phone">Телефон</label>
-                            <input type="text" value="+<?= $user_data['phone'] ?>" id="account_phone" name="account_phone" class="cabinet-form-input">
+                            <input type="text" value="<?= $user_data['phone'] ?>" id="account_phone" name="account_phone" class="cabinet-form-input">
                         </p>
                         <!-- 
                         <p>
@@ -53,24 +54,32 @@
                         <p>
                             <label for="account_country">Страна</label>
                             <select class="cabinet-form-input" id="account_country" name="account_country" data-map="country">
-                                <option value="ua"><?= $user_data['country'] ?></option>
-                                <option value="ua">Украина</option>
-                                <option value="ru">Россия</option>
-                                <option value="bl">Беларуссия</option>
-                                <option value="kz">Казахстан</option>
-                                <option value="ge">Грузия</option>
+                                <option value="<?= $user_data['country'] ?>"><?= $user_data['country'] ?></option>
+<!--                                <option value="Украина">Украина</option>
+                                <option value="Россия">Россия</option>
+                                <option value="Беларуссия">Беларуссия</option>
+                                <option value="Казахстан">Казахстан</option>
+                                <option value="Грузия">Грузия</option>-->
                                 <!-- AJAX ? -->
                             </select>
                         </p>
                         <p>
                             <label for="location">Область</label>
-                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
-                                <option value="<?= $user_data['location'] ?>"><?= $user_data['location'] ?></option>
+                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region">                                
                                 <?php
                                 foreach ($location as $k) {
-                                    ?>
-                                    <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
-                                    <?php
+                                    if ($user_data['location'] == $k['name']) {
+                                        ?>
+                                        <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option>
+                                        <?php
+                                    }
+                                }
+                                foreach ($location as $k) {
+                                    if ($user_data['location'] != $k['name']) {
+                                        ?>
+                                        <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
+                                        <?php
+                                    }
                                 }
                                 ?>                               
                             </select>
@@ -95,7 +104,7 @@
 
                         <p>
                             <span class="form-submit">
-                                <input type="button" name="account_submit" id="account_submit" value="Сохранить">
+                                <input type="submit" name="account_submit" id="account_submit" value="Сохранить">
                             </span>
                         </p>
                     </div>
