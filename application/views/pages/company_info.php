@@ -24,11 +24,11 @@
                         <p>
                             <label for="company_phone">Телефон компании</label>
                             <input type="text" value="<?= $user_data['phone'] ?>" id="company_phone" name="company_phone" class="cabinet-form-input">
-                        </p>
+                        </p>                      
                         <p>
                             <label for="company_phone_more">Дополнительный телефон</label>
                             <input type="text" value="<?= $user_data['phone_more'] ?>" id="company_phone_more" name="company_phone_more" class="cabinet-form-input">
-                        </p>
+                        </p>                       
                         <p>
                             <label for="company_country">Страна</label>
                             <select class="cabinet-form-input" id="company_country" name="company_country" data-map="country">
