@@ -63,7 +63,8 @@ class User extends CI_Controller {
                 $this->data['phone'] = $this->input->post('company_phone');
                 $this->data['phone_more'] = $this->input->post('company_phone_more');
                 $this->data['country'] = $this->input->post('company_country');
-                $this->data['city'] = $this->input->post('company_city');
+                $city = $this->input->post('company_city');
+                $this->data['city'] = $this->user_model->get_city($city);
                 $this->data['street'] = $this->input->post('company_street');
                 $this->data['building'] = $this->input->post('company_building');
             }
@@ -91,7 +92,8 @@ class User extends CI_Controller {
                 . "<script src='../../../js/ajax_select.js'></script>"
                 . "<script src='../../../js/bootstrap-switch.js'></script>"
                 . "<script src='../../../js/main_nav.js'></script>"
-                . "<script src='../../../js/switcher.js'></script>";
+                . "<script src='../../../js/switcher.js'></script>"
+                . "<script src='../../../js/product_settings.js'></script>";
         $this->load->view('pages/login');
         $this->load->view('templates/footer', $this->script);
         if (isset($_POST['login'])) {
@@ -179,7 +181,8 @@ class User extends CI_Controller {
                 . "<script src='../../../js/main_nav.js'></script>"
                 . "<script src='../../../js/switcher.js'></script>"
                 . "<script src='../../../js/xml2json.js'></script>"
-                . "<script src='../../../js/maps.js'></script>";
+                . "<script src='../../../js/maps.js'></script>"
+                . "<script src='../../../js/product_settings.js'></script>";
 
         unset($this->data);
         $this->data['user'] = $this->session->userdata('user');
@@ -219,7 +222,8 @@ class User extends CI_Controller {
                 . "<script src='../../../js/main_nav.js'></script>"
                 . "<script src='../../../js/switcher.js'></script>"
                 . "<script src='../../../js/xml2json.js'></script>"
-                . "<script src='../../../js/maps.js'></script>";
+                . "<script src='../../../js/maps.js'></script>"
+                . "<script src='../../../js/product_settings.js'></script>";
         $session = $this->session->userdata('user');
         if (empty($session)) {
             redirect(base_url());
@@ -261,10 +265,13 @@ class User extends CI_Controller {
                 . "<script src='../../../js/main_nav.js'></script>"
                 . "<script src='../../../js/switcher.js'></script>"
                 . "<script src='../../../js/xml2json.js'></script>"
-                . "<script src='../../../js/maps.js'></script>";
+                . "<script src='../../../js/maps.js'></script>"
+                . "<script src='../../../js/product_settings.js'></script>";
         $this->data['user'] = $this->session->userdata('user');
         $this->data['location'] = $this->main_m->get_location();
         $this->data['user_data2'] = $this->user_model->get_user_by_id($id);
+        $this->data['ident'] = $id;
+        $this->data['rating'] = $this->user_model->get_rate($id);
         if ($this->data['user_data2'] == true) {
             foreach ($this->data['user_data2'] as $key => $val) {
                 foreach ($val as $k => $v) {
@@ -272,8 +279,42 @@ class User extends CI_Controller {
                 }
             }
         }
+        $this->data['comment'] = $this->user_model->get_comment($id);
         $this->load->view('pages/view_company', $this->data);
         $this->load->view('templates/footer', $this->script);
+    }
+
+    function add_commit() {
+        if (isset($_POST['add_commit'])) {
+            unset($this->data);
+            $this->data['author'] = $this->input->post('author');
+            $this->data['email'] = $this->input->post('author');
+            $this->data['commit'] = $this->input->post('comment');
+            $this->data['company_id'] = $this->input->post('company');
+            $this->data['stars'] = $this->input->post('star_rating');
+            $this->data['date'] = date('Y-m-d H:i:s');
+            $id = $this->input->post('company');
+            $this->data['error'] = '';
+            if (empty($this->data['author'])) {
+                $this->data['error'] .= '<h4 style="color: red;">Ошибка заполните поле Имя</h4>';
+            }
+            if (empty($this->data['email'])) {
+                $this->data['error'] .= '<h4 style="color: red;">Ошибка заполните поле Email</h4>';
+            }
+            if (empty($this->data['commit'])) {
+                $this->data['error'] .= '<h4 style="color: red;">Ошибка заполните поле Ваш комментарий</h4>';
+            }
+            if (empty($this->data['stars'])) {
+                $this->data['error'] .= '<h4 style="color: red;">Ошибка заполните поле Ваш рейтинг</h4>';
+            }
+            if (empty($this->data['error'])) {
+                unset($this->data['error']);
+                $this->user_model->add_commit($this->data);
+                redirect(base_url() . 'view_company/' . $id);
+            } else {
+                $this->view_company($id);
+            }
+        }
     }
 
 }

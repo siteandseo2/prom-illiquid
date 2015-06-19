@@ -96,13 +96,15 @@ $route['search/prod'] = 'search/get_search/$1';
 $route['search/(:any)'] = 'search/get_search/$1';
 $route['cabinet'] = 'cabinet/user_data';
 $route['add_product'] = 'cabinet/add_product';
+$route['edit_item'] = 'product/edit_item';
+$route['set_item'] = 'product/set_item';
 $route['products'] = 'product/get_products/$1';
 $route['prod/all']='product/get_all_product/$1';
 $route['prod/all/(:any)']='product/get_all_product/$1';
 $route['products/item/(:any)'] = 'product/get_product/$1';
 $route['products/(:any)'] = 'product/get_products/$1';
 $route['exit_user'] = 'user/exit_user';
-
+$route['add_commit']='user/add_commit';
 
 $route['(:any)'] = 'main/index/$1';
 

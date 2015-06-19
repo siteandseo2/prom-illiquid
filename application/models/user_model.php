@@ -10,7 +10,11 @@ class user_model extends CI_Model {
     }
 
     function add_user($data, $email) {
-
+        foreach($data as $k=>$v){
+            if($v=""){
+                return "400";
+            }
+        }
         $query = $this->db->query("SELECT email FROM user WHERE email='$email'");
         $x = $query->num_rows();
         if (empty($x)) {
@@ -61,6 +65,20 @@ class user_model extends CI_Model {
         foreach ($query->result() as $row) {
             return $row->name;
         }
+    }
+
+    function add_commit($data) {
+        if ($this->db->insert('commit', $data))
+            return true;
+    }
+
+    function get_comment($id) {
+        $query = $this->db->where('company_id', $id)->get('commit');
+        return $query->result_array();
+    }
+     function get_rate($id) {
+        $query = $this->db->where('company_id', $id)->select('stars')->get('commit');
+        return $query->result_array();
     }
 
 }

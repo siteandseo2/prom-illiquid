@@ -55,9 +55,9 @@
     <div class="container wf-wrap clearfix">
 
         <div id="content" class="content">
-
-            <p class="cat-result-count">Показано <?= count($items) ?> позиции из <?=$total_rows?></p>
-
+            <? if (!empty($items)) { ?>
+            <p class="cat-result-count">Показано <?= count($items) ?> позиции из <?= $total_rows ?></p>
+            <? } ?>
             <div class="cat-ordering">
                 <select>
                     <option value="pop">Сортировка по популярности</option>
@@ -87,7 +87,7 @@
                                                 <?= $item['name'] ?><!--name-->
                                             </h4>
                                             <span class="item_price">
-                                                <span class="price"><?= $item['price'] ?></span>					<span class="quantity"><?= $item['prod_quantity'] ?></span>
+                                                <span class="price"><?= $item['price'] ?> <?= $item['currency'] ?> за </span><span class="quantity"><?= $item['prod_quantity'] ?></span>
                                             </span>
                                         </a>
                                     </div>
@@ -97,7 +97,7 @@
                                                 <i class="fa fa-shopping-cart"></i>
                                             </div>
                                         </a>
-                                        <a href="<?= base_url('products/item/' . $item['id']); ?>-<?=$item['trans']?>" title="К товару">
+                                        <a href="<?= base_url('products/item/' . $item['id']); ?>-<?= $item['trans'] ?>" title="К товару">
                                             <div class="show-it">
                                                 <i class="fa fa-share"></i>
                                             </div>
@@ -131,9 +131,9 @@
                     </div>
                     <?php
                 }
-                 echo $this->pagination->create_links();
+                echo $this->pagination->create_links();
                 ?>  
-                
+
             </div>
 
         </div>
