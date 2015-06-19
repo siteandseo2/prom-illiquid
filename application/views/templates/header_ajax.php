@@ -141,13 +141,14 @@
                     <div class="btn-group s-butt">
                         <button type="button" class="btn btn-default search-block-button" id="location-select-button">
                             <span class="btn-text">Вся Украина</span>
+							<input type="hidden" name="certainCity" value="">
                             <span class="search-select-icon">
                                 <i class="fa fa-angle-down"></i>
                             </span>
 
                             <div class="sub-nav">
                                 <input type="text" placeholder="Введите название города" name="searchCityName">
-                                <ul></ul>
+                                <ul class="scrollbar-inner"></ul>
                             </div>
                         </button>
 
