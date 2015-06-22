@@ -131,10 +131,82 @@
                     </div>
                     <?php
                 }
-                echo $this->pagination->create_links();
-                ?>  
+                echo $this->pagination->create_links(); 
+                ?>   
+				
+				<ul class="pagination">
+					<!-- 
+					<li>
+						<a href="#">1</a>
+					</li>
+					<li>
+						<a href="#">2</a>
+					</li>
+					<li>
+						<a href="#">3</a>
+					</li>
+					-->
+				</ul>
 
             </div>
+			
+			<script>
+				(function() {
+					var links = document.querySelectorAll('.cat-row > a'),
+						current = document.querySelector('.cat-row > strong'),
+						pagination = document.querySelector('.pagination'),
+						href = window.location.href,
+						iterator = 9;
+						
+					console.log( links, current, pagination );
+					
+					var clone = current.cloneNode( true );
+					console.log( clone.outerHTML );
+					var text = clone.textContent;
+					var li = docuent.createElement('li');
+					var a = docuent.createElement('a');
+					a.innerHTML = text;
+					a.setAttribute('href', '#');
+					li.appendChild(a);
+					
+					
+					console.log( clone );
+					
+					//
+					
+					try {
+						if( links.length && current ) go();
+					} catch( e ) {
+						console.log( e.type + ' ' + e.message );
+					} 
+					
+					
+					function go() {
+					
+						function counter() {
+							var count = 1;
+							return function() {
+								return count++;
+							}
+						}
+						var c = counter();
+						
+						for(var i = 0; i<links.length; i++) {
+							var li = document.createElement('LI'),
+								a = document.createElement('A'),
+								x = c();
+							
+							a.setAttribute('href', href + iterator*x);
+							a.innerHTML = x;
+							
+							li.appendChild(a);
+							pagination.appendChild(li);
+						}
+					
+					}
+		
+				}());
+			</script>
 
         </div>
 

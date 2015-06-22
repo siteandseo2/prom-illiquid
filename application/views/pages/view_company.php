@@ -110,6 +110,8 @@
 
                     <div class="row">
                         <div class="col-sm-12">
+						
+							<!-- Feedback -->
 
                             <div id="reviews_panel" style="display: block;">
                                 <? if(!empty($comment)){ ?>
@@ -139,32 +141,6 @@
                                             </div>
                                         </li>
                                         <? } ?>
-                                        <!--                                        <li class="comment" id="comment-2">
-                                                                                    <div class="comment-container">
-                                                                                        <img src="../../../img/avatar-2.png" alt="" width="60" height="60">
-                                                                                        <div class="comment-text clearfix">
-                                                                                            <div class="star-right clearfix">
-                                                                                                <i class="fa fa-star-o"></i>
-                                                                                                <i class="fa fa-star-o"></i>
-                                                                                                <i class="fa fa-star-o"></i>
-                                                                                                <i class="fa fa-star-o"></i>
-                                                                                            </div>
-                                        
-                                                                                            <p class="meta">
-                                                                                                <strong class="author">Alex Greenfield</strong>
-                                                                                                -
-                                                                                                <time datetime="2014-09-16T09:33:34+00:00">September 16, 2014</time>
-                                                                                            </p>
-                                        
-                                                                                            <div class="descr">
-                                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                                                                                                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                                                                                                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                                                                                                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </li>-->
                                     </ul>
                                 </div>
                                 <? } ?>
@@ -222,8 +198,87 @@
                                     </div>
 
                                 </div>
-
                             </div>
+							
+							<!-- Company's Others Goods -->
+					
+							<div class="marketing-carousel" id="item-others">
+								<h3>Другие товары компании</h3>
+								
+								<ul class="carou-fred-sel clearfix">
+									<li>
+										<a href="<?= base_url(); ?>" title=""> 
+											<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+											<span class="product-title">IPhone mockup 6</span>
+										</a>
+										<span class="amount">$15.00</span>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>" title=""> 
+											<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+											<span class="product-title">IPhone mockup 6</span>
+										</a>
+										<span class="amount">$15.00</span>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>" title=""> 
+											<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+											<span class="product-title">IPhone mockup 6</span>
+										</a>
+										<span class="amount">$15.00</span>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>" title=""> 
+											<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+											<span class="product-title">IPhone mockup 6</span>
+										</a>
+										<span class="amount">$15.00</span>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>" title=""> 
+											<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+											<span class="product-title">IPhone mockup 6</span>
+										</a>
+										<span class="amount">$15.00</span>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>" title=""> 
+											<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+											<span class="product-title">IPhone mockup 6</span>
+										</a>
+										<span class="amount">$15.00</span>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>" title=""> 
+											<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+											<span class="product-title">IPhone mockup 6</span>
+										</a>
+										<span class="amount">$15.00</span>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>" title=""> 
+											<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+											<span class="product-title">IPhone mockup 6</span>
+										</a>
+										<span class="amount">$15.00</span>
+									</li>
+									<li>
+										<a href="<?= base_url(); ?>" title=""> 
+											<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+											<span class="product-title">IPhone mockup 6</span>
+										</a>
+										<span class="amount">$15.00</span>
+									</li>
+								</ul>
+								
+								<span href="#" id="other_next" class="marketing-ctrl next">
+									<i class="fa fa-chevron-right"></i>
+								</span>
+								
+								<span href="#" id="other_prev" class="marketing-ctrl prev">
+									<i class="fa fa-chevron-left"></i>
+								</span>
+							</div>
 
 
                         </div>

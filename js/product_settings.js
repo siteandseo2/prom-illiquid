@@ -118,6 +118,71 @@ $( document ).ready(function() {
 		
 	}());
 	
+	/* Carousel */
+	
+	
+	$('#others .carou-fred-sel').carouFredSel({
+		items: 4,
+		direction: "right",
+		align: "center",
+		auto: {
+			play: true
+		},
+		scroll: {
+			items: 1,
+			duration: 2000,
+			easing: "swing"
+		},
+		prev: {
+			button: "#other_prev"
+		},
+		next: {
+			button: "#other_next"
+		}
+	});
+	
+	
+	$('#similars .carou-fred-sel').carouFredSel({
+		items: 4,
+		direction: "right",
+		align: "center",
+		auto: {
+			play: true
+		},
+		scroll: {
+			items: 1,
+			duration: 3000,
+			easing: "swing"
+		},
+		prev: {
+			button: "#similar_prev"
+		},
+		next: {
+			button: "#similar_next"
+		}
+	});
+	
+	
+	$('#item-others .carou-fred-sel').carouFredSel({
+		items: 6,
+		direction: "right",
+		align: "center",
+		auto: {
+			play: true
+		},
+		scroll: {
+			items: 1,
+			duration: 2000,
+			easing: "swing"
+		},
+		prev: {
+			button: "#other_prev"
+		},
+		next: {
+			button: "#other_next"
+		}
+	});
+	
 	
 });
 	

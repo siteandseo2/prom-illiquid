@@ -863,15 +863,21 @@ body.no-bg {
 .page-title .breadcrumbs {
     display: inline-block;
     color: #bcbcbc;
-    float: right;
     text-align: right;
+	font-size: 13px;
+	white-space: nowrap;
 }
 
 .page-title .breadcrumbs  li {
     position: relative;
-    display: inline-block;
+    display: inline;
     padding-left: 12px;
     margin-left: 8px;
+}
+
+.page-title .breadcrumbs  li:first-child {
+	padding-left: 0;
+	margin-left: 0;
 }
 
 .page-title .breadcrumbs  li:before {
@@ -1808,7 +1814,7 @@ section .add-review input[type="submit"]:hover {
     line-height: 80px;
 }
 
-/* Product */
+/* Item */
 
 .images {
     padding-right: 44px;
@@ -2033,6 +2039,73 @@ section .add-review input[type="submit"]:hover {
     margin-bottom: 0;
 }
 
+
+.marketing-carousel {
+	margin-bottom: 30px;
+	padding-top: 15px;
+	position: relative;
+}
+
+.marketing-carousel > h3 {
+	color: #333;
+	font: normal normal normal 24px / 27px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+	text-transform: none;
+	margin-bottom: 15px;
+}
+
+.marketing-carousel .carou-fred-sel {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	box-sizing: border-box;
+}
+
+.marketing-carousel .carou-fred-sel li {
+	display: inline-block;
+	padding: 10px 15px 10px 0;
+}
+
+.marketing-carousel .carou-fred-sel li  a {
+	color: #333;
+	font-size: 18px;
+	line-height: 25px;
+	display: block;
+	text-decoration: none;
+}
+
+.marketing-carousel .carou-fred-sel li  a span {
+	display: block;
+}
+
+.marketing-carousel .carou-fred-sel li a img {
+	width: 175px;
+	height: auto;
+	float: left;
+}
+
+.marketing-carousel .marketing-ctrl {
+	position: absolute;
+	top: 50%;
+	font-size: 2em;
+}
+
+.marketing-carousel .marketing-ctrl.next {
+	right: 17px;
+}
+.marketing-carousel  .marketing-ctrl.prev {
+	left: -32px;
+}
+
+#item-others .marketing-ctrl.next {
+	right: 22px;
+}
+
 /* Sidebar */
 
 .sidebar {
@@ -2050,6 +2123,7 @@ section .add-review input[type="submit"]:hover {
     line-height: 25px;
     padding-top: 25px;
     padding-bottom: 25px;
+	position: relative;
 }
 .sidebar-content section:first-child {
     padding-top: 0;
@@ -2197,6 +2271,19 @@ section .add-review input[type="submit"]:hover {
     line-height: 23px;
     color: #777;
 }
+
+.carou-fred-sel-ctrl {
+	display: inline-block;
+	text-align: center;
+	font-size: 1.5em;
+	width: 100%;
+	padding: 5px 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+}
+
 
 
 /* Footer */
