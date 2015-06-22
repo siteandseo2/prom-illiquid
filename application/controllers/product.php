@@ -9,8 +9,8 @@ class Product extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $config['full_tag_open'] = '<div class="pagination">';
-        $config['full_tag_close'] = '</div>';
+        
+        
         $this->load->model('main_m');
         $this->load->model('user_model');
 
@@ -68,6 +68,17 @@ class Product extends CI_Controller {
         $config['total_rows'] = $this->product_m->count_prod();
         $this->data_db['total_rows'] = $this->product_m->count_prod();
         $config['per_page'] = '9';
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['prev_link'] = '<';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
         $this->pagination->initialize($config);
         $this->data_db['prep'] = $this->product_m->get_all_product($config['per_page'], $this->uri->segment(3));
         foreach ($this->data_db['prep'] as $k => $v) {
@@ -91,7 +102,17 @@ class Product extends CI_Controller {
         $config['total_rows'] = count($this->product_m->get_products_byLINK($link));
         $this->data_db['total_rows'] = count($this->product_m->get_products_byLINK($link));
         $config['per_page'] = '9';
-
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['prev_link'] = '<';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
         $this->pagination->initialize($config);
         $this->data_db['prep'] = $this->product_m->get_products($link, $config['per_page'], $this->uri->segment(3));
         foreach ($this->data_db['prep'] as $k => $v) {

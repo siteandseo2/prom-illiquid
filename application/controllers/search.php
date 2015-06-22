@@ -18,8 +18,7 @@ class Search extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $config['full_tag_open'] = '<div class="pagination">';
-        $config['full_tag_close'] = '</div>';
+
         $this->load->model('product_m');
         $this->load->model('main_m');
         $this->load->model('subcategories_m');
@@ -117,8 +116,18 @@ class Search extends CI_Controller {
             $this->session->unset_userdata('search');
         $config['total_rows'] = count($arr);
         $config['per_page'] = '9';
-        $config['full_tag_open'] = '<div class="pagination">';
-        $config['full_tag_close'] = '</div>';
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['prev_link'] = '<';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+
         $this->pagination->initialize($config);
         $this->load->view("pages/products", $this->data);
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
