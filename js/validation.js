@@ -247,8 +247,9 @@
 		xhr.open('POST', url, true);
 
 		xhr.onreadystatechange = function () {
+			
 			if (xhr.readyState != 4) return;
-
+			
 			if ( xhr.status == 200 && url == 'user/add_user' ) {
 				setTimeout(function() {
 					$('#overlay').hide();
@@ -262,7 +263,8 @@
 				
 			} else {
 				
-				console.error(xhr.status + ' : ' + xhr.statusText);
+				console.error('status : %s, statusText: %s', xhr.status, xhr.statusText);
+				
 				if( url == 'user/add_user' ) {
 					setTimeout(function() {
 						$('#overlay').hide();
@@ -298,7 +300,7 @@
 			setTimeout(function() {
 				$( success ).slideToggle(2000, function() {
 					$( this ).slideUp(2000, function() {
-						clearAll();
+						clearAll( true );
 					});
 				});
 			}, 500);
@@ -308,7 +310,7 @@
 			setTimeout(function() {
 				$( danger ).slideToggle(2000, function() {
 					$( this ).slideUp(2000, function() {
-						clearAll();
+						clearAll( false );
 					});
 				});
 			}, 500);
@@ -317,7 +319,7 @@
 		
 	}
 	
-	function clearAll() {
+	function clearAll( bool ) {
 		var inputs = form.querySelectorAll('input:not([type="radio"]):not([type="button"])');
 		[].forEach.call(inputs, function(input) {
 			input.value = '';
@@ -325,7 +327,7 @@
 			if( input.nextElementSibling.classList.contains('validateIconTrue') ) input.nextElementSibling.classList.remove('validateIconTrue');
 		});
 		
-		window.location.assign( window.location.origin + '/login' );
+		if( bool ) window.location.assign( window.location.origin + '/login' );
 	}
 	
 });
