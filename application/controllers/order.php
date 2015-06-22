@@ -79,11 +79,12 @@ class Order extends CI_Controller {
                 }
             }
 
-            foreach ($json as $k => $v) {
-                $this->product_m->add_order($v);
+            foreach ($json as $num => $value) {
+                $this->product_m->add_order($value);
             }
 //            redirect(base_url('default'));
         }
+        unset($json, $this->data_db, $this->prep, $value, $column, $num, $this->data);
     }
 
 }

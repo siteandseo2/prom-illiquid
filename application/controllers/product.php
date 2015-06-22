@@ -78,6 +78,7 @@ class Product extends CI_Controller {
         }
         $this->load->view("pages/products", $this->data_db);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data_db, $key, $k, $v, $val);
     }
 
     function get_products($link) {
@@ -114,6 +115,7 @@ class Product extends CI_Controller {
         }
         $this->load->view("pages/products", $this->data_db);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data_db, $key, $k, $v, $val);
     }
 
     function get_product($id) {
@@ -142,6 +144,7 @@ class Product extends CI_Controller {
         }
         $this->load->view("pages/item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data_db, $key, $k, $v);
     }
 
     function translit($str) {
@@ -169,6 +172,7 @@ class Product extends CI_Controller {
         $this->data_db['product'] = $this->product_m->get_item_by_user_id($id);
         $this->load->view("pages/edit_item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data_db, $this->data);
     }
 
     function set_item() {
@@ -201,6 +205,8 @@ class Product extends CI_Controller {
 
             redirect(base_url('edit_item'));
         }
+        unset($val, $key, $id);
+        unset($this->script, $this->data_db, $this->data);
     }
 
 }

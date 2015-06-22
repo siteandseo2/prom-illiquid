@@ -57,9 +57,6 @@ class Search extends CI_Controller {
         $this->load->model('subcategories_m');
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
         $this->data['group_list'] = $this->category_m->focus_product_list();
-        if (isset($_POST['search'])) {
-            
-        }
     }
 
     function search_name() {
@@ -76,6 +73,7 @@ class Search extends CI_Controller {
                 redirect(base_url('search/' . $name1));
             }
         }
+        unset($this->script,  $this->data, $name, $item, $name1, $session_data);
     }
 
     function get_search() {
@@ -132,6 +130,7 @@ class Search extends CI_Controller {
                 . "<script src='../../../js/switcher.js'></script>"
                 . "<script src='../../../js/sidebar.js'></script>";
         $this->load->view("templates/footer", $this->script);
+        unset($this->script,  $this->data, $name, $item, $key,$val, $link, $arr);
     }
 
     function translit($str) {

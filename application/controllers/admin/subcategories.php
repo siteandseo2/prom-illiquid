@@ -62,6 +62,7 @@ class Subcategories extends CI_Controller {
             $this->db->query("UPDATE subcategories SET link='$link'  WHERE id='$id'");
 
             redirect(base_url('admin/subcategories'));
+            unset($this->data, $id, $fp_id, $key, $value, $name);
         }
     }
 
@@ -84,6 +85,7 @@ class Subcategories extends CI_Controller {
             }
 
             redirect(base_url('admin/subcategories'));
+            unset($this->data, $cat_id, $key, $val);
         }
     }
 
@@ -98,6 +100,7 @@ class Subcategories extends CI_Controller {
             }
 
             redirect(base_url('admin/subcategories'));
+            unset($this->data, $id);
         }
     }
 
@@ -110,6 +113,7 @@ class Subcategories extends CI_Controller {
         $this->change_type();
         $this->edit_subcat();
         $this->load->view('admin/footer');
+        unset($this->data);
     }
 
     /* function add subcategory */
@@ -129,6 +133,7 @@ class Subcategories extends CI_Controller {
             } else {
                 redirect(base_url('admin/subcategories_add'));
             }
+            unset($this->data_db, $this->data);
         }
     }
 
@@ -143,6 +148,7 @@ class Subcategories extends CI_Controller {
             $this->load->view('admin/subcategories', $this->data);
             $this->load->view('admin/footer');
         }
+        unset($this->data);
     }
 
     /* filter by categories END */

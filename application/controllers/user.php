@@ -63,6 +63,8 @@ class User extends CI_Controller {
                 $this->data['phone'] = $this->input->post('company_phone');
                 $this->data['phone_more'] = $this->input->post('company_phone_more');
                 $this->data['country'] = $this->input->post('company_country');
+                $location_id = $this->input->post('location');
+                $this->data['location'] = $this->user_model->get_location($location_id);
                 $city = $this->input->post('company_city');
                 $this->data['city'] = $this->user_model->get_city($city);
                 $this->data['street'] = $this->input->post('company_street');
@@ -74,6 +76,7 @@ class User extends CI_Controller {
                 $response = '400';
             }
             echo json_encode($response);
+            unset($response, $this->data, $city, $email, $location_id);
         }
     }
 
@@ -120,6 +123,7 @@ class User extends CI_Controller {
                 redirect(base_url('cabinet'));
             }
         }
+        unset($session_data, $password, $email, $this->data, $this->script);
     }
 
     /* END function login user from database  */
@@ -166,6 +170,7 @@ class User extends CI_Controller {
                     redirect(base_url('add_product'));
                 }
             }
+            unset($this->data);
         }
     }
 
@@ -208,6 +213,7 @@ class User extends CI_Controller {
         } else {
             redirect(base_url());
         }
+        unset($this->data, $this->script, $session, $key, $val, $k, $v);
     }
 
     function company_info($id) {
@@ -251,6 +257,7 @@ class User extends CI_Controller {
             redirect('company_info/' . $this->data['user']['id']);
         }
         $this->load->view('templates/footer', $this->script);
+        unset($this->data, $this->script, $session, $key, $val, $k, $v);
     }
 
     function view_company($id) {
@@ -282,6 +289,7 @@ class User extends CI_Controller {
         $this->data['comment'] = $this->user_model->get_comment($id);
         $this->load->view('pages/view_company', $this->data);
         $this->load->view('templates/footer', $this->script);
+        unset($this->data, $this->script, $key, $val, $k, $v);
     }
 
     function add_commit() {
@@ -315,6 +323,7 @@ class User extends CI_Controller {
                 $this->view_company($id);
             }
         }
+        unset($this->data, $this->script);
     }
 
     function edit_user_data() {
@@ -340,12 +349,14 @@ class User extends CI_Controller {
             $this->db->where('id', $id)->update('user', $this->data);
             redirect(base_url() . 'account');
         }
+        unset($this->data);
     }
+
     function edit_company_data() {
         if (isset($_POST['company_submit'])) {
             unset($this->data);
             $id = $this->input->post('company_id');
-            $this->data['company'] = $this->input->post('company_name');       
+            $this->data['company'] = $this->input->post('company_name');
             $this->data['phone_more'] = $this->input->post('company_phone_more');
             $this->data['email'] = $this->input->post('company_email');
             $this->data['phone'] = $this->input->post('company_phone');
@@ -361,8 +372,9 @@ class User extends CI_Controller {
             $this->data['street'] = $this->input->post('company_street');
             $this->data['building'] = $this->input->post('company_building');
             $this->db->where('id', $id)->update('user', $this->data);
-            redirect(base_url() . 'company_info/'.$id);
+            redirect(base_url() . 'company_info/' . $id);
         }
+        unset($id, $location, $city, $this->data);
     }
 
 }

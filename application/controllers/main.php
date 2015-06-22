@@ -100,6 +100,7 @@ class Main extends CI_Controller {
                 break;
         }
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data);
     }
 
     /* END Main Page USER */
