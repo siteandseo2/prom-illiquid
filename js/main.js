@@ -217,14 +217,45 @@ $(document).ready(function() {
 	/* Edit Item. Sortable */
 	
 	$(function() {
-		
 		try {
 			$('.sortable').sortable();
 		} catch( e ) {
 			console.log( e.type + ' : ' + e.message );
 		} 
-		
-		
 	});
+	
+	/* Pagination */
+	
+	(function() {
+		var links = document.querySelectorAll('.cat-row > .pagination > a'),
+			current = document.querySelector('.cat-row > .pagination > strong'),
+			pagination = document.querySelector('.pagination');
+			
+		var def = Lia('#', current.innerHTML, false);
+		pagination.replaceChild(def, current);
+		
+		function Lia(href, text, bool) {
+			var li = document.createElement('li');
+			if( !bool ) li.className = 'active';
+			var a = document.createElement('a');
+			a.innerHTML = text;
+			a.setAttribute('href', href);
+			li.appendChild(a);
+			return li;
+		}
+		
+		try {
+			if( links.length && current ) go();
+		} catch( e ) {
+			console.log( e.type + ' ' + e.message );
+		} 
+		
+		function go() {
+			for(var i = 0; i<links.length; i++) {
+				var li = Lia(links[i].getAttribute('href'), links[i].innerHTML, true);
+				pagination.replaceChild(li, links[i]);
+			}
+		}
+	}());
 	
 });
