@@ -96,7 +96,7 @@ class Ajax extends CI_Controller {
             }
         }
         echo json_encode($json);
-        unset($menu_list, $json, $num, $column, $name, $value, $id);
+//        unset($menu_list, $json, $num, $column, $name, $value, $id);
     }
 
     function change_role() {

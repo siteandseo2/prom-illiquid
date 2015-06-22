@@ -47,6 +47,7 @@ $route['default_controller'] = "main/index";
 
 $route['ajax/filter_by_group'] = 'ajax/filter_by_group/$1';
 $route['ajax/filter_by_categories'] = 'ajax/filter_by_categories/$1';
+$route['(:any)/ajax/change_location'] = 'ajax/change_location';
 $route['ajax/change_location'] = 'ajax/change_location';
 $route['ajax/change_role'] = 'ajax/change_role';
 $route['user/add_user'] = 'user/add_user';
@@ -55,7 +56,6 @@ $route['admin/ajax/filter_by_categories'] = 'ajax/filter_by_categories/$1';
 $route['admin/ajax/filter_by_group'] = 'ajax/filter_by_group/$1';
 $route['account/ajax/change_location'] = 'ajax/change_location';
 $route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
-$route['company_info/ajax/change_location'] = 'ajax/change_location';
 $route['(:any)/ajax/change_role'] = 'ajax/change_role';
 
 $route['admin'] = 'admin/admin/get_admin';
