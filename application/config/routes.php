@@ -47,6 +47,7 @@ $route['default_controller'] = "main/index";
 
 $route['ajax/filter_by_group'] = 'ajax/filter_by_group/$1';
 $route['ajax/filter_by_categories'] = 'ajax/filter_by_categories/$1';
+$route['(:any)/ajax/change_location'] = 'ajax/change_location';
 $route['ajax/change_location'] = 'ajax/change_location';
 $route['ajax/change_role'] = 'ajax/change_role';
 $route['user/add_user'] = 'user/add_user';
@@ -55,7 +56,6 @@ $route['admin/ajax/filter_by_categories'] = 'ajax/filter_by_categories/$1';
 $route['admin/ajax/filter_by_group'] = 'ajax/filter_by_group/$1';
 $route['account/ajax/change_location'] = 'ajax/change_location';
 $route['change_tabs/(:any)'] = 'ajax/change_tabs/$1';
-$route['company_info/ajax/change_location'] = 'ajax/change_location';
 $route['(:any)/ajax/change_role'] = 'ajax/change_role';
 
 $route['admin'] = 'admin/admin/get_admin';
@@ -90,6 +90,10 @@ $route['view_company/(:any)'] = 'user/view_company/$1';
 $route['account'] = 'user/account_user/$1';
 $route['account/(:any)'] = 'user/account_user/$1';
 $route['login'] = 'user/get_user';
+$route['edit_user_data']='user/edit_user_data';
+$route['edit_company_data']='user/edit_company_data';
+$route['exit_user'] = 'user/exit_user';
+$route['add_commit']='user/add_commit';
 $route['add_order'] = 'order/add_order';
 $route['search'] = 'search/search_name';
 $route['search/prod'] = 'search/get_search/$1';
@@ -103,8 +107,7 @@ $route['prod/all']='product/get_all_product/$1';
 $route['prod/all/(:any)']='product/get_all_product/$1';
 $route['products/item/(:any)'] = 'product/get_product/$1';
 $route['products/(:any)'] = 'product/get_products/$1';
-$route['exit_user'] = 'user/exit_user';
-$route['add_commit']='user/add_commit';
+
 
 $route['(:any)'] = 'main/index/$1';
 

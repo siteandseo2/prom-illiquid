@@ -9,6 +9,8 @@ class Product extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $config['full_tag_open'] = '<div class="pagination">';
+        $config['full_tag_close'] = '</div>';
         $this->load->model('main_m');
         $this->load->model('user_model');
 
@@ -67,9 +69,18 @@ class Product extends CI_Controller {
         $this->data_db['total_rows'] = $this->product_m->count_prod();
         $config['per_page'] = '9';
         $this->pagination->initialize($config);
-        $this->data_db['items'] = $this->product_m->get_all_product($config['per_page'], $this->uri->segment(3));
+        $this->data_db['prep'] = $this->product_m->get_all_product($config['per_page'], $this->uri->segment(3));
+        foreach ($this->data_db['prep'] as $k => $v) {
+            foreach ($v as $key => $val) {
+                if ($key == 'name') {
+                    $this->data_db['items'][$k]['trans'] = $this->translit($val);
+                }
+                $this->data_db['items'][$k][$key] = $val;
+            }
+        }
         $this->load->view("pages/products", $this->data_db);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data_db, $key, $k, $v, $val);
     }
 
     function get_products($link) {
@@ -106,6 +117,7 @@ class Product extends CI_Controller {
         }
         $this->load->view("pages/products", $this->data_db);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data_db, $key, $k, $v, $val);
     }
 
     function get_product($id) {
@@ -134,6 +146,7 @@ class Product extends CI_Controller {
         }
         $this->load->view("pages/item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data_db, $key, $k, $v);
     }
 
     function translit($str) {
@@ -161,6 +174,7 @@ class Product extends CI_Controller {
         $this->data_db['product'] = $this->product_m->get_item_by_user_id($id);
         $this->load->view("pages/edit_item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data_db, $this->data);
     }
 
     function set_item() {
@@ -193,6 +207,8 @@ class Product extends CI_Controller {
 
             redirect(base_url('edit_item'));
         }
+        unset($val, $key, $id);
+        unset($this->script, $this->data_db, $this->data);
     }
 
 }

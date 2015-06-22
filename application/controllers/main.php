@@ -71,7 +71,7 @@ class Main extends CI_Controller {
                         . "<script src='../../../js/ajax_select.js'></script>"
                         . "<script src='../../../js/bootstrap-switch.js'></script>"
                         . "<script src='../../../js/main_nav.js'></script>"
-                        . "<script src='../../../js/switcher.js'></script>";
+                        . "<script src='../../../js/switcher.js'></script>";                
                 break;
             case'edit_item':
                 $this->script['script'] = "<script src='../../../js/validation.js'></script>"
@@ -100,6 +100,7 @@ class Main extends CI_Controller {
                 break;
         }
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data);
     }
 
     /* END Main Page USER */

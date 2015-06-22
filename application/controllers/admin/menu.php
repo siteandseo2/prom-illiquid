@@ -91,6 +91,7 @@ class Menu extends CI_Controller {
 //
             redirect(base_url('admin/main'));
         }
+        unset($id, $key, $value, $p_id, $p_id2, $link, $name, $this->data);
     }
 
     /* END  function edit_menu */
@@ -152,6 +153,7 @@ class Menu extends CI_Controller {
             }
             redirect(base_url('admin/main'));
         }
+        unset($a, $b, $key, $items, $val, $this->data);
     }
 
     /* END function change_type */
@@ -181,6 +183,7 @@ class Menu extends CI_Controller {
             }
             redirect(base_url('admin/main'));
         }
+        unset($fp, $link, $value, $id, $this->data, $a, $items);
     }
 
     /* END  function delete_menu  */
@@ -191,6 +194,7 @@ class Menu extends CI_Controller {
         $this->change_type();
         $this->edit_menu();
         $this->load->view('admin/footer');
+        unset($this->data);
     }
 
     function add_menu() {
@@ -213,7 +217,7 @@ class Menu extends CI_Controller {
             }
             $this->data_menu['name'] = $this->input->post('name');
             $this->data_menu['status'] = $this->input->post('status');
-            $link=$this->input->post('link');
+            $link = $this->input->post('link');
             if (!empty($link)) {
                 $this->data_menu['link'] = $this->input->post('link');
                 if ($this->input->post('owner') == 'user') {
@@ -250,6 +254,7 @@ class Menu extends CI_Controller {
                 redirect(base_url('admin/main'));
             }
         }
+        unset($fp, $link, $this->data, $this->data_menu);
     }
 
 }

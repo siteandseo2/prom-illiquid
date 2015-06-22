@@ -54,6 +54,7 @@ class Cabinet extends CI_Controller {
                 . "<script src='../../../js/switcher.js'></script>";
         $this->load->view("pages/cabinet", $this->data);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script, $this->data);
     }
 
     function add_product() {
@@ -72,7 +73,9 @@ class Cabinet extends CI_Controller {
             $this->data['group_list'] = $this->category_m->focus_product_list();
             $this->load->view("pages/add_product", $this->data);
             $this->load->view("templates/footer", $this->script);
+            unset($this->script, $this->data);
         } else {
+            unset($this->script, $this->data);
             show_404();
         }
     }

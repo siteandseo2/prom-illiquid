@@ -25,6 +25,7 @@ class Ajax extends CI_Controller {
             }
         }
         echo json_encode($json);
+        unset($categories, $json, $num, $column, $name, $value);
     }
 
     public function filter_by_category() {
@@ -40,6 +41,7 @@ class Ajax extends CI_Controller {
             }
         }
         echo json_encode($json);
+        unset($subcat_list, $json, $num, $column, $name, $value);
     }
 
     public function filter_by_group() {
@@ -52,6 +54,7 @@ class Ajax extends CI_Controller {
             }
         }
         echo json_encode($json);
+        unset($cat_list, $json, $num, $column, $name, $value, $id);
     }
 
     public function filter_by_categories() {
@@ -64,6 +67,7 @@ class Ajax extends CI_Controller {
             }
         }
         echo json_encode($json);
+        unset($cat_list, $json, $num, $column, $name, $value, $id);
     }
 
     public function change_item_menu() {
@@ -79,6 +83,7 @@ class Ajax extends CI_Controller {
             }
         }
         echo json_encode($json);
+        unset($menu_list, $json, $num, $column, $name, $value, $type);
     }
 
     public function change_location() {
@@ -91,6 +96,7 @@ class Ajax extends CI_Controller {
             }
         }
         echo json_encode($json);
+//        unset($menu_list, $json, $num, $column, $name, $value, $id);
     }
 
     function change_role() {
@@ -124,6 +130,7 @@ class Ajax extends CI_Controller {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_ajax", $this->data);
+            unset($session_data, $type, $num);
         }
     }
 

@@ -63,6 +63,7 @@ class Order extends CI_Controller {
             }
         }
         redirect(base_url('admin/new_orders'));
+        unset($this->data);
     }
 
 }

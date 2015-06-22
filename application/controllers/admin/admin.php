@@ -82,6 +82,7 @@ class Admin extends CI_Controller {
                 $this->load->view("pages/auth_admin");
             }
         }
+        unset($session_data, $email, $password, $this->data);
     }
 
     /* END function login admin  */
@@ -99,6 +100,7 @@ class Admin extends CI_Controller {
         } else {
             redirect(base_url('admin'));
         }
+        unset($this->data);
     }
 
     /* END Main Page ADMIN */
@@ -110,6 +112,7 @@ class Admin extends CI_Controller {
             $this->session->unset_userdata('admin');
             redirect(base_url());
         }
+        unset($this->data);
     }
 
     /* END function exit user  */
@@ -154,6 +157,7 @@ class Admin extends CI_Controller {
         $this->data['slider'] = $this->main_m->get_slider_item();
         $this->load->view("admin/slider", $this->data);
         $this->load->view("admin/footer", $this->data);
+        unset($this->data,$id,$key,$value,$name);
     }
 
     /* END function edit slider */
@@ -188,6 +192,7 @@ class Admin extends CI_Controller {
             $this->load->view("admin/slide_add", $this->data);
             $this->load->view("admin/footer", $this->data);
         }
+        unset($this->data,$header,$text);
     }
 
     /* slide_add End */
@@ -227,6 +232,7 @@ class Admin extends CI_Controller {
         $this->data['partner'] = $this->main_m->get_partners();
         $this->load->view("admin/partners", $this->data);
         $this->load->view("admin/footer", $this->data);
+        unset($this->data,$id,$key,$value,$name);
     }
 
     /* partners function END */
@@ -235,7 +241,7 @@ class Admin extends CI_Controller {
 
     function add_partner() {
         if (isset($_POST['add_partner'])) {
-            $name=$this->input->post('name');
+            $name = $this->input->post('name');
             if (!empty($name)) {
                 if (is_uploaded_file($_FILES["logo"]["tmp_name"])) {
                     unset($this->data);
@@ -260,6 +266,7 @@ class Admin extends CI_Controller {
             $this->load->view("admin/partner_add", $this->data);
             $this->load->view("admin/footer", $this->data);
         }
+        unset($this->data,$name);
     }
 
     /* add partner END */
@@ -276,7 +283,8 @@ class Admin extends CI_Controller {
 //        echo'</pre>';
         $this->load->view("admin/new_orders", $this->data);
         $this->load->view("admin/footer", $this->data);
+        unset($this->data,$k,$v);
     }
-
+    
     /* get_order END */
 }

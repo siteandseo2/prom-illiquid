@@ -68,6 +68,7 @@ class Subcategories extends CI_Controller {
         }
         $this->load->view("pages/subcategories", $this->data);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script,  $this->data, $sub);
     }
 
     function get_subgategory($name = '') {
@@ -85,6 +86,7 @@ class Subcategories extends CI_Controller {
         }
         $this->load->view("pages/subcategories", $this->data);
         $this->load->view("templates/footer", $this->script);
+        unset($this->script,  $this->data, $sub, $id, $name);
     }
 
 }

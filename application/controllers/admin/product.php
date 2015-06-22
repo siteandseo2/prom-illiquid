@@ -25,7 +25,7 @@ class Product extends CI_Controller {
             $this->load->model('subcategories_m');
             $this->load->model('category_m');
             $this->data['category'] = $this->category_m->category_list();
-            foreach ($this->product_m->get_all_product() as $k => $v) {
+            foreach ($this->product_m->get_all_products() as $k => $v) {
                 $this->data['list'][$v['id']] = $v;
             }
             foreach ($this->data['list'] as $k => $v) {
@@ -62,6 +62,7 @@ class Product extends CI_Controller {
             $this->db->query("UPDATE product SET name='$name' WHERE id='$id'");
             redirect(base_url('admin/products'));
         }
+        unset($this->data, $id, $fp_id, $key, $value, $name);
     }
 
     /* END  function edit_category */
@@ -85,6 +86,7 @@ class Product extends CI_Controller {
 
             redirect(base_url('admin/products'));
         }
+        unset($this->data, $key, $cat_id, $subcat_id, $val);
     }
 
     /* END function change_type */
@@ -99,6 +101,7 @@ class Product extends CI_Controller {
 
             redirect(base_url('admin/products'));
         }
+        unset($this->data, $id);
     }
 
     /* END function delete_category */
@@ -158,6 +161,7 @@ class Product extends CI_Controller {
 //        }
 //        unset($this->data_db);
 //        redirect(base_url('admin/products'));
+        unset($this->data);
     }
 
     function products() {
@@ -166,6 +170,7 @@ class Product extends CI_Controller {
         $this->delete_product();
         $this->edit_product();
         $this->load->view("admin/footer");
+        unset($this->data);
     }
 
     function filter_product() {
@@ -180,6 +185,7 @@ class Product extends CI_Controller {
             $this->load->view("admin/products", $this->data);
             $this->load->view("admin/footer");
         }
+        unset($this->data, $id);
     }
 
 }
