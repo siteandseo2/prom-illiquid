@@ -122,7 +122,8 @@ class Search extends CI_Controller {
         $config['cur_tag_close'] = '</a></li>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
-        $config['prev_link'] = '<';
+        $config['prev_link'] = 'Назад';
+        $config['next_link'] = 'Вперед';
         $config['prev_tag_open'] = '<li>';
         $config['prev_tag_close'] = '</li>';
         $config['next_tag_open'] = '<li>';
