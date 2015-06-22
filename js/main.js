@@ -106,7 +106,7 @@ $(document).ready(function() {
 		var search = document.getElementsByName('searchCityName')[0];
 		autoComplete(search, cities);
 	} catch(e) {
-		console.log( e.type + ' ' + e.message );
+		console.warn( 'name : %s, message : %s', e.name, e.message );
 	}
 	
 	//
@@ -118,8 +118,8 @@ $(document).ready(function() {
 			dropDownUl.innerHTML = '';
 			
 			fill();
-		} catch(err) {
-			console.log( err.type + ' ' + err.message );
+		} catch(e) {
+			console.warn( 'name : %s, message : %s', e.name, e.message );
 		}
 		
 		function fill() {
@@ -160,7 +160,7 @@ $(document).ready(function() {
 			collapsible: true
 		});
 	} catch( e ) {
-		console.log( e.type + ' : ' + e.message );
+		console.warn( 'name : %s, message : %s', e.name, e.message );
 	}
 	
 	// Styles
@@ -220,7 +220,7 @@ $(document).ready(function() {
 		try {
 			$('.sortable').sortable();
 		} catch( e ) {
-			console.log( e.type + ' : ' + e.message );
+			console.warn( 'name : %s, message : %s', e.name, e.message );
 		} 
 	});
 	
@@ -237,7 +237,7 @@ $(document).ready(function() {
 			
 			if( links.length && current ) go();
 		} catch( e ) {
-			console.log( e.type + ' ' + e.message );
+			console.warn( 'name : %s, message : %s', e.name, e.message );
 		}
 		
 		function Lia(href, text, bool) {
