@@ -9,6 +9,8 @@ class Product extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $config['full_tag_open'] = '<div class="pagination">';
+        $config['full_tag_close'] = '</div>';
         $this->load->model('main_m');
         $this->load->model('user_model');
 

@@ -18,7 +18,8 @@ class Search extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-
+        $config['full_tag_open'] = '<div class="pagination">';
+        $config['full_tag_close'] = '</div>';
         $this->load->model('product_m');
         $this->load->model('main_m');
         $this->load->model('subcategories_m');
@@ -73,7 +74,7 @@ class Search extends CI_Controller {
                 redirect(base_url('search/' . $name1));
             }
         }
-        unset($this->script,  $this->data, $name, $item, $name1, $session_data);
+        unset($this->script, $this->data, $name, $item, $name1, $session_data);
     }
 
     function get_search() {
@@ -116,6 +117,8 @@ class Search extends CI_Controller {
             $this->session->unset_userdata('search');
         $config['total_rows'] = count($arr);
         $config['per_page'] = '9';
+        $config['full_tag_open'] = '<div class="pagination">';
+        $config['full_tag_close'] = '</div>';
         $this->pagination->initialize($config);
         $this->load->view("pages/products", $this->data);
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
@@ -130,7 +133,7 @@ class Search extends CI_Controller {
                 . "<script src='../../../js/switcher.js'></script>"
                 . "<script src='../../../js/sidebar.js'></script>";
         $this->load->view("templates/footer", $this->script);
-        unset($this->script,  $this->data, $name, $item, $key,$val, $link, $arr);
+        unset($this->script, $this->data, $name, $item, $key, $val, $link, $arr);
     }
 
     function translit($str) {
