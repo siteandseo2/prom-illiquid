@@ -131,9 +131,9 @@
                     </div>
                     <?php
                 }
-                echo $this->pagination->create_links();
-                ?>  
-
+                echo $this->pagination->create_links(); 
+                ?>   
+				
             </div>
 
         </div>

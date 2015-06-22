@@ -303,6 +303,8 @@
 <script src="../../../js/jquery-1.11.0.min.js"></script>
 <script src="../../../js/jquery-ui.js"></script> 
 <script src="../../../js/bootstrap.js"></script>
+<script src="../../../js/carouFredSel-6.2.1.js"></script>
+
 <!--<script src="../../../js/uploading.js"></script>-->
 <?php
 if (!empty($script))
@@ -310,6 +312,7 @@ if (!empty($script))
 ?>
 
 <script src="../../../js/jquery.scrollbar.js"></script>
+
 
 
 

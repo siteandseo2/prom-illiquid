@@ -35,10 +35,10 @@
 
     <!-- Main Content -->
 
-    <div id="main" class="cat-main">
-        <div class="container wf-wrap clearfix">
+<div id="main" class="cat-main">
+	<div class="container wf-wrap clearfix">
 
-            <div id="content" class="content clearfix">
+		<div id="content" class="content clearfix">
 
                 <!-- Main Product Image -->
 
@@ -104,26 +104,6 @@
                             Код:
                             <span class="id"><?= $item['prod_code'] ?></span>
                         </span>
-                        <!--
-                        <span class="group">
-                                Группа:
-                                <a href="<? base_url(); ?>">Промышленные товары</a>
-                        </span>
-    <span class="cat">
-    Категория:
-    <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
-    </span>
-                        <span class="sunCat">
-                                Подкатегория:
-                                <a href="<?= base_url(); ?>">Клапаны</a>
-                        </span>
-                        -->
-    <!--<span class="tagged_as">
-    Тэги:
-    <a href="<?= base_url(); ?>products/item/<?= $item['id'] ?>"><?= $item['name'] ?></a>
-    <a href="<?= base_url(); ?>products/<?= $cat_name['0']['link'] ?>"><?= $cat_name['0']['name'] ?></a>
-    <a href="<?= base_url(); ?>subcategories/<?= $subcat_name['0']['link'] ?>"><?= $subcat_name['0']['name'] ?></a>                            
-    </span> -->
                     </div>
 
                     <div class="seller_info">
@@ -154,11 +134,6 @@
                     <li class="add_info_tab">
                         <a href="#">Дополнительная информация</a>
                     </li>
-                    <!--
-<li class="reviews_tab">
-    <a href="#">Отзывы (1)</a>
-</li>
-                    -->
                 </ul>
 
                 <section id="description_panel">
@@ -184,124 +159,126 @@
                         </tbody>
                     </table>
                 </section>
-
-                <!--
-                
-<section id="reviews_panel" style="display: none;">
-    <div id="comments">
-        <h2>1 oтзыв o <?= $item['name'] ?></h2>
-        <ul class="commentslist">
-            <li class="comment" id="comment-1">
-                <div class="comment-container">
-                    <img src="../../../img/avatar-1.png" alt="" width="60" height="60">
-                    <div class="comment-text clearfix">
-                        <div class="star-right clearfix">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-
-                        <p class="meta">
-                            <strong class="author">Alex Greenfield</strong>
-                            -
-                            <time datetime="2014-09-16T09:33:34+00:00">September 16, 2014</time>
-                        </p>
-
-                        <div class="descr">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                                Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                                sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                                diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="comment" id="comment-2">
-                <div class="comment-container">
-                    <img src="../../../img/avatar-2.png" alt="" width="60" height="60">
-                    <div class="comment-text clearfix">
-                        <div class="star-right clearfix">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-
-                        <p class="meta">
-                            <strong class="author">Alex Greenfield</strong>
-                            -
-                            <time datetime="2014-09-16T09:33:34+00:00">September 16, 2014</time>
-                        </p>
-
-                        <div class="descr">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                                Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus 
-                                sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus 
-                                diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.</p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="add-review">
-        <h3>Add a Review</h3>
-        <form method="post" action="" id="commentform" class="commentform">
-            <p class="comment-form-author">
-                <label for="author">Name *</label>
-                <input type="text" name="author" size="30" aria-required="true">
-            </p>
-            <p class="comment-form-email">
-                <label for="email">Email *</label>
-                <input type="text" name="email" size="30" aria-required="true">
-            </p>
-            <p class="comment-form-rating">
-                <label>Your Rating</label>
-            <p class="stars">
-                <span>
-                    <i class="fa fa-star-o"></i>
-                </span>
-                <span>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </span>
-                <span>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </span>
-                <span>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </span>
-                <span>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </span>
-            </p>
-            </p>
-            <p class="comment-form-comment">
-                <label for="comment">Your Review</label>
-                <textarea name="comment" id="comment" cols="45" rows="8" aria-required="true"></textarea>
-            </p>
-            <p class="form-submit">
-                <input type="submit" name="submit" id="submit" value="Submit">
-            </p>
-        </form>
-    </div>
-</section>
-                
-                -->
-
             </div>
+			
+			<!-- Company's Others Goods -->
+			
+			<div class="marketing-carousel" id="others">
+				<h3>Другие товары компании</h3>
+				
+				<ul class="carou-fred-sel clearfix">
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+				</ul>
+				
+				<span href="#" id="other_next" class="marketing-ctrl next">
+					<i class="fa fa-chevron-right"></i>
+				</span>
+				
+				<span href="#" id="other_prev" class="marketing-ctrl prev">
+					<i class="fa fa-chevron-left"></i>
+				</span>
+			</div>
+			
+			<!--  Similar Goods -->
+			
+			<div class="marketing-carousel" id="similars">
+				<h3>Другие похожие товары</h3>
+				
+				<ul class="carou-fred-sel clearfix">
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+					<li>
+						<a href="<?= base_url(); ?>" title=""> 
+							<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+							<span class="product-title">IPhone mockup 6</span>
+						</a>
+						<span class="amount">$15.00</span>
+					</li>
+				</ul>
+				
+				<span href="#" id="similar_next" class="marketing-ctrl next">
+					<i class="fa fa-chevron-right"></i>
+				</span>
+				
+				<span href="#" id="similar_prev" class="marketing-ctrl prev">
+					<i class="fa fa-chevron-left"></i>
+				</span>
+			</div>
+			
         </div>
         <?php
         include_once 'application/views/templates/sidebar.php';
