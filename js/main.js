@@ -230,9 +230,15 @@ $(document).ready(function() {
 		var links = document.querySelectorAll('.cat-row > .pagination > a'),
 			current = document.querySelector('.cat-row > .pagination > strong'),
 			pagination = document.querySelector('.pagination');
+		
+		try {
+			var def = Lia('#', current.innerHTML, false);
+			pagination.replaceChild(def, current);
 			
-		var def = Lia('#', current.innerHTML, false);
-		pagination.replaceChild(def, current);
+			if( links.length && current ) go();
+		} catch( e ) {
+			console.log( e.type + ' ' + e.message );
+		}
 		
 		function Lia(href, text, bool) {
 			var li = document.createElement('li');
@@ -243,12 +249,6 @@ $(document).ready(function() {
 			li.appendChild(a);
 			return li;
 		}
-		
-		try {
-			if( links.length && current ) go();
-		} catch( e ) {
-			console.log( e.type + ' ' + e.message );
-		} 
 		
 		function go() {
 			for(var i = 0; i<links.length; i++) {
