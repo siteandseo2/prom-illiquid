@@ -38,7 +38,7 @@
 		
 	} catch( e ) {
 		
-		console.log( e.type + ' : ' + e.message );
+		console.warn( 'name : %s, message: %s', e.name, e.message );
 		
 	}
 	
@@ -251,6 +251,9 @@
 			if (xhr.readyState != 4) return;
 			
 			if ( xhr.status == 200 && url == 'user/add_user' ) {
+				
+				console.log( 'response ' + xhr.responseText );
+				
 				setTimeout(function() {
 					$('#overlay').hide();
 					$('.bubblingG').hide();
@@ -264,6 +267,8 @@
 			} else {
 				
 				console.error('status : %s, statusText: %s', xhr.status, xhr.statusText);
+				
+				console.log( 'response ' + xhr.responseText );
 				
 				if( url == 'user/add_user' ) {
 					setTimeout(function() {
@@ -327,7 +332,7 @@
 			if( input.nextElementSibling.classList.contains('validateIconTrue') ) input.nextElementSibling.classList.remove('validateIconTrue');
 		});
 		
-		if( bool ) window.location.assign( window.location.origin + '/login' );
+		//if( bool ) window.location.assign( window.location.origin + '/login' );
 	}
 	
 });

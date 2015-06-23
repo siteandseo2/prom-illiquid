@@ -36,36 +36,15 @@
                             <label for="account_phone">Телефон</label>
                             <input type="text" value="<?= $user_data['phone'] ?>" id="account_phone" name="account_phone" class="cabinet-form-input">
                         </p>
-                        <!-- 
-                        <p>
-                                <label for="account_photo">Фото</label>
-                                <input type="file" id="account_photo" name="account_photo" accept="image/*">
-                        </p>
-                        -->
-                        <!--						
-                        <p>
-                                <label for="account_sex">Пол</label>
-                                <select class="cabinet-form-input" id="account_sex" name="account_sex">
-                                        <option value="male">Мужской</option>
-                                        <option value="female">Женский</option>
-                                </select>
-                        </p>
-                        -->
                         <p>
                             <label for="account_country">Страна</label>
                             <select class="cabinet-form-input" id="account_country" name="account_country" data-map="country">
                                 <option value="<?= $user_data['country'] ?>"><?= $user_data['country'] ?></option>
-<!--                                <option value="Украина">Украина</option>
-                                <option value="Россия">Россия</option>
-                                <option value="Беларуссия">Беларуссия</option>
-                                <option value="Казахстан">Казахстан</option>
-                                <option value="Грузия">Грузия</option>-->
-                                <!-- AJAX ? -->
                             </select>
                         </p>
                         <p>
                             <label for="location">Область</label>
-                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region">                                
+                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region" rel="account">                                
                                 <?php
                                 foreach ($location as $k) {
                                     if ($user_data['location'] == $k['name']) {
@@ -86,7 +65,7 @@
                         </p>
                         <p>
                             <label for="city">Город</label>
-                            <select id="city" name="city" class="cabinet-form-input" data-map="city">
+                            <select id="city" name="city" class="cabinet-form-input" data-map="city" rel="city-account">
                                 <option val='<?= $user_data['city'] ?>'><?= $user_data['city'] ?></option>
                             </select>
                         </p>

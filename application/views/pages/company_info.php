@@ -40,7 +40,7 @@
                         </p>
                         <p>
                             <label for="location">Область</label>
-                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region">                                
+                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region" rel="company_info">                                
                                 <?php
                                 foreach ($location as $k) {
                                     if ($user_data['location'] == $k['name']) {
@@ -61,7 +61,7 @@
                         </p>
                         <p>
                             <label for="city">Город</label>
-                            <select id="city" name="city" class="cabinet-form-input" data-map="city">
+                            <select id="city" name="city" class="cabinet-form-input" data-map="city" rel="company_info_city">
                                 <option value="<?= $user_data['city'] ?>"><?= $user_data['city'] ?></option>                                
                             </select>
                         </p>

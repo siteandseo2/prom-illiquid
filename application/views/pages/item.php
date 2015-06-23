@@ -161,25 +161,82 @@
                 </section>
             </div>
 
+
             <!-- Company's Others Goods -->
 
             <div class="marketing-carousel" id="others">
                 <h3>Другие товары компании</h3>
 
                 <ul class="carou-fred-sel clearfix">
-                    <?php
-                    foreach ($other as $oth_item) {
-//                    }
-                        ?>
+                    <?php foreach ($other as $oth_item){
+                    ?>
                         <li>
-                            <a href="<?= base_url(); ?>products/item/<?= $oth_item['id'] ?>-<?= $oth_item['trans'] ?>" title=""> 
-                                <img src="<?= $oth_item['image_path'] ?>" alt="<?= $oth_item['name'] ?>">
-                                <span class="product-title"></span>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>products/item/<?=$oth_item['id']?>-<?=$oth_item['trans']?>" title="">
+                                <img src="<?=$oth_item['image_path']?>" alt="<?=$oth_item['name']?>">
                             </a>
-                            <span class="amount"><?= $oth_item['price'] ?><?= $oth_item['currency'] ?></span>
-                        </li>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title"><?=$oth_item['name']?></span>
+                            <span class="amount"><?=$oth_item['price']?> <?=$oth_item['currency']?></span>
+                        </div>
+                    </li>
                     <?php } ?>
-
+<!--                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhone mockup 6</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhone mockup 6</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhone mockup 6</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhone mockup 6</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhone mockup 6</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>-->
                 </ul>
 
                 <span href="#" id="other_next" class="marketing-ctrl next">
@@ -197,51 +254,75 @@
                 <h3>Другие похожие товары</h3>
 
                 <ul class="carou-fred-sel clearfix">
-                    <?php foreach ($like as $like_item) {
-                        ?>                 
-                        <li>
-                            <a href="<?= base_url(); ?>products/item/<?= $like_item['id'] ?>" title=""> 
-                                <img src="<?=$like_item['image_path']?>" alt="IPhone mockup 6">
-                                <span class="product-title"></span>
+                    <?php foreach ($like as $lk) {
+                    ?>                  
+                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>products/item/<?=$lk['id']?>-<?=$lk['trans']?>" title="">
+                                <img src="<?=$lk['image_path']?>" alt="<?=$lk['name']?>">
                             </a>
-                            <span class="amount"><?=$like_item['price']?>  <?=$like_item['currency']?></span>
-                        </li>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title"><?=$lk['name']?></span>
+                            <span class="amount"><?=$lk['price']?>  <?=$lk['currency']?></span>
+                        </div>
+                    </li>
                     <?php } ?>
-                    <!--                    <li>
-                                            <a href="<?= base_url(); ?>" title=""> 
-                                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-                                                <span class="product-title">IPhone mockup 6</span>
-                                            </a>
-                                            <span class="amount">$15.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" title=""> 
-                                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-                                                <span class="product-title">IPhone mockup 6</span>
-                                            </a>
-                                            <span class="amount">$15.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" title=""> 
-                                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-                                                <span class="product-title">IPhone mockup 6</span>
-                                            </a>
-                                            <span class="amount">$15.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" title=""> 
-                                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-                                                <span class="product-title">IPhone mockup 6</span>
-                                            </a>
-                                            <span class="amount">$15.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="<?= base_url(); ?>" title=""> 
-                                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-                                                <span class="product-title">IPhone mockup 6</span>
-                                            </a>
-                                            <span class="amount">$15.00</span>
-                                        </li>-->
+<!--                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhoneIphoneIphoneIpsdfafwefrwehjjlkhnjbkjh</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhoneIphoneIphoneIpsdfafwefrwehjjlkhnjbkjh</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhoneIphoneIphoneIpsdfafwefrwehjjlkhnjbkjh</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhoneIphoneIphoneIpsdfafwefrwehjjlkhnjbkjh</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="carousel-img">
+                            <a href="<?= base_url(); ?>" title="">
+                                <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
+                            </a>
+                        </div>
+                        <div class="carousel-info">
+                            <span class="product-title">IPhoneIphoneIphoneIpsdfafwefrwehjjlkhnjbkjh</span>
+                            <span class="amount">$15.00</span>
+                        </div>
+                    </li>-->
                 </ul>
 
                 <span href="#" id="similar_next" class="marketing-ctrl next">
@@ -253,6 +334,7 @@
                 </span>
             </div>
 
+   
         </div>
         <?php
         include_once 'application/views/templates/sidebar.php';

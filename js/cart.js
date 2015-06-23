@@ -7,6 +7,7 @@ $( document ).ready(function() {
 		cartAmount = $('#cart-amount'),
 		cartTotalPrice = $('#modalCart .totalPrice .sum'),
 		parentBlock = $('.items-list'),
+		cartSubmit = $('#cart-submit'),
 		isSession;
 		
 	// WHAT FLOW
@@ -23,15 +24,14 @@ $( document ).ready(function() {
 		
 		return false;
 		
-	}());
+	})();
 	
-	//console.log( isSession );
+	//console.log( 'isSession : ' + isSession );
 	
 	// TOPBAR CLICK
 		
 	$( topBarCounter ).click(function() {
 		isEmpty();
-		
 		if( isSession ) useSession();
 	});
 	
@@ -64,21 +64,28 @@ $( document ).ready(function() {
 			parent_id = sellerBlock[sellerBlock.length - 1];
 		}
 		
-		switch( item_price.changedQuantity ) {
-			case 'Шт.':
-			case 'Упаковку':
-				item_price.changedQuantity = 1;
-				break;
-			default:
-				item_price.changedQuantity = parseInt( item_price.changedQuantity );
-				break;
-		}
+		item_price.changedQuantity = parseQuantity( item_price.changedQuantity );
 		
 		var item = new Item(id, name, item_price, img, parent_id);
 		
 		insertItem( item, isSession );
 		
 	});
+	
+	// PARSE QUANTITY
+	
+	function parseQuantity( val ) {
+		switch( val ) {
+			case 'Шт.':
+			case 'Упаковку':
+				val = 1;
+				break;
+			default:
+				val = parseInt( val );
+				break;
+		}
+		return val;
+	}
 	
 	// CONSTRUCTOR
 	
@@ -100,7 +107,7 @@ $( document ).ready(function() {
 	}
 	
 
-//	sessionStorage.clear();
+	//sessionStorage.clear();
 	
 	// DEFINE VARS
 	
@@ -112,8 +119,16 @@ $( document ).ready(function() {
 		Item.save( item );
 		
 		// Client Block
-		currentCount( true ).save().setHTML();
-		totalPrice( true, item.price.price ).save().setHTML();
+		currentCount( true ).save().setHTML();		
+		totalPrice( true, 
+				definePrice( 
+					item.price.price,
+					item.price.changedQuantity,
+					item.price.quantity 
+				) 
+			)
+			.save()
+			.setHTML();
 		
 		fillInVars( 
 			item.id, 
@@ -125,6 +140,13 @@ $( document ).ready(function() {
 			item.price.changedQuantity,
 			item.parent
 		);
+	}
+	
+	// DEFINE INCOMING PRICE
+	
+	function definePrice( price, quantity, init ) {
+		init = parseQuantity( init );
+		return ( price / init )*quantity;
 	}
 	
 	// CREATE HTML
@@ -145,7 +167,8 @@ $( document ).ready(function() {
 				</p> \
 				<p class="left"> \
 					<span>Количество</span> \
-					<input type="number" name="quantity[' + id + ']" min="' + changedQuantity + '" step="' + changedQuantity + '" value="' + changedQuantity + '" data-value="' + changedQuantity + '"> \
+					<input type="number" name="quantity[' + id + ']" min="' + parseQuantity( quantity ) + '" step="' + 
+					parseQuantity( quantity ) + '" value="' + changedQuantity + '" data-value="' + changedQuantity + '"> \
 				</p> \
 				<input type="hidden" name="h_name[' + id + ']" value="' + name + '">\
 				<input type="hidden" name="h_price[' + id + ']" value="' + price + '">\
@@ -256,7 +279,7 @@ $( document ).ready(function() {
 			return execute;
 		}
 		execute.setHTML = function() {
-			$( cartTotalPrice ).html( total );
+			$( cartTotalPrice ).html( total.toFixed(2) );
 		}
 		execute.save = function() {
 			sessionStorage.setItem('totalPrice', total);
@@ -282,13 +305,9 @@ $( document ).ready(function() {
 		
 		var dir = direction(newValue, prevValue);
 		
-		if( dir ) {
-			totalPrice( true, assosPrice ).save().setHTML();
-			rewriteSessionQuantity( parentId, newValue );
-		} else {
-			totalPrice( false, assosPrice ).save().setHTML();
-			rewriteSessionQuantity( parentId, newValue );
-		}
+		( dir ) ? totalPrice( true, assosPrice ).save().setHTML() : totalPrice( false, assosPrice ).save().setHTML();
+		
+		rewriteSessionQuantity( parentId, newValue );
 		
 		$( this ).attr('data-value', newValue);
 		
@@ -321,22 +340,31 @@ $( document ).ready(function() {
 	// ISEMPTY
 		
 	function isEmpty() {
-		return ( $( cartAmount ).html() == '0' ) ? hide() : show();
-		
-		function hide() {
+		return ( $( cartAmount ).html() == '0' ) ? act.hide() : act.show();
+	}
+	
+	var act = {
+		hide: function() {
 			$('#modalCart').find('.modal-header').hide();
 			$('#modalCart').find('.modal-footer').hide();
 			$('#modalCart').find('.modal-body .form-fields').hide();
 			$('#modalCart').find('.empty_cart').show();
-		}
-		
-		function show() {
+		},
+		show: function() {
 			$('#modalCart').find('.modal-header').show();
 			$('#modalCart').find('.modal-footer').show();
 			$('#modalCart').find('.modal-body .form-fields').show();
 			$('#modalCart').find('.empty_cart').hide();
 		}
-	}
+	};
 	
+	// SUBMIT
+	
+	$( cartSubmit ).click(function() {
+			
+		act.hide();
+		sessionStorage.clear();
+			
+	});
 	
 });
