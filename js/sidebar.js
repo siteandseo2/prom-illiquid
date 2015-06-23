@@ -66,7 +66,10 @@
 			});
 		}
 		
-		$('.caroufredsel_wrapper').css('marginBottom', '0');
+		$('.caroufredsel_wrapper').css({
+			'marginBottom': '0',
+			'height': '340px'
+		});
 		
 	})();	
 		
