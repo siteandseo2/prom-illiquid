@@ -104,6 +104,10 @@
                             Код:
                             <span class="id"><?= $item['prod_code'] ?></span>
                         </span>
+                          <span class="date">
+                            Товар добавлен:
+                            <span href="<?= base_url(); ?>" class="phone_value"><?= $item['date'] ?></span>
+                        </span>
                     </div>
 
                     <div class="seller_info">
@@ -119,7 +123,7 @@
                         <span class="phone">
                             Телефон:
                             <span href="<?= base_url(); ?>" class="phone_value"><?= $user_data['phone'] ?></span>
-                        </span>
+                        </span>                       
                     </div>
 
                 </div>
