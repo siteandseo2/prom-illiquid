@@ -232,10 +232,11 @@ $(document).ready(function() {
 			pagination = document.querySelector('.pagination');
 		
 		try {
-			var def = Lia('#', current.innerHTML, false);
-			pagination.replaceChild(def, current);
-			
-			if( links.length && current ) go();
+			if( current ) {
+				var def = Lia('#', current.innerHTML, false);
+				pagination.replaceChild(def, current);
+				go();
+			}
 		} catch( e ) {
 			console.warn( 'name : %s, message : %s', e.name, e.message );
 		}
@@ -263,11 +264,13 @@ $(document).ready(function() {
 	
 	(function() {
 		var carousels = $('.marketing-carousel'),
-			catItems = $('.cat-content-row-item');
+			catItems = $('.cat-content-row-item'),
+			sidebarCarousels = $('.widget-top-rated');
 			
 		try {
 			if( carousels.length ) trimTitle( carousels, 25 );
 			if( catItems.length ) trimTitle( catItems, 40 );
+			if( sidebarCarousels.length ) trimTitle( sidebarCarousels, 16 );
 		} catch( e ) {
 			console.warn( 'name : %s, message : %s', e.name, e.message );
 		}
@@ -278,7 +281,7 @@ $(document).ready(function() {
 				var titles = $( item ).find('.product-title');
 				[].forEach.call(titles, function(title) {
 					var text = $( title ).text().trim();
-					if( text.length > 20 ) $( title ).text( text.slice(0, maxlength) + '..' );
+					if( text.length > maxlength ) $( title ).text( text.slice(0, maxlength) + '..' );
 				});
 			});
 		

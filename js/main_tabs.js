@@ -1,4 +1,7 @@
-/* Tabs */
+$(function() {
+
+	/* Tabs */
+	
 	
 	$('.tabs-buttons li').click(function(ev) {
 		ev.preventDefault();
@@ -51,21 +54,19 @@
 	
 	function createCategoryList( names, links ) {
 		
-		var host = 'http://' + window.location.host + '/subcategories/';
-		
+		var catList = document.querySelector('.tabs-content-category-list'),
+			host = 'http://' + window.location.host + '/subcategories/';
+	
 		try {
-			var catList = document.querySelector('.tabs-content-category-list');
-			catList.innerHTML = '';
-			
-			fill();
-		} catch(err) {
-			
-			console.log( err.type + ' ' + err.message );
-			
+			if( names && links ) {
+				catList.innerHTML = '';
+				fill();
+			}
+		} catch( e ) {
+			console.warn( 'name : %s, message : $s', e.name, e.message );
 		}
 		
 		function fill() {
-			
 			for(var i=0; i<names.length; i++) {
 				var li = document.createElement('li');
 				var link = document.createElement('a');	
@@ -76,7 +77,6 @@
 				li.appendChild(link);
 				catList.appendChild( li );
 			}
-			
 		}
 		
 	}
@@ -84,8 +84,8 @@
 	// Default list
 	
 	(function() {
-		
 		var firstTab = document.querySelector('#tabs-container ul li:first-child');
 		callForAjax( firstTab.getAttribute('data-ajax') );
-		
-	}());
+	})();
+	
+});

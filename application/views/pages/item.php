@@ -176,13 +176,15 @@
                             ?>
                             <li>
                                 <div class="carousel-img">
-                                    <a href="<?= base_url(); ?>products/item/<?= $oth_item['id'] ?>-<?= $oth_item['trans'] ?>" title="">
+                                    <a href="<?= base_url(); ?>products/item/<?= $oth_item['id'] ?>-<?= $oth_item['trans'] ?>" title="<?= $oth_item['name'] ?>">
                                         <img src="<?= $oth_item['image_path'] ?>" alt="<?= $oth_item['name'] ?>">
                                     </a>
                                 </div>
                                 <div class="carousel-info">
-                                    <span class="product-title"><?= $oth_item['name'] ?></span>
-                                    <span class="amount"><?= $oth_item['price'] ?> <?= $oth_item['currency'] ?></span>
+									<a href="<?= base_url(); ?>products/item/<?= $oth_item['id'] ?>-<?= $oth_item['trans'] ?>" title="<?= $oth_item['name'] ?>">
+										<span class="product-title"><?= $oth_item['name'] ?></span>
+										<span class="amount"><?= $oth_item['price'] ?> <?= $oth_item['currency'] ?></span>
+									</a>
                                 </div>
                             </li>
                         <?php } ?>
@@ -217,13 +219,15 @@
                             ?>                  
                             <li>
                                 <div class="carousel-img">
-                                    <a href="<?= base_url(); ?>products/item/<?= $lk['id'] ?>-<?= $lk['trans'] ?>" title="">
+                                    <a href="<?= base_url(); ?>products/item/<?= $lk['id'] ?>-<?= $lk['trans'] ?>" title="<?= $lk['name'] ?>">
                                         <img src="<?= $lk['image_path'] ?>" alt="<?= $lk['name'] ?>">
                                     </a>
                                 </div>
                                 <div class="carousel-info">
-                                    <span class="product-title"><?= $lk['name'] ?></span>
-                                    <span class="amount"><?= $lk['price'] ?>  <?= $lk['currency'] ?></span>
+									<a href="<?= base_url(); ?>products/item/<?= $lk['id'] ?>-<?= $lk['trans'] ?>" title="<?= $lk['name'] ?>">
+										<span class="product-title"><?= $lk['name'] ?></span>
+										<span class="amount"><?= $lk['price'] ?>  <?= $lk['currency'] ?></span>
+									</a>
                                 </div>
                             </li>                            
                         <?php } ?>

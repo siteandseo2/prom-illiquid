@@ -28,14 +28,14 @@
 	// Content management
 	
 	try {
-		
-		tabs.addEventListener('click', function(ev) {
-			var target = ev.target
-			if( target.tagName != 'LABEL' ) return;
-			
-			changeSet( target.firstElementChild.id );
-		});
-		
+		if( tabs ) {
+			tabs.addEventListener('click', function(ev) {
+				var target = ev.target
+				if( target.tagName != 'LABEL' ) return;
+				
+				changeSet( target.firstElementChild.id );
+			});
+		}
 	} catch( e ) {
 		
 		console.warn( 'name : %s, message: %s', e.name, e.message );
@@ -215,7 +215,7 @@
 		});
 
 		if ( isAnyFalse ) {
-			form.onsubmit = function () {
+			form.onsubmit = function() {
 				return false;
 			}
 		} else {
@@ -252,13 +252,11 @@
 			
 			if ( xhr.status == 200 && url == 'user/add_user' ) {
 				
-				console.log( 'response ' + xhr.responseText );
-				
 				setTimeout(function() {
 					$('#overlay').hide();
 					$('.bubblingG').hide();
 					
-					callback( true );
+					~xhr.responseText.indexOf( "200" ) ? callback( true ) : callback( false );
 				}, 2000);
 				
 				$('#overlay').show();
@@ -267,20 +265,6 @@
 			} else {
 				
 				console.error('status : %s, statusText: %s', xhr.status, xhr.statusText);
-				
-				console.log( 'response ' + xhr.responseText );
-				
-				if( url == 'user/add_user' ) {
-					setTimeout(function() {
-						$('#overlay').hide();
-						$('.bubblingG').hide();
-						
-						callback( false );
-					}, 2000);
-					
-					$('#overlay').show();
-					$('.bubblingG').show();
-				}
 				
 			}
 		}
@@ -332,7 +316,7 @@
 			if( input.nextElementSibling.classList.contains('validateIconTrue') ) input.nextElementSibling.classList.remove('validateIconTrue');
 		});
 		
-		//if( bool ) window.location.assign( window.location.origin + '/login' );
+		if( bool ) window.location.assign( window.location.origin + '/login' );
 	}
 	
 });
