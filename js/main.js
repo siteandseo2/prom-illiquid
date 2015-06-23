@@ -232,10 +232,11 @@ $(document).ready(function() {
 			pagination = document.querySelector('.pagination');
 		
 		try {
-			var def = Lia('#', current.innerHTML, false);
-			pagination.replaceChild(def, current);
-			
-			if( links.length && current ) go();
+			if( current ) {
+				var def = Lia('#', current.innerHTML, false);
+				pagination.replaceChild(def, current);
+				go();
+			}
 		} catch( e ) {
 			console.warn( 'name : %s, message : %s', e.name, e.message );
 		}

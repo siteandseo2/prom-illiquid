@@ -14,13 +14,14 @@ $( document ).ready(function() {
 	}
 	
 	/* Product Tabs */
+	var prodTabs = document.querySelector('.product-tabs .tabs'),
+		descrPanel = document.getElementById('description_panel'),
+		addPanel = document.getElementById('add_info_panel');
 	
 	try {
-		var prodTabs = document.querySelector('.product-tabs .tabs'),
-			descrPanel = document.getElementById('description_panel'),
-			addPanel = document.getElementById('add_info_panel');
-			
+		if( prodTabs ) {
 			prodTabs.addEventListener('click', changeTabs);
+		}
 	} catch( e ) {
 		console.warn( 'name : %s, message : %s', e.name, e.message );
 	}

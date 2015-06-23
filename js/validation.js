@@ -28,14 +28,14 @@
 	// Content management
 	
 	try {
-		
-		tabs.addEventListener('click', function(ev) {
-			var target = ev.target
-			if( target.tagName != 'LABEL' ) return;
-			
-			changeSet( target.firstElementChild.id );
-		});
-		
+		if( tabs ) {
+			tabs.addEventListener('click', function(ev) {
+				var target = ev.target
+				if( target.tagName != 'LABEL' ) return;
+				
+				changeSet( target.firstElementChild.id );
+			});
+		}
 	} catch( e ) {
 		
 		console.warn( 'name : %s, message: %s', e.name, e.message );
@@ -256,7 +256,6 @@
 					$('#overlay').hide();
 					$('.bubblingG').hide();
 					
-					console.log( 'response ' + xhr.responseText );
 					~xhr.responseText.indexOf( "200" ) ? callback( true ) : callback( false );
 				}, 2000);
 				
