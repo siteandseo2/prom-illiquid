@@ -100,8 +100,8 @@ class User extends CI_Controller {
 
     /* function login user from database */
 
-    function get_user() { 
-         if (!empty($session)) {
+    function get_user() {
+        if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
             if ($this->data['user']['usercat'] == "seller") {
@@ -160,9 +160,10 @@ class User extends CI_Controller {
     /*  function exit user  */
 
     function exit_user() {
-        
+
         if (isset($_POST['logout'])) {
             $this->session->unset_userdata('user');
+            $this->session->unset_userdata('data_view');
             redirect(base_url());
         }
     }
@@ -193,6 +194,8 @@ class User extends CI_Controller {
                 $this->data['ball'] = $this->input->post('ball');
                 $this->data['prod_quantity'] = $this->input->post('prod_quantity');
                 $this->data['id_user'] = $this->data_user['user']['id'];
+                $this->data['views'] = 0;
+                $this->data['date'] = date('Y-m-d H:i:s');
                 if ($this->product_m->add_product($this->data) == true) {
                     redirect(base_url('default'));
                 } else {
@@ -204,6 +207,7 @@ class User extends CI_Controller {
     }
 
     function account_user($id) {
+        $session = $this->session->userdata('user');
         if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
@@ -255,10 +259,11 @@ class User extends CI_Controller {
         } else {
             redirect(base_url());
         }
-        unset($this->data, $this->script, $session, $key, $val, $k, $v);
+        unset($this->data, $this->script, $key, $val, $k, $v);
     }
 
     function company_info($id) {
+        $session = $this->session->userdata('user');
         if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['user_category'] = $this->user_model->get_usercat_byID($this->data['user']['id']);
@@ -302,7 +307,6 @@ class User extends CI_Controller {
                     $this->data['user_data'][$k] = $v;
                 }
             }
-
             if ($this->data['user']['id'] == $id && $this->data['user']['usercat'] == 'seller') {
                 $this->load->view('pages/company_info', $this->data);
             } else {
@@ -312,7 +316,7 @@ class User extends CI_Controller {
             redirect('company_info/' . $this->data['user']['id']);
         }
         $this->load->view('templates/footer', $this->script);
-        unset($this->data, $this->script, $session, $key, $val, $k, $v);
+        unset($this->data, $this->script, $key, $val, $k, $v);
     }
 
     function view_company($id) {
@@ -361,7 +365,7 @@ class User extends CI_Controller {
     }
 
     function add_commit() {
-        
+
         if (isset($_POST['add_commit'])) {
             unset($this->data);
             $this->data['author'] = $this->input->post('author');
