@@ -9,8 +9,8 @@ class Product extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        
-        
+
+
         $this->load->model('main_m');
         $this->load->model('user_model');
 
@@ -49,7 +49,6 @@ class Product extends CI_Controller {
         /* load model product */
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
-        $this->script['location'] = $this->main_m->get_location();
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
                 . "<script src='../../../js/ajax_select.js'></script>"
                 . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
@@ -157,6 +156,7 @@ class Product extends CI_Controller {
                 . "<script src='../../../js/sidebar.js'></script>"
                 . "<script src='../../../js/jquery.fancybox.pack.js'></script>"
                 . "<script src='../../../js/product_settings.js'></script>";
+
         $this->data_db['product'] = $this->product_m->get_product($id);
         $this->data_db['cat_name'] = $this->product_m->get_product_cat($this->data_db['product']['0']['subcat_id']);
         $this->data_db['subcat_name'] = $this->product_m->get_cat_name($this->data_db['cat_name']['0']['link']);
@@ -167,6 +167,41 @@ class Product extends CI_Controller {
                 $this->data_db['user_data'][$k] = $v;
             }
         }
+        $this->data_db['prep_other'] = $this->product_m->get_item_by_user_id($this->data_db['product']['0']['id_user']);
+        foreach ($this->data_db['prep_other'] as $k => $v) {
+            foreach ($v as $key => $val) {
+                if ($key == 'name') {
+                    $this->data_db['other'][$k]['trans'] = $this->translit($val);
+                }
+                $this->data_db['other'][$k][$key] = $val;
+            }
+        }
+        $name = explode(" ", $this->data_db['product']['0']['name']);
+        foreach ($name as $item) {
+            if (strlen($item) > 5) {
+                $this->data_db['like'] = $this->product_m->get_item_like_name($item);
+            }
+        }
+        echo"<pre>";
+        print_r($name);
+//        print_r($this->data_db['prep_like']);
+        echo"</pre>";
+//        foreach ($this->data_db['prep_like'] as $k => $v) {
+//            foreach ($v as $key => $val) {
+//                if ($key == 'name') {
+//                    $this->data_db['like'][$k]['trans'] = $this->translit($val);
+//                }
+//                $this->data_db['like'][$k][$key] = $val;
+//            }
+//        }
+//        foreach ($this->data_db['prep_like'] as $k => $v) {
+//            foreach ($v as $key => $val) {
+//                if ($key == 'name') {
+//                    $this->data_db['like'][$k]['trans'] = $this->translit($val);
+//                }
+//                $this->data_db['like'][$k][$key] = $val;
+//            }
+//        }
         $this->load->view("pages/item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
         unset($this->script, $this->data_db, $key, $k, $v);
