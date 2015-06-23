@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="cat-item-title">
                                         <a href="#" onclick="return false;"><!--link-->
-                                            <h4 id="itemName">
+                                            <h4 id="itemName" class="product-title">
                                                 <?= $item['name'] ?><!--name-->
                                             </h4>
                                             <span class="item_price">

@@ -2069,28 +2069,41 @@ section .add-review input[type="submit"]:hover {
 .marketing-carousel .carou-fred-sel li {
 	display: inline-block;
 	padding: 10px 15px 10px 0;
+	position: relative;
+	overflow: hidden;
 }
 
-.marketing-carousel .carou-fred-sel li  a {
-	color: #333;
-	font-size: 18px;
-	line-height: 25px;
+.marketing-carousel .carou-fred-sel li .carousel-img{
+	position: relative;
+	padding-bottom: 10px;
+}
+
+.marketing-carousel .carou-fred-sel li .carousel-img a,
+.marketing-carousel .carou-fred-sel li .carousel-info a {
 	display: block;
 	text-decoration: none;
+	border: 0;
 }
 
-.marketing-carousel .carou-fred-sel li  a span {
-	display: block;
+.marketing-carousel .carou-fred-sel li .carousel-img a img {
+	max-width: 175px;
+	height: auto;
 }
 
-.marketing-carousel .carou-fred-sel li  a span:hover {
+.marketing-carousel .carou-fred-sel li .carousel-info {
+	text-align: center;
+}
+
+.marketing-carousel .carou-fred-sel li .carousel-info .product-title {
+	color: #333;
+	font-size: 1.1em;
+}
+.marketing-carousel .carou-fred-sel li .carousel-info .product-title:hover {
 	text-decoration: underline;
 }
 
-.marketing-carousel .carou-fred-sel li a img {
-	width: 175px;
-	height: auto;
-	float: left;
+.marketing-carousel .carou-fred-sel li .carousel-info .amount {
+	display: block;
 }
 
 .marketing-carousel .marketing-ctrl {
@@ -2100,7 +2113,7 @@ section .add-review input[type="submit"]:hover {
 }
 
 .marketing-carousel .marketing-ctrl.next {
-	right: 17px;
+	right: 10px;
 }
 .marketing-carousel  .marketing-ctrl.prev {
 	left: -32px;

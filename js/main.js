@@ -258,4 +258,32 @@ $(document).ready(function() {
 		}
 	}());
 	
+	
+	/* Triming Product Names */
+	
+	(function() {
+		var carousels = $('.marketing-carousel'),
+			catItems = $('.cat-content-row-item');
+			
+		try {
+			if( carousels.length ) trimTitle( carousels, 20 );
+			if( catItems.length ) trimTitle( catItems, 40 );
+		} catch( e ) {
+			console.warn( 'name : %s, message : %s', e.name, e.message );
+		}
+		
+		function trimTitle( itemsList, maxlength ) {
+			
+			[].forEach.call(itemsList, function( item ) {
+				var titles = $( item ).find('.product-title');
+				[].forEach.call(titles, function(title) {
+					var text = $( title ).text().trim();
+					if( text.length > 20 ) $( title ).text( text.slice(0, maxlength) + '..' );
+				});
+			});
+		
+		}
+		
+	})();
+	
 });

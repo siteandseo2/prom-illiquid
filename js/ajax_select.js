@@ -48,10 +48,10 @@
 				city = $('[rel="company_info_city"]');
 				break;
 			case 'company_location':
-				city = $('rel="company_info_city"');
+				city = $('[rel="company_info_city"]');
 				break;
 			case 'registr-buyer':
-				city = $('rel="registr-buyer-city"');
+				city = $('[rel="registr-buyer-city"]');
 				break;
 			case 'registr-seller':
 				city = $('[rel="registr-seller-city"]');
