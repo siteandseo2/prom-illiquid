@@ -12,7 +12,7 @@
 	
 	$( region ).change(function() {
 		var val = $( this ).val();
-		var self = $( this ).attr('id');
+		var self = $( this ).attr('rel');
 		
 		sendAjax( val, self );
 	});
@@ -38,11 +38,23 @@
 		var name = json.name;
 		
 		switch( self ) {
-			case 'location':
-				city = $('#city');
+			case 'cart':
+				city = $('[rel="cart-city"]');
+				break;
+			case 'account':
+				city = $('[rel="city-account"]');
+				break;
+			case 'company_info':
+				city = $('[rel="company_info_city"]');
 				break;
 			case 'company_location':
-				city = $('#company_city');
+				city = $('rel="company_info_city"');
+				break;
+			case 'registr-buyer':
+				city = $('rel="registr-buyer-city"');
+				break;
+			case 'registr-seller':
+				city = $('[rel="registr-seller-city"]');
 				break;
 			default:
 				break;

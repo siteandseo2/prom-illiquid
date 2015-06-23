@@ -38,7 +38,7 @@
 		
 	} catch( e ) {
 		
-		console.log( e.type + ' : ' + e.message );
+		console.warn( 'name : %s, message: %s', e.name, e.message );
 		
 	}
 	

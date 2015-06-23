@@ -2083,6 +2083,10 @@ section .add-review input[type="submit"]:hover {
 	display: block;
 }
 
+.marketing-carousel .carou-fred-sel li  a span:hover {
+	text-decoration: underline;
+}
+
 .marketing-carousel .carou-fred-sel li a img {
 	width: 175px;
 	height: auto;

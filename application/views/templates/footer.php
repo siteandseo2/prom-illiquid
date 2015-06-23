@@ -217,7 +217,7 @@
 
                                 <p>
                                     <label for="location">Область</label>
-                                    <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                                    <select class="cabinet-form-input" name="location" id="location" data-ajax="region" rel="cart">
                                         <? foreach ($location as $item){
                                         ?>
                                         <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
@@ -229,7 +229,7 @@
 
                                 <p>
                                     <label for="city">Город</label>
-                                    <select class="cabinet-form-input" name="city" id="city">
+                                    <select class="cabinet-form-input" name="city" id="city" rel="cart-city">
                                         <option value="Запорожье">Запорожье</option>
                                         <!-- ajax -->
                                     </select>
@@ -267,7 +267,7 @@
                     <div class="modal-footer" style="text-align: left;">
                         <p>
                             <span class="form-submit">
-                                <input type="submit" name="send" value="Оформить заказ" class="validate-submit">                            
+                                <input type="submit" name="send" value="Оформить заказ" class="validate-submit" id="cart-submit">                            
                             </span>
                             <span>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>                   

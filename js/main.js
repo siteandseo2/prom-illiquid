@@ -147,7 +147,7 @@ $(document).ready(function() {
 	
 	(function() {
 		
-		console.log( navigator.userAgent );
+		//console.log( navigator.userAgent );
 		
 		$('#location-select-button .sub-nav ul').perfectScrollbar();
 		//$('#location-select-button .sub-nav .scrollbar-inner').scrollbar();
