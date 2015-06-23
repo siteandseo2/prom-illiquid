@@ -156,11 +156,31 @@ class Product extends CI_Controller {
                 . "<script src='../../../js/sidebar.js'></script>"
                 . "<script src='../../../js/jquery.fancybox.pack.js'></script>"
                 . "<script src='../../../js/product_settings.js'></script>";
-
         $this->data_db['product'] = $this->product_m->get_product($id);
+        $this->data_db['data_view'] = $this->session->userdata('data_view');
+        $sesion_views = array();
+        if (!empty($this->data_db['data_view'])) {
+            foreach ($this->data_db['data_view'] as $identif) {
+                $this->data_db['prep_views'][] = $this->product_m->get_product($identif);
+                if ($identif != $this->data_db['product']['0']['id']) {
+                    $sesion_views[] = $identif;
+                }
+            }
+        }
+        array_push($sesion_views, $this->data_db['product']['0']['id']);
+        $this->session->set_userdata(array('data_view' => $sesion_views));
+        if (!empty($this->data_db['prep_views'])) {
+            foreach ($this->data_db['prep_views'] as $k => $v) {
+                foreach ($v as $key => $val) {
+                     if ($val == 'name') {
+                    $this->data_db['views'][$val['id']]['trans'] = $this->translit($val);
+                }
+                    $this->data_db['views'][$val['id']] = $val;
+                }
+            }
+        }
         $this->data_db['cat_name'] = $this->product_m->get_product_cat($this->data_db['product']['0']['subcat_id']);
         $this->data_db['subcat_name'] = $this->product_m->get_cat_name($this->data_db['cat_name']['0']['link']);
-
         $this->data_db['prepare_data'] = $this->user_model->get_user_by_id($this->data_db['product']['0']['id_user']);
         foreach ($this->data_db['prepare_data'] as $key => $value) {
             foreach ($value as $k => $v) {
@@ -175,17 +195,17 @@ class Product extends CI_Controller {
                 }
                 $this->data_db['other'][$k][$key] = $val;
             }
-        } 
-         $name = explode(" ", $this->data_db['product']['0']['name']);
-        $this->data_db['prep_like'] = $this->product_m->get_item_like_subcat($this->data_db['product']['0']['id'],$this->data_db['product']['0']['subcat_id'],$name[0]);
-       foreach ($this->data_db['prep_like'] as $k => $v) {
+        }
+        $name = explode(" ", $this->data_db['product']['0']['name']);
+        $this->data_db['prep_like'] = $this->product_m->get_item_like_subcat($this->data_db['product']['0']['id'], $this->data_db['product']['0']['subcat_id'], $name[0]);
+        foreach ($this->data_db['prep_like'] as $k => $v) {
             foreach ($v as $key => $val) {
                 if ($key == 'name') {
                     $this->data_db['like'][$k]['trans'] = $this->translit($val);
                 }
                 $this->data_db['like'][$k][$key] = $val;
             }
-        } 
+        }
         $this->load->view("pages/item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
         unset($this->script, $this->data_db, $key, $k, $v);
