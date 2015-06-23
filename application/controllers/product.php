@@ -115,6 +115,37 @@ class Product extends CI_Controller {
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
         $this->pagination->initialize($config);
+        $this->data_db['prep_popular'] = $this->product_m->get_popular();
+        foreach ($this->data_db['prep_popular'] as $k => $v) {
+            foreach ($v as $key => $val) {
+                if ($key == 'name') {
+                    $this->data_db['popular'][$k]['trans'] = $this->translit($val);
+                }
+                $this->data_db['popular'][$k][$key] = $val;
+            }
+        }
+        $this->data_db['data_view'] = $this->session->userdata('data_view');      
+        $sesion_views = array();
+        if (!empty($this->data_db['data_view'])) {
+            foreach ($this->data_db['data_view'] as $identif) {
+                $this->data_db['prep_views'][] = $this->product_m->get_product($identif);                
+            }
+        }       
+        if (!empty($this->data_db['prep_views'])) {
+            foreach ($this->data_db['prep_views'] as $k => $v) {
+                foreach ($v as $key => $val) {
+                    $this->data_db['previews'][$val['id']] = $val;
+                }
+            }
+            foreach ($this->data_db['previews'] as $k => $v) {
+                foreach ($v as $key => $val) {
+                    if ($key == 'name') {
+                        $this->data_db['views'][$k]['trans'] = $this->translit($val);
+                    }
+                    $this->data_db['views'][$k][$key] = $val;
+                }
+            }
+        }
         $this->data_db['prep'] = $this->product_m->get_products($link, $config['per_page'], $this->uri->segment(3));
         foreach ($this->data_db['prep'] as $k => $v) {
             foreach ($v as $key => $val) {
@@ -157,10 +188,9 @@ class Product extends CI_Controller {
                 . "<script src='../../../js/jquery.fancybox.pack.js'></script>"
                 . "<script src='../../../js/product_settings.js'></script>";
         $this->data_db['product'] = $this->product_m->get_product($id);
-        $this->data_db['data_view'] = $this->session->userdata('data_view');
-        $this->db->query("UPDATE `product` SET `views`= `views`+1 WHERE id=".$this->data_db['product']['0']['id']);
-        $this->data_db['prep_popular']=$this->product_m->get_popular();
-         foreach ($this->data_db['prep_popular'] as $k => $v) {
+        $this->db->query("UPDATE `product` SET `views`= `views`+1 WHERE id=" . $this->data_db['product']['0']['id']);          
+        $this->data_db['prep_popular'] = $this->product_m->get_popular();
+        foreach ($this->data_db['prep_popular'] as $k => $v) {
             foreach ($v as $key => $val) {
                 if ($key == 'name') {
                     $this->data_db['popular'][$k]['trans'] = $this->translit($val);
@@ -168,6 +198,7 @@ class Product extends CI_Controller {
                 $this->data_db['popular'][$k][$key] = $val;
             }
         }
+        $this->data_db['data_view'] = $this->session->userdata('data_view');      
         $sesion_views = array();
         if (!empty($this->data_db['data_view'])) {
             foreach ($this->data_db['data_view'] as $identif) {
@@ -181,17 +212,18 @@ class Product extends CI_Controller {
         $this->session->set_userdata(array('data_view' => $sesion_views));
         if (!empty($this->data_db['prep_views'])) {
             foreach ($this->data_db['prep_views'] as $k => $v) {
-                foreach ($v as $key => $val) {                 
+                foreach ($v as $key => $val) {
                     $this->data_db['previews'][$val['id']] = $val;
                 }
             }
-        }
-          foreach ($this->data_db['previews'] as $k => $v) {
-            foreach ($v as $key => $val) {
-                if ($key == 'name') {
-                    $this->data_db['views'][$k]['trans'] = $this->translit($val);
+
+            foreach ($this->data_db['previews'] as $k => $v) {
+                foreach ($v as $key => $val) {
+                    if ($key == 'name') {
+                        $this->data_db['views'][$k]['trans'] = $this->translit($val);
+                    }
+                    $this->data_db['views'][$k][$key] = $val;
                 }
-                $this->data_db['views'][$k][$key] = $val;
             }
         }
         $this->data_db['cat_name'] = $this->product_m->get_product_cat($this->data_db['product']['0']['subcat_id']);

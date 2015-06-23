@@ -133,6 +133,8 @@ class Product extends CI_Controller {
                 $this->data['ball'] = $this->input->post('ball');
                 $this->data['prod_quantity'] = $this->input->post('quantity');
                 $this->data['id_user'] = 1;
+                $this->data['views'] = 0;
+                $this->data['date'] = date('Y-m-d H:i:s');
                 if ($this->product_m->add_product($this->data) == true) {
                     redirect(base_url('admin/products'));
                 } else {
