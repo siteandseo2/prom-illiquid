@@ -266,7 +266,7 @@ $(document).ready(function() {
 			catItems = $('.cat-content-row-item');
 			
 		try {
-			if( carousels.length ) trimTitle( carousels, 20 );
+			if( carousels.length ) trimTitle( carousels, 25 );
 			if( catItems.length ) trimTitle( catItems, 40 );
 		} catch( e ) {
 			console.warn( 'name : %s, message : %s', e.name, e.message );

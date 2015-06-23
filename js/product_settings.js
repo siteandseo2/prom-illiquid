@@ -10,7 +10,7 @@ $( document ).ready(function() {
 		});
 		
 	} catch ( e ) {
-		console.log( e.type + ' : ' + e.message );
+		console.warn( 'name : %s, message : %s', e.name, e.message );
 	}
 	
 	/* Product Tabs */
@@ -21,8 +21,8 @@ $( document ).ready(function() {
 			addPanel = document.getElementById('add_info_panel');
 			
 			prodTabs.addEventListener('click', changeTabs);
-	} catch(err) {
-		console.log( err.typr + ' : ' + err.message );
+	} catch( e ) {
+		console.warn( 'name : %s, message : %s', e.name, e.message );
 	}
 	
 	function changeTabs(ev) {
@@ -118,73 +118,75 @@ $( document ).ready(function() {
 		
 	}());
 	
-	/* Carousel */
+	/* Carousels */
 	
-	
-	$('#others .carou-fred-sel').carouFredSel({
-		items: 4,
-		direction: "right",
-		align: "center",
-		auto: {
-			play: true
-		},
-		scroll: {
-			items: 1,
-			duration: 2000,
-			easing: "swing"
-		},
-		prev: {
-			button: "#other_prev"
-		},
-		next: {
-			button: "#other_next"
+	(function() {
+		
+		function Set( parent, next, prev, items, duration ) {
+			this.parent = parent;
+			this.next = next;
+			this.prev = prev;
+			this.items = items;
+			this.duration = duration;
+			this.exist = document.querySelector( parent );
 		}
-	});
-	
-	
-	$('#similars .carou-fred-sel').carouFredSel({
-		items: 4,
-		direction: "right",
-		align: "center",
-		auto: {
-			play: true
-		},
-		scroll: {
-			items: 1,
-			duration: 3000,
-			easing: "swing"
-		},
-		prev: {
-			button: "#similar_prev"
-		},
-		next: {
-			button: "#similar_next"
+		
+		var others = new Set( 
+			'#others .carou-fred-sel',
+			'#other_next', 
+			'#other_prev', 
+			3, 
+			2000 
+		);
+		var similars = new Set(
+			'#similars .carou-fred-sel',
+			"#similar_prev",
+			"#similar_next",
+			4,
+			3000
+		);
+		var item_others = new Set(
+			'#item-others .carou-fred-sel',
+			"#other_prev",
+			"#other_next",
+			6,
+			1500
+		);
+		
+		try {
+			
+			if( others.exist ) createCarousel( others );
+			if( similars.exist ) createCarousel( similars );
+			if( item_others.exist ) createCarousel( item_others );
+			
+		} catch( e ) {
+			console.warn('name : %s, message : %s', e.name, e.message);
 		}
-	});
-	
-	
-	$('#item-others .carou-fred-sel').carouFredSel({
-		items: 6,
-		direction: "right",
-		align: "center",
-		auto: {
-			play: true
-		},
-		scroll: {
-			items: 1,
-			duration: 2000,
-			easing: "swing"
-		},
-		prev: {
-			button: "#other_prev"
-		},
-		next: {
-			button: "#other_next"
+		
+		function createCarousel( set ) {
+			$( set.parent ).carouFredSel({
+				items: set.items,
+				direction: "right",
+				align: "center",
+				auto: {
+					play: true
+				},
+				scroll: {
+					items: 1,
+					duration: set.duration,
+					easing: "swing"
+				},
+				prev: {
+					button: set.next
+				},
+				next: {
+					button: set.prev
+				}
+			});
 		}
-	});
-	
-	
-	
+		
+		$('.caroufredsel_wrapper').css('display', 'inline-block');
+		
+	})();
 	
 });
-	
