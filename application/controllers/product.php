@@ -48,6 +48,7 @@ class Product extends CI_Controller {
         }
         /* load model product */
         $this->data['location'] = $this->main_m->get_location();
+        $this->script['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
                 . "<script src='../../../js/ajax_select.js'></script>"
@@ -234,7 +235,7 @@ class Product extends CI_Controller {
                 $this->data_db['user_data'][$k] = $v;
             }
         }
-        $this->data_db['prep_other'] = $this->product_m->get_item_by_user_id($this->data_db['product']['0']['id_user']);
+        $this->data_db['prep_other'] = $this->product_m->get_item_by_userid($this->data_db['product']['0']['id_user'], $this->data_db['product']['0']['id']);
         foreach ($this->data_db['prep_other'] as $k => $v) {
             foreach ($v as $key => $val) {
                 if ($key == 'name') {

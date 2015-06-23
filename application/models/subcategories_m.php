@@ -27,7 +27,7 @@ class subcategories_m extends CI_Model {
     }
     
     function get_subcategories_limit12() {
-        $query = $this->db->where('status', 'enable')->get('subcategories', 11, 0);
+        $query = $this->db->limit(12)->where('status', 'enable')->get('subcategories');
         return $query->result_array();
     }
     function get_subcategories_pagin($num, $offset) {

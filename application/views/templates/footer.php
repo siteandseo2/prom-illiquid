@@ -218,6 +218,7 @@
                                 <p>
                                     <label for="location">Область</label>
                                     <select class="cabinet-form-input" name="location" id="location" data-ajax="region" rel="cart">
+                                        <option value="<?=@$user['location']?>"><?=@$user['location']?></option>
                                         <? foreach ($location as $item){
                                         ?>
                                         <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
@@ -230,7 +231,7 @@
                                 <p>
                                     <label for="city">Город</label>
                                     <select class="cabinet-form-input" name="city" id="city" rel="cart-city">
-                                        <option value="Запорожье">Запорожье</option>
+                                        <option value="<?=@$user['city']?>"><?=@$user['city']?></option>
                                         <!-- ajax -->
                                     </select>
                                 </p>
