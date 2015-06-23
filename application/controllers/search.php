@@ -72,6 +72,8 @@ class Search extends CI_Controller {
                 $this->session->set_userdata(array('search' => $session_data));
                 redirect(base_url('search/' . $name1));
             }
+        } else {
+            redirect(base_url('search/prod'));
         }
         unset($this->script, $this->data, $name, $item, $name1, $session_data);
     }
@@ -83,7 +85,7 @@ class Search extends CI_Controller {
         if (empty($name)) {
             $arr = $this->product_m->search_by($name);
             $config['base_url'] = base_url() . 'search/prod';
-            $this->data['prep'] = $this->product_m->search_prod($name, 9, $this->uri->segment(3));
+            $this->data['prep'] = $this->product_m->search_prod($name, 18, $this->uri->segment(3));
             foreach ($this->data['prep'] as $k => $v) {
                 foreach ($v as $key => $val) {
                     if ($key == 'name') {
@@ -101,7 +103,7 @@ class Search extends CI_Controller {
             $this->data['total_rows'] = count($arr);
             $config['base_url'] = base_url() . 'search/' . $link;
             foreach ($name as $item) {
-                $this->data['prep'] = $this->product_m->search_prod($item, 9, $this->uri->segment(3));
+                $this->data['prep'] = $this->product_m->search_prod($item, 18, $this->uri->segment(3));
             }
             foreach ($this->data['prep'] as $k => $v) {
                 foreach ($v as $key => $val) {
@@ -115,7 +117,7 @@ class Search extends CI_Controller {
         if ($name)
             $this->session->unset_userdata('search');
         $config['total_rows'] = count($arr);
-        $config['per_page'] = '9';
+        $config['per_page'] = '18';
         $config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';
         $config['cur_tag_open'] = '<li class="active"><a>';
@@ -128,7 +130,37 @@ class Search extends CI_Controller {
         $config['prev_tag_close'] = '</li>';
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
-
+        $this->data['prep_popular'] = $this->product_m->get_popular();
+        foreach ($this->data['prep_popular'] as $k => $v) {
+            foreach ($v as $key => $val) {
+                if ($key == 'name') {
+                    $this->data['popular'][$k]['trans'] = $this->translit($val);
+                }
+                $this->data['popular'][$k][$key] = $val;
+            }
+        }
+        $this->data['data_view'] = $this->session->userdata('data_view');     
+    
+        if (!empty($this->data['data_view'])) {
+            foreach ($this->data['data_view'] as $identif) {
+                $this->data['prep_views'][] = $this->product_m->get_product($identif);                
+            }
+        }       
+        if (!empty($this->data['prep_views'])) {
+            foreach ($this->data['prep_views'] as $k => $v) {
+                foreach ($v as $key => $val) {
+                    $this->data['previews'][$val['id']] = $val;
+                }
+            }
+            foreach ($this->data['previews'] as $k => $v) {
+                foreach ($v as $key => $val) {
+                    if ($key == 'name') {
+                        $this->data['views'][$k]['trans'] = $this->translit($val);
+                    }
+                    $this->data['views'][$k][$key] = $val;
+                }
+            }
+        }
         $this->pagination->initialize($config);
         $this->load->view("pages/products", $this->data);
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"

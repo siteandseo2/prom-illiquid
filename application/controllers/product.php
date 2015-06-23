@@ -124,13 +124,13 @@ class Product extends CI_Controller {
                 $this->data_db['popular'][$k][$key] = $val;
             }
         }
-        $this->data_db['data_view'] = $this->session->userdata('data_view');      
+        $this->data_db['data_view'] = $this->session->userdata('data_view');
         $sesion_views = array();
         if (!empty($this->data_db['data_view'])) {
             foreach ($this->data_db['data_view'] as $identif) {
-                $this->data_db['prep_views'][] = $this->product_m->get_product($identif);                
+                $this->data_db['prep_views'][] = $this->product_m->get_product($identif);
             }
-        }       
+        }
         if (!empty($this->data_db['prep_views'])) {
             foreach ($this->data_db['prep_views'] as $k => $v) {
                 foreach ($v as $key => $val) {
@@ -188,7 +188,7 @@ class Product extends CI_Controller {
                 . "<script src='../../../js/jquery.fancybox.pack.js'></script>"
                 . "<script src='../../../js/product_settings.js'></script>";
         $this->data_db['product'] = $this->product_m->get_product($id);
-        $this->db->query("UPDATE `product` SET `views`= `views`+1 WHERE id=" . $this->data_db['product']['0']['id']);          
+        $this->db->query("UPDATE `product` SET `views`= `views`+1 WHERE id=" . $this->data_db['product']['0']['id']);
         $this->data_db['prep_popular'] = $this->product_m->get_popular();
         foreach ($this->data_db['prep_popular'] as $k => $v) {
             foreach ($v as $key => $val) {
@@ -198,7 +198,7 @@ class Product extends CI_Controller {
                 $this->data_db['popular'][$k][$key] = $val;
             }
         }
-        $this->data_db['data_view'] = $this->session->userdata('data_view');      
+        $this->data_db['data_view'] = $this->session->userdata('data_view');
         $sesion_views = array();
         if (!empty($this->data_db['data_view'])) {
             foreach ($this->data_db['data_view'] as $identif) {
@@ -251,6 +251,17 @@ class Product extends CI_Controller {
                     $this->data_db['like'][$k]['trans'] = $this->translit($val);
                 }
                 $this->data_db['like'][$k][$key] = $val;
+            }
+        }
+        if (empty($this->data_db['like'])) {
+            $this->data_db['prep_like'] = $this->product_m->get_item_like_subcat($this->data_db['product']['0']['id'], $this->data_db['product']['0']['subcat_id'], '');
+            foreach ($this->data_db['prep_like'] as $k => $v) {
+                foreach ($v as $key => $val) {
+                    if ($key == 'name') {
+                        $this->data_db['like'][$k]['trans'] = $this->translit($val);
+                    }
+                    $this->data_db['like'][$k][$key] = $val;
+                }
             }
         }
         $this->load->view("pages/item", $this->data_db);
