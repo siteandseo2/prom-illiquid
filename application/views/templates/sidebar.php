@@ -55,61 +55,26 @@
 
         <section class="widget-top-rated" id="most-popular">
             <h3 class="widget-title">Самые популярные</h3>
-
+ <?php if(!empty($popular)){ ?>
             <span id="car_next" class="carou-fred-sel-ctrl">
                 <i class="fa fa-chevron-up"></i>
-            </span>		
-
+            </span>
             <ul class="widget-cart-list carou-fred-sel">
+                <?php foreach($popular as $item) {?>
                 <li>
-                    <a href="<?= base_url(); ?>" title=""> 
-                        <img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-                        <span class="product-title">IPhone mockup 6</span>
+                    <a href="<?= base_url(); ?>products/item/<?=$item['id']?>-<?=$item['trans']?>" title=""> 
+                        <img src="<?=$item['image_path']?>" alt="<?=$item['name']?>">
+                        <span class="product-title"><?=$item['name']?></span>
                     </a>
-                    <span class="amount">$15.00</span>
+                    <span class="amount"><?=$item['price']?> <?=$item['currency']?></span>
                 </li>
-                <li>
-                    <a href="<?= base_url(); ?>" title=""> 
-                        <img src="../../../img/shop-thumb-2.jpg" alt="IPad Air mockup">
-                        <span class="product-title">IPad Air mockup</span>
-                    </a>
-                    <span class="amount">$15.00</span>
-                </li>
-                <li>
-                    <a href="<?= base_url(); ?>" title=""> 
-                        <img src="../../../img/shop-thumb-3.jpg" alt="High Space Sneakers">
-                        <span class="product-title">High Space Sneakers</span>
-                    </a>
-                    <span class="amount">$15.00</span>
-                </li>
-                <li>
-                    <a href="<?= base_url(); ?>" title=""> 
-                        <img src="../../../img/shop-thumb-4.jpg" alt="Space Hoddie">
-                        <span class="product-title">Space Hoddie</span>
-                    </a>
-                    <span class="amount">$15.00</span>
-                </li>
-
-                <li>
-                    <a href="<?= base_url(); ?>" title=""> 
-                        <img src="../../../img/shop-thumb-3.jpg" alt="High Space Sneakers">
-                        <span class="product-title">High Space Sneakers</span>
-                    </a>
-                    <span class="amount">$15.00</span>
-                </li>
-                <li>
-                    <a href="<?= base_url(); ?>" title=""> 
-                        <img src="../../../img/shop-thumb-4.jpg" alt="Space Hoddie">
-                        <span class="product-title">Space Hoddie</span>
-                    </a>
-                    <span class="amount">$15.00</span>
-                </li>
+                <?php }?>
             </ul>
 
             <span id="car_prev" class="carou-fred-sel-ctrl">
                 <i class="fa fa-chevron-down"></i>
             </span>	
-
+ <?php }?>
         </section>
 
         <!-- Other of its Seller -->
@@ -126,11 +91,11 @@
                     <?php foreach ($views as $view) {
                         ?>                
                         <li>
-                            <a href="<?= base_url(); ?>/products/item/<?=$view['id']?>-<?=$view['name']?>" title=""> 
+                            <a href="<?= base_url(); ?>products/item/<?=$view['id']?>-<?=$view['trans']?>" title=""> 
                                 <img src="<?=$view['image_path']?>" alt="IPhone mockup 6">
                                 <span class="product-title"><?=$view['name']?></span>
                             </a>
-                            <span class="amount"><?=$view['price']?></span>
+                            <span class="amount"><?=$view['price']?>  <?=$item['currency']?></span>
                         </li>
                     <?php } ?>
                 </ul>

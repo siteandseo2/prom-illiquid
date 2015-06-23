@@ -158,6 +158,16 @@ class Product extends CI_Controller {
                 . "<script src='../../../js/product_settings.js'></script>";
         $this->data_db['product'] = $this->product_m->get_product($id);
         $this->data_db['data_view'] = $this->session->userdata('data_view');
+        $this->db->query("UPDATE `product` SET `views`= `views`+1 WHERE id=".$this->data_db['product']['0']['id']);
+        $this->data_db['prep_popular']=$this->product_m->get_popular();
+         foreach ($this->data_db['prep_popular'] as $k => $v) {
+            foreach ($v as $key => $val) {
+                if ($key == 'name') {
+                    $this->data_db['popular'][$k]['trans'] = $this->translit($val);
+                }
+                $this->data_db['popular'][$k][$key] = $val;
+            }
+        }
         $sesion_views = array();
         if (!empty($this->data_db['data_view'])) {
             foreach ($this->data_db['data_view'] as $identif) {
@@ -171,12 +181,17 @@ class Product extends CI_Controller {
         $this->session->set_userdata(array('data_view' => $sesion_views));
         if (!empty($this->data_db['prep_views'])) {
             foreach ($this->data_db['prep_views'] as $k => $v) {
-                foreach ($v as $key => $val) {
-                     if ($val == 'name') {
-                    $this->data_db['views'][$val['id']]['trans'] = $this->translit($val);
+                foreach ($v as $key => $val) {                 
+                    $this->data_db['previews'][$val['id']] = $val;
                 }
-                    $this->data_db['views'][$val['id']] = $val;
+            }
+        }
+          foreach ($this->data_db['previews'] as $k => $v) {
+            foreach ($v as $key => $val) {
+                if ($key == 'name') {
+                    $this->data_db['views'][$k]['trans'] = $this->translit($val);
                 }
+                $this->data_db['views'][$k][$key] = $val;
             }
         }
         $this->data_db['cat_name'] = $this->product_m->get_product_cat($this->data_db['product']['0']['subcat_id']);
