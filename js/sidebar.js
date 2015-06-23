@@ -48,6 +48,7 @@
 			$( set.parent ).carouFredSel({
 				items: set.items,
 				direction: "top",
+				height: '360px',
 				align: "center",
 				auto: {
 					play: false

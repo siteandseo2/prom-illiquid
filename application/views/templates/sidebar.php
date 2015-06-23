@@ -62,7 +62,7 @@
             <ul class="widget-cart-list carou-fred-sel">
                 <?php foreach($popular as $item) {?>
                 <li>
-                    <a href="<?= base_url(); ?>products/item/<?=$item['id']?>-<?=$item['trans']?>" title=""> 
+                    <a href="<?= base_url(); ?>products/item/<?=$item['id']?>-<?=$item['trans']?>" title="<?=$item['name']?>"> 
                         <img src="<?=$item['image_path']?>" alt="<?=$item['name']?>">
                         <span class="product-title"><?=$item['name']?></span>
                     </a>
@@ -91,7 +91,7 @@
                     <?php foreach ($views as $view) {
                         ?>                
                         <li>
-                            <a href="<?= base_url(); ?>products/item/<?=$view['id']?>-<?=$view['trans']?>" title=""> 
+                            <a href="<?= base_url(); ?>products/item/<?=$view['id']?>-<?=$view['trans']?>" title="<?=$item['name']?>"> 
                                 <img src="<?=$view['image_path']?>" alt="IPhone mockup 6">
                                 <span class="product-title"><?=$view['name']?></span>
                             </a>

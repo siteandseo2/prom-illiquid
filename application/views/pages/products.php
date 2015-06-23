@@ -82,7 +82,7 @@
                                         </a>
                                     </div>
                                     <div class="cat-item-title">
-                                        <a href="#" onclick="return false;"><!--link-->
+                                        <a href="#" onclick="return false;" title="<?= $item['name'] ?>"><!--link-->
                                             <h4 id="itemName" class="product-title">
                                                 <?= $item['name'] ?><!--name-->
                                             </h4>

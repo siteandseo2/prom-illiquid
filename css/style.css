@@ -2108,6 +2108,7 @@ section .add-review input[type="submit"]:hover {
 
 .marketing-carousel .carou-fred-sel li .carousel-info .amount {
 	display: block;
+	color: #777;
 }
 
 .marketing-carousel .marketing-ctrl {

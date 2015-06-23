@@ -270,7 +270,7 @@ $(document).ready(function() {
 		try {
 			if( carousels.length ) trimTitle( carousels, 25 );
 			if( catItems.length ) trimTitle( catItems, 40 );
-			if( sidebarCarousels.length ) trimTitle( sidebarCarousels, 22 );
+			if( sidebarCarousels.length ) trimTitle( sidebarCarousels, 16 );
 		} catch( e ) {
 			console.warn( 'name : %s, message : %s', e.name, e.message );
 		}
