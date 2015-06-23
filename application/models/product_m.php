@@ -146,8 +146,9 @@ class Product_m extends CI_Model {
         $query = $this->db->where('id_user', $id)->get('product');
         return $query->result_array();
     }
-     function get_item_like_name($name) {
-        $query = $this->db->like('name', $name)->get('product');
+     function get_item_like_subcat($id, $subcat,$name) {
+        $query = $this->db->where('id !=', $id)->where('subcat_id', $subcat)->like('name', $name)->get('product');
+//         $query=$this->db->query("SELECT * FROM product WHERE name LIKE '%$name%'");
         return $query->result_array();
     }
 

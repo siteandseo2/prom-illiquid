@@ -175,33 +175,10 @@ class Product extends CI_Controller {
                 }
                 $this->data_db['other'][$k][$key] = $val;
             }
-        }
-        $name = explode(" ", $this->data_db['product']['0']['name']);
-        foreach ($name as $item) {
-            if (strlen($item) > 5) {
-                $this->data_db['like'] = $this->product_m->get_item_like_name($item);
-            }
-        }
-        echo"<pre>";
-        print_r($name);
-//        print_r($this->data_db['prep_like']);
-        echo"</pre>";
-//        foreach ($this->data_db['prep_like'] as $k => $v) {
-//            foreach ($v as $key => $val) {
-//                if ($key == 'name') {
-//                    $this->data_db['like'][$k]['trans'] = $this->translit($val);
-//                }
-//                $this->data_db['like'][$k][$key] = $val;
-//            }
-//        }
-//        foreach ($this->data_db['prep_like'] as $k => $v) {
-//            foreach ($v as $key => $val) {
-//                if ($key == 'name') {
-//                    $this->data_db['like'][$k]['trans'] = $this->translit($val);
-//                }
-//                $this->data_db['like'][$k][$key] = $val;
-//            }
-//        }
+        } 
+         $name = explode(" ", $this->data_db['product']['0']['name']);
+        $this->data_db['like'] = $this->product_m->get_item_like_subcat($this->data_db['product']['0']['id'],$this->data_db['product']['0']['subcat_id'],$name[0]);
+//        print_r($name) ;
         $this->load->view("pages/item", $this->data_db);
         $this->load->view("templates/footer", $this->script);
         unset($this->script, $this->data_db, $key, $k, $v);
