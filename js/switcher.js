@@ -45,7 +45,9 @@
 						}
 						
 						get.search();
+						get.searchPost();
 						get.cabinet();
+						get.cabinetPost();
 						
 						setSwitch();
 					}, 2000);
