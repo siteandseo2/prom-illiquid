@@ -273,14 +273,14 @@
                                 </p>
 
                                 <p class="form-name">
-                                    <input type="text" class="validate" data-validate="e" placeholder="Email *" value="<?= @$user['email'] ?>"name="email">
+                                    <input type="text" class="validate" data-validate="e" placeholder="Email *" value="<?= @$user['email'] ?>" name="email">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
                                 </p>
 
                                 <p class="form-name">
-                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" value="<?= @$user['phone'] ?>"name="phone">
+                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" value="<?= @$user['phone'] ?>" name="phone">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>

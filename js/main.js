@@ -44,6 +44,8 @@ $(document).ready(function() {
 		
 		var self = this;
 		
+		console.log( ev.target );
+		
 		if( ev.target.tagName == 'SPAN' ) {
 			this.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML = ev.target.innerHTML;
 			this.previousElementSibling.previousElementSibling.value = ev.target.innerHTML;
@@ -149,8 +151,8 @@ $(document).ready(function() {
 		
 		//console.log( navigator.userAgent );
 		
-		$('#location-select-button .sub-nav ul').perfectScrollbar();
-		//$('#location-select-button .sub-nav .scrollbar-inner').scrollbar();
+		//$('#location-select-button .sub-nav ul').perfectScrollbar();
+		$('#location-select-button .sub-nav .scrollbar-inner').scrollbar();
 		
 	}());
 	

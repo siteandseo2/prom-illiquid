@@ -1026,11 +1026,13 @@ p .form-submit {
 .tabs-buttons li:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+	border-right: 0;
 }
 
 .tabs-buttons li:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+	border-left: 0;
 }
 
 .tabs-buttons li a {
@@ -1038,7 +1040,6 @@ p .form-submit {
     color: #888;
     font-size: 1.8em;
 }
-
 
 .tabs-buttons li.activeTab a {
     color: #fff;
@@ -1114,12 +1115,32 @@ p .form-submit {
     transition: all .3s;
 }
 
+.tabs-grid-item .inner-item .item-title {
+    width: 100%;
+    background: rgba(0, 0, 0, .4);
+    text-align: center;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+	box-sizing: border-box;
+}
+
+.tabs-grid-item .inner-item .item-title span {
+    color: #fff;
+    font-size: 1.1em;
+	line-height: 1.2em;
+	display: inline-block;
+}
+
 .tabs-grid-item .inner-item:hover .item-title {
-    height: 70px;
+    height: 90px;
+	padding: 15px 5px 0;
 }
 
 .tabs-grid-item .inner-item:hover {
-    border-color: #ccc;
+    border-color: #777;
 }
 
 .tabs-grid-item .inner-item .item-link {
@@ -1138,24 +1159,6 @@ p .form-submit {
     border: none;
     height: 130px;
 	width: 100%;
-}
-
-.tabs-grid-item .inner-item .item-title {
-    width: 100%;
-    background: rgba(0, 0, 0, .4);
-    text-align: center;
-    height: 0;
-    position: absolute;
-    bottom: 0;
-    -webkit-transition: all .3s;
-    transition: all .3s;
-}
-
-.tabs-grid-item .inner-item .item-title span {
-    line-height: 70px;
-    vertical-align: middle;
-    color: #fff;
-    font-size: 1.5em;
 }
 
 /* Feedback */

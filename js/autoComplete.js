@@ -91,7 +91,7 @@ function autoComplete(input, arr) {
 	
 	div.style.top = initCoords.top + input.clientHeight + 10 + 'px';
 	div.style.left = initCoords.left + 'px';
-	div.style.width = input.clientWidth / 2 + 'px';
+	div.style.width = ( input.clientWidth / 3 )*2 + 'px';
 	
 	// set Ul styles
 	var ul = document.createElement('ul');
@@ -103,7 +103,7 @@ function autoComplete(input, arr) {
 
 		var val = this.value;
 		
-		if( val.length < 3 ) return;
+		if( val.length < 2 ) return;
 		
 		// match ?
 		var matchList = [];
