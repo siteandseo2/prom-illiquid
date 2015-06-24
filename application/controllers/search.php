@@ -24,6 +24,20 @@ class Search extends CI_Controller {
         $this->load->model('subcategories_m');
         $this->load->model('category_m');
         $this->load->model('user_model');
+        $this->load->model('settings_m');
+        $this->script['city'] = $this->settings_m->get_set('city');
+        $this->script['street_build'] = $this->settings_m->get_set('street/build');
+        $this->script['phone1'] = $this->settings_m->get_set('phone1');
+        $this->script['phone2'] = $this->settings_m->get_set('phone2');
+        $this->script['email'] = $this->settings_m->get_set('email');
+        $this->script['tw_link'] = $this->settings_m->get_set('tw_link');
+        $this->script['inst_link'] = $this->settings_m->get_set('inst_link');
+        $this->script['fb_link'] = $this->settings_m->get_set('fb_link');
+        $this->script['vk_link'] = $this->settings_m->get_set('vk_link');
+               $this->data['tw_link'] = $this->settings_m->get_set('tw_link');
+        $this->data['inst_link'] = $this->settings_m->get_set('inst_link');
+        $this->data['fb_link'] = $this->settings_m->get_set('fb_link');
+        $this->data['vk_link'] = $this->settings_m->get_set('vk_link');
         /* load header */
         $session = $this->session->userdata('user');
         if (!empty($session)) {
@@ -37,7 +51,7 @@ class Search extends CI_Controller {
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
-            $this->load->view("templates/header");
+            $this->load->view("templates/header",  $this->data);
         }
         /* load sidebar_data */
         $this->data['subcat_side'] = $this->subcategories_m->get_subcategories_sidebar();
@@ -139,13 +153,13 @@ class Search extends CI_Controller {
                 $this->data['popular'][$k][$key] = $val;
             }
         }
-        $this->data['data_view'] = $this->session->userdata('data_view');     
-    
+        $this->data['data_view'] = $this->session->userdata('data_view');
+
         if (!empty($this->data['data_view'])) {
             foreach ($this->data['data_view'] as $identif) {
-                $this->data['prep_views'][] = $this->product_m->get_product($identif);                
+                $this->data['prep_views'][] = $this->product_m->get_product($identif);
             }
-        }       
+        }
         if (!empty($this->data['prep_views'])) {
             foreach ($this->data['prep_views'] as $k => $v) {
                 foreach ($v as $key => $val) {

@@ -13,7 +13,20 @@ class Product extends CI_Controller {
 
         $this->load->model('main_m');
         $this->load->model('user_model');
-
+         $this->load->model('settings_m');
+        $this->script['city'] = $this->settings_m->get_set('city');
+        $this->script['street_build'] = $this->settings_m->get_set('street/build');
+        $this->script['phone1'] = $this->settings_m->get_set('phone1');
+        $this->script['phone2'] = $this->settings_m->get_set('phone2');
+        $this->script['email'] = $this->settings_m->get_set('email');
+        $this->script['tw_link'] = $this->settings_m->get_set('tw_link');
+        $this->script['inst_link'] = $this->settings_m->get_set('inst_link');
+        $this->script['fb_link'] = $this->settings_m->get_set('fb_link');
+        $this->script['vk_link'] = $this->settings_m->get_set('vk_link');
+        $this->data['tw_link'] = $this->settings_m->get_set('tw_link');
+        $this->data['inst_link'] = $this->settings_m->get_set('inst_link');
+        $this->data['fb_link'] = $this->settings_m->get_set('fb_link');
+        $this->data['vk_link'] = $this->settings_m->get_set('vk_link');
         /* load header */
         $session = $this->session->userdata('user');
         if (!empty($session)) {
@@ -28,13 +41,14 @@ class Product extends CI_Controller {
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
-            $this->load->view("templates/header");
+            $this->load->view("templates/header", $this->data);
         }
 
         $this->load->model('subcategories_m');
         $this->load->model('category_m');
         $this->load->model('product_m');
         $this->load->model('user_model');
+       
         /* load sidebar_data */
         $this->data_db['subcat'] = $this->subcategories_m->get_subcategories_list();
         $this->data_db['subcat_side'] = $this->subcategories_m->get_subcategories_sidebar();
@@ -48,6 +62,7 @@ class Product extends CI_Controller {
         }
         /* load model product */
         $this->data['location'] = $this->main_m->get_location();
+        $this->script['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
                 . "<script src='../../../js/ajax_select.js'></script>"
@@ -234,7 +249,7 @@ class Product extends CI_Controller {
                 $this->data_db['user_data'][$k] = $v;
             }
         }
-        $this->data_db['prep_other'] = $this->product_m->get_item_by_user_id($this->data_db['product']['0']['id_user']);
+        $this->data_db['prep_other'] = $this->product_m->get_item_by_userid($this->data_db['product']['0']['id_user'], $this->data_db['product']['0']['id']);
         foreach ($this->data_db['prep_other'] as $k => $v) {
             foreach ($v as $key => $val) {
                 if ($key == 'name') {

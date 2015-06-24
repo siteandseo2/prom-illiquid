@@ -203,8 +203,11 @@
                 </ul>
             </li>  
             <li>
-                <a href="<?= base_url(); ?>admin/users" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-file"></i> Пользователи</a>
-            </li>                        
+                <a href="<?= base_url(); ?>admin/users" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-users"></i> Пользователи</a>
+            </li>  
+            <li>
+                <a href="<?= base_url(); ?>admin/settings" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-wrench"></i> Настройки</a>
+            </li>       
         </ul>
         <!-- Sidebar End -->
 

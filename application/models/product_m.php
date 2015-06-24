@@ -146,6 +146,10 @@ class Product_m extends CI_Model {
         $query = $this->db->where('id_user', $id)->get('product');
         return $query->result_array();
     }
+     function get_item_by_userid($id_user,$id) {
+        $query = $this->db->where('id_user', $id_user)->where('id !=', $id)->get('product');
+        return $query->result_array();
+    }
 
     function get_item_like_subcat($id, $subcat, $name) {
         $query = $this->db->where('id !=', $id)->where('subcat_id', $subcat)->like('name', $name)->get('product');
