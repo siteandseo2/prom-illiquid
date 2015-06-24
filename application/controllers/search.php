@@ -34,7 +34,7 @@ class Search extends CI_Controller {
         $this->script['inst_link'] = $this->settings_m->get_set('inst_link');
         $this->script['fb_link'] = $this->settings_m->get_set('fb_link');
         $this->script['vk_link'] = $this->settings_m->get_set('vk_link');
-               $this->data['tw_link'] = $this->settings_m->get_set('tw_link');
+        $this->data['tw_link'] = $this->settings_m->get_set('tw_link');
         $this->data['inst_link'] = $this->settings_m->get_set('inst_link');
         $this->data['fb_link'] = $this->settings_m->get_set('fb_link');
         $this->data['vk_link'] = $this->settings_m->get_set('vk_link');
@@ -51,7 +51,7 @@ class Search extends CI_Controller {
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
-            $this->load->view("templates/header",  $this->data);
+            $this->load->view("templates/header", $this->data);
         }
         /* load sidebar_data */
         $this->data['subcat_side'] = $this->subcategories_m->get_subcategories_sidebar();
@@ -84,7 +84,7 @@ class Search extends CI_Controller {
                     $session_data[] = $item;
                 }
                 $this->session->set_userdata(array('search' => $session_data));
-                redirect(base_url('search/' . $name1));
+                redirect(base_url('search/' . $this->translit($name1)));
             }
         } else {
             redirect(base_url('search/prod'));
@@ -118,6 +118,11 @@ class Search extends CI_Controller {
             $config['base_url'] = base_url() . 'search/' . $link;
             foreach ($name as $item) {
                 $this->data['prep'] = $this->product_m->search_prod($item, 18, $this->uri->segment(3));
+            }
+            if (empty($this->data['prep'])) {
+                foreach ($name as $item) {
+                    $this->data['prep'] = $this->product_m->search_prod($this->untranslit($item), 18, $this->uri->segment(3));
+                }
             }
             foreach ($this->data['prep'] as $k => $v) {
                 foreach ($v as $key => $val) {
@@ -197,6 +202,21 @@ class Search extends CI_Controller {
         $rus = array('А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я', ' ', '.', ',', '>', '<', ';', ')', '(', '*', '}', '', ', ');
         $lat = array('A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya', '-', '_', '_', '', '', '', '', '', '', '', '', '_');
         return str_replace($rus, $lat, $str);
+    }
+
+    function untranslit($str) {
+        $str = trim($str);
+        $rus = array(
+            "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
+            "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э",
+            "я", "ч", "с", "м", "и", "т", "ь", "б", "ю"
+        );
+        $lat = array(
+            "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
+            "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'",
+            "z", "x", "c", "v", "b", "n", "m", ",", "."
+        );
+        return str_replace($lat, $rus, $str);
     }
 
 }

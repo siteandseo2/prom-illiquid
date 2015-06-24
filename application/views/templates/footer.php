@@ -5,7 +5,7 @@
         <div class="wf-container-footer">
             <div class="wf-container clearfix">
 
-                <section class="widget col-sm-4" id="footer-contact-us-widget">
+                <section class="widget col-sm-3" id="footer-contact-us-widget">
                     <div class="widget-title">НАШИ КОНТАКТЫ</div>
                     <ul class="contact-info">
                         <li>
@@ -65,9 +65,9 @@
                             </a>
                         <?php } ?>
                     </div>
-                </section>
+                </section>               
 
-                <section class="widget col-sm-4" id="footer-our-services-widget">
+                <section class="widget col-sm-3" id="footer-our-services-widget">
                     <div class="widget-title">НАШИ ПРЕДЛОЖЕНИЯ</div>
 
                     <ul class="foot-accordion clearfix">
@@ -119,7 +119,7 @@
 
                 </section>
 
-                <section class="widget col-sm-4" id="footer-featured-posts-widget">
+                <section class="widget col-sm-3" id="footer-featured-posts-widget">
                     <div class="widget-title">ПОПУЛЯРНЫЕ СТАТЬИ</div>
 
                     <ul class="recent-posts">
@@ -180,6 +180,19 @@
                             </article>
                         </li>
                     </ul>
+                </section>
+                <section class="widget col-sm-3" >
+                    <div class="widget-title">ПОИСК</div>
+                    <br>
+                    <div class="widget-product-search">                       
+                        <form role="search" method="POST" action="<?= base_url(); ?>search">
+                            <input type="search" class="search-field" placeholder="Искать.." value="" name="name" title="Search for..">
+                            <input type="submit" name="search" value="search">
+                            <span class="search-icon">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </form>                            
+                    </div>
                 </section>
 
             </div>
