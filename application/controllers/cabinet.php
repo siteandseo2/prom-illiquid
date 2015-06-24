@@ -26,6 +26,20 @@ class Cabinet extends CI_Controller {
             $this->load->model('category_m');
             $this->load->model('subcategories_m');
             $this->load->model('product_m');
+            $this->load->model('settings_m');
+            $this->script['city'] = $this->settings_m->get_set('city');
+            $this->script['street_build'] = $this->settings_m->get_set('street/build');
+            $this->script['phone1'] = $this->settings_m->get_set('phone1');
+            $this->script['phone2'] = $this->settings_m->get_set('phone2');
+            $this->script['email'] = $this->settings_m->get_set('email');
+            $this->script['tw_link'] = $this->settings_m->get_set('tw_link');
+            $this->script['inst_link'] = $this->settings_m->get_set('inst_link');
+            $this->script['fb_link'] = $this->settings_m->get_set('fb_link');
+            $this->script['vk_link'] = $this->settings_m->get_set('vk_link');
+            $this->data['tw_link'] = $this->settings_m->get_set('tw_link');
+            $this->data['inst_link'] = $this->settings_m->get_set('inst_link');
+            $this->data['fb_link'] = $this->settings_m->get_set('fb_link');
+            $this->data['vk_link'] = $this->settings_m->get_set('vk_link');
             if ($this->data['user']['usercat'] == "seller") {
                 $num = 1;
             } else {

@@ -11,36 +11,59 @@
                         <li>
                             <span class="color-primary">Адрес:</span>
                             <br>
-                            8500 Beverly Boulevard
+                            <?php
+                            if (!empty($city))
+                                echo $city
+                                ?>
                             <br>
-                            Los Angeles, CA 90048
+                            <?php
+                            if (!empty($street_build))
+                                echo $street_build
+                                ?>                           
                         </li>
                         <li>
                             <span class="color-primary">Телефоны:</span>
                             <br>
-                            +12 345 67 00 89
+                            <?php
+                            if (!empty($phone1))
+                                echo $phone1
+                                ?>   
                             <br>
-                            +12 987 00 65 43
+                            <?php
+                            if (!empty($phone2))
+                                echo $phone2
+                                ?> 
                         </li>
                         <li>
                             <span class="color-primary">E-mail:</span>
                             <br>
-                            isitinme88@gmail.com
+                            <?php
+                            if (!empty($email))
+                                echo $email
+                                ?> 
                         </li>
                     </ul>
                     <div class="soc-ico clearfix">
-                        <a href="<?= base_url(); ?>" title="Instagram" target="_blank">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="<?= base_url(); ?>" title="Facebook" target="_blank">
-                            <i class="fa fa-facebook-square"></i>
-                        </a>
-                        <a href="<?= base_url(); ?>" title="Twitter" target="_blank">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="<?= base_url(); ?>" title="Vk" target="_blank">
-                            <i class="fa fa-vk"></i>
-                        </a>
+                        <?php if (!empty($inst_link)) { ?>                           
+                            <a href="<?= $inst_link ?>" title="Instagram" target="_blank">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        <?php } ?>
+                        <?php if (!empty($fb_link)) { ?>      
+                            <a href="<?= $fb_link ?>" title="Facebook" target="_blank">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                        <?php } ?>
+                        <?php if (!empty($tw_link)) { ?>   
+                            <a href="<?= $tw_link ?>" title="Twitter" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        <?php } ?>
+                        <?php if (!empty($vk_link)) { ?>   
+                            <a href="<?= $vk_link ?>" title="Vk" target="_blank">
+                                <i class="fa fa-vk"></i>
+                            </a>
+                        <?php } ?>
                     </div>
                 </section>
 
@@ -202,14 +225,14 @@
                                 </p>
 
                                 <span class="form-name">
-                                    <input type="text" class="validate" data-validate="w" placeholder="Имя *" value="<?=@$user['name']?>" name="name">
+                                    <input type="text" class="validate" data-validate="w" placeholder="Имя *" value="<?= @$user['name'] ?>" name="name">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
                                 </span>
 
                                 <span class="form-name">
-                                    <input type="text" class="validate" data-validate="w" placeholder="Фамилия *" value="<?=@$user['surname']?>" name="surname">
+                                    <input type="text" class="validate" data-validate="w" placeholder="Фамилия *" value="<?= @$user['surname'] ?>" name="surname">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
@@ -218,7 +241,7 @@
                                 <p>
                                     <label for="location">Область</label>
                                     <select class="cabinet-form-input" name="location" id="location" data-ajax="region" rel="cart">
-                                        <option value="<?=@$user['location']?>"><?=@$user['location']?></option>
+                                        <option value="<?= @$user['location'] ?>"><?= @$user['location'] ?></option>
                                         <? foreach ($location as $item){
                                         ?>
                                         <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
@@ -231,20 +254,20 @@
                                 <p>
                                     <label for="city">Город</label>
                                     <select class="cabinet-form-input" name="city" id="city" rel="cart-city">
-                                        <option value="<?=@$user['city']?>"><?=@$user['city']?></option>
+                                        <option value="<?= @$user['city'] ?>"><?= @$user['city'] ?></option>
                                         <!-- ajax -->
                                     </select>
                                 </p>
 
                                 <p class="form-name">
-                                    <input type="text" class="validate" data-validate="e" placeholder="Email *" value="<?=@$user['email']?>"name="email">
+                                    <input type="text" class="validate" data-validate="e" placeholder="Email *" value="<?= @$user['email'] ?>"name="email">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
                                 </p>
 
                                 <p class="form-name">
-                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" value="<?=@$user['phone']?>"name="phone">
+                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" value="<?= @$user['phone'] ?>"name="phone">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
@@ -286,10 +309,10 @@
 
         </div>
     </div>
-	
-	<!-- Overlay -->
-	
-		<div id="overlay"></div>
+
+    <!-- Overlay -->
+
+    <div id="overlay"></div>
 
 </footer>
 

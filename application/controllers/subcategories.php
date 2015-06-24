@@ -20,6 +20,20 @@ class Subcategories extends CI_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('main_m');
+        $this->load->model('settings_m');
+        $this->script['city'] = $this->settings_m->get_set('city');
+        $this->script['street_build'] = $this->settings_m->get_set('street/build');
+        $this->script['phone1'] = $this->settings_m->get_set('phone1');
+        $this->script['phone2'] = $this->settings_m->get_set('phone2');
+        $this->script['email'] = $this->settings_m->get_set('email');
+        $this->script['tw_link'] = $this->settings_m->get_set('tw_link');
+        $this->script['inst_link'] = $this->settings_m->get_set('inst_link');
+        $this->script['fb_link'] = $this->settings_m->get_set('fb_link');
+        $this->script['vk_link'] = $this->settings_m->get_set('vk_link');
+        $this->data['tw_link'] = $this->settings_m->get_set('tw_link');
+        $this->data['inst_link'] = $this->settings_m->get_set('inst_link');
+        $this->data['fb_link'] = $this->settings_m->get_set('fb_link');
+        $this->data['vk_link'] = $this->settings_m->get_set('vk_link');
         $session = $this->session->userdata('user');
         if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
@@ -33,7 +47,7 @@ class Subcategories extends CI_Controller {
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
-            $this->load->view("templates/header");
+            $this->load->view("templates/header",  $this->data);
         }
         $this->load->model('subcategories_m');
         $this->load->model('category_m');
@@ -68,7 +82,7 @@ class Subcategories extends CI_Controller {
         }
         $this->load->view("pages/subcategories", $this->data);
         $this->load->view("templates/footer", $this->script);
-        unset($this->script,  $this->data, $sub);
+        unset($this->script, $this->data, $sub);
     }
 
     function get_subgategory($name = '') {
@@ -86,7 +100,7 @@ class Subcategories extends CI_Controller {
         }
         $this->load->view("pages/subcategories", $this->data);
         $this->load->view("templates/footer", $this->script);
-        unset($this->script,  $this->data, $sub, $id, $name);
+        unset($this->script, $this->data, $sub, $id, $name);
     }
 
 }

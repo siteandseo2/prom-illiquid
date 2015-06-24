@@ -60,6 +60,7 @@ $route['(:any)/ajax/change_role'] = 'ajax/change_role';
 
 $route['admin'] = 'admin/admin/get_admin';
 $route['admin/(:any)'] = 'admin/admin/admin_pages/$1';
+$route['admin/edit_setting'] = 'admin/admin/edit_setting';
 $route['admin/products/filter_by_category'] = 'ajax/filter_by_category';
 $route['admin/products'] = 'admin/product/products';
 $route['admin/add_product'] = 'admin/product/add_product';

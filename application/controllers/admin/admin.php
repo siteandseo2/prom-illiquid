@@ -27,7 +27,8 @@ class Admin extends CI_Controller {
 
         /* load menu */
         $this->load->model('main_m');
-
+        $this->load->model('settings_m');
+        $this->data['settings'] = $this->settings_m->get_setlist();
         $this->data['menu_buyer'] = $this->main_m->get_menu_front('2');
         $this->data['menu_seller'] = $this->main_m->get_menu_front('1');
         $this->data['fst_level'] = $this->main_m->get_fst_l();
@@ -157,7 +158,7 @@ class Admin extends CI_Controller {
         $this->data['slider'] = $this->main_m->get_slider_item();
         $this->load->view("admin/slider", $this->data);
         $this->load->view("admin/footer", $this->data);
-        unset($this->data,$id,$key,$value,$name);
+        unset($this->data, $id, $key, $value, $name);
     }
 
     /* END function edit slider */
@@ -192,7 +193,7 @@ class Admin extends CI_Controller {
             $this->load->view("admin/slide_add", $this->data);
             $this->load->view("admin/footer", $this->data);
         }
-        unset($this->data,$header,$text);
+        unset($this->data, $header, $text);
     }
 
     /* slide_add End */
@@ -232,7 +233,7 @@ class Admin extends CI_Controller {
         $this->data['partner'] = $this->main_m->get_partners();
         $this->load->view("admin/partners", $this->data);
         $this->load->view("admin/footer", $this->data);
-        unset($this->data,$id,$key,$value,$name);
+        unset($this->data, $id, $key, $value, $name);
     }
 
     /* partners function END */
@@ -266,7 +267,7 @@ class Admin extends CI_Controller {
             $this->load->view("admin/partner_add", $this->data);
             $this->load->view("admin/footer", $this->data);
         }
-        unset($this->data,$name);
+        unset($this->data, $name);
     }
 
     /* add partner END */
@@ -283,8 +284,27 @@ class Admin extends CI_Controller {
 //        echo'</pre>';
         $this->load->view("admin/new_orders", $this->data);
         $this->load->view("admin/footer", $this->data);
-        unset($this->data,$k,$v);
+        unset($this->data, $k, $v);
     }
-    
+
     /* get_order END */
+
+
+    /* edit setting START */
+
+    function edit_setting() {
+        if (isset($_POST['edit'])) {
+            foreach ($this->input->post('edit') as $val) {
+                $id = $val;
+            }
+            foreach ($this->input->post('set') as $key => $value) {
+                if ($id == $key)
+                    $name = $value;
+            }
+            $this->db->query("UPDATE settings SET value='$name' WHERE id='$id'");
+        }
+         redirect(base_url('admin/settings'));
+    }
+
+    /* edit setting END */
 }

@@ -66,16 +66,16 @@
                                     </div>
                                     <!-- Social -->
                                     <div class="soc-ico clearfix">
-                                        <a href="#" title="Instagram" target="_blank">
+                                        <a href="<?= $inst_link ?>" title="Instagram" target="_blank">
                                             <i class="fa fa-instagram"></i>
                                         </a>
-                                        <a href="#" title="Facebook" target="_blank">
+                                        <a href="<?= $fb_link ?>" title="Facebook" target="_blank">
                                             <i class="fa fa-facebook-square"></i>
                                         </a>
-                                        <a href="#" title="Twitter" target="_blank">
+                                        <a href="<?= $tw_link ?>" title="Twitter" target="_blank">
                                             <i class="fa fa-twitter"></i>
                                         </a>
-                                        <a href="#" title="Vk" target="_blank">
+                                        <a href="<?= $vk_link ?>" title="Vk" target="_blank">
                                             <i class="fa fa-vk"></i>
                                         </a>
                                     </div>
@@ -168,7 +168,7 @@
                                 <div class="btn-group s-butt">
                                     <button type="button" class="btn btn-default search-block-button" id="location-select-button">
                                         <span class="btn-text">Вся Украина</span>
-										<input type="hidden" name="certainCity" value="">
+                                        <input type="hidden" name="certainCity" value="">
                                         <span class="search-select-icon">
                                             <i class="fa fa-angle-down"></i>
                                         </span>
