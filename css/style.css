@@ -1131,13 +1131,13 @@ p .form-submit {
 .tabs-grid-item .inner-item .photo-frame {
     display: block;
     width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
+	text-align: center;
 }
 
 .tabs-grid-item .inner-item .photo-frame img {
     border: none;
-    height: 115px;
+    height: 130px;
+	width: 100%;
 }
 
 .tabs-grid-item .inner-item .item-title {
@@ -1277,6 +1277,7 @@ p .form-submit {
     width: 100%;
     height: auto;
     border: 0;
+	max-height: 130px;
 }
 
 /* Cabinet */
@@ -1300,18 +1301,22 @@ p .form-submit {
 #cabinet-title .cabinet-name {
     display: inline-block;
     margin-left: 10px;
-    position: relative;
-    top: -8px;
 }
 
-#cabinet-title .cabinet-name  h3 {
-    margin-top: 0;
+#cabinet-title .cabinet-name  h2 {
+	margin-top: 0;
     margin-bottom: 5px;
+}
+
+#cabinet-title .cabinet-name  h2 a {
+	text-decoration: none;
+	color: #888;
 }
 
 #cabinet-title .cabinet-name  h4 {
     color: #3a3a3a;
     margin-top: 0;
+	margin-bottom: 0;
 }
 
 .yoursId, .entrance {
@@ -1952,6 +1957,10 @@ section .add-review input[type="submit"]:hover {
     font-size: 1.2em;
     line-height: 23px;
 }
+.seller_info .company a {
+	font-size: 1.3em;
+	font-weight: bold;
+}
 
 .seller_info > span > a {
 	font-size: 1em;
@@ -2557,20 +2566,55 @@ section .add-review input[type="submit"]:hover {
 	display: none;
 }
 
-/* Cross browser hacks */
-
-@-moz-document url-prefix() {
-    .tabs-buttons li:hover:not(.activeTab) a,
-        #footer .foot-accordion a .color-primary:hover,
-        #footer .recent-posts .post-content a:hover	{
-        color: #2578E9;
-        background: transparent;
-    }
-    #searching {
-        top: 100px;
-    }
+.forgot a {
+	color: #777;
+	font-size: .9em;
+	text-decoration: none;
+}
+.forgot a:hover {
+	text-decoration: underline;
 }
 
+/* Cross browser hacks */
+
+/* FireFox */
+
+@-moz-document url-prefix() {
+	.tabs-buttons li:hover:not(.activeTab) a,
+	#footer .foot-accordion a .color-primary:hover,
+	#footer .recent-posts .post-content a:hover	{
+        color: rgb(5, 75, 171);
+        background: transparent;
+	}
+	#searching {
+        top: 100px;
+    }
+	.tabs-buttons li a:focus {
+		outline: 0;
+	}
+}
+   
+/* IE 10, 11 */
+@media all and (-ms-high-contrast:none) {
+	.tabs-buttons li:hover:not(.activeTab) a,
+	#footer .foot-accordion a .color-primary:hover,
+	#footer .recent-posts .post-content a:hover {
+		color: rgb(5, 75, 171);
+		background: transparent;
+	}
+	.tabs-buttons li a:focus {
+		outline: 0;
+	}
+	*::-ms-backdrop, .tabs-buttons li:hover:not(.activeTab) a,
+		#footer .foot-accordion a .color-primary:hover,
+		#footer .recent-posts .post-content a:hover {
+			color: rgb(5, 75, 171);
+			background: transparent;
+	}
+	*::-ms-backdrop, .tabs-buttons li a:focus {
+		outline: 0;
+	}
+}
 
 .subm {
     background: none;

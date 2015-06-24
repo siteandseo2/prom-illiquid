@@ -246,8 +246,7 @@
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', url, true);
 
-		xhr.onreadystatechange = function () {
-			
+		xhr.onreadystatechange = function () {		
 			if (xhr.readyState != 4) return;
 			
 			if ( xhr.status == 200 && url == 'user/add_user' ) {
@@ -257,19 +256,17 @@
 					$('.bubblingG').hide();
 					
 					~xhr.responseText.indexOf( "200" ) ? callback( true ) : callback( false );
-				}, 2000);
-				
-				$('#overlay').show();
-				$('.bubblingG').show();
+				}, 1000);
 				
 			} else {
-				
 				console.error('status : %s, statusText: %s', xhr.status, xhr.statusText);
-				
 			}
 		}
 
 		xhr.send(data);
+		
+		$('#overlay').show();
+		$('.bubblingG').show();
 
 	}
 	

@@ -18,6 +18,15 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/responsive.css">
+		
+		<!--[if IE]>
+			<style>
+				.tabs-buttons li:hover:not(.activeTab) a {
+					color: rgb(5, 75, 171);
+					background: transparent;
+				}
+			</style>
+		<![endif]-->
 
         <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     </head>   
@@ -35,7 +44,7 @@
                                         <a href="<?= base_url(); ?>" class="top-bar-icon-text">О нас</a>
                                     </span>
                                     <span class="mini-contacts">
-                                        <a href="<?= base_url(); ?>" class="top-bar-icon-text">Тех поддержка</a>
+                                        <a href="<?= base_url(); ?>" class="top-bar-icon-text">Наши контакты</a>
                                     </span>
                                 </div>
                                 <!-- Top bar conctacts icons End -->

@@ -289,4 +289,21 @@ $(document).ready(function() {
 		
 	})();
 	
+	/* Cabinet Tooltip */
+	
+	(function() {
+		var view = $('.view_my_profile');
+		try{
+			if( view ) {
+				$( view ).tooltip({
+					title: 'Посмотреть профиль моей компании',
+					placement: 'bottom'
+				});
+			}
+		} catch( e ) {
+			console.warn('name : $s, message : $s'. e.name, e.message);
+		}
+		
+	})();
+	
 });
