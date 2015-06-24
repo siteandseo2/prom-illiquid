@@ -38,7 +38,7 @@
                                         <a href="<?= base_url(); ?>" class="top-bar-icon-text">О нас</a>
                                     </span>
                                     <span class="mini-contacts">
-                                        <a href="<?= base_url(); ?>" class="top-bar-icon-text">Тех поддержка</a>
+                                        <a href="<?= base_url(); ?>" class="top-bar-icon-text">Наши контакты</a>
                                     </span>
                                 </div>
                                 <!-- Top bar conctacts icons End -->                              
@@ -110,10 +110,12 @@
                                 <i class="fa fa-briefcase"></i>
                             </span>
                             <span class="cabinet-name">
-                                <h3>Кабинет компании</h3>
-                                <h4>
-                                    <?= $user['company']; ?>
-                                </h4>
+                                <h4>Кабинет компании</h4>
+                                <h2>
+									<a class="view_my_profile" href="<?= base_url(); ?>view_company/<?= $user['id'] ?>">
+										<?= $user['company']; ?>
+									</a>
+								</h2>
                             </span>
                         </div>
                     <?php } ?>

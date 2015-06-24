@@ -286,6 +286,29 @@
         </div>
     </div>
 	
+	<!-- Modal Forgot -->
+	
+	<div class="modal fade" id="forgotModal" aria-hidden="true" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<form method="POST" name="forgotForm">
+						<div class="form-group">
+							<label for="forgotModalEmail">Введите свой Email и мы пришлем вам Ваш пароль</label>
+							<input type="text" class="form-control" id="forgotModalEmail" name="forgotModalEmail">
+						</div>
+						<button type="submit" class="btn btn-success">Отправить</button>
+					</form>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	
 	<!-- Overlay -->
 	
 		<div id="overlay"></div>
