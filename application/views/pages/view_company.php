@@ -110,8 +110,8 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-						
-							<!-- Feedback -->
+
+                            <!-- Feedback -->
 
                             <div id="reviews_panel" style="display: block;">
                                 <? if(!empty($comment)){ ?>
@@ -199,141 +199,44 @@
 
                                 </div>
                             </div>
-							
-							<!-- Company's Others Goods -->
-					
-							<div class="marketing-carousel" id="item-others">
-								<h3>Другие товары компании</h3>
-								
-								<ul class="carou-fred-sel clearfix">
-									<li>
-										<div class="carousel-img">
-											<a href="<?= base_url(); ?>" title=""> 
-												<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-											</a>
-										</div>
-										<div class="carousel-info">
-											<a href="<?= base_url(); ?>" title="">
-												<span class="product-title">IPhone mockup 6</span>
-												<span class="amount">$15.00</span>
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="carousel-img">
-											<a href="<?= base_url(); ?>" title=""> 
-												<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-											</a>
-										</div>
-										<div class="carousel-info">
-											<a href="<?= base_url(); ?>" title="">
-												<span class="product-title">IPhone mockup 6</span>
-												<span class="amount">$15.00</span>
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="carousel-img">
-											<a href="<?= base_url(); ?>" title=""> 
-												<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-											</a>
-										</div>
-										<div class="carousel-info">
-											<a href="<?= base_url(); ?>" title="">
-												<span class="product-title">IPhone mockup 6</span>
-												<span class="amount">$15.00</span>
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="carousel-img">
-											<a href="<?= base_url(); ?>" title=""> 
-												<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-											</a>
-										</div>
-										<div class="carousel-info">
-											<a href="<?= base_url(); ?>" title="">
-												<span class="product-title">IPhone mockup 6</span>
-												<span class="amount">$15.00</span>
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="carousel-img">
-											<a href="<?= base_url(); ?>" title=""> 
-												<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-											</a>
-										</div>
-										<div class="carousel-info">
-											<a href="<?= base_url(); ?>" title="">
-												<span class="product-title">IPhone mockup 6</span>
-												<span class="amount">$15.00</span>
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="carousel-img">
-											<a href="<?= base_url(); ?>" title=""> 
-												<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-											</a>
-										</div>
-										<div class="carousel-info">
-											<a href="<?= base_url(); ?>" title="">
-												<span class="product-title">IPhone mockup 6</span>
-												<span class="amount">$15.00</span>
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="carousel-img">
-											<a href="<?= base_url(); ?>" title=""> 
-												<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-											</a>
-										</div>
-										<div class="carousel-info">
-											<a href="<?= base_url(); ?>" title="">
-												<span class="product-title">IPhone mockup 6</span>
-												<span class="amount">$15.00</span>
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="carousel-img">
-											<a href="<?= base_url(); ?>" title=""> 
-												<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-											</a>
-										</div>
-										<div class="carousel-info">
-											<a href="<?= base_url(); ?>" title="">
-												<span class="product-title">IPhone mockup 6</span>
-												<span class="amount">$15.00</span>
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="carousel-img">
-											<a href="<?= base_url(); ?>" title=""> 
-												<img src="../../../img/shop-thumb-1.jpg" alt="IPhone mockup 6">
-											</a>
-										</div>
-										<div class="carousel-info">
-											<a href="<?= base_url(); ?>" title="">
-												<span class="product-title">IPhone mockup 6</span>
-												<span class="amount">$15.00</span>
-											</a>
-										</div>
-									</li>
-								</ul>
-								
-								<span href="#" id="other_next" class="marketing-ctrl next">
-									<i class="fa fa-chevron-right"></i>
-								</span>
-								
-								<span href="#" id="other_prev" class="marketing-ctrl prev">
-									<i class="fa fa-chevron-left"></i>
-								</span>
-							</div>
 
+                            <!-- Company's Others Goods -->
+                            <?php if (!empty($other)) { ?>
+                                <div class="marketing-carousel" id="item-others">
+                                    <h3>Товары компании</h3>
+
+                                    <ul class="carou-fred-sel clearfix">
+                                        <?php foreach ($other as $oth_item) { ?>
+                                            <li>
+                                                <div class="carousel-img">
+                                                    <a href="<?= base_url(); ?>products/item/<?= $oth_item['id'] ?>-<?= $oth_item['trans'] ?>" title="<?= $oth_item['name'] ?>">
+                                                        <img src="<?= $oth_item['image_path'] ?>" alt="<?= $oth_item['name'] ?>">
+                                                    </a>
+                                                </div>
+                                                <div class="carousel-info">
+                                                    <a href="<?= base_url(); ?>products/item/<?= $oth_item['id'] ?>-<?= $oth_item['trans'] ?>" title="<?= $oth_item['name'] ?>">
+                                                        <span class="product-title"><?= $oth_item['name'] ?></span>
+                                                        <span class="amount"><?= $oth_item['price'] ?> <?= $oth_item['currency'] ?></span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+
+                                    <span href="#" id="other_next" class="marketing-ctrl next">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </span>
+
+                                    <span href="#" id="other_prev" class="marketing-ctrl prev">
+                                        <i class="fa fa-chevron-left"></i>
+                                    </span>
+                                </div>
+                            <?php } else { ?>
+                                <div class="marketing-carousel" id="not_found">
+                                    <h3>Товары компании</h3> 
+                                    <span class="product">Компания не разместила ни одного товара</span>                                        
+                                </div>
+                            <?php } ?>
 
                         </div>
                     </div>

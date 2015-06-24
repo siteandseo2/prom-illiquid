@@ -37,6 +37,7 @@ class Admin extends CI_Controller {
         /* load categories */
         $this->load->model('category_m');
         $this->data['cat_list'] = $this->category_m->category_list();
+        $this->data['fake'] = $this->main_m->get_fake();
 
         /* load users */
 
@@ -303,8 +304,51 @@ class Admin extends CI_Controller {
             }
             $this->db->query("UPDATE settings SET value='$name' WHERE id='$id'");
         }
-         redirect(base_url('admin/settings'));
+        redirect(base_url('admin/settings'));
     }
 
     /* edit setting END */
+
+
+    /* edit fake_comments START */
+
+    function fake_comment() {
+        if (isset($_POST['edit'])) {
+            foreach ($this->input->post('edit') as $val) {
+                $id = $val;
+            }
+            foreach ($this->input->post('name') as $key => $value) {
+                if ($id == $key)
+                    $name = $value;
+            }
+            foreach ($this->input->post('text') as $key => $value) {
+                if ($id == $key)
+                    $text = $value;
+            }
+            foreach ($this->input->post('office') as $key => $value) {
+                if ($id == $key)
+                    $office = $value;
+            }
+            $this->db->query("UPDATE fake_comments SET user_name='$name' WHERE id='$id'");
+            $this->db->query("UPDATE fake_comments SET text='$text' WHERE id='$id'");
+            $this->db->query("UPDATE fake_comments SET office='$office' WHERE id='$id'");
+        }
+        if (isset($_POST['delete'])) {
+            foreach ($this->input->post('delete') as $id) {
+                $this->db->where('id', $id)->delete('fake_comments');
+            }
+        }
+        if (isset($_POST['status'])) {
+            foreach ($this->input->post('status') as $key => $val) {
+                if ($val == 'enable') {
+                    $this->db->query("UPDATE fake_comments SET status='disable' WHERE id='$key'");
+                } else {
+                    $this->db->query("UPDATE fake_comments SET status='enable' WHERE id='$key'");
+                }
+            }
+        }
+        redirect(base_url('admin/fake_comments'));
+    }
+
+    /* edit fake_comments END */
 }

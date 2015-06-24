@@ -104,7 +104,7 @@
                             Код:
                             <span class="id"><?= $item['prod_code'] ?></span>
                         </span>
-                          <span class="date">
+                        <span class="date">
                             Товар добавлен:
                             <span href="<?= base_url(); ?>" class="phone_value"><?= $item['date'] ?></span>
                         </span>
@@ -181,10 +181,10 @@
                                     </a>
                                 </div>
                                 <div class="carousel-info">
-									<a href="<?= base_url(); ?>products/item/<?= $oth_item['id'] ?>-<?= $oth_item['trans'] ?>" title="<?= $oth_item['name'] ?>">
-										<span class="product-title"><?= $oth_item['name'] ?></span>
-										<span class="amount"><?= $oth_item['price'] ?> <?= $oth_item['currency'] ?></span>
-									</a>
+                                    <a href="<?= base_url(); ?>products/item/<?= $oth_item['id'] ?>-<?= $oth_item['trans'] ?>" title="<?= $oth_item['name'] ?>">
+                                        <span class="product-title"><?= $oth_item['name'] ?></span>
+                                        <span class="amount"><?= $oth_item['price'] ?> <?= $oth_item['currency'] ?></span>
+                                    </a>
                                 </div>
                             </li>
                         <?php } ?>
@@ -224,10 +224,10 @@
                                     </a>
                                 </div>
                                 <div class="carousel-info">
-									<a href="<?= base_url(); ?>products/item/<?= $lk['id'] ?>-<?= $lk['trans'] ?>" title="<?= $lk['name'] ?>">
-										<span class="product-title"><?= $lk['name'] ?></span>
-										<span class="amount"><?= $lk['price'] ?>  <?= $lk['currency'] ?></span>
-									</a>
+                                    <a href="<?= base_url(); ?>products/item/<?= $lk['id'] ?>-<?= $lk['trans'] ?>" title="<?= $lk['name'] ?>">
+                                        <span class="product-title"><?= $lk['name'] ?></span>
+                                        <span class="amount"><?= $lk['price'] ?>  <?= $lk['currency'] ?></span>
+                                    </a>
                                 </div>
                             </li>                            
                         <?php } ?>

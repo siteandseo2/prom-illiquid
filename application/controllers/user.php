@@ -126,7 +126,7 @@ class User extends CI_Controller {
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
-            $this->load->view("templates/header",  $this->data);
+            $this->load->view("templates/header", $this->data);
         }
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
                 . "<script src='../../../js/ajax_select.js'></script>"
@@ -233,7 +233,7 @@ class User extends CI_Controller {
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
-            $this->load->view("templates/header",  $this->data);
+            $this->load->view("templates/header", $this->data);
         }
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
                 . "<script src='../../../js/ajax_select.js'></script>"
@@ -289,7 +289,7 @@ class User extends CI_Controller {
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
-            $this->load->view("templates/header",  $this->data);
+            $this->load->view("templates/header", $this->data);
         }
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
                 . "<script src='../../../js/ajax_select.js'></script>"
@@ -345,8 +345,9 @@ class User extends CI_Controller {
             $this->data['menu'] = $this->main_m->get_menu_front($num);
             $this->load->view("templates/header_user", $this->data);
         } else {
-            $this->load->view("templates/header",  $this->data);
+            $this->load->view("templates/header", $this->data);
         }
+
         $this->script['script'] = "<script src='../../../js/validation.js'></script>"
                 . "<script src='../../../js/ajax_select.js'></script>"
                 . "<script src='../../../js/perfect-scrollbar.jquery.js'></script>"
@@ -372,10 +373,27 @@ class User extends CI_Controller {
                 }
             }
         }
+        $this->data['prep_other'] = $this->product_m->get_item_by_userid($this->data['ident'], 0);
+//        print_r( $this->data['prep_other'] );
+        foreach ($this->data['prep_other'] as $k => $v) {
+            foreach ($v as $key => $val) {
+                if ($key == 'name') {
+                    $this->data['other'][$k]['trans'] = $this->translit($val);
+                }
+                $this->data['other'][$k][$key] = $val;
+            }
+        }
         $this->data['comment'] = $this->user_model->get_comment($id);
         $this->load->view('pages/view_company', $this->data);
         $this->load->view('templates/footer', $this->script);
         unset($this->data, $this->script, $key, $val, $k, $v);
+    }
+
+    function translit($str) {
+        $str = trim($str);
+        $rus = array('А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я', ' ', '.', ',', '>', '<', ';', ')', '(', '*', '}', '', ', ');
+        $lat = array('A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya', '-', '_', '_', '', '', '', '', '', '', '', '', '_');
+        return str_replace($rus, $lat, $str);
     }
 
     function add_commit() {

@@ -67,119 +67,72 @@
                     </div>
                 </section>               
 
-                <section class="widget col-sm-3" id="footer-our-services-widget">
+                <section class="widget col-sm-3" id="footer-our-services-widget">                   
                     <div class="widget-title">НАШИ ПРЕДЛОЖЕНИЯ</div>
-
-                    <ul class="foot-accordion clearfix">
-                        <li>
-                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
-                                <span class="accor-toggle-icon">
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                                <span class="color-primary">Web Design</span>
-                            </a>
-                            <div class="accor-content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                            </div>
-                        </li>
-                        <li>
-                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
-                                <span class="accor-toggle-icon">
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                                <span class="color-primary">Photography</span>
-                            </a>
-                            <div class="accor-content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                            </div>
-                        </li>
-                        <li>
-                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
-                                <span class="accor-toggle-icon">
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                                <span class="color-primary">Programming</span>
-                            </a>
-                            <div class="accor-content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                            </div>
-                        </li>
-                        <li>
-                            <a href="<?= base_url(); ?>" class="accor-link text-primary">
-                                <span class="accor-toggle-icon">
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                                <span class="color-primary">Marketing & PR</span>
-                            </a>
-                            <div class="accor-content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. 
-                            </div>
-                        </li>
-                    </ul>
-
+                     
+                    <?php if (!empty($popular)) { ?>
+                        <ul class="foot-accordion clearfix">                            
+                            <?php
+                            $m = 0;
+                            foreach ($popular as $item) {
+                                $stream = 'down';
+                                if ($m == 0) {
+                                    $stream = 'up';
+                                }
+                                $m++;
+                                if ($m < 5) {
+                                    ?>
+                                    <li>
+                                        <a href="<?= base_url(); ?>products/item/<?= $item['id'] ?>-<?= $item['trans'] ?>" class="accor-link text-primary">
+                                            <span class="accor-toggle-icon">
+                                                <i class="fa fa-angle-<?= $stream ?>"></i>
+                                            </span>
+                                            <span class="color-primary"><?= $item['name'] ?></span>
+                                        </a>
+                                        <div class="accor-content">                                            
+                                            <a href="<?= base_url(); ?>products/item/<?= $item['id'] ?>-<?= $item['trans'] ?>" class="alignLeft">
+                                                <img src="<?= $item['image_path'] ?>" alt="<?= $item['name'] ?>" width="40" height="40">
+                                            </a>                                            
+                                        </div>
+                                    </li>    
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </ul>
+                    <?php } ?>
                 </section>
 
                 <section class="widget col-sm-3" id="footer-featured-posts-widget">
-                    <div class="widget-title">ПОПУЛЯРНЫЕ СТАТЬИ</div>
-
-                    <ul class="recent-posts">
-                        <li>
-                            <article>
-                                <div class="wf-td">
-                                    <a href="<?= base_url(); ?>" class="alignLeft">
-                                        <img src="../../../img/article_img_1.jpg" alt="Image" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <a href="<?= base_url(); ?>">Business cards design trends</a>
-                                    <br>
-                                    <time class="text-secondary">August 5, 2013</time>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article>
-                                <div class="wf-td">
-                                    <a href="<?= base_url(); ?>" class="alignLeft">
-                                        <img src="../../../img/article_img_1.jpg" alt="Image" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <a href="<?= base_url(); ?>">Business cards design trends</a>
-                                    <br>
-                                    <time class="text-secondary">August 5, 2013</time>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article>
-                                <div class="wf-td">
-                                    <a href="<?= base_url(); ?>" class="alignLeft">
-                                        <img src="../../../img/article_img_1.jpg" alt="Image" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <a href="<?= base_url(); ?>">Business cards design trends</a>
-                                    <br>
-                                    <time class="text-secondary">August 5, 2013</time>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article>
-                                <div class="wf-td">
-                                    <a href="<?= base_url(); ?>" class="alignLeft">
-                                        <img src="../../../img/article_img_1.jpg" alt="Image" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <a href="<?= base_url(); ?>">Business cards design trends</a>
-                                    <br>
-                                    <time class="text-secondary">August 5, 2013</time>
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
+                    <div class="widget-title">ПОПУЛЯРНЫЕ ТОВАРЫ</div>
+                    <br>
+                    <?php if (!empty($popular)) { ?>
+                        <ul class="recent-posts">
+                            <?php
+                            $m = 0;
+                            foreach ($popular as $item) {
+                                $m++;
+                                if ($m < 4) {
+                                    ?>
+                                    <li>
+                                        <article>
+                                            <div class="wf-td">
+                                                <a href="<?= base_url(); ?>products/item/<?= $item['id'] ?>-<?= $item['trans'] ?>" class="alignLeft">
+                                                    <img src="<?= $item['image_path'] ?>" alt="<?= $item['name'] ?>" width="40" height="40">
+                                                </a>
+                                            </div>
+                                            <div class="post-content">
+                                                <a href="<?= base_url(); ?>products/item/<?= $item['id'] ?>-<?= $item['trans'] ?>"><?= $item['name'] ?></a>
+                                                <br>
+                                                <time class="text-secondary"><?= $item['date'] ?></time>
+                                            </div>
+                                        </article>
+                                    </li>
+                                <?php }
+                            }
+                            ?>
+                        </ul>
+<?php } ?>
                 </section>
                 <section class="widget col-sm-3" >
                     <div class="widget-title">ПОИСК</div>
@@ -348,7 +301,7 @@
     <!-- Overlay -->
 
     <div id="overlay"></div>
-    
+
 
 </footer>
 

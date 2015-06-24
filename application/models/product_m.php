@@ -143,16 +143,16 @@ class Product_m extends CI_Model {
     }
 
     function get_item_by_user_id($id) {
-        $query = $this->db->where('id_user', $id)->get('product');
+        $query = $this->db->where('id_user', $id)->where('status', 'enable')->get('product');
         return $query->result_array();
     }
      function get_item_by_userid($id_user,$id) {
-        $query = $this->db->where('id_user', $id_user)->where('id !=', $id)->get('product');
+        $query = $this->db->where('id_user', $id_user)->where('status', 'enable')->where('id !=', $id)->get('product');
         return $query->result_array();
     }
 
     function get_item_like_subcat($id, $subcat, $name) {
-        $query = $this->db->where('id !=', $id)->where('subcat_id', $subcat)->like('name', $name)->get('product');
+        $query = $this->db->where('id !=', $id)->where('subcat_id', $subcat)->where('status', 'enable')->like('name', $name)->get('product');
 //         $query=$this->db->query("SELECT * FROM product WHERE name LIKE '%$name%'");
         return $query->result_array();
     }
