@@ -3,17 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/var/www/prom.loc/application/views/admin/slider.php</file>
             <file>file:/var/www/prom.loc/application/controllers/user.php</file>
-            <file>file:/var/www/prom.loc/application/controllers/product.php</file>
-            <file>file:/var/www/prom.loc/application/controllers/search.php</file>
-            <file>file:/var/www/prom.loc/application/views/templates/footer.php</file>
+            <file>file:/var/www/prom.loc/application/views/admin/partners.php</file>
             <file>file:/var/www/prom.loc/application/config/routes.php</file>
-            <file>file:/var/www/prom.loc/application/views/templates/sidebar.php</file>
-            <file>file:/var/www/prom.loc/application/models/subcategories_m.php</file>
-            <file>file:/var/www/prom.loc/application/views/pages/item.php</file>
+            <file>file:/var/www/prom.loc/application/views/admin/header.php</file>
+            <file>file:/var/www/prom.loc/application/views/admin/fake_comments.php</file>
+            <file>file:/var/www/prom.loc/application/controllers/admin/admin.php</file>
+            <file>file:/var/www/prom.loc/application/models/main_m.php</file>
             <file>file:/var/www/prom.loc/application/controllers/admin/product.php</file>
-            <file>file:/var/www/prom.loc/application/views/pages/default.php</file>
-            <file>file:/var/www/prom.loc/application/models/product_m.php</file>
             <file>file:/var/www/prom.loc/application/controllers/main.php</file>
         </group>
     </open-files>

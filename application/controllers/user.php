@@ -19,6 +19,15 @@ class User extends CI_Controller {
         $this->load->model('product_m');
         $this->load->model('main_m');
         $this->load->model('settings_m');
+         $this->data['prep_popular'] = $this->product_m->get_popular();
+        foreach ($this->data['prep_popular'] as $k => $v) {
+            foreach ($v as $key => $val) {
+                if ($key == 'name') {
+                    $this->data['popular'][$k]['trans'] = $this->translit($val);
+                }
+                $this->data['popular'][$k][$key] = $val;
+            }
+        }
         $this->script['city'] = $this->settings_m->get_set('city');
         $this->script['street_build'] = $this->settings_m->get_set('street/build');
         $this->script['phone1'] = $this->settings_m->get_set('phone1');
