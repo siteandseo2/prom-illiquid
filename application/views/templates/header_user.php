@@ -169,26 +169,26 @@
 
                                 <div class="btn-group s-butt">
                                     <button type="button" class="btn btn-default search-block-button" id="location-select-button">
-                                        <span class="btn-text">Вся Украина</span>
-                                        <input type="hidden" name="city" value="">
-                                        <span class="search-select-icon">
+
+                                        <span class="searching-title">Вся Украина</span>
+                                        <input type="hidden" name="certainCity" value="Вся Украина">
+                                        <span class="search-select-icon" title="Искать по городам Украины">
                                             <i class="fa fa-angle-down"></i>
                                         </span>
-
-                                        <div class="sub-nav">
-                                            <input type="text" placeholder="Введите название города" name="searchCityName">
-                                            <ul class="scrollbar-inner"></ul>
-                                        </div>
                                     </button>
 
-                                    <a href="#" title="Искать на сайте">
-                                        <button type="submit" class="btn btn-default search-block-button" name="search" value="BUY" id="buy-search-button">
-                                            <span class="btn-text">Поиск</span>
-                                            <span class="search-select-icon">
-                                                <i class="fa fa-search"></i>
-                                            </span>
-                                        </button>
-                                    </a>
+                                    <div class="sub-nav searching-dropdown"> 
+                                        <input type="text" placeholder="Введите название города" name="searchCityName">
+                                        <ul class="scrollbar-inner"></ul>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default search-block-button" name="search" id="buy-search-button">
+                                        <span>Поиск</span>
+                                        <span class="search-select-icon">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </button>
+
                                 </div>
                             </div>
 

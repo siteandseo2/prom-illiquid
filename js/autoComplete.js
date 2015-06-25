@@ -1,6 +1,6 @@
 /* Custom Autocomplete */
 	
-function autoComplete(input, arr, callback) {
+function autoComplete(input, arr, hide, icon) {
 	
 	// get default coords of input elem
 	var initCoords = function coords( elem ) {
@@ -54,7 +54,8 @@ function autoComplete(input, arr, callback) {
 				document.querySelector('.searching-title').textContent = ev.target.innerHTML;
 				input.value = '';
 				
-				callback();
+				hide();
+				icon();
 				
 			});
 		});
@@ -70,6 +71,8 @@ function autoComplete(input, arr, callback) {
 			ul.appendChild(li);
 		});
 	}
+	
+	return div;
 
 };
 

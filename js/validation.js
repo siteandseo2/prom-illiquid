@@ -259,6 +259,12 @@
 				}, 1000);
 				
 			} else {
+				
+				setTimeout(function() {
+					$('#overlay').hide();
+					$('.bubblingG').hide();
+				}, 1000);
+				
 				console.error('status : %s, statusText: %s', xhr.status, xhr.statusText);
 			}
 		}
