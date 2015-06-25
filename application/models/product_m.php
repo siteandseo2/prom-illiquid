@@ -29,16 +29,16 @@ class Product_m extends CI_Model {
     }
 
     function count_prod() {
-        $query = $this->db->get('product');
+        $query = $this->db->where('status', 'enable')->get('product');
         return $query->num_rows();
     }
 
     function get_products($link, $num, $offset) {
-        $query = $this->db->where('link', $link)->select('id')->get('subcategories');
+        $query = $this->db->where('link', $link)->where('status', 'enable')->select('id')->get('subcategories');
         foreach ($query->result() as $row) {
             $subcat_id = $row->id;
         }
-        $query = $this->db->where('subcat_id', $subcat_id)->where('status', 'enable')->get('product', $num, $offset);
+        $query = $this->db->where('subcat_id', $subcat_id)->where('status', 'enable')->where('status', 'enable')->get('product', $num, $offset);
         return $query->result_array();
     }
 
@@ -47,7 +47,7 @@ class Product_m extends CI_Model {
         foreach ($query->result() as $row) {
             $subcat_id = $row->id;
         }
-        $query = $this->db->where('subcat_id', $subcat_id)->get('product');
+        $query = $this->db->where('subcat_id', $subcat_id)->where('status', 'enable')->get('product');
         return $query->result_array();
     }
 
@@ -95,9 +95,9 @@ class Product_m extends CI_Model {
 
     function search_prod($name, $city, $num, $offset) {
         if ($city == 'Вся Украина'||empty($city)) {
-            $query = $this->db->like('name', $name)->where('status', 'enable')->get('product', $num, $offset);
+            $query = $this->db->like('name', $name)->where('status', 'enable')->order_by("views", "desc")->get('product', $num, $offset);
         } else {
-            $query = $this->db->like('name', $name)->where('city', $city)->where('status', 'enable')->get('product', $num, $offset);
+            $query = $this->db->like('name', $name)->where('city', $city)->where('status', 'enable')->order_by("views", "desc")->get('product', $num, $offset);
         }
         return $query->result_array();
     }

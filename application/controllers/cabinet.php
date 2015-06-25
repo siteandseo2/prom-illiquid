@@ -18,6 +18,7 @@ class Cabinet extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('product_m');
         $session = $this->session->userdata('user');
         if (!empty($session)) {
             $this->data['user'] = @$this->session->userdata('user');
@@ -40,6 +41,15 @@ class Cabinet extends CI_Controller {
             $this->data['inst_link'] = $this->settings_m->get_set('inst_link');
             $this->data['fb_link'] = $this->settings_m->get_set('fb_link');
             $this->data['vk_link'] = $this->settings_m->get_set('vk_link');
+            $this->data['prep_popular'] = $this->product_m->get_popular();
+            foreach ($this->data['prep_popular'] as $k => $v) {
+                foreach ($v as $key => $val) {
+                    if ($key == 'name') {
+                        $this->data['popular'][$k]['trans'] = $this->translit($val);
+                    }
+                    $this->data['popular'][$k][$key] = $val;
+                }
+            }
             if ($this->data['user']['usercat'] == "seller") {
                 $num = 1;
             } else {
@@ -92,6 +102,12 @@ class Cabinet extends CI_Controller {
             unset($this->script, $this->data);
             show_404();
         }
+    }
+    function translit($str) {
+        $str = trim($str);
+        $rus = array('А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я', ' ', '.', ',', '>', '<', ';', ')', '(', '*', '}', '', ', ');
+        $lat = array('A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya', '-', '_', '_', '', '', '', '', '', '', '', '', '_');
+        return str_replace($rus, $lat, $str);
     }
 
 }
