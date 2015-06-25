@@ -648,18 +648,21 @@ body.no-bg {
     -webkit-transition: all .3s;
     transition: all .3s;
     box-sizing: border-box;
+	font-size: 1.6em;
+	text-transform: uppercase;
+}
+
+#location-select-button {
+	cursor: default;
+}
+
+#location-select-button .search-select-icon {
+	cursor: pointer;
 }
 
 #searching .search-block-button:focus {
     border: 0;
     outline: 0;
-}
-
-#searching .search-block-button .btn-text {
-    font-size: 1.6em;
-    line-height: 80px;
-    vertical-align: middle;
-    text-transform: uppercase;
 }
 
 .search-select-icon {
@@ -669,7 +672,7 @@ body.no-bg {
     vertical-align: -5px;
 }
 
-#location-select-button .sub-nav {
+.searching-dropdown {
     left: 0;
     width: 239px;
     top: 120%;
@@ -679,13 +682,13 @@ body.no-bg {
     box-sizing: content-box;
 }
 
-#location-select-button .sub-nav  input {
+.searching-dropdown  input {
     width: 100%;
     padding: 2px 5px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
-#location-select-button .sub-nav > ul {
+.searching-dropdown > ul {
     width: auto;
     height: 175px;
     position: relative;
@@ -861,7 +864,7 @@ body.no-bg {
 }
 
 .page-title .breadcrumbs {
-    display: inline-block;
+    display: block;
     color: #bcbcbc;
     text-align: right;
 	font-size: 13px;
@@ -2636,7 +2639,9 @@ section .add-review input[type="submit"]:hover {
 	padding: 5px 10px;
 	box-sizing: border-box;
 	border-radius: 3px;
-	background: #dedede;
+	background: rgba(0, 0, 0, .3);
+	margin: 0 auto;
+	transition: all .4s;
 }
 
 .prompt-off {
@@ -2652,6 +2657,7 @@ section .add-review input[type="submit"]:hover {
 .ulPrompt li {
 	cursor: pointer;
 	text-align: left;
+	color: #fff;
 }
 
 .ulPrompt li:hover {

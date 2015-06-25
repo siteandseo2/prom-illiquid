@@ -119,4 +119,19 @@ class Main_m extends CI_Model {
         return $partner->result_array();
     }
 
+    function get_fake() {
+        $partner = $this->db->get('fake_comments');
+        return $partner->result_array();
+    }
+
+    function get_fake_one() {
+        $query = $this->db->query("SELECT * FROM `fake_comments` ORDER BY `id`  LIMIT 1");
+        return $query->result_array();
+    }
+
+    function get_enable_fake() {
+        $partner = $this->db->where('status', 'enable')->get('fake_comments');
+        return $partner->result_array();
+    }
+
 }

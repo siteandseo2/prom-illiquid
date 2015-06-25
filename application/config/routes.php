@@ -81,6 +81,7 @@ $route['admin/partners'] = 'admin/admin/partners';
 $route['admin/add_partner'] = 'admin/admin/add_partner';
 $route['admin/new_orders'] = 'admin/admin/get_order';
 $route['admin/order_status'] = 'admin/order/order_status';
+$route['admin/fake_comment']='admin/admin/fake_comment';
 
 $route['subcategories/(:any)'] = 'subcategories/get_subgategory/$1';
 $route['subcategories'] = 'subcategories/get_all_subcat';

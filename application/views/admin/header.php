@@ -207,7 +207,10 @@
             </li>  
             <li>
                 <a href="<?= base_url(); ?>admin/settings" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-wrench"></i> Настройки</a>
-            </li>       
+            </li>  
+            <li>
+                <a href="<?= base_url(); ?>admin/fake_comments" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-comment"></i>Коментарии на главной</a>
+            </li>   
         </ul>
         <!-- Sidebar End -->
 
