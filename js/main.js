@@ -4,12 +4,17 @@ $(document).ready(function() {
 	
 	var searchIcon = $('.search-select-icon'),
 		dropDown = $('.searching-dropdown'),
-		helpInput = $( dropDown ).find('[name="searchCityName"]');
+		helpInput = $( dropDown ).find('[name="searchCityName"]'),
+		iconSpan = $( searchIcon ).children().first();
 		
 	$( searchIcon ).click(function() {
-		var iconSpan = $( this ).children().first();
-			
-		// ICON CHANGE
+		iconChange();
+		$( dropDown ).css('opacity') == 0 ? showDropDown() : hideDropDown();
+	});
+	
+	// ICON CHANGE
+	
+	var iconChange = function() {
 		if( $( iconSpan ).hasClass('fa fa-angle-down') ) {
 			$( iconSpan ).removeClass('fa fa-angle-down');
 			$( iconSpan ).addClass('fa fa-angle-up');
@@ -17,23 +22,23 @@ $(document).ready(function() {
 			$( iconSpan ).removeClass('fa fa-angle-up');
 			$( iconSpan ).addClass('fa fa-angle-down');
 		}
+	}
+	
+	// SHOW
+	
+	function showDropDown() {
+		$( dropDown ).css('visibility', 'visible');
+			
+		$( dropDown ).animate({
+			opacity: 1,
+			top: '100%',
+			width: $('#location-select-button').width() + 40 + 'px',
+		}, 500);
 		
-		if( $( dropDown ).css('opacity') == 0 ) {
-			$( dropDown ).css('visibility', 'visible');
-			
-			$( dropDown ).animate({
-				opacity: 1,
-				top: '100%',
-				width: $('#location-select-button').width() + 40 + 'px',
-			}, 500);
-			
-			$( helpInput ).val('');
-			
-		} else {
-			hideDropDown();
-		}
+		$( helpInput ).val('');
 		
-	});
+		if( $( promptDiv ).is(':visible') ) $( promptDiv ).remove();
+	}
 		
 	// HIDE 
 	
@@ -63,20 +68,22 @@ $(document).ready(function() {
 			
 		}
 	});
-		
 	
 	/* CITIES ARRAY */
 	
 	var cities = ['Винница', 'Луцк', 'Днепропетровск', 'Житомир', 'Ужгород', 'Запорожье',
-	'Ивано-Франковск', 'Киев', 'Кировоград', 'Львов', 'Николаев', 'Одесса', 'Полтава',
-	'Ровно', 'Сумы', 'Тернополь', 'Харьков', 'Херсон', 'Черкассы', 'Чернигов', 'Черновцы'
+		'Ивано-Франковск', 'Киев', 'Кировоград', 'Львов', 'Николаев', 'Одесса', 'Полтава',
+		'Ровно', 'Сумы', 'Тернополь', 'Харьков', 'Херсон', 'Черкассы', 'Чернигов', 'Черновцы'
 	];
 	
 	/* AUTOCMPLETE INSERT */
-	
+
 	try {
 		var search = document.getElementsByName('searchCityName')[0];
-		autoComplete(search, cities, hideDropDown);
+		
+		if( search ) {
+			var promptDiv = autoComplete(search, cities, hideDropDown, iconChange);
+		}
 	} catch(e) {
 		console.warn( 'name : %s, message : %s', e.name, e.message );
 	}
