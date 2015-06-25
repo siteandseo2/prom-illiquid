@@ -103,6 +103,11 @@ class Product_m extends CI_Model {
         return $query->result_array();
     }
 
+    function search_by_city($name, $city) {
+        $query = $this->db->where('city', $city)->like('name', $name)->get('product');
+        return $query->result_array();
+    }
+
     function add_order($data) {
         if ($this->db->insert('orders', $data)) {
             return TRUE;
@@ -146,7 +151,8 @@ class Product_m extends CI_Model {
         $query = $this->db->where('id_user', $id)->where('status', 'enable')->get('product');
         return $query->result_array();
     }
-     function get_item_by_userid($id_user,$id) {
+
+    function get_item_by_userid($id_user, $id) {
         $query = $this->db->where('id_user', $id_user)->where('status', 'enable')->where('id !=', $id)->get('product');
         return $query->result_array();
     }

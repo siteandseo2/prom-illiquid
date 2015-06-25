@@ -18,15 +18,15 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/responsive.css">
-		
-		<!--[if IE]>
-			<style>
-				.tabs-buttons li:hover:not(.activeTab) a {
-					color: rgb(5, 75, 171);
-					background: transparent;
-				}
-			</style>
-		<![endif]-->
+
+        <!--[if IE]>
+                <style>
+                        .tabs-buttons li:hover:not(.activeTab) a {
+                                color: rgb(5, 75, 171);
+                                background: transparent;
+                        }
+                </style>
+        <![endif]-->
 
         <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     </head>   
@@ -121,7 +121,7 @@
                                 <div class="btn-group s-butt">
                                     <button type="button" class="btn btn-default search-block-button" id="location-select-button">
                                         <span class="btn-text">Вся Украина</span>
-                                        <input type="hidden" name="certainCity" value="">
+                                        <input type="hidden" name="city" value="">
                                         <span class="search-select-icon">
                                             <i class="fa fa-angle-down"></i>
                                         </span>

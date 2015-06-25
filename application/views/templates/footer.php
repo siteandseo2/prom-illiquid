@@ -69,7 +69,7 @@
 
                 <section class="widget col-sm-3" id="footer-our-services-widget">                   
                     <div class="widget-title">НАШИ ПРЕДЛОЖЕНИЯ</div>
-                     
+
                     <?php if (!empty($popular)) { ?>
                         <ul class="foot-accordion clearfix">                            
                             <?php
@@ -128,7 +128,8 @@
                                             </div>
                                         </article>
                                     </li>
-                                <?php }
+                                <?php
+                                }
                             }
                             ?>
                         </ul>
@@ -226,14 +227,14 @@
                                 </p>
 
                                 <p class="form-name">
-                                    <input type="text" class="validate" data-validate="e" placeholder="Email *" value="<?= @$user['email'] ?>"name="email">
+                                    <input type="text" class="validate" data-validate="e" placeholder="Email *" value="<?= @$user['email'] ?>" name="email">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
                                 </p>
 
                                 <p class="form-name">
-                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" value="<?= @$user['phone'] ?>"name="phone">
+                                    <input type="text" class="validate" data-validate="p" placeholder="Телефон *" value="<?= @$user['phone'] ?>" name="phone">
                                     <span class="form-icon">
                                         <i class="fa"></i>
                                     </span>
@@ -275,6 +276,8 @@
 
         </div>
     </div>
+
+
     <!-- Modal Forgot -->
 
     <div class="modal fade" id="forgotModal" aria-hidden="true" role="dialog">
