@@ -150,7 +150,7 @@ $( document ).ready(function() {
 			'#item-others .carou-fred-sel',
 			"#other_prev",
 			"#other_next",
-			6,
+			5,
 			1500
 		);
 		
