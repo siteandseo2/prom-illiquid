@@ -318,14 +318,12 @@
 <script src="../../../js/bootstrap.js"></script>
 <script src="../../../js/carouFredSel-6.2.1.js"></script>
 
-<!--<script src="../../../js/uploading.js"></script>-->
 <?php
 if (!empty($script))
     print_r($script);
 ?>
 
 <script src="../../../js/jquery.scrollbar.js"></script>
-
 
 
 

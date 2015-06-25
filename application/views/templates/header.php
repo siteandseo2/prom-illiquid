@@ -28,7 +28,7 @@
 			</style>
 		<![endif]-->
 
-        <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+       <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     </head>   
     <body>        
         <section id="page">              
