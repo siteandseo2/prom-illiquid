@@ -1,64 +1,15 @@
 $(document).ready(function() {
 	
-	/* Navigation dropdowns */
+	/* SEARCHING DROPDOWN */
 	
-	$('#main-nav > li').hover(
-		function() {
-			var subNavOut = $( this ).find('.sub-nav.out-level');
+	var searchIcon = $('.search-select-icon'),
+		dropDown = $('.searching-dropdown'),
+		helpInput = $( dropDown ).find('[name="searchCityName"]');
+		
+	$( searchIcon ).click(function() {
+		var iconSpan = $( this ).children().first();
 			
-			$( subNavOut ).css('visibility', 'visible').animate({
-				opacity: .9
-			}, 300);
-		},
-		function() {
-			var subNavOut = $( this ).find('.sub-nav.out-level');
-			
-			$( subNavOut ).css('visibility', 'hidden').animate({
-				opacity: 0
-			}, 300);
-		}
-	);
-	
-	$('.downItem').hover(
-		function() {
-			var subNavInn = $( this ).find('.inn-level');
-			
-			$( subNavInn ).css('visibility', 'visible').animate({
-				opacity: .9
-			}, 300);
-		},
-		function() {
-			var subNavInn = $( this ).find('.inn-level');
-			
-			$( subNavInn ).css('visibility', 'hidden').animate({
-				opacity: 0
-			}, 300);
-		}
-	);
-	
-	/* Searching dropdown */
-	
-	$('#location-select-button').click(searchDropDown);
-	
-	$('#location-select-button .sub-nav').click(function(ev) {
-		
-		var self = this;
-		
-		console.log( ev.target );
-		
-		if( ev.target.tagName == 'SPAN' ) {
-			this.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML = ev.target.innerHTML;
-			this.previousElementSibling.previousElementSibling.value = ev.target.innerHTML;
-		} else if( ev.target.tagName == 'INPUT' ) {
-			ev.stopPropagation();
-		}
-		
-	});
-	
-	
-	function searchDropDown() {
-		var iconSpan = $( this ).find('.search-select-icon i');
-		
+		// ICON CHANGE
 		if( $( iconSpan ).hasClass('fa fa-angle-down') ) {
 			$( iconSpan ).removeClass('fa fa-angle-down');
 			$( iconSpan ).addClass('fa fa-angle-up');
@@ -67,56 +18,74 @@ $(document).ready(function() {
 			$( iconSpan ).addClass('fa fa-angle-down');
 		}
 		
-		var subNav = $( this ).find('.sub-nav');
-		var helpInput = $( this ).find('[name="searchCityName"]');
-		
-		if( $( subNav ).css('opacity') == 0 ) {
-			$( subNav ).css('visibility', 'visible');
-			$( subNav ).animate({
+		if( $( dropDown ).css('opacity') == 0 ) {
+			$( dropDown ).css('visibility', 'visible');
+			
+			$( dropDown ).animate({
 				opacity: 1,
 				top: '100%',
 				width: $('#location-select-button').width() + 40 + 'px',
-			}, 300);
+			}, 500);
 			
 			$( helpInput ).val('');
 			
-			if( $( this ).has('.promptDiv') ) {
-				$( this ).find('.promptDiv').remove();
-			}
-			
 		} else {
-			$( subNav ).animate({
-				opacity: 0,
-				top: '110%',
-			}, 300, function() {
-				$( this ).css('visibility', 'hidden');
-			});
+			hideDropDown();
 		}
 		
-	}
+	});
+		
+	// HIDE 
 	
-	/* Fill in search dropdown */
+	var hideDropDown = function() {
+		$( dropDown ).animate({
+			opacity: 0,
+			top: '110%',
+		}, 500, function() {
+			$( this ).css('visibility', 'hidden');
+		});
+	}
+
+	/* DROPDOWN CLICK */
+	
+	$( dropDown ).click(function(ev) {
+		if( ev.target.tagName == 'SPAN' ) {
+			var text = ev.target.textContent;
+			
+			$('#location-select-button .searching-title').text( text );
+			$('[name="certainCity"]').val( text );
+			
+			hideDropDown();
+	
+		} else if( ev.target.tagName == 'INPUT' ) {
+			
+			ev.stopPropagation();
+			
+		}
+	});
+		
+	
+	/* CITIES ARRAY */
 	
 	var cities = ['Винница', 'Луцк', 'Днепропетровск', 'Житомир', 'Ужгород', 'Запорожье',
 	'Ивано-Франковск', 'Киев', 'Кировоград', 'Львов', 'Николаев', 'Одесса', 'Полтава',
 	'Ровно', 'Сумы', 'Тернополь', 'Харьков', 'Херсон', 'Черкассы', 'Чернигов', 'Черновцы'
 	];
 	
-	/* Autocomplete */
+	/* AUTOCMPLETE INSERT */
 	
 	try {
 		var search = document.getElementsByName('searchCityName')[0];
-		autoComplete(search, cities);
+		autoComplete(search, cities, hideDropDown);
 	} catch(e) {
 		console.warn( 'name : %s, message : %s', e.name, e.message );
 	}
 	
-	//
+	/* FILL IN CITIES */
 	
-	function fillInSearchDropDown() {
-		
+	(function() {
 		try {
-			var dropDownUl = document.querySelector('#location-select-button .sub-nav ul');
+			var dropDownUl = document.querySelector('.searching-dropdown ul');
 			dropDownUl.innerHTML = '';
 			
 			fill();
@@ -141,22 +110,19 @@ $(document).ready(function() {
 			}
 		}
 		
-	};
+	})();
 	
-	fillInSearchDropDown();
-	
-	/* Perfect scrollbar */
+	/* NICE SCROLLBAR */
 	
 	(function() {
 		
-		//console.log( navigator.userAgent );
-		
 		//$('#location-select-button .sub-nav ul').perfectScrollbar();
-		$('#location-select-button .sub-nav .scrollbar-inner').scrollbar();
+		$('.searching-dropdown .scrollbar-inner').scrollbar();
 		
 	}());
 	
-	/* Accordion */
+	/* ACCORDION */
+	
 	try {
 		$('.foot-accordion').accordion({
 			collapsible: true
@@ -192,7 +158,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	/* Arrow Up */
+	/* ARROW UP */
 	
 	var arrow = document.querySelector('.scroll-top');
 	
@@ -216,7 +182,7 @@ $(document).ready(function() {
 		}, 10);
 	});
 	
-	/* Edit Item. Sortable */
+	/* EDIT ITEM. SORTABLE */
 	
 	$(function() {
 		try {
@@ -226,7 +192,7 @@ $(document).ready(function() {
 		} 
 	});
 	
-	/* Pagination */
+	/* PAGINATION */
 	
 	(function() {
 		var links = document.querySelectorAll('.cat-row > .pagination > a'),
@@ -262,7 +228,7 @@ $(document).ready(function() {
 	}());
 	
 	
-	/* Triming Product Names */
+	/* TRIMING PRODUCT NAMES */
 	
 	(function() {
 		var carousels = $('.marketing-carousel'),
@@ -291,7 +257,7 @@ $(document).ready(function() {
 		
 	})();
 	
-	/* Cabinet Tooltip */
+	/* CABINET TOOLTIP */
 	
 	(function() {
 		var view = $('.view_my_profile');

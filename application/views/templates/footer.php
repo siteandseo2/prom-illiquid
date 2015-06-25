@@ -128,12 +128,12 @@
                                             </div>
                                         </article>
                                     </li>
-                                <?php
+                                    <?php
                                 }
                             }
                             ?>
                         </ul>
-<?php } ?>
+                    <?php } ?>
                 </section>
                 <section class="widget col-sm-3" >
                     <div class="widget-title">ПОИСК</div>
