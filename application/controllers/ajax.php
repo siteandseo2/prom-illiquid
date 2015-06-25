@@ -11,6 +11,7 @@ class Ajax extends CI_Controller {
         $this->load->model('product_m');
         $this->load->model('main_m');
         $this->load->model('user_model');
+         $this->load->model('settings_m');
         $this->script['location'] = $this->main_m->get_location();
         $this->data['location'] = $this->main_m->get_location();
         $this->data['city'] = $this->main_m->get_city();
@@ -129,79 +130,14 @@ class Ajax extends CI_Controller {
             $this->session->set_userdata(array('user' => $session_data));
             $this->data['user'] = @$this->session->userdata('user');
             $this->data['menu'] = $this->main_m->get_menu_front($num);
+            $this->data['tw_link'] = $this->settings_m->get_set('tw_link');
+            $this->data['inst_link'] = $this->settings_m->get_set('inst_link');
+            $this->data['fb_link'] = $this->settings_m->get_set('fb_link');
+            $this->data['vk_link'] = $this->settings_m->get_set('vk_link');
             $this->load->view("templates/header_ajax", $this->data);
             unset($session_data, $type, $num);
         }
     }
 
-    /* function Add user to database */
-
-    function add_user() {
-        if (isset($_POST)) {
-            $this->data['usercat'] = $this->input->post('usercat');
-            $this->data['user_type'] = 'user';
-            $this->data['name'] = $this->input->post('name');
-            $this->data['surname'] = $this->input->post('surname');
-            $this->data['patronymic'] = $this->input->post('patronymic');
-            $this->data['password'] = $this->input->post('password');
-            if ($this->data['usercat'] == 'buyer') {
-                $this->data['company'] = "NULL";
-                $this->data['email'] = $this->input->post('email');
-                $this->data['phone'] = $this->input->post('phone');
-                $this->data['country'] = $this->input->post('country');
-                $location_id = $this->input->post('location');
-                $this->data['location'] = $this->user_model->get_location($location_id);
-                $city = $this->input->post('city');
-                $this->data['city'] = $this->user_model->get_city($city);
-                $this->data['street'] = $this->input->post('street');
-                $this->data['building'] = $this->input->post('building');
-                $email = $this->input->post('email');
-            } else {
-                $email = $this->input->post('company_email');
-                $this->data['company'] = $this->input->post('company');
-                $this->data['email'] = $this->input->post('company_email');
-                $this->data['phone'] = $this->input->post('company_phone');
-                $this->data['phone_more'] = $this->input->post('company_phone_more');
-                $this->data['country'] = $this->input->post('company_country');
-                $location_id = $this->input->post('location');
-                $this->data['location'] = $this->user_model->get_location($location_id);
-                $city = $this->input->post('company_city');
-                $this->data['city'] = $this->user_model->get_city($city);
-                $this->data['street'] = $this->input->post('company_street');
-                $this->data['building'] = $this->input->post('company_building');
-            }
-            if (!empty($this->data)) {
-//                    date_default_timezone_set('Etc/UTC');
-                $mail = new PHPMailer();
-                $mail->isSMTP();
-                $mail->Encoding = '7bit';
-                $mail->CharSet = 'utf-8';
-                $mail->setLanguage('ru', 'mailer/language');
-                $mail->Host = 'smtp.gmail.com';
-                $mail->Port = 587;
-                $mail->SMTPSecure = 'tls';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'illiquid.siteandseo@gmail.com';
-                $mail->Password = 'illiquid2015';
-                $mail->FromName = "PROM_ILLIQUID";
-                $mail->setFrom('PROM_ILLIQUID', '');
-                $mail->addReplyTo('PROM_ILLIQUID', '');
-                $mail->addAddress($email, '');
-                $mail->Subject = 'Данные для входа';
-                $mail->Body = 'Ваш логин: ' . $email . '<br/> Ваш Пароль: ' . $this->input->post('password');
-                $mail->AltBody = 'Ваш логин: ' . $email . ' <br/> Ваш Пароль: ' . $this->input->post('password');
-                $mail->addAttachment('img/logo-regular.png');
-                if ($mail->send()) {
-                    
-                }
-                $response = $this->user_model->add_user($this->data, $email);
-            } else {
-                $response = '400';
-            }
-            echo json_encode($response);
-            unset($response, $this->data, $city, $email, $location_id);
-        }
-    }
-
-    /* END function Add user to database */
+   
 }

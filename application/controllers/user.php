@@ -78,7 +78,7 @@ class User extends CI_Controller {
                 $this->data['phone'] = $this->input->post('company_phone');
                 $this->data['phone_more'] = $this->input->post('company_phone_more');
                 $this->data['country'] = $this->input->post('company_country');
-                $location_id = $this->input->post('location');
+                $location_id = $this->input->post('company_location');
                 $this->data['location'] = $this->user_model->get_location($location_id);
                 $city = $this->input->post('company_city');
                 $this->data['city'] = $this->user_model->get_city($city);
