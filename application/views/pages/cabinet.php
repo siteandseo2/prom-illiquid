@@ -4,7 +4,7 @@
     <div class="container wf-wrap">
 
 
-    
+
 
         <div class="row">
 
@@ -12,7 +12,7 @@
             <section id="cabinet-content" class="clearfix">
 
                 <h2 class="cabinetHead">Главная</h2>
-               
+
 
             </section>
             <!-- Cabinet Content End -->
@@ -21,7 +21,7 @@
 
         <hr>
 
-     
+
 
     </div>
 </div>

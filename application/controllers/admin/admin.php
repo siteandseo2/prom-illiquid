@@ -18,7 +18,8 @@ class Admin extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if (!empty($this->session->userdata('admin'))) {
+        $session = $this->session->userdata('admin');
+        if (!empty($session)) {
             $this->data['admin'] = $this->session->userdata('admin');
             $this->load->view("admin/header", $this->data);
         }
@@ -26,13 +27,17 @@ class Admin extends CI_Controller {
 
         /* load menu */
         $this->load->model('main_m');
-        $this->data['menu'] = $this->main_m->get_menu();
+        $this->load->model('settings_m');
+        $this->data['settings'] = $this->settings_m->get_setlist();
+        $this->data['menu_buyer'] = $this->main_m->get_menu_front('2');
+        $this->data['menu_seller'] = $this->main_m->get_menu_front('1');
         $this->data['fst_level'] = $this->main_m->get_fst_l();
         $this->data['scnd_level'] = $this->main_m->get_snd_l();
         $this->data['trd_level'] = $this->main_m->get_trd_l();
         /* load categories */
         $this->load->model('category_m');
         $this->data['cat_list'] = $this->category_m->category_list();
+        $this->data['fake'] = $this->main_m->get_fake();
 
         /* load users */
 
@@ -47,12 +52,20 @@ class Admin extends CI_Controller {
         $this->load->model('subcategories_m');
 
         $this->data['list'] = $this->subcategories_m->get_subcategories_list();
+
+        /* load main_m */
+        $this->load->model('main_m');
+        $this->data['pages'] = $this->main_m->get_pages();
+        /* load product_m */
+        $this->load->model('product_m');
+        $this->data['count_order'] = $this->product_m->get_new_order();
     }
 
     /*  function login admin  */
 
     function get_admin() {
-        if (!empty($this->session->userdata('admin'))) {
+        $session = $this->session->userdata('admin');
+        if (!empty($session)) {
             redirect(base_url('admin/index'));
         } else {
             $email = $this->input->post('email');
@@ -71,6 +84,7 @@ class Admin extends CI_Controller {
                 $this->load->view("pages/auth_admin");
             }
         }
+        unset($session_data, $email, $password, $this->data);
     }
 
     /* END function login admin  */
@@ -88,6 +102,7 @@ class Admin extends CI_Controller {
         } else {
             redirect(base_url('admin'));
         }
+        unset($this->data);
     }
 
     /* END Main Page ADMIN */
@@ -99,6 +114,7 @@ class Admin extends CI_Controller {
             $this->session->unset_userdata('admin');
             redirect(base_url());
         }
+        unset($this->data);
     }
 
     /* END function exit user  */
@@ -143,6 +159,7 @@ class Admin extends CI_Controller {
         $this->data['slider'] = $this->main_m->get_slider_item();
         $this->load->view("admin/slider", $this->data);
         $this->load->view("admin/footer", $this->data);
+        unset($this->data, $id, $key, $value, $name);
     }
 
     /* END function edit slider */
@@ -151,7 +168,9 @@ class Admin extends CI_Controller {
     function slide_add() {
         if (isset($_POST['slide_add'])) {
             unset($this->data);
-            if (!empty($this->input->post('header')) && !empty($this->input->post('text'))) {
+            $header = $this->input->post('text');
+            $text = $this->input->post('header');
+            if (!empty($header) && !empty($text)) {
                 if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
                     $this->data['header'] = $this->input->post('header');
                     $this->data['text'] = $this->input->post('text');
@@ -175,6 +194,7 @@ class Admin extends CI_Controller {
             $this->load->view("admin/slide_add", $this->data);
             $this->load->view("admin/footer", $this->data);
         }
+        unset($this->data, $header, $text);
     }
 
     /* slide_add End */
@@ -214,6 +234,7 @@ class Admin extends CI_Controller {
         $this->data['partner'] = $this->main_m->get_partners();
         $this->load->view("admin/partners", $this->data);
         $this->load->view("admin/footer", $this->data);
+        unset($this->data, $id, $key, $value, $name);
     }
 
     /* partners function END */
@@ -222,7 +243,8 @@ class Admin extends CI_Controller {
 
     function add_partner() {
         if (isset($_POST['add_partner'])) {
-            if (!empty($this->input->post('name'))) {
+            $name = $this->input->post('name');
+            if (!empty($name)) {
                 if (is_uploaded_file($_FILES["logo"]["tmp_name"])) {
                     unset($this->data);
                     $this->data['link'] = $this->input->post('link');
@@ -246,7 +268,87 @@ class Admin extends CI_Controller {
             $this->load->view("admin/partner_add", $this->data);
             $this->load->view("admin/footer", $this->data);
         }
+        unset($this->data, $name);
     }
 
     /* add partner END */
+    /* get order START */
+
+    function get_order() {
+        $this->data['prepare'] = $this->product_m->get_order();
+        foreach ($this->data['prepare'] as $k => $v) {
+            $this->data['order'][$v['item_id']] = $v;
+            $this->data['order'][$v['item_id']]['image'] = $this->product_m->get_order_img($v['item_id']);
+        }
+//        echo'<pre>';
+//        print_r($this->data['order']);
+//        echo'</pre>';
+        $this->load->view("admin/new_orders", $this->data);
+        $this->load->view("admin/footer", $this->data);
+        unset($this->data, $k, $v);
+    }
+
+    /* get_order END */
+
+
+    /* edit setting START */
+
+    function edit_setting() {
+        if (isset($_POST['edit'])) {
+            foreach ($this->input->post('edit') as $val) {
+                $id = $val;
+            }
+            foreach ($this->input->post('set') as $key => $value) {
+                if ($id == $key)
+                    $name = $value;
+            }
+            $this->db->query("UPDATE settings SET value='$name' WHERE id='$id'");
+        }
+        redirect(base_url('admin/settings'));
+    }
+
+    /* edit setting END */
+
+
+    /* edit fake_comments START */
+
+    function fake_comment() {
+        if (isset($_POST['edit'])) {
+            foreach ($this->input->post('edit') as $val) {
+                $id = $val;
+            }
+            foreach ($this->input->post('name') as $key => $value) {
+                if ($id == $key)
+                    $name = $value;
+            }
+            foreach ($this->input->post('text') as $key => $value) {
+                if ($id == $key)
+                    $text = $value;
+            }
+            foreach ($this->input->post('office') as $key => $value) {
+                if ($id == $key)
+                    $office = $value;
+            }
+            $this->db->query("UPDATE fake_comments SET user_name='$name' WHERE id='$id'");
+            $this->db->query("UPDATE fake_comments SET text='$text' WHERE id='$id'");
+            $this->db->query("UPDATE fake_comments SET office='$office' WHERE id='$id'");
+        }
+        if (isset($_POST['delete'])) {
+            foreach ($this->input->post('delete') as $id) {
+                $this->db->where('id', $id)->delete('fake_comments');
+            }
+        }
+        if (isset($_POST['status'])) {
+            foreach ($this->input->post('status') as $key => $val) {
+                if ($val == 'enable') {
+                    $this->db->query("UPDATE fake_comments SET status='disable' WHERE id='$key'");
+                } else {
+                    $this->db->query("UPDATE fake_comments SET status='enable' WHERE id='$key'");
+                }
+            }
+        }
+        redirect(base_url('admin/fake_comments'));
+    }
+
+    /* edit fake_comments END */
 }

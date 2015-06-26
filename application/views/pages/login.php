@@ -45,14 +45,20 @@
 							</span>
                         </span>
                     </div>
-
+					<!--
                     <p class="remember-me">
                         <label>
                             <input name="rememberme" type="checkbox" id="rememberme" value="">
                             Запомнить меня
                         </label>
                     </p>
-
+					-->
+					<p class="forgot">
+						<a href="" data-toggle="modal" data-target="#forgotModal">
+							<span>Забыли пароль?</span>
+						</a>
+					</p>
+					
                     <p>
                         <span class="form-submit">
                             <input type="submit" name="login" value="Войти" class="validate-submit">

@@ -7,24 +7,26 @@ class Category extends CI_Controller {
 
     function __construct($page = 'index') {
         parent::__construct();
-        if(!empty($this->session->userdata('admin'))){
-        $this->load->model('category_m');
-        $this->data['admin'] = @$this->session->userdata('admin');
-        $this->load->view("admin/header", $this->data);
+        $session = $this->session->userdata('admin');
+        if (!empty($session)) {
+            $this->load->model('category_m');
+            $this->data['admin'] = @$this->session->userdata('admin');
+            $this->load->view("admin/header", $this->data);
 
-        /* load categories */
+            /* load categories */
 
-        $this->load->model('category_m');
-        $this->load->model('subcategories_m');
-        $this->data['cat_list'] = $this->category_m->category_list();
+            $this->load->model('category_m');
+            $this->load->model('subcategories_m');
+            $this->data['cat_list'] = $this->category_m->category_list();
 
-        /* load focus product */
+            /* load focus product */
 
-        $this->data['fpl'] = $this->category_m->focus_product_list();
-    }else{
-          redirect(base_url('admin'));
+            $this->data['fpl'] = $this->category_m->focus_product_list();
+        } else {
+            redirect(base_url('admin'));
+        }
     }
-    }
+
     /* START METHOD's for categories
      *
      * 
@@ -53,6 +55,7 @@ class Category extends CI_Controller {
 
             redirect(base_url('admin/category'));
         }
+        unset($id, $key, $value, $fp_id, $link, $name, $this->data);
     }
 
     /* END  function edit_category */
@@ -64,11 +67,10 @@ class Category extends CI_Controller {
         if (isset($_POST['status'])) {
             foreach ($this->input->post('status') as $key => $val) {
                 if ($val == 'enable') {
-                    $id=$this->subcategories_m->get_subcategory_by_cat_id($key);
+                    $id = $this->subcategories_m->get_subcategory_by_cat_id($key);
                     $this->db->query("UPDATE categories SET status='disable' WHERE id='$key'");
                     $this->db->query("UPDATE subcategories SET status='disable' WHERE cat_id='$key'");
                     $this->db->query("UPDATE product SET status='disable' WHERE subcat_id='$id'");
-                    
                 } else {
                     $this->db->query("UPDATE categories SET status='enable' WHERE id='$key'");
                     $this->db->query("UPDATE subcategories SET status='enable' WHERE cat_id='$key'");
@@ -77,6 +79,7 @@ class Category extends CI_Controller {
 
             redirect(base_url('admin/category'));
         }
+        unset($this->data, $id);
     }
 
     /* END function change_type */
@@ -91,6 +94,7 @@ class Category extends CI_Controller {
 
             redirect(base_url('admin/category'));
         }
+        unset($this->data, $id);
     }
 
     /* END function delete_category */
@@ -103,6 +107,7 @@ class Category extends CI_Controller {
         $this->delete_category();
         $this->edit_category();
         $this->load->view("admin/footer");
+        unset($this->data);
     }
 
     /* END function get_category */
@@ -118,6 +123,7 @@ class Category extends CI_Controller {
         }
         unset($this->data_db);
         redirect(base_url('admin/category'));
+        unset($this->data);
     }
 
     /* END function add_category */
@@ -135,6 +141,7 @@ class Category extends CI_Controller {
             $this->category_m->add_focus_product($this->data_db);
         }
         redirect(base_url('admin/focus_product'));
+        unset($this->data, $this->data_db);
     }
 
     /* END  function add_focus_product */
@@ -156,6 +163,7 @@ class Category extends CI_Controller {
 
             redirect(base_url('admin/focus_product'));
         }
+        unset($this->data, $this->data_db);
     }
 
     /* END function edit_focus_product */
@@ -175,6 +183,7 @@ class Category extends CI_Controller {
 
             redirect(base_url('admin/focus_product'));
         }
+        unset($this->data, $val, $key);
     }
 
     /* END function change_focus_product */
@@ -190,6 +199,7 @@ class Category extends CI_Controller {
 
             redirect(base_url('admin/focus_product'));
         }
+        unset($this->data, $id);
     }
 
     /* END function delete_focus_product */
@@ -203,6 +213,7 @@ class Category extends CI_Controller {
         $this->change_focus_product();
         $this->edit_focus_product();
         $this->load->view("admin/footer");
+        unset($this->data);
     }
 
     /* END  function focus_product */

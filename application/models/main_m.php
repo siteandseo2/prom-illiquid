@@ -20,9 +20,10 @@ class Main_m extends CI_Model {
     function get_menu_front($num) {
         if (isset($num)) {
 //        $main = $this->db->where('status', 'enable')->where('access', '3')->where('type', 'r')->get('menu');
-            $main = $this->db->query('SELECT * FROM menu WHERE type="r" AND  access!=' . $num . '');
+            $main = $this->db->query('SELECT * FROM menu WHERE type="r" AND  access!=' . $num . ' AND status="enable"');
             foreach ($main->result_array() as $row) {
                 $arr1[$row['name']] = [$row['id']];
+                $arr1[$row['name']][] = $row['main_link'];
                 $level1 = $this->db->where('status', 'enable')->where('p_id', $row['id'])->get('menu');
                 foreach ($level1->result_array() as $r) {
                     $arr1[$row['name']][$row['id']][$r['link']] = [$r['name']];
@@ -111,6 +112,26 @@ class Main_m extends CI_Model {
         if ($this->db->insert('partners', $data)) {
             return true;
         }
+    }
+
+    function get_pages() {
+        $partner = $this->db->query('SELECT * FROM menu WHERE link!="#"');
+        return $partner->result_array();
+    }
+
+    function get_fake() {
+        $partner = $this->db->get('fake_comments');
+        return $partner->result_array();
+    }
+
+    function get_fake_one() {
+        $query = $this->db->query("SELECT * FROM `fake_comments` ORDER BY `id`  LIMIT 1");
+        return $query->result_array();
+    }
+
+    function get_enable_fake() {
+        $partner = $this->db->where('status', 'enable')->get('fake_comments');
+        return $partner->result_array();
     }
 
 }

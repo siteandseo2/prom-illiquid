@@ -22,7 +22,17 @@
     </div>
 </div>
 
-<!-- Page title -->
+<!-- Page title End -->
+
+<!-- Animation -->
+
+ <div class="bubblingG registrBubbling">
+	<span id="bubblingG_1"></span>
+	<span id="bubblingG_2"></span>
+	<span id="bubblingG_3"></span>
+</div>
+
+<!-- Animation  End -->
 
 <!-- Main Content -->
 
@@ -106,7 +116,7 @@
                             </p>
                             <p>
                                 <label for="location">Область</label>
-                                <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                                <select class="cabinet-form-input" name="location" id="location" data-ajax="region" rel="registr-buyer">
                                      <option value="default">Выберите Область</option>
                                     <?php
                                     foreach($location as $k) {
@@ -117,7 +127,7 @@
                                     ?>                               
                                 </select>
                                 <label for="city">Город</label>
-                                <select class="cabinet-form-input" name="city" id="city">
+                                <select class="cabinet-form-input" name="city" id="city" rel="registr-buyer-city">
                                      <option value="default">Выберите Населенный Пункт</option> 
                                 </select>
                             </p>
@@ -181,7 +191,7 @@
                             </p>
                             <p>
                                 <label for="company_location">Область</label>
-                                <select class="cabinet-form-input" name="company_location" id="company_location" data-ajax="region">
+                                <select class="cabinet-form-input" name="company_location" id="company_location" data-ajax="region" rel="registr-seller">
                                     <option value="default">Выберите Область</option> 
                                     <?php
                                     foreach($location as $k) {
@@ -194,7 +204,7 @@
 							</p>
 							<p>
                                 <label for="company_city">Город</label>
-                                <select class="cabinet-form-input" name="company_city" id="company_city">
+                                <select class="cabinet-form-input" name="company_city" id="company_city" rel="registr-seller-city">
                                     <option value="default">Выберите Населенный Пункт</option> 
                                 </select>
                             </p>
@@ -229,7 +239,7 @@
 					<strong>Регистрация прошла успешно, спасибо!</strong>
 				</div>
 				<div class="alert alert-danger" role="alert" id="registrResponseDanger">
-					<strong>Ошибка при регистрации. Проверьте корретность введенных вами данных.</strong>
+					<strong>Ошибка при регистрации. Такой Email уже зарегистрирован</strong>
 				</div>
 				
 				<!-- Response End -->

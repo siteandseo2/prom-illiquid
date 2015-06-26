@@ -1,4 +1,4 @@
-﻿/* ----------------------------------------------------------
+/* ----------------------------------------------------------
 						VALIDATION
  ------------------------------------------------------------*/
  
@@ -28,17 +28,17 @@
 	// Content management
 	
 	try {
-		
-		tabs.addEventListener('click', function(ev) {
-			var target = ev.target
-			if( target.tagName != 'LABEL' ) return;
-			
-			changeSet( target.firstElementChild.id );
-		});
-		
+		if( tabs ) {
+			tabs.addEventListener('click', function(ev) {
+				var target = ev.target
+				if( target.tagName != 'LABEL' ) return;
+				
+				changeSet( target.firstElementChild.id );
+			});
+		}
 	} catch( e ) {
 		
-		console.log( e.type + ' : ' + e.message );
+		console.warn( 'name : %s, message: %s', e.name, e.message );
 		
 	}
 	
@@ -215,7 +215,7 @@
 		});
 
 		if ( isAnyFalse ) {
-			form.onsubmit = function () {
+			form.onsubmit = function() {
 				return false;
 			}
 		} else {
@@ -246,29 +246,33 @@
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', url, true);
 
-		xhr.onreadystatechange = function () {
+		xhr.onreadystatechange = function () {		
 			if (xhr.readyState != 4) return;
-
+			
 			if ( xhr.status == 200 && url == 'user/add_user' ) {
 				
 				setTimeout(function() {
-					callback( true );
+					$('#overlay').hide();
+					$('.bubblingG').hide();
+					
+					~xhr.responseText.indexOf( "200" ) ? callback( true ) : callback( false );
 				}, 1000);
 				
 			} else {
 				
-				console.error(xhr.status + ' : ' + xhr.statusText);
+				setTimeout(function() {
+					$('#overlay').hide();
+					$('.bubblingG').hide();
+				}, 1000);
 				
-				if( url == 'user/add_user' ) {
-					setTimeout(function() {
-						callback( false );
-					}, 1000);
-				}
-				
+				console.error('status : %s, statusText: %s', xhr.status, xhr.statusText);
 			}
 		}
 
 		xhr.send(data);
+		
+		$('#overlay').show();
+		$('.bubblingG').show();
 
 	}
 	
@@ -287,74 +291,35 @@
 			
 			setTimeout(function() {
 				$( success ).slideToggle(2000, function() {
-					$( this ).slideUp(2000);
+					$( this ).slideUp(2000, function() {
+						clearAll( true );
+					});
 				});
-			}, 1000);
+			}, 500);
 			
 		} else {
 			
 			setTimeout(function() {
 				$( danger ).slideToggle(2000, function() {
-					$( this ).slideUp(2000);
+					$( this ).slideUp(2000, function() {
+						clearAll( false );
+					});
 				});
-			}, 1000);
+			}, 500);
 			
 		}
+		
 	}
 	
-	/* -----------------------------------------------------
-						AJAX FOR LOCATION 
-	-------------------------------------------------------- */
-	
-	try {
-		
-		var region = $('[data-ajax="region"]');
-		
-	} catch( e ) {
-		console.log( e.type + ' : ' + e.message );
-	}
-	
-	$( region ).change(function() {
-		var val = $( this ).val();
-		var self = $( this ).attr('id');
-		
-		$.ajax({
-			type: 'POST',
-			url: 'ajax/change_location',
-			data: 'id='+ val,
-			success: function( data ) {
-				deploy( data, self );
-			}
+	function clearAll( bool ) {
+		var inputs = form.querySelectorAll('input:not([type="radio"]):not([type="button"])');
+		[].forEach.call(inputs, function(input) {
+			input.value = '';
+			if( input.classList.contains('validateInputTrue') ) input.classList.remove('validateInputTrue');
+			if( input.nextElementSibling.classList.contains('validateIconTrue') ) input.nextElementSibling.classList.remove('validateIconTrue');
 		});
-	});
-	
-	function deploy( data, self ) {
-		var json = JSON.parse( data ),
-			city;
 		
-		var id = json.id;
-		var name = json.name;
-		
-		switch( self ) {
-			case 'location':
-				city = $('#city');
-				break;
-			case 'company_location':
-				city = $('#company_city');
-				break;
-			default:
-				break;
-		}
-		
-		$( city ).html('');
-		
-		for(var i = 0; i<id.length; i++) {
-			var option = document.createElement('option');
-			option.setAttribute('value', id[i]);
-			option.innerHTML = name[i];
-			$( city ).append( option );
-		}
+		if( bool ) window.location.assign( window.location.origin + '/login' );
 	}
-
-
+	
 });

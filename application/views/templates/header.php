@@ -7,8 +7,10 @@
         <meta name="keywords" content="Неликвиды, купля, продажа">
         <meta name="author" content="SITE&SEO">        
         <link href="<?= base_url(); ?>../../../css/normalize.css" rel="stylesheet" type="text/css"/>
-		<link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url(); ?>../../../css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url(); ?>../../../css/load_animation.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url(); ?>../../../css/jquery_scrollbar.css" rel="stylesheet" type="text/css"/>
 
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/perfect-scrollbar.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/jquery.fancybox.css">
@@ -16,6 +18,17 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/responsive.css">
+
+        <!--[if IE]>
+                <style>
+                        .tabs-buttons li:hover:not(.activeTab) a {
+                                color: rgb(5, 75, 171);
+                                background: transparent;
+                        }
+                </style>
+        <![endif]-->
+
+       <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     </head>   
     <body>        
         <section id="page">              
@@ -31,19 +44,19 @@
                                         <a href="<?= base_url(); ?>" class="top-bar-icon-text">О нас</a>
                                     </span>
                                     <span class="mini-contacts">
-                                        <a href="<?= base_url(); ?>" class="top-bar-icon-text">Тех поддержка</a>
+                                        <a href="<?= base_url(); ?>" class="top-bar-icon-text">Наши контакты</a>
                                     </span>
                                 </div>
                                 <!-- Top bar conctacts icons End -->
 
                                 <div class="right-block wf-td clearfix">
-									<div class="mini-login">
-										<a href="#" class="submit" data-toggle="modal" data-target="#modalCart" id="topBarCartLink"> 
-											<i class="fa fa-shopping-cart"></i>
-											<span class="top-bar-icon-text">Корзина</span>
-											<span class="num badge" id="cart-amount"></span>
-										</a>
-									</div>
+                                    <div class="mini-login">
+                                        <a href="#" class="submit" data-toggle="modal" data-target="#modalCart" id="topBarCartLink"> 
+                                            <i class="fa fa-shopping-cart"></i>
+                                            <span class="top-bar-icon-text">Корзина</span>
+                                            <span class="num badge" id="cart-amount"></span>
+                                        </a>
+                                    </div>
                                     <div class="mini-login">
                                         <a href="<?= base_url(); ?>login" class="submit">
                                             <i class="fa fa-sign-in"></i>
@@ -59,16 +72,16 @@
                                     </div>
                                     <!-- Social -->
                                     <div class="soc-ico clearfix">
-                                        <a href="<?= base_url(); ?>" title="Instagram" target="_blank">
+                                        <a href="<?= $inst_link ?>" title="Instagram" target="_blank">
                                             <i class="fa fa-instagram"></i>
                                         </a>
-                                        <a href="<?= base_url(); ?>" title="Facebook" target="_blank">
+                                        <a href="<?= $fb_link ?>" title="Facebook" target="_blank">
                                             <i class="fa fa-facebook-square"></i>
                                         </a>
-                                        <a href="<?= base_url(); ?>" title="Twitter" target="_blank">
+                                        <a href="<?= $tw_link ?>" title="Twitter" target="_blank">
                                             <i class="fa fa-twitter"></i>
                                         </a>
-                                        <a href="<?= base_url(); ?>" title="Vk" target="_blank">
+                                        <a href="<?= $vk_link ?>" title="Vk" target="_blank">
                                             <i class="fa fa-vk"></i>
                                         </a>
                                     </div>
@@ -106,26 +119,27 @@
                                 <input type="text" placeholder="Я ХОЧУ КУПИТЬ" name="name" class="search-input" autofocus>
 
                                 <div class="btn-group s-butt">
+
                                     <button type="button" class="btn btn-default search-block-button" id="location-select-button">
-                                        <span class="btn-text">Вся Украина</span>
-                                        <span class="search-select-icon">
+                                        <span class="searching-title">Вся Украина</span>
+                                        <input type="hidden" name="certainCity" value="Вся Украина">
+                                        <span class="search-select-icon" title="Искать по городам Украины">
                                             <i class="fa fa-angle-down"></i>
                                         </span>
-
-                                        <div class="sub-nav">
-                                            <input type="text" placeholder="Введите название города" name="searchCityName">
-                                            <ul></ul>
-                                        </div>
                                     </button>
 
-                                    <a href="#" title="Искать на сайте">
-                                        <button type="submit" class="btn btn-default search-block-button" name="search" value="BUY" id="buy-search-button">
-                                            <span class="btn-text">Поиск</span>
-                                            <span class="search-select-icon">
-                                                <i class="fa fa-search"></i>
-                                            </span>
-                                        </button>
-                                    </a>
+                                    <div class="sub-nav searching-dropdown"> 
+                                        <input type="text" placeholder="Введите название города" name="searchCityName">
+                                        <ul class="scrollbar-inner"></ul>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default search-block-button" name="search" id="buy-search-button">
+                                        <span>Поиск</span>
+                                        <span class="search-select-icon">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </button>
+
                                 </div>
                             </div>
 
@@ -142,7 +156,6 @@
                     <!-- Search End --> 
 
                 </div>
-                <!-- Branding & Navigation End -->
 
             </header>
 

@@ -8,15 +8,15 @@
             <div class="row">               
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Главная страница
-                        <small>Main page</small>
+                        Управление меню
+                        <small>Setting menu</small>
                     </h1>  
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="<?= base_url(); ?>admin/index">Главная</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Главная страница
+                            <i class="fa fa-file"></i> Управление меню
                         </li>
                     </ol>                    
                 </div>                 
@@ -43,11 +43,111 @@
 
                 <!--NAV START -->
 
-
+                <div class="row">               
+                    <div class="col-lg-12">
+                        <h4 class="page-header">
+                            Меню покупателя
+                            <small>Menu for buyer</small>
+                        </h4>  
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  Меню покупателя
+                            </li>                        
+                        </ol>                    
+                    </div>                 
+                </div>
                 <nav id="cabinet-navigation">
                     <ul id="main-nav" class="clearfix">                           
                         <?php
-                        foreach ($menu as $item => $arr) {
+                        foreach ($menu_buyer as $item => $arr) {
+                            ?>
+                            <li>
+                                <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
+                                    <span><?= $item ?></span>
+                                </a>
+                                <?php
+                                if (count($arr) > 1) {
+                                    ?>
+                                    <div class="sub-nav out-level">
+                                        <ul>
+                                            <?php
+                                            foreach ($arr as $id => $array) {
+                                                if ($id == $arr['0']) {
+
+                                                    foreach ($array as $sub => $mass) {
+                                                        if (count($mass) > 1) {
+                                                            ?>
+                                                            <li class="downItem">
+                                                                <a href="<?= base_url(); ?><?= $sub ?>" onclick="return false;" class="clearfix">
+                                                                    <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
+                                                                    <span class="cabinet-nav-icon">
+                                                                        <i class="fa fa-angle-right"></i>
+                                                                    </span>
+                                                                </a>
+                                                                <div class="sub-nav inn-level">
+                                                                    <ul>
+                                                                        <?php
+                                                                        foreach ($mass as $k => $v) {
+                                                                            if (is_array($v)) {
+                                                                                foreach ($v as $key => $zn) {
+                                                                                    ?>
+                                                                                    <li>
+                                                                                        <a href="<?= base_url(); ?><?= $key ?>">
+                                                                                            <span><?= $zn ?></span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <?php
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        ?>                                                                        
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                            <?php
+                                                        } else {
+                                                            ?>                                           
+                                                            <li>
+                                                                <a href="<?= base_url(); ?><?= $sub ?>" class="clearfix">
+                                                                    <span class="cabinet-nav-text"><?= $mass['0'] ?></span>
+                                                                </a>
+                                                            </li>                                                            
+                                                            <?php
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            ?>
+                                        </ul>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                            </li>
+                            <?php
+                        }
+                        ?>
+
+                    </ul>
+                </nav>
+                
+                <div class="row">               
+                    <div class="col-lg-12">
+                        <h4 class="page-header">
+                            Меню продавца
+                            <small>Menu for seller</small>
+                        </h4>  
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  Меню продавца
+                            </li>                        
+                        </ol>                    
+                    </div>                 
+                </div>
+                <nav id="cabinet-navigation">
+                    <ul id="main-nav" class="clearfix">                           
+                        <?php
+                        foreach ($menu_seller as $item => $arr) {
                             ?>
                             <li>
                                 <a href="<?= base_url(); ?>" onclick="return false;" class="topItem">
@@ -135,7 +235,7 @@
                         </ol>                    
                     </div>                 
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-12">
 
                     <table class='col-lg-6 table-bordered table-responsive table'>
                         <tbody>
@@ -143,9 +243,12 @@
                         <th>
                             #id
                         </th>
-                        <th class='col-lg-9'>
+                        <th class='col-lg-6'>
                             Название
-                        </th>                        
+                        </th>  
+                        <th class='col-lg-3'>                   
+                            Доступно для
+                        </th>  
                         <th class='col-lg-1'>
                             Редактировать
                         </th>  
@@ -167,6 +270,12 @@
                             } else {
                                 $dis = '';
                             }
+                            if( $item['access'] == 1)
+                                $access="Покупатель";
+                            if( $item['access'] ==2)
+                                $access="Продавец";
+                            if( $item['access'] ==3)
+                                $access="Всем";
                             ?>
                             <tr>
                                 <td>
@@ -175,7 +284,8 @@
                                     <input  type='text' name="parent[<?= $item['id'] ?>]" value=" <?= $item['p_id'] ?>" hidden=""/>
                                     <input  type='text' name="parent2[<?= $item['id'] ?>]" value=" <?= $item['p_id2'] ?>" hidden=""/>
                                 </td>
-                                <td><input class="form-control" type='text' name="name[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>               
+                                <td><input class="form-control" type='text' name="name[<?= $item['id'] ?>]" value="<?= $item['name'] ?>"/></td>   
+                                <td><input class="form-control" type='text' name="access[<?= $item['id'] ?>]" value="<?= $access?>"/></td>
                                 <td><button class="btn btn-success" type='submit' name="edit[<?= $item['id'] ?>]" value="<?= $item['id'] ?>"><i class="fa fa-pencil"></i> Редактировать</button></td>
                                 <td><button class="btn btn-danger"type='submit' name="delete[<?= $item['id'] ?>]" value="<?= $item['id'] ?>" <?= $dis ?>><i class="fa fa-trash-o"></i> Удалить</button></td>
                                 <td><button class = "btn btn-default"type = 'submit' name = "status[<?= $item['id'] ?>]" value = "<?= $item['status'] ?>"><?= $btn_name ?></button></td>   

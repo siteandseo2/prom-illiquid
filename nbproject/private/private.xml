@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/prom.loc/application/config/routes.php</file>
-            <file>file:/var/www/prom.loc/application/controllers/admin/subcategories.php</file>
-            <file>file:/var/www/prom.loc/application/models/main_m.php</file>
-            <file>file:/var/www/prom.loc/application/controllers/main.php</file>
-            <file>file:/var/www/prom.loc/application/views/admin/subcategories_add.php</file>
+            <file>file:/var/www/prom.loc/application/controllers/search.php</file>
+            <file>file:/var/www/prom.loc/application/views/templates/header.php</file>
+            <file>file:/var/www/prom.loc/application/views/templates/footer.php</file>
+            <file>file:/var/www/prom.loc/application/views/templates/header_user.php</file>
+            <file>file:/var/www/prom.loc/application/controllers/admin/admin.php</file>
+            <file>file:/var/www/prom.loc/application/models/product_m.php</file>
         </group>
     </open-files>
 </project-private>

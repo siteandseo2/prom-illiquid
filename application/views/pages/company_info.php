@@ -1,4 +1,4 @@
-﻿<!-- Main Content -->
+<!-- Main Content -->
 
 <div id="main">
     <div class="container wf-wrap">
@@ -9,12 +9,13 @@
 
                 <h2 class="cabinetHead">Информация о компании</h2>
 
-                <form id="cabinet-company-info" class="form-submit clearfix" method="POST" enctype="multipart/form-data">
+                <form id="cabinet-company-info" class="form-submit clearfix" action="<?=base_url()?>edit_company_data" method="POST" enctype="multipart/form-data">
 
                     <div class="col-sm-6">
 
                         <p>
                             <label for="company_name">Название компании</label>
+                            <input type="hidden" value="<?= $user_data['id'] ?>" id="company_name" name="company_id" class="cabinet-form-input" >
                             <input type="text" value="<?= $user_data['company'] ?>" id="company_name" name="company_name" class="cabinet-form-input">
                         </p>
                         <p>
@@ -24,39 +25,44 @@
                         <p>
                             <label for="company_phone">Телефон компании</label>
                             <input type="text" value="<?= $user_data['phone'] ?>" id="company_phone" name="company_phone" class="cabinet-form-input">
-                        </p>
+                        </p>                      
                         <p>
                             <label for="company_phone_more">Дополнительный телефон</label>
                             <input type="text" value="<?= $user_data['phone_more'] ?>" id="company_phone_more" name="company_phone_more" class="cabinet-form-input">
-                        </p>
+                        </p>                       
                         <p>
                             <label for="company_country">Страна</label>
                             <select class="cabinet-form-input" id="company_country" name="company_country" data-map="country">
-                                <option value="ua"><?= $user_data['country'] ?></option>
-                                <option value="ua">Украина</option>
-                                <option value="ru">Россия</option>
-                                <option value="bl">Беларуссия</option>
-                                <option value="kz">Казахстан</option>
-                                <option value="ge">Грузия</option>
+                                <option value="<?= $user_data['country'] ?>"><?= $user_data['country'] ?></option>
+                                
                                 <!-- AJAX ? -->
                             </select>
                         </p>
                         <p>
                             <label for="location">Область</label>
-                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region">
+                            <select class="cabinet-form-input" name="location" id="location" data-ajax="region" rel="company_info">                                
                                 <?php
                                 foreach ($location as $k) {
-                                    ?>
-                                    <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
-                                    <?php
+                                    if ($user_data['location'] == $k['name']) {
+                                        ?>
+                                        <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option>
+                                        <?php
+                                    }
+                                }
+                                foreach ($location as $k) {
+                                    if ($user_data['location'] != $k['name']) {
+                                        ?>
+                                        <option value="<?= $k['id'] ?>"><?= $k['name'] ?></option> 
+                                        <?php
+                                    }
                                 }
                                 ?>                               
                             </select>
                         </p>
                         <p>
                             <label for="city">Город</label>
-                            <select id="city" name="city" class="cabinet-form-input" data-map="city">
-                                <option value="zp"><?= $user_data['city'] ?></option>                                
+                            <select id="city" name="city" class="cabinet-form-input" data-map="city" rel="company_info_city">
+                                <option value="<?= $user_data['city'] ?>"><?= $user_data['city'] ?></option>                                
                             </select>
                         </p>
                         <p>
@@ -72,7 +78,7 @@
 
                         <p>
                             <span class="form-submit">
-                                <input type="button" name="company_submit" id="company_submit" value="Сохранить">
+                                <input type="submit" name="company_submit" id="company_submit" value="Сохранить">
                             </span>
                         </p>
 

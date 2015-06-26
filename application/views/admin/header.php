@@ -12,6 +12,7 @@
 
         <link href="<?= base_url(); ?>../../../../css/admin_style.css" rel="stylesheet">
         <!-- Bootstrap Core CSS -->
+        <link href="<?= base_url(); ?>../../../css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url(); ?>../../../../css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
@@ -168,10 +169,10 @@
                 </a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="<?= base_url(); ?>admin/main" class="dropped">Главная страница</a>
+                        <a href="<?= base_url(); ?>admin/main" class="dropped">Меню</a>
                     </li>
                     <li>
-                        <a href="#" class="dropped">Страницы</a>
+                        <a href="pages" class="dropped">Страницы</a>
                     </li>
                     <li>
                         <a href="<?= base_url(); ?>admin/slider" class="dropped">Слайдер</a>
@@ -202,8 +203,14 @@
                 </ul>
             </li>  
             <li>
-                <a href="<?= base_url(); ?>admin/users" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-file"></i> Пользователи</a>
-            </li>                        
+                <a href="<?= base_url(); ?>admin/users" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-users"></i> Пользователи</a>
+            </li>  
+            <li>
+                <a href="<?= base_url(); ?>admin/settings" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-wrench"></i> Настройки</a>
+            </li>  
+            <li>
+                <a href="<?= base_url(); ?>admin/fake_comments" data-ajax="blank-page" class="ajax"><i class="fa fa-fw fa-comment"></i>Коментарии на главной</a>
+            </li>   
         </ul>
         <!-- Sidebar End -->
 

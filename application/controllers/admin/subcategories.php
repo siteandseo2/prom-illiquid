@@ -18,7 +18,8 @@ class Subcategories extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if (!empty($this->session->userdata('admin'))) {
+        $session = $this->session->userdata('admin');
+        if (!empty($session)) {
             $this->data['admin'] = @$this->session->userdata('admin');
             $this->load->view("admin/header", $this->data);
             /* load categories */
@@ -61,6 +62,7 @@ class Subcategories extends CI_Controller {
             $this->db->query("UPDATE subcategories SET link='$link'  WHERE id='$id'");
 
             redirect(base_url('admin/subcategories'));
+            unset($this->data, $id, $fp_id, $key, $value, $name);
         }
     }
 
@@ -83,6 +85,7 @@ class Subcategories extends CI_Controller {
             }
 
             redirect(base_url('admin/subcategories'));
+            unset($this->data, $cat_id, $key, $val);
         }
     }
 
@@ -97,17 +100,20 @@ class Subcategories extends CI_Controller {
             }
 
             redirect(base_url('admin/subcategories'));
+            unset($this->data, $id);
         }
     }
 
     /* END  function delete_subcat  */
 
     public function get_subcat_list() {
+
         $this->load->view('admin/subcategories', $this->data);
         $this->delete_subcat();
         $this->change_type();
         $this->edit_subcat();
         $this->load->view('admin/footer');
+        unset($this->data);
     }
 
     /* function add subcategory */
@@ -115,10 +121,11 @@ class Subcategories extends CI_Controller {
     public function add_subcategory() {
         if (isset($_POST['add_subcategory'])) {
             if (is_uploaded_file($_FILES["prod_photo"]["tmp_name"])) {
-                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/subcat_image/" . $_FILES["prod_photo"]["name"]);
+                $this->data_db['link'] = strtolower($this->input->post('link'));
+                move_uploaded_file($_FILES["prod_photo"]["tmp_name"], "./uploads/subcat_image/" . $this->data_db['link'] . $_FILES["prod_photo"]["name"]);
                 $this->data_db['name'] = $this->input->post('name');
                 $this->data_db['link'] = strtolower($this->input->post('link'));
-                $this->data_db['image_path'] = '../../../uploads/subcat_image/' . $_FILES["prod_photo"]["name"];
+                $this->data_db['image_path'] = '../../../uploads/subcat_image/' . $this->data_db['link'] . $_FILES["prod_photo"]["name"];
                 $this->data_db['cat_id'] = strtolower($this->input->post('category'));
                 $this->data_db['status'] = strtolower($this->input->post('status'));
                 $this->subcategories_m->add_subcategory($this->data_db);
@@ -126,8 +133,23 @@ class Subcategories extends CI_Controller {
             } else {
                 redirect(base_url('admin/subcategories_add'));
             }
+            unset($this->data_db, $this->data);
         }
     }
 
     /* END function add subcategory */
+
+    /* filter by categories START */
+
+    function filter_cat() {
+        if (isset($_POST['filter'])) {
+            $id = $this->input->post('data_cat');
+            $this->data['subcategories_list'] = $this->subcategories_m->get_subcategories_list_by_category($id);
+            $this->load->view('admin/subcategories', $this->data);
+            $this->load->view('admin/footer');
+        }
+        unset($this->data);
+    }
+
+    /* filter by categories END */
 }

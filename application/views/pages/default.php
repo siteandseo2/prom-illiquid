@@ -3,20 +3,19 @@
     <!-- Carousel slides -->
     <div class="carousel-inner" role="listbox">
         <?php
-        
         foreach ($slider as $item) {
             if ($item['status'] == 'enable') {
-                if($item['act']==1)
-                    $act='active';
-                else{
-                    $act='';
+                if ($item['act'] == 1)
+                    $act = 'active';
+                else {
+                    $act = '';
                 }
                 ?>        
-                <div class="item <?=$act?>">
-                    <img src="<?=$item['path']?>" alt="Slide one">
+                <div class="item <?= $act ?>">
+                    <img src="<?= $item['path'] ?>" alt="Slide one">
                     <div class="carousel-description carousel-caption">
-                        <h1><?=$item['header']?></h1>
-                        <p><?=$item['text']?></p>
+                        <h1><?= $item['header'] ?></h1>
+                        <p><?= $item['text'] ?></p>
                     </div>
                 </div>
                 <?php
@@ -106,8 +105,8 @@
 
                     <!-- Home tab Grid -->
                     <div class="col-sm-9 clearfix tabs-content-grid home-tab-grid">
-<?php foreach ($list as $item) {
-    ?>
+                        <?php foreach ($subcategory_img as $item) {
+                            ?>
                             <!-- 1st row -->
                             <div class="col-md-3 col-sm-4 tabs-grid-item">
                                 <div class="inner-item">
@@ -121,7 +120,8 @@
                                     </a>
                                 </div>
                             </div>
-<?php } ?>
+                        <?php }
+                        ?>
                     </div>
                     <!-- Home tab grid End -->
 

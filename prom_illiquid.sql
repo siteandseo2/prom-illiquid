@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 11 2015 г., 16:05
+-- Время создания: Июн 25 2015 г., 17:02
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `status` varchar(10) CHARACTER SET utf8 NOT NULL,
   `link` varchar(50) CHARACTER SET utf8 NOT NULL,
   `fp_id` int(11) NOT NULL,
-  `image_path` varchar(200) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=25 ;
 
@@ -40,31 +39,17 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- Дамп данных таблицы `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `status`, `link`, `fp_id`, `image_path`) VALUES
-(1, 'Автозапчасти', 'enable', 'autozapchasti', 2, ''),
-(2, 'Строительство', 'enable', 'stroitelstvo', 1, ''),
-(3, 'Аренда спецтехники', 'enable', 'arenda_techniki', 3, ''),
-(4, 'Электрооборудование', 'enable', 'electromachine', 1, ''),
-(5, 'Отопление', 'enable', 'otoplenie', 1, ''),
-(6, 'Военторг', 'enable', 'voentorg', 2, ''),
-(7, 'Техника и электроника', 'enable', 'device', 2, ''),
-(8, 'Спорт, развлечения, хобби', 'enable', 'sport', 2, ''),
-(9, 'Товары для сада', 'enable', 'dso', 2, ''),
-(10, 'Металл, пластик, резина', 'enable', 'metal_plastik_rezina', 1, ''),
-(11, 'Инструмент', 'enable', 'instrument', 1, ''),
-(12, 'Деловые услуги', 'enable', 'delovie_uslugi', 3, ''),
-(13, 'Услуги в сфере IT', 'enable', 'it_service', 3, ''),
-(14, 'Образование и тренинги', 'enable', 'study&training', 3, ''),
-(15, 'Зоотовары', 'enable', 'zoo_items', 2, ''),
-(16, 'Медицина', 'enable', 'medical', 1, ''),
-(17, 'Тара и упаковка', 'enable', 'tara_upakovka', 1, ''),
-(18, 'Промышленная химия', 'enable', 'prom_himia', 1, ''),
-(19, 'Безопасность и защита', 'enable', 'security', 1, ''),
-(20, 'Все для пляжа', 'enable', 'beach_item', 2, ''),
-(21, 'Одежда, обувь, аксессуары', 'enable', 'odezhda_obuv', 2, ''),
-(22, 'Мебель и фурнитура', 'enable', 'mebel_furnitura', 2, ''),
-(23, 'Красота и здоровье', 'enable', 'beauty_health', 2, ''),
-(24, 'Промышленное оборудование, станки', 'enable', 'prom_machine', 1, '');
+INSERT INTO `categories` (`id`, `name`, `status`, `link`, `fp_id`) VALUES
+(1, 'Автозапчасти', 'enable', 'autozapchasti', 2),
+(2, 'Строительство', 'enable', 'stroitelstvo', 1),
+(4, 'Электрооборудование', 'enable', 'electromachine', 1),
+(5, 'Отопление', 'enable', 'otoplenie', 1),
+(6, 'Военторг', 'enable', 'voentorg', 2),
+(7, 'Техника и электроника', 'enable', 'device', 2),
+(11, 'Инструмент', 'enable', 'instrument', 1),
+(13, 'Услуги в сфере IT', 'enable', 'it_service', 3),
+(19, 'Безопасность и защита', 'enable', 'security', 1),
+(24, 'Промышленное оборудование, станки', 'enable', 'prom_machine', 1);
 
 -- --------------------------------------------------------
 
@@ -130,9 +115,61 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('0c32072be0a94d4c130c4c6835c03ba2', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36', 1434027751, 'a:3:{s:9:"user_data";s:0:"";s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}s:4:"user";a:10:{s:2:"id";s:7:"2548247";s:4:"name";s:8:"Макс";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:18:"baccardi92@mail.ru";s:7:"usercat";s:5:"buyer";s:7:"company";s:4:"NULL";s:8:"password";s:4:"user";s:7:"country";s:15:"Украина ";s:4:"city";s:8:"Киев";}}'),
-('c8527bd574e43d4a715e2fb51d9b75e2', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1434019714, 'a:2:{s:9:"user_data";s:0:"";s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}}'),
-('e677002214b5aed691997d2269b12edc', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 1434018403, '');
+('43786e7f32c1fe9ed00b58112f363b14', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36', 1435240872, ''),
+('7a1d07dd26bd246919878528a56f7355', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36', 1435237491, 'a:5:{s:9:"user_data";s:0:"";s:9:"city_sess";a:1:{i:0;s:8:"Луцк";}s:5:"admin";a:3:{s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:9:"user_type";s:5:"admin";}s:9:"data_view";a:2:{i:0;s:1:"9";i:1;s:1:"2";}s:4:"user";a:12:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:5:"email";s:11:"m@gmail.com";s:5:"phone";s:12:"380938246066";s:7:"usercat";s:6:"seller";s:7:"company";s:8:"Site&Seo";s:8:"password";s:4:"user";s:7:"country";s:14:"Украина";s:8:"location";s:37:"Запорожская область";s:4:"city";s:18:"Запорожье";}}');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `commit`
+--
+
+CREATE TABLE IF NOT EXISTS `commit` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `author` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `commit` text NOT NULL,
+  `stars` int(1) NOT NULL,
+  `date` datetime NOT NULL,
+  `company_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Дамп данных таблицы `commit`
+--
+
+INSERT INTO `commit` (`id`, `author`, `email`, `commit`, `stars`, `date`, `company_id`) VALUES
+(1, 'Maks', 'Maks', 'shfdhdhdfhdfhdf ', 4, '2015-06-19 11:31:27', 2548244),
+(2, 'Maks', 'Maks', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \nNulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \nsed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \ndiam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.', 5, '2015-06-19 11:39:22', 2548244),
+(4, 'Maks', 'Maks', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.', 2, '2015-06-19 12:08:42', 2548244),
+(5, 'Maks', 'Maks', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl.', 3, '2015-06-19 12:09:52', 1),
+(6, 'Макс', 'Макс', 'Мы команда просто класс - победи попробуй нас', 4, '2015-06-20 15:42:45', 1),
+(7, 'Maks', 'Maks', 'чсвампролсмп', 1, '2015-06-25 13:41:51', 2548244);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `fake_comments`
+--
+
+CREATE TABLE IF NOT EXISTS `fake_comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(50) NOT NULL,
+  `text` text NOT NULL,
+  `photo_path` varchar(250) NOT NULL,
+  `office` varchar(30) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `fake_comments`
+--
+
+INSERT INTO `fake_comments` (`id`, `user_name`, `text`, `photo_path`, `office`, `status`) VALUES
+(1, 'Maксим Приходько22', 'Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. \n', '../../../img/osHhcpJWyHA.jpg', 'developer222', 'enable'),
+(2, 'Александр Притула', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \r\n                                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \r\n                                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \r\n                                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan.', '../../../img/yODbaxarTWA.jpg', 'developer', 'enable');
 
 -- --------------------------------------------------------
 
@@ -2654,30 +2691,65 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `link` varchar(50) NOT NULL,
   `owner` varchar(10) NOT NULL,
   `access` varchar(10) NOT NULL,
+  `main_link` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
 
 --
 -- Дамп данных таблицы `menu`
 --
 
-INSERT INTO `menu` (`id`, `name`, `type`, `p_id`, `p_id2`, `status`, `link`, `owner`, `access`) VALUES
-(1, 'Главная', 'r', 0, 0, 'enable', '  #', 'admin', '3'),
-(2, 'Контактные данные', 'd', 46, 0, 'enable', 'account', 'admin', ''),
-(5, 'Мои Товары/Услуги', 'r', 0, 0, 'enable', ' #', 'admin', '2'),
-(6, 'Добавить товар', 'd', 5, 0, 'enable', 'add_product', 'admin', ''),
-(41, 'Мои Заказы', 'r', 0, 0, 'enable', '#', 'admin', '3'),
-(42, 'Мои сообщения', 'r', 0, 0, 'enable', '#', 'admin', '3'),
-(43, 'Мои Отзывы', 'r', 0, 0, 'enable', '#', 'admin', '3'),
-(44, 'Настройки Компании', 'r', 0, 0, 'enable', '#', 'admin', '2'),
-(45, 'Статистика', 'r', 0, 0, 'enable', '#', 'admin', '2'),
-(46, 'Мои Данные', 'r', 0, 0, 'enable', '#', 'admin', '3'),
-(47, 'Изменить логин', 'd', 46, 0, 'enable', 'change_login', 'admin', ''),
-(48, 'Изменить Пароль', 'd', 46, 0, 'enable', 'change_password', 'admin', ''),
-(49, 'Справка', 'r', 0, 0, 'enable', '#', 'admin', '1'),
-(50, 'Настройка Рассылки', 'd', 46, 0, 'enable', 'set_email', 'admin', ''),
-(51, 'Удалить учетную запись', 'd', 46, 0, 'enable', 'delete_user', 'admin', ''),
-(52, 'Общие Настройки', 'd', 44, 0, 'enable', 'company_info', 'user', '');
+INSERT INTO `menu` (`id`, `name`, `type`, `p_id`, `p_id2`, `status`, `link`, `owner`, `access`, `main_link`) VALUES
+(1, 'Главная', 'r', 0, 0, 'enable', '#', 'admin', '3', 'cabinet'),
+(2, 'Контактные данные', 'd', 46, 0, 'enable', 'account', 'admin', '', ''),
+(5, 'Мои Товары/Услуги', 'r', 0, 0, 'enable', '#', 'admin', '2', ''),
+(6, 'Добавить товар', 'd', 5, 0, 'enable', 'add_product', 'admin', '', ''),
+(41, 'Мои Заказы', 'r', 0, 0, 'enable', '#', 'admin', '3', ''),
+(42, 'Мои сообщения', 'r', 0, 0, 'enable', '#', 'admin', '3', ''),
+(43, 'Мои Отзывы', 'r', 0, 0, 'enable', '#', 'admin', '3', ''),
+(44, 'Настройки Компании', 'r', 0, 0, 'enable', '#', 'admin', '2', ''),
+(45, 'Статистика', 'r', 0, 0, 'enable', '#', 'admin', '2', ''),
+(46, 'Мои Данные', 'r', 0, 0, 'enable', '#', 'admin', '3', ''),
+(49, 'Справка', 'r', 0, 0, 'enable', '#', 'admin', '1', ''),
+(50, 'Настройка Рассылки', 'd', 46, 0, 'enable', 'set_email', 'admin', '', ''),
+(51, 'Удалить учетную запись', 'd', 46, 0, 'enable', 'delete_user', 'admin', '', ''),
+(52, 'Общие Настройки', 'd', 44, 0, 'enable', 'company_info', 'user', '', ''),
+(54, 'Регистрационные документы', 'd', 44, 0, 'enable', 'documents', 'user', '', ''),
+(55, 'Редактировать товары', 'd', 5, 0, 'enable', 'edit_item', 'admin', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `price` float NOT NULL,
+  `buyer_data` varchar(3000) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `a_status` varchar(50) NOT NULL,
+  `type_of_order` varchar(50) NOT NULL,
+  `type_of_deliverance` varchar(50) NOT NULL,
+  `seller_data` varchar(3000) NOT NULL,
+  `adress` varchar(1000) NOT NULL,
+  `date` datetime NOT NULL,
+  `currency` varchar(10) NOT NULL,
+  `quantity` varchar(25) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `price`, `buyer_data`, `status`, `a_status`, `type_of_order`, `type_of_deliverance`, `seller_data`, `adress`, `date`, `currency`, `quantity`, `item_id`) VALUES
+(9, 'Угловая шлифмашина Интерскол УШМ-230/2300М', 2000, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";}', 'Новый', 'view', 'Наложенный платеж', 'Нова Пошта', 'a:16:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";s:8:"location";s:37:"Запорожская область";}', 'a:2:{s:8:"location";s:1:"1";s:4:"city";s:18:"Запорожье";}', '2015-06-18 16:03:29', '', '2', 10),
+(10, 'Клапан 1102, 1103, 1105 впуск', 186, 'a:4:{s:4:"name";s:10:"фывыф";s:7:"surname";s:10:"фывфы";s:5:"email";s:13:"123@gmail.com";s:5:"phone";s:6:"051456";}', 'Новый', 'view', 'Наличные', 'Нова Пошта', 'a:16:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";s:8:"location";s:37:"Запорожская область";}', 'a:2:{s:8:"location";s:1:"1";s:4:"city";s:18:"Запорожье";}', '2015-06-18 18:24:38', 'Грн.', '1', 5),
+(11, 'Стойка газовая АГАТ', 300, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:21:"mprihodko92@gmail.com";s:5:"phone";s:12:"380938246066";}', 'Новый', 'view', 'Наличные', 'Нова Пошта', 'a:16:{s:2:"id";s:7:"2548244";s:4:"name";s:12:"Максим";s:5:"email";s:21:"mprihodko92@gmail.com";s:8:"password";s:8:"qwer0987";s:7:"company";s:8:"Site&Seo";s:9:"user_type";s:4:"user";s:7:"usercat";s:6:"seller";s:7:"surname";s:18:"Приходько";s:10:"patronymic";s:26:"Александрович";s:7:"country";s:15:"Украина ";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:4:"17а";s:10:"phone_more";s:0:"";s:8:"location";s:37:"Запорожская область";}', 'a:2:{s:8:"location";s:1:"1";s:4:"city";s:18:"Запорожье";}', '2015-06-18 19:25:32', 'Грн.', '2', 2),
+(12, 'Амортизатор KLS задний', 712, 'a:4:{s:4:"name";s:12:"Максим";s:7:"surname";s:18:"Приходько";s:5:"email";s:11:"m@gmail.com";s:5:"phone";s:12:"380938246066";}', 'Новый', 'view', 'Наличные', 'Нова Пошта', 'a:16:{s:2:"id";s:1:"1";s:4:"name";s:5:"Admin";s:5:"email";s:5:"admin";s:8:"password";s:10:"prom_admin";s:7:"company";s:5:"Admin";s:9:"user_type";s:5:"admin";s:7:"usercat";s:4:"Maks";s:7:"surname";s:8:"Prihodko";s:10:"patronymic";s:13:"Alexandrovich";s:7:"country";s:14:"Украина";s:4:"city";s:18:"Запорожье";s:5:"phone";s:12:"380938246066";s:6:"street";s:19:"Ладожская ";s:8:"building";s:2:"17";s:10:"phone_more";s:0:"";s:8:"location";s:37:"Запорожская область";}', 'a:2:{s:8:"location";s:1:"8";s:4:"city";s:3:"848";}', '2015-06-23 17:23:09', 'Грн.', '4', 17);
 
 -- --------------------------------------------------------
 
@@ -2729,19 +2801,70 @@ CREATE TABLE IF NOT EXISTS `product` (
   `min_img1` varchar(200) DEFAULT NULL,
   `min_img2` varchar(200) DEFAULT NULL,
   `min_img3` varchar(200) DEFAULT NULL,
+  `city` varchar(100) NOT NULL,
+  `views` int(11) NOT NULL,
+  `date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Дамп данных таблицы `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `subcat_id`, `status`, `description`, `currency`, `prod_code`, `prod_quantity`, `id_user`, `ball`, `condition`, `prod_min_order`, `min_img1`, `min_img2`, `min_img3`) VALUES
-(1, 'Шаровая опора Ланос Сенс Нексия CTR', '../../../uploads/products/1_sharovaya-opora-lanos-lanos-v-assortimente-222-B.jpg', 195, 2, 'enable', 'Шаровые опоры рычага Lanos (Sens, Nexia) производства CTR (Корея). Опора симметрична – по стороне установки не разделяется. Central Corporation является поставщиком шаровых опор на конвейер, поэтому заказав, например, нижние опоры GM на Ланос (Сенс, Нексию) в упаковке General Motors Вы получите эту же деталь но значительно дорóже. Не стоит переплачивать за упаковку!\n', 'Грн.', 94788122, 'Шт.', 2548244, 10, 'Новое', NULL, NULL, NULL, NULL),
-(2, 'Стойка газовая АГАТ', '../../../uploads/products/1_4026380d65b558098b943c75118616f4.jpg', 300, 2, 'enable', 'Амортизатор 1102, 1103 Агат передний левый Спорт (стойка красная)', 'Грн.', 54740, 'Шт.', 2548244, 10, 'Новое', NULL, NULL, NULL, NULL),
-(4, 'Кирпич Куйбышево М-100 250х120х65', '../../../uploads/products/1_m150.jpg', 3.85, 3, 'enable', 'Марка по прочности: 100 кг/см2.\nИспользуется для укладки внутренних и наружных стен дома.\nВ ассортименте строительный рядовой кирпич М-100, М-125.', 'Грн.', 35242, 'Шт.', 1, 9, 'Новое', NULL, NULL, NULL, NULL),
-(5, 'Клапан 1102, 1103, 1105 впуск ', '../../../uploads/products/1_187735313_3_644x461_klapana-na-zaz-968m-avtozapchasti.jpg', 186, 1, 'enable', 'Клапана б/у ЗАЗ-968 совдепия комплект на движок 4 впусных 4 выпукных', 'Грн.', 2147483647, 'Упаковку', 1, 8, 'Б/у', NULL, NULL, NULL, NULL),
-(8, 'Редукторы', '../../../uploads/products/2548248_1631608.jpg', 3500, 4, 'enable', 'Ном. №	Наименование	Кол-во, шт\n8220680	Редуктор Ч100	56\n8220681	Редуктор У2-100-31-12	4\n8220682	Редуктор У2-100-20-11	1\n8220683	Редуктор Ц2У-100-20-12	5\n8220684	Редутор Ц2У-125-40-12	2\n8220685	Редуктор 2У-100-20	3\n\n\n', 'Грн.', 43235252, 'Шт.', 2548248, 5, 'Б/у', '1 шт', '../../../uploads/products/2548248_min1631616.jpg', '../../../uploads/products/2548248_min1631620.jpg', '../../../uploads/products/2548248_min1631653.jpg');
+INSERT INTO `product` (`id`, `name`, `image_path`, `price`, `subcat_id`, `status`, `description`, `currency`, `prod_code`, `prod_quantity`, `id_user`, `ball`, `condition`, `prod_min_order`, `min_img1`, `min_img2`, `min_img3`, `city`, `views`, `date`) VALUES
+(1, 'Шаровая опора Ланос Сенс Нексия CTR', '../../../uploads/products/1_sharovaya-opora-lanos-lanos-v-assortimente-222-B.jpg', 195, 2, 'enable', 'Шаровые опоры рычага Lanos (Sens, Nexia) производства CTR (Корея). Опора симметрична – по стороне установки не разделяется. Central Corporation является поставщиком шаровых опор на конвейер, поэтому заказав, например, нижние опоры GM на Ланос (Сенс, Нексию) в упаковке General Motors Вы получите эту же деталь но значительно дорóже. Не стоит переплачивать за упаковку!\n', 'Грн.', 94788122, 'Шт.', 2548244, 10, 'Новое', NULL, NULL, NULL, NULL, 'Днепропетровск', 1, '0000-00-00 00:00:00'),
+(2, 'Стойка газовая АГАТ', '../../../uploads/products/1_4026380d65b558098b943c75118616f4.jpg', 300, 2, 'enable', 'Амортизатор 1102, 1103 Агат передний левый Спорт (стойка красная)', 'Грн.', 54740, 'Шт.', 2548244, 10, 'Новое', NULL, NULL, NULL, NULL, 'Луцк', 6, '0000-00-00 00:00:00'),
+(4, 'Кирпич Куйбышево М-100 250х120х65', '../../../uploads/products/1_m150.jpg', 3.85, 3, 'enable', 'Марка по прочности: 100 кг/см2.\nИспользуется для укладки внутренних и наружных стен дома.\nВ ассортименте строительный рядовой кирпич М-100, М-125.', 'Грн.', 35242, 'Шт.', 1, 9, 'Новое', NULL, NULL, NULL, NULL, 'Луцк', 6, '0000-00-00 00:00:00'),
+(5, 'Клапан 1102, 1103, 1105 впуск ', '../../../uploads/products/1_187735313_3_644x461_klapana-na-zaz-968m-avtozapchasti.jpg', 186, 1, 'enable', 'Клапана б/у ЗАЗ-968 совдепия комплект на движок 4 впусных 4 выпукных', 'Грн.', 2147483647, 'Упаковку', 1, 8, 'Б/у', NULL, NULL, NULL, NULL, 'Киев', 8, '0000-00-00 00:00:00'),
+(8, 'Редукторы', '../../../uploads/products/2548248_1631608.jpg', 3500, 4, 'enable', 'Ном. №	Наименование	Кол-во, шт\n8220680	Редуктор Ч100	56\n8220681	Редуктор У2-100-31-12	4\n8220682	Редуктор У2-100-20-11	1\n8220683	Редуктор Ц2У-100-20-12	5\n8220684	Редутор Ц2У-125-40-12	2\n8220685	Редуктор 2У-100-20	3\n\n\n', 'Грн.', 43235252, 'Шт.', 2548248, 5, 'Б/у', '1 шт', '../../../uploads/products/2548248_min1631616.jpg', '../../../uploads/products/2548248_min1631620.jpg', '../../../uploads/products/2548248_min1631653.jpg', 'Запорожье', 0, '0000-00-00 00:00:00'),
+(9, 'Угловая шлифмашина Metabo W 820-125  ', '../../../uploads/products/_img33257.jpg', 1243, 8, 'enable', 'Представляем вашему вниманию обновленный вариант болгарки W 780 – угловую шлифмашину Metabo W 820-125, рассчитанную на выполнение операций по зачистке, резке и шлифовке твердых поверхностей. Разработан инструмент с внедрением инноваций, конструкторам удалось сохранить компактный вид модели, при этом увеличить номинальный ресурс до 820 Вт.\n\n\nК поставленным задачам угловая шлифмашина Metabo W 820-125 легко адаптируется, является поистине незаменимой, при работе в узких и труднодоступных местах, на высоте. Комфорт при управлении обеспечивает корпус редуктора, переворачиваемый на 180 градусов, а также двухпозиционная боковая рукоятка, предупреждающая нежелательное соскальзывание рук. Высокий уровень безопасности поддерживает специальный кожух, защищающий пользователя от различных повреждений.\n\nПроцесс установки/смены кожуха особых проблем не составляет, а это немаловажно. Исполнена болгарка в соответствии с требованиями эргономики, выключатель расположен на корпусе с боковой стороны. Крутящий момент создается и поддерживается на уровне 1,8 Нм, число оборотов холостого хода составляет 10000 об/мин. На болгарке установлен износоустойчивый шлифовальный диск диаметром 125 мм, который и выступает в качестве режущего элемента.\n', 'Грн.', 3463434, 'Шт.', 1, 9, 'Новое', '', '../../../uploads/products/_min546bb7eb757d8-metabo_wx_2200-230_w_820-125_2-500x500.jpg', '../../../uploads/products/_minmetabo-winkelschleifer-w-820-125---diamanttrennscheibe.jpg', NULL, 'Запорожье', 9, '0000-00-00 00:00:00'),
+(10, 'Угловая шлифмашина Интерскол УШМ-230/2300М', '../../../uploads/products/_uglovaya-shlifmashina-interskol-ushm-2302300m.jpg', 2000, 8, 'enable', 'Угловая шлифмашина Интерскол УШМ-230/2300М - удобный инструмент при выполнении шлифовальных, обдирочных и отрезных работ любой степени сложности. Болгарка оснащена 2300 Вт электродвигателем, к достоинствам которого можно отнести надежность и достаточный крутящий момент. Изделие рассчитано на работу с 230 мм отрезными дисками, также возможно использование чашечной проволочной насадки, и других принадлежностей – таким образом, достигается возможность расширения области применения инструмента.\n\n\nК преимуществам угловой шлифовальной машины Интерскол УШМ-230/2300М стоит отнести использование надежного и износостойкого редуктора в корпусе из магниевого сплава. Также обратите внимание на систему быстрой замены дисков, использующую возможность блокирования шпинделя.\n\n\nКомпактный корпус инструмента имеет эргономичный дизайн, при этом предоставлен доступ к щеткам двигателя для быстрой их замены.\n\n\nУдобность и мощь разумно сочетаются в данной модели, что делает ее привлекательной для покупки. Чтобы купить эту профессиональную угловую шлифовальную машину Интерскол УШМ-230/2300М по удобной цене, можно обратиться в магазин Клондайк, также у нас богатый выбор болгарок других производителей.\n', 'Грн.', 5180, 'Шт.', 1, 6, 'Б/у', '', '', '', '', 'Запорожье', 3, '0000-00-00 00:00:00'),
+(11, 'ТЕПЛОВЕНТИЛЯТОР DELONGHI HVK 1010', '../../../uploads/products/1_174288.jpg', 400, 11, 'enable', 'Официальная гарантия производителя - 1 год. Тепловентилятор Delonghi HVK 1010 может использоваться везде где Вам будет холодно, он там сделает сразу тепло. Компактный напольный тепловентилятор Delonghi HVK 1010 может легко переноситься с помощью встроенной ручки.\n\n', 'Грн.', 47110090, 'Шт.', 1, 8, 'Новое', '', '', '', '', 'Запорожье', 0, '0000-00-00 00:00:00'),
+(12, 'ТЕПЛОВЕНТИЛЯТОР SATURN ST HT 8340', '../../../uploads/products/1_1922742.jpg', 300, 11, 'enable', 'Тепловентилятор для 22 кв. м\n\nЕсли вы ищите устройство, которое будет дарить тепло средней площади, то рассмотрите вариант тепловентилятора SATURN ST HT 8340, которому под силу согревать до 22 кв. м или 66 куб м без труда.\n\nОснащенность\n\nДанное устройство оснащено термостатом и регулятором скорости вентилятора. Также этот тепловентилятор имеет два режима обогрева. Достаточно большой функционал дарит обладателям этого обогревающего устройства качество по дотупной цене.\n\nУдобство\n\nПоскольку есть два варианта установки данного тепловентилятора: настольный и напольный, устройство можно пристроить туда, куда вам будет удобнее, что является несомненным плюсом тепловентилятора SATURN ST HT 8340. Более того, оцените и удобство эксплуатации, ведь понятное и простое механическое управление сделает даже первое знакомство с функционалом этого тепловентилятора.', 'Грн.', 71159290, 'Шт.', 1, 10, 'Новое', '', '../../../uploads/products/1_minскачанные файлы.jpg', '../../../uploads/products/1_minsaturn_st-ht8349_1.jpg', '', 'Запорожье', 19, '0000-00-00 00:00:00'),
+(13, 'Вилка сцепления Lanos, Nexia, Aveo, Espero, Leganz', '../../../uploads/products/1_659159065.jpg', 440, 13, 'enable', 'Вилка сцепления Ланос, Авео (рычаг) GM', 'Грн.', 94580796, 'Шт.', 1, 10, 'Новое', '', '../../../uploads/products/1_minDSC_6111.JPG', '../../../uploads/products/1_mind2babb73b74285e5087074cede0f1510.jpeg', NULL, 'Запорожье', 1, '0000-00-00 00:00:00'),
+(14, 'Бензиновый генератор SDMO Technic 10000 E-AVR + MO', '../../../uploads/products/1_072c06ed-54a8-4cd0-a4fe-5a2dee28071e.jpg', 63000, 14, 'enable', 'Модельный ряд портативных бензиновых и дизельных электростанций SDMO представлен сериями, отличающимися эксплуатационными характеристиками, марками двигателей и другими особенностями, соответствующими требованиям различных ситуаций использования электростанций.\n\nСерия Technic\n\nМодельный ряд профессиональных однофазных и трехфазных бензиновых электростанций SDMO серии Technic на базе японских двигателей Honda и американских Kohler охватывают диапазон мощности от 2,2 до 15,2 кВт (19 kVA). Их отличает высокая нагрузочная способность и повышенная емкость топливная бака, обеспечивающая непрерывную работу электростанции без дозаправки в течение 10 часов и более. Ряд моделей этой серии оборудован электрическим стартером.\n', 'Грн.', 847496, 'Шт.', 1, 10, 'Новое', '', '../../../uploads/products/1_minbenzinovyy-generator-sdmo-technic-6500-e-avr-s-panelyu-modys-i-distancionnym-upravleniem_cdc29ab9cc21546_200x200.jpg', '../../../uploads/products/1_minTechnic 6500E AVR Auto modys.jpg', '../../../uploads/products/1_minFeatured-Image-Style-Essentials-Denim-New-Theme1-1800x700.jpg', 'Запорожье', 0, '0000-00-00 00:00:00'),
+(15, 'Саморез Обыкновенный', '../../../uploads/products/1_images.jpg', 30, 7, 'enable', 'Саморез обыкновенный сильногазированый', 'Грн.', 47110090, '100 Шт.', 1, 10, 'Новое', '100 штук', '../../../uploads/products/1_minprd134drywall_screws.png', '../../../uploads/products/1_minsamorezy1.jpg', NULL, 'Запорожье', 0, '0000-00-00 00:00:00'),
+(16, 'Клипса вареная автомобильная', '../../../uploads/products/1_AutoClips.jpg', 50, 35, 'enable', 'Клипса вареная автомобильная, заебатая', 'Грн.', 543634634, '10 Шт.', 1, 9, 'Новое', '100 штук', '../../../uploads/products/1_min2140017955.png', '../../../uploads/products/1_minclips_250.jpg', NULL, 'Запорожье', 1, '0000-00-00 00:00:00'),
+(17, 'Амортизатор KLS задний', '../../../uploads/products/1_77748115_w640_h640_kls_na_tavriyuslavutu._001.jpg', 712, 2, 'enable', 'Амортизатор KLS задний Таврия Славута.\n\nАмортизаторы масляные, в сборе с сайлентблоками заднего амортизатора. Производитель CRB-KLS. На упаковке написано сделано в Корее, по факту производятся в Китае. По качеству "уверенный середнячок".\n\nЦена указана за пару, две штуки. ', 'Грн.', 2915006, 'Шт.', 1, 10, 'Новое', '2 шт.', '../../../uploads/products/1_minamortizator-tavriya-1102-perednij-vkladysh-kls-srb00001.jpg', NULL, NULL, 'Запорожье', 3, '0000-00-00 00:00:00'),
+(18, 'Болт крепления заднего колеса завод', '../../../uploads/products/1_b12a1fa88f0a4f33c56c32a97ce81223.jpg', 120, 2, 'enable', 'Болт крепления заднего колеса Таврия Славута.\n\nЦена за 10 штук. Количество необходимое на одно колесо 3 штуки. Обиходное название: колёсная шпилька заднего диска. \n\nПроизводство ЗАЗ. ', 'Грн.', 3101047, 'Шт.', 1, 7, 'Новое', '3 штуки', '../../../uploads/products/1_min3101047-900x500.jpg', NULL, NULL, 'Запорожье', 3, '0000-00-00 00:00:00'),
+(19, 'Болт крепления рычага и задней балки к кузову', '../../../uploads/products/1_12.jpg', 80, 2, 'enable', 'В сборе с гровером и гайкой. Цена за 1 шт. Болты крепления задней балки к кузову и крепления переднего рычага к кузову одинаковые.', 'Грн.', 2901024, '10 Шт.', 1, 9, 'Новое', '10', NULL, NULL, NULL, 'Запорожье', 3, '0000-00-00 00:00:00'),
+(20, 'Сайлентблок заднего амортизатора (к-т 2 шт)', '../../../uploads/products/1_saylentblok-zadnego-am-ra-tavriya-k-kt-2-sht-avtozaz-1102-2915580_81cfdabf606c006_800x600_1.jpg', 940, 2, 'enable', 'Сайлентблок заднего амортизатора Таврия ЗАЗ 1102 Славута ЗАЗ 1103 Дана 1105 Пикап 110550.\n\nОбиходное название - втулка заднего амортизатора.\n\nПодходит: все амортизаторы производства агат мелитополь (стандарт , экстра , спорт  , газонаполненные ), все "кооперативные" амортизаторы, белорусские феникс, российские плаза.\n\nНе подходит: польские "кросно" или "делфи", для всех китайских амортизаторов - LSA, Zolex, AT, Master Sport, KLS и прочих китайцев. \n\nПроизводитель ЗАЗ, цена за 2 штуки. ', 'Грн.', 2915580, '10 Шт.', 1, 8, 'Новое', '100шт', '../../../uploads/products/1_minsaylentblok-zadnego-amortizatora-aveo-koreya-96535159_d461e9e8793b2d6_800x600.jpg', '../../../uploads/products/1_min318432.jpg', NULL, 'Запорожье', 1, '0000-00-00 00:00:00'),
+(21, 'Шайба задней ступицы Т', '../../../uploads/products/1_hdfgdfdfgdfdfhhjj.jpg', 40, 2, 'enable', 'Шайба задней ступицы Таврия Славута.\n\nУстанавливается на заднюю ступицу между гайкой ступицы и наружным подшипником. Цена за 1 шт. Название по каталогу ЗАЗа - шайба специальная. ', 'Грн.', 3104055, '100 Шт.', 1, 7, 'Новое', '10 шт', '../../../uploads/products/1_minrweqwrdsd.jpg', NULL, NULL, 'Запорожье', 1, '0000-00-00 00:00:00'),
+(22, 'Вкладыши коренные 0,25', '../../../uploads/products/1_0003.jpg', 55, 1, 'enable', 'Коренные вкладыши Таврия Славута Сенс Ланос 1.4.\n\nРазмер вкладышей +0,25 мм. В комплекте 10 вкладышей, цена за комплект на 1 двигатель.\n\nПодробней о размерах производителе и пр. на странице коренных вкладышей стандартного размера . ', 'Грн.', 1000102, 'Упаковку', 1, 10, 'Новое', '1уп.', '../../../uploads/products/1_min372.jpg', '../../../uploads/products/1_min2014_08_19_I8G_101318.jpg', NULL, 'Запорожье', 5, '0000-00-00 00:00:00'),
+(23, 'Диски 7j/165*112 на AUDI A6.', '../../../uploads/products/2548244_AgLbtOKPRxA.jpg', 1100, 2, 'enable', 'Продам титанові диски 7j/165*112 стояли на AUDI A6. Стан на фото. Один Диск рихтували, не варили...  ', 'Грн.', 2147483647, 'Упаковку', 2548244, 7, 'Б/у', '1', '../../../uploads/products/2548244_min0pc8g6TuINA.jpg', '../../../uploads/products/2548244_min8_T03wn6a8g.jpg', '../../../uploads/products/2548244_minvxKNmYSS6ac.jpg', 'Запорожье', 0, '0000-00-00 00:00:00'),
+(24, 'Iphone6', '../../../uploads/products/2548252_125071340-2-iphone_6_plus_16gb_gold_akilli_telefon.jpg', 18000, 23, 'enable', 'Технические характеристики\nЭкран 5.5 дюймов IPS, 1080x1920 точек, 401 точка на дюйм, датчик освещенности, датчик приближения\nСканер отпечатка пальца\nКамера 8 мегапикселей, автофокус, оптическая стабилизация, сенсор 1/3 дюйма, фронтальная камера 1.2 мегапикселя\nПроцессор двухъядерный 1.4 ГГц (ARM v8), 1 ГБ оперативной памяти, 16, 64, 128 ГБ встроенной\nWi-Fi 802.11 a/b/g/n/ac, двухдиапазонный, BT 4.0 LE, USB 2.0, LTE cat.4\nАккумулятор 2915 мАч Li-Pol, до 24 часов в режиме разговора (3G), до 384 часов в режиме ожидания (3G), до 80 часов проигрывания музыки\nЦвета корпуса – серебристый, золотой, серый\nРазмеры – 158.1х77.8х7.1 мм, вес – 172 грамма\nnanoSIM\nЦена – 36 990 (16 ГБ), 41 990 (64ГБ), 46 990 (128 ГБ)\nКомплект поставки\nТелефон\nЗарядное устройство с USB-кабелем (5В, 1А)\nИнструкция\nСкрепка для SIM-карты\nПроводная стереогарнитура', 'Грн.', 24235234, 'Шт.', 2548252, 10, 'Новое', '1 шт', '../../../uploads/products/2548252_min54441bb173398_15.jpg', '../../../uploads/products/2548252_miniph6_plus_uh_detail_01_clear.1000x1000.jpg', '../../../uploads/products/2548252_mine97b35fc5159ef522308bebea9a000da.jpg', 'Запорожье', 21, '0000-00-00 00:00:00'),
+(25, 'Стойка масляная Geely MK Cross', '../../../uploads/products/2548244_312584.jpg', 560, 2, 'enable', 'Амортизационная стойка газо-масляная KYB EXCEL-G, двухтрубная система\nЗапатентованная клапанная схема и ёмкость со сжатым азотом\nИмеет трёхэтапную двойную клапанную систему, поршневой клапан с тефлоновым покрытием, запрессованные втулки и гильзы, хромированный шток поршня.\n\nОБРАТИТЕ ВНИМАНИЕ\nДорожный просвет уменьшился\n\nи чтобы вновь приподнять машину\nсзади под пружины установили проставку (от Nexia)\nспереди поставили проставку из текстолита между верхней опорой подшипника и кузовом', 'Грн.', 143543, 'Шт.', 2548244, 10, 'Новое', '2 шт', '../../../uploads/products/2548244_min334209-500x500.jpg', '../../../uploads/products/2548244_min960.jpg', NULL, 'Запорожье', 1, '0000-00-00 00:00:00'),
+(26, 'Кронштейн реактивной тяги', '../../../uploads/products/2548244_krab-tavruja-avtozaz_UT000003887-500x500.jpg', 160, 2, 'enable', 'Кронштейн реактивной тяги. Народное название - краб на Таврию и Славуту.\n\nПроизводитель: АвтоЗАЗ.\n\nКрепится к брусу нижнему тремя болтами. В сайлентблок, установленный в краб затем вставляется реактивная штанга.', 'Грн.', 363463, 'Шт.', 2548244, 10, 'Новое', '1 шт', '../../../uploads/products/2548244_minslavuta_056-504x504.jpg', NULL, NULL, 'Запорожье', 2, '2015-06-23 16:55:06'),
+(27, 'Sumsung  Galaxy S6 ', '../../../uploads/products/2548244_Samsung-Galaxy-S6-Black-Sapphire..jpg', 20000, 23, 'enable', 'Превосходное качество, неотразимый дизайн Навеянный работами стеклодувов и мастеров художественной ковки, телефон Samsung Galaxy S6 edge — это неразрывный союз стекла и металла. Подчеркните свой неповторимый стиль с помощью первого в мире телефона с экраном dual-edge, изящными изгибами и лучистыми стеклянными поверхностями, отражающими широкий спектр ослепительных цветов.', 'Грн.', 76575, 'Шт.', 2548244, 10, 'Новое', '', '../../../uploads/products/2548244_minsamsung_s6_concept_hajek_12.jpg', '../../../uploads/products/2548244_minSamsung-Galaxy-S6-concept01.jpg', '../../../uploads/products/2548244_minsamsung-galaxy-f.jpg', 'Запорожье', 23, '2015-06-23 17:08:09');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `settings`
+--
+
+CREATE TABLE IF NOT EXISTS `settings` (
+  `parametr` varchar(100) NOT NULL,
+  `value` varchar(3000) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Дамп данных таблицы `settings`
+--
+
+INSERT INTO `settings` (`parametr`, `value`, `name`, `id`) VALUES
+('city', 'Запорожье 69121', 'Город', 1),
+('street/build', 'Пр. Ленина 154', 'Улица/Дом', 2),
+('email', 'illiquid.siteandseo@gmail.com', 'Почта', 3),
+('phone1', '+38 093 824 60 66', 'Телефон 1', 4),
+('phone2', '+38 093 824 60 66', 'Телефон 2', 5),
+('tw_link', 'https://twitter.com', 'Ссылка Твиттер', 6),
+('inst_link', 'https://instagram.com/', 'Ссылка Инстаграм', 7),
+('fb_link', 'https://www.facebook.com/', 'Ссылка ФэйсБук', 8),
+('vk_link', 'https://vk.com', 'Ссылка Вконтакте', 9);
 
 -- --------------------------------------------------------
 
@@ -2766,12 +2889,11 @@ CREATE TABLE IF NOT EXISTS `slider` (
 INSERT INTO `slider` (`id`, `path`, `text`, `header`, `status`, `act`) VALUES
 (1, '../../../img/bg-01.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. ', 'Слайд Первый', 'disable', 0),
 (2, '../../../img/bg-02.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \n                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \n                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \n                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan', 'Слайд Второй', 'disable', 0),
-(6, '../../../img/01.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \n                    Nulla odio eros, blandit ac metus faucibus, sollicitudin posuere sapien. Maecenas ut convallis arcu. Phasellus at tellus \n                    sed odio vestibulum sodales in at lacus. Sed commodo metus et sapien pretium, ac sollicitudin enim dignissim. Donec tempus \n                    diam et porta aliquam. Ut efficitur sollicitudin diam a accumsan', 'Слайд четвертый', 'enable', 0),
-(7, '../../../img/020tyuhjkl.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд пятый', 'disable', 0),
+(7, '../../../img/020tyuhjkl.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд пятый', 'enable', 0),
 (8, '../../../img/21-1800x700.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд шестой', 'enable', 0),
 (9, '../../../img/0_37bbf_ba545d6d_orig.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд седьмой', 'disable', 0),
-(10, '../../../img/slider_02-1800x700.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд восьмой', 'enable', 1),
-(11, '../../../img/zp.jpg', 'Lorem ipsum dolor sit amet, consinibus sit amet fringilla id, accumsan sed nisl. \nLorem ipsum piscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \nLorem ipsum dolor sit amet, consectetur adipi', 'Slide', 'disable', 0);
+(10, '../../../img/slider_02-1800x700.jpg', 'http://img1.wikia.nocookie.net/__cb20140810133949/naruto/ru/images/c/c7/020tyuhjkl.png', 'Слайд восьмой', 'enable', 0),
+(11, '../../../img/zp.jpg', 'Lorem ipsum dolor sit amet, consinibus sit amet fringilla id, accumsan sed nisl. \nLorem ipsum piscing elit. Mauris ipsum erat, finibus sit amet fringilla id, accumsan sed nisl. \nLorem ipsum dolor sit amet, consectetur adipi', 'Slide', 'enable', 1);
 
 -- --------------------------------------------------------
 
@@ -2782,12 +2904,12 @@ INSERT INTO `slider` (`id`, `path`, `text`, `header`, `status`, `act`) VALUES
 CREATE TABLE IF NOT EXISTS `subcategories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
-  `image_path` varchar(200) NOT NULL,
+  `image_path` varchar(400) NOT NULL,
   `link` varchar(200) NOT NULL,
   `status` varchar(10) NOT NULL,
   `cat_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
 --
 -- Дамп данных таблицы `subcategories`
@@ -2798,14 +2920,17 @@ INSERT INTO `subcategories` (`id`, `name`, `image_path`, `link`, `status`, `cat_
 (2, 'Ходовая часть', '../../../uploads/subcat_image/hodovaya.jpg', 'hodovaja', 'enable', 1),
 (3, 'Кирпич', '../../../uploads/subcat_image/2757_32_big.jpg', 'kirpich', 'enable', 2),
 (4, 'Электростанок', '../../../uploads/subcat_image/201245567_3_644x461_prodam-derevoobrabatyvayuschiy-stanok-elektro-pila-tsirkulyarka-pilorama-elektroinstrument_rev015.jpg', 'stanok', 'enable', 24),
-(5, 'Бытовые насосы', '../../../uploads/subcat_image/bit_nasosi_2.jpg', 'bit_nasos', 'enable', 5),
-(6, 'Котлы твердотопливные', '../../../uploads/subcat_image/vatra-12.png', 'kotli', 'enable', 5),
 (7, 'Шурупы, саморезы', '../../../uploads/subcat_image/109339350_w200_h200_cid1037011_pid50135061-dd1fc3c2.jpg', 'shurupi_samorezi', 'enable', 2),
 (8, 'Строительный инструмент', '../../../uploads/subcat_image/117662245_w640_h640_10385_500x500.jpg', 'stroitelniy_instrument', 'enable', 2),
-(9, 'Вентиляционные системы', '../../../uploads/subcat_image/149630520_w640_h640_cid2151576_pid75489351-e01f277b.jpg', 'ventiliaciya', 'enable', 2),
-(10, 'Радиаторы и обогреватели', '../../../uploads/subcat_image/radiator-stalnoi-panelniy.jpg', 'radiatori', 'enable', 5),
 (11, ' Тепловентиляторы бытовые', '../../../uploads/subcat_image/111727200_w640_h640_18541.jpg', 'teploventiliator', 'enable', 5),
-(12, 'Коллекторы', '../../../uploads/subcat_image/kollektor-teplogo-pola-icma-1-h-5-vihodov-s-rashodomerami-ar-162304b.jpg', 'kollektori', 'enable', 5);
+(13, 'Трансмиссия', '../../../uploads/subcat_image/3cff47c22cb507f7a491ecbac18545f8.jpeg', 'transmission', 'enable', 1),
+(14, 'Генераторы и электростанции', '../../../uploads/subcat_image/127999437_w200_h200_8.jpg', 'generatori_stancii', 'enable', 4),
+(19, 'Лакокрасочные материалы и покрытия', '../../../uploads/subcat_image/lakokrasochnye-materialy-i-pokrytiyaD_5FCUvE2oI.jpg', 'lakokrasochnye-materialy-i-pokrytiya', 'disable', 18),
+(20, 'Системы и средства пожарной безопасности', '../../../uploads/subcat_image/pozharotushenie70846750_w200_h200_shkovieognetushitelistatya.jpg', 'pozharotushenie', 'enable', 19),
+(21, 'Альтернативные источники энергии', '../../../uploads/subcat_image/alternativnye-istochniki-energiiindustry_19.png', 'alternativnye-istochniki-energii', 'enable', 24),
+(22, 'Оптические приборы и системы', '../../../uploads/subcat_image/opticheskie-pribory-i-sistemy106839634_w200_h200_cid518896_pid48815292-0427499a.jpg', 'opticheskie-pribory-i-sistemy', 'enable', 6),
+(23, 'Техника и электроника', '../../../uploads/subcat_image/tehnika-i-elektronikaaudio-video.jpg', 'tehnika-i-elektronika', 'enable', 7),
+(35, 'Детали салона', '../../../uploads/subcat_image/detali_avtosalonakraskivsalon.jpg', 'detali_avtosalona', 'enable', 1);
 
 -- --------------------------------------------------------
 
@@ -2829,19 +2954,27 @@ CREATE TABLE IF NOT EXISTS `user` (
   `street` varchar(30) NOT NULL,
   `building` varchar(10) NOT NULL,
   `phone_more` varchar(15) NOT NULL,
+  `location` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548250 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2548276 ;
 
 --
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `company`, `user_type`, `usercat`, `surname`, `patronymic`, `country`, `city`, `phone`, `street`, `building`, `phone_more`) VALUES
-(1, 'Admin', 'admin', 'prom_admin', 'Admin', 'admin', 'Maks', 'Prihodko', 'Alexandrovich', 'Украина', 'Запорожье', '380938246066', 'Ладожская ', '17', ''),
-(2548244, 'Максим', 'mprihodko92@gmail.com', 'qwer0987', 'Site&Seo', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '380938246066', 'Ладожская ', '17а', ''),
-(2548247, 'Макс', 'baccardi92@mail.ru', '24june92', 'NULL', 'user', 'buyer', 'Приходько', 'Александрович', 'Украина ', 'Киев', '0505315548', 'Бульвар Верховного Совета', '24', ''),
-(2548248, 'Максим', 'John@gmail.com', '24june92', 'Желтый дезик', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '2712259', 'пр. Ленина ', '164', '380938246066'),
-(2548249, 'Maks', 'dji@fng.fgkmjd', 'qwer0987', 'NULL', 'user', 'buyer', 'Pryh', 'Alex', 'Украина ', 'Запорожье', '3578348343', 'пр. Ленина', '34', '');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `company`, `user_type`, `usercat`, `surname`, `patronymic`, `country`, `city`, `phone`, `street`, `building`, `phone_more`, `location`) VALUES
+(1, 'Admin', 'admin', 'prom_admin', 'Admin', 'admin', 'Maks', 'Prihodko', 'Alexandrovich', 'Украина', 'Запорожье', '380938246066', 'Ладожская ', '17', '', 'Запорожская область'),
+(2548244, 'Максим', 'm@gmail.com', 'qwer0987', 'Site&Seo', 'user', 'seller', 'Приходько', 'Александрович', 'Украина', 'Запорожье', '380938246066', 'ладожская', '1234', '0505315548', 'Запорожская область'),
+(2548248, 'Максим', 'John@gmail.com', '24june92', 'Желтый дезик', 'user', 'seller', 'Приходько', 'Александрович', 'Украина ', 'Запорожье', '2712259', 'пр. Ленина ', '164', '380938246066', 'Запорожская область'),
+(2548249, 'Maks', 'dji@fng.fgkmjd', 'qwer0987', 'NULL', 'user', 'buyer', 'Pryh', 'Alex', 'Украина ', 'Запорожье', '3578348343', 'пр. Ленина', '34', '', 'Запорожская область'),
+(2548250, 'Максим', 'max@gmail.com', 'qwer0987', 'NULL', 'user', 'buyer', 'Приходько', 'Александрович', 'Украина', 'Запорожье', '380935154324', 'проспект Ленина', '166', '', 'Запорожская область'),
+(2548251, 'Max', 'basfas@hs.com', 'qwer0987', 'NULL', 'user', 'buyer', 'Pryhodko', 'Alexandrovich', 'Украина', 'Киев', '235627612744823', 'пр. Краснозвездный', '6', '', 'Киевская область'),
+(2548252, 'Steve', 'Cherry@gmail.com', 'qwer0987', 'Cherry', 'user', 'seller', 'Jobs', 'Leonidovich', 'Украина', 'Запорожье', '380975464432', '40 лет Советской Украины', '39', '0612543759', 'Запорожская область'),
+(2548253, 'Alex', 'Rumjacks@gmail.com', 'qwer0987', 'ООО "Rumjacks"', 'user', 'seller', 'Moren', 'Bat''kovich', 'Украина', 'Запорожье', '1234567890', 'Пр. Ленина ', '152', '2345678', ''),
+(2548272, 'Приходько', 'rwer@gmail.com', 'Приходько', 'NULL', 'user', 'buyer', 'Приходько', 'Приходько', 'Украина', 'Запорожье', '11111111', 'Чуйкова', '33', '', 'Запорожская область'),
+(2548273, 'gsg', 'm.prihodko@ukrods.com.ua', '11111111', 'NULL', 'user', 'buyer', 'Приходько', 'dfgdf', 'Украина', 'Запорожье', '45774745745', 'Нижняя Днепровская', '22', '', 'Запорожская область'),
+(2548274, 'Maks', 'пыа', '11111111', 'NULL', 'user', 'buyer', 'Приходько', '', 'Украина', 'Запорожье', '111111111', 'ладожская ', '17', '', 'Запорожская область'),
+(2548275, 'Maks', 'mprihodko92@gmail.com', '1111111111', 'qwertyui', 'user', 'seller', 'Приходько', 'ф', 'Украина', 'Запорожье', '12345678', 'Днепровские Пороги', '25', '2345678', 'Запорожская область');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

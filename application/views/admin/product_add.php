@@ -29,7 +29,7 @@
             <div class="col-lg-6 tab_margin_top">               
                 <form action="add_product" method="POST" class="form-submit" enctype="multipart/form-data">
                     <label>Название</label>
-                        <input class='form-control' name='name' placeholder="Например Отопление (Максимум 250 символов)" type='text'/>
+                    <input class='form-control' name='name' placeholder="Например Отопление (Максимум 250 символов)" type='text'/>
                     <label>Группа товара</label>
                     <select class='form-control' name='group' id="prod_group">
                         <option value="default">Выберите Группу</option>
@@ -43,81 +43,94 @@
                     </select>
                     <label>Категория товара</label>
                     <select class='form-control' name='cat_id' id="prod_cat">
-                       
+
                     </select>
                     <label>Подкатегория товара</label>
                     <select class='form-control' name='subcat_id' id="prod_subcat">
-                        
-                    </select>
-                    <p>
-                        <label for="prod_type">
-                            Тип <span class="required">*</span>
-                        </label>
-                        <select id="prod_type" name="prod_type" class="cabinet-form-input">
-                            <option value="default">Выберите тип</option>
-                            <option value="retail_only">Товар продается только в розницу</option>
-                            <option value="wholesele_only">Товар продается только в оптом</option>
-                            <option value="wholesele_and_retail">Товар продается и оптом и в розницу</option>
-                            <option value="service">Услуга</option>
-                        </select>
-                    </p>
 
-                    <p>                                            
-                        <label>Краткое описание товара</label>
-                        <textarea class='form-control' name='s_description' type='text' rows="8"></textarea>                    
-                        <label>Полное описание товара</label>
-                        <textarea class='form-control' name='description' type='text' rows="8"></textarea>  
+                    </select>
+                    <label>Статус</label>
+                    <select class='form-control ' name='status'>
+                        <option value='enable'>Показывать</option>
+                        <option value='disable'>Скрывать</option>
+                    </select>
+                    <div class="radio-block">
+                        <label>Состояние</label>
+                        <div>
+                            <span>Новое</span>
+                            <input type="radio" name="condition" id="prod_condition1" value="Новое" checked>
+                            <span>Б/у</span>
+                            <input type="radio" name="condition" id="prod_condition2" value="Б/у">
+                        </div>
+                        <div>
+                            <label>Оцените по шкале</label>
+                            <input type="text" class="amount" name='ball' readonly data-value="" value="">
+                            <input type="hidden" id="range_hidden" value="">
+                            <div id="slider-range-max"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>
+                            Цена
+                        </label>
+                        <div class="setPrice">
+                            <input type="text" name="price" id="prod_price" class="cabinet-form-input add-prod-name">
+                            <select name="currency" class="cabinet-form-input add-prod-name">
+                                <option value="Грн.">Грн.</option>
+                                <option value="USD">USD</option>
+                                <option value="Руб.">Руб.</option>
+                            </select>
+                            <span class="separator"> за </span>
+                            <select name="quantity" class="cabinet-form-input add-prod-name">
+                                <option value="Шт.">Шт.</option>
+                                <option value="100 Шт.">100 Шт.</option>
+                                <option value="10 Шт.">10 Шт.</option>
+                                <option value="Упаковку">Упаковка</option>
+                                <option value="Тысячу">Тысяча</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <p>
+                        <label for="min_order">Минимальный заказ</label>
+                        <input type="checkbox" id="check_min_order">
+                        <input type="text" name="min_order" id="min_order" class="cabinet-form-input">
+                    </p>
                     <div class='tab_margin_top'>
                         <button class="btn btn-info" type='submit' name="add_product" value=""><i class="fa fa-save"></i> Сохранить</button>
                         <button class="btn btn-danger" type='reset' name="reset" value=""><i class="fa fa-remove"></i> Сбросить</button>
                     </div>
             </div>
-            <div class="col-lg-3 tab_margin_top">     
+
+
+
+            <div class="col-lg-6 tab_margin_top">   
+
                 <p>
-                    <label for="">
-                        Цена
+                    <label for="code">
+                        Код
                     </label>
-                <div class="setPrice">
-                    <input type="text" name="price" id="prod_price" class="cabinet-form-input">
-                    <select name="prod_currency" class="cabinet-form-input">
-                        <option value="uah">Грн.</option>
-                        <option value="dollar">$</option>
-                        <option value="rub">Руб.</option>
-                    </select>
-                    <span class="separator"> за </span>
-                    <select name="prod_quantity" class="cabinet-form-input">
-                        <option value="one">Шт.</option>
-                        <option value="hundred">100 Шт.</option>
-                        <option value="ten">10 Шт.</option>
-                        <option value="box">Упаковка</option>
-                        <option value="thousand">Тысяча</option>
-                    </select>
-                </div>
-                </p> 
-                <p>
-                    <label for="prod_is_available">
-                        Есть в наличии
-                    </label>
-                    <select id="prod_is_available" name="prod_is_available" class="cabinet-form-input">
-                        <option value="yes">В наличии</option>
-                        <option value="no">Нет в наличии</option>
-                        <option value="order">Под заказ</option>
-                    </select>
+                    <input type="text" id="prod_code" name="code" class="cabinet-form-input">
                 </p>
 
                 <p>
-                    <label for="prod_code">
-                        Код
+                    <label for="description">
+                        Описание <span class="required">*</span>
                     </label>
-                    <input type="text" id="prod_code" name="prod_code" class="cabinet-form-input">
+                    <textarea class="cabinet-form-input" name="description" id="prod_description" cols="15" rows="6"></textarea>
                 </p>
-                <label>Статус</label>
-                <select class='form-control ' name='status'>
-                    <option value='enable'>Показывать</option>
-                    <option value='disable'>Скрывать</option>
-                </select>
-                <label>Фото</label>
-                <input class='' name='prod_photo'  type='file'/>  
+
+                <p>
+                    <label for="prod_photo">
+                        Фото
+                    </label>
+                    <input type="file" id="prod_photo_1" name="prod_photo_1" accept="image/*">
+                    <input type="file" id="prod_photo_2" name="prod_photo_2" accept="image/*">
+                    <input type="file" id="prod_photo_3" name="prod_photo_3" accept="image/*">
+                    <input type="file" id="prod_photo_4" name="prod_photo_4" accept="image/*">
+                </p>
+
+
 
             </div>        
 

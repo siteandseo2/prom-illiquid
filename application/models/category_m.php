@@ -39,5 +39,8 @@ class Category_m extends CI_Model {
         $query = $this->db->where('fp_id', $id)->where('status', 'enable')->select('name, id')->get('categories');
         return $query->result_array();
     }
-
+     function get_category_sidebar() {
+        $query = $this->db->where('status', 'enable')->get('categories');
+        return $query->result_array();
+    }
 }
