@@ -76,6 +76,9 @@ class Search extends CI_Controller {
     function search_name() {
         if (isset($_POST['search'])) {
             $name1 = $this->input->post('name');
+            $city_sess[] = $this->input->post('certainCity');
+            $this->session->set_userdata(array('city_sess' => $city_sess));
+//            print_r($city_sess);
             if (empty($name1)) {
                 redirect(base_url('search/prod'));
             } else {
@@ -83,6 +86,7 @@ class Search extends CI_Controller {
                 foreach ($name as $item) {
                     $session_data[] = $item;
                 }
+
                 $this->session->set_userdata(array('search' => $session_data));
                 redirect(base_url('search/' . $this->translit($name1)));
             }
@@ -96,10 +100,12 @@ class Search extends CI_Controller {
 
         $link = '';
         $name = $this->session->userdata('search');
+        $city = $this->session->userdata('city_sess');
+//        print_r($city);
         if (empty($name)) {
             $arr = $this->product_m->search_by($name);
             $config['base_url'] = base_url() . 'search/prod';
-            $this->data['prep'] = $this->product_m->search_prod($name, 18, $this->uri->segment(3));
+            $this->data['prep'] = $this->product_m->search_prod($name, $city['0'], 18, $this->uri->segment(3));
             foreach ($this->data['prep'] as $k => $v) {
                 foreach ($v as $key => $val) {
                     if ($key == 'name') {
@@ -117,7 +123,7 @@ class Search extends CI_Controller {
             $this->data['total_rows'] = count($arr);
             $config['base_url'] = base_url() . 'search/' . $link;
             foreach ($name as $item) {
-                $this->data['prep'] = $this->product_m->search_prod($item, 18, $this->uri->segment(3));
+                $this->data['prep'] = $this->product_m->search_prod($item,$city['0'], 18, $this->uri->segment(3));
             }
             if (empty($this->data['prep'])) {
                 foreach ($name as $item) {

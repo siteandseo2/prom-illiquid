@@ -18,15 +18,15 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/style.css">
         <link rel="stylesheet" href="<?= base_url(); ?>../../../css/responsive.css">
-		
-		<!--[if IE]>
-			<style>
-				.tabs-buttons li:hover:not(.activeTab) a {
-					color: rgb(5, 75, 171);
-					background: transparent;
-				}
-			</style>
-		<![endif]-->
+
+        <!--[if IE]>
+                <style>
+                        .tabs-buttons li:hover:not(.activeTab) a {
+                                color: rgb(5, 75, 171);
+                                background: transparent;
+                        }
+                </style>
+        <![endif]-->
 
        <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     </head>   
@@ -119,25 +119,27 @@
                                 <input type="text" placeholder="Я ХОЧУ КУПИТЬ" name="name" class="search-input" autofocus>
 
                                 <div class="btn-group s-butt">
-									<button type="button" class="btn btn-default search-block-button" id="location-select-button">
-										<span class="searching-title">Вся Украина</span>
-										<input type="hidden" name="certainCity" value="Вся Украина">
-										<span class="search-select-icon" title="Искать по городам Украины">
-											<i class="fa fa-angle-down"></i>
-										</span>
-									</button>
-									
-									<div class="sub-nav searching-dropdown"> 
-										<input type="text" placeholder="Введите название города" name="searchCityName">
-										<ul class="scrollbar-inner"></ul>
-									</div>
-									
-									<button type="submit" class="btn btn-default search-block-button" name="search" id="buy-search-button">
-										<span>Поиск</span>
-										<span class="search-select-icon">
-											<i class="fa fa-search"></i>
-										</span>
-									</button>
+
+                                    <button type="button" class="btn btn-default search-block-button" id="location-select-button">
+                                        <span class="searching-title">Вся Украина</span>
+                                        <input type="hidden" name="certainCity" value="Вся Украина">
+                                        <span class="search-select-icon" title="Искать по городам Украины">
+                                            <i class="fa fa-angle-down"></i>
+                                        </span>
+                                    </button>
+
+                                    <div class="sub-nav searching-dropdown"> 
+                                        <input type="text" placeholder="Введите название города" name="searchCityName">
+                                        <ul class="scrollbar-inner"></ul>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default search-block-button" name="search" id="buy-search-button">
+                                        <span>Поиск</span>
+                                        <span class="search-select-icon">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </button>
+
                                 </div>
                             </div>
 

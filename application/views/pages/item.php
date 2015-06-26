@@ -116,6 +116,10 @@
                             Компания:
                             <a href="<?= base_url('view_company'); ?>/<?= $user_data['id'] ?>" class="company_value"><?= $user_data['company'] ?></a>
                         </span>
+                        <span class="company">
+                            Город:
+                            <span class="email_value"><?= $user_data['city'] ?></span>
+                        </span>
                         <span class="email">
                             Email:
                             <span class="email_value"><?= $user_data['email'] ?></span>

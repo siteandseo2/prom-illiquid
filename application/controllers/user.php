@@ -19,6 +19,15 @@ class User extends CI_Controller {
         $this->load->model('product_m');
         $this->load->model('main_m');
         $this->load->model('settings_m');
+         $this->data['prep_popular'] = $this->product_m->get_popular();
+        foreach ($this->data['prep_popular'] as $k => $v) {
+            foreach ($v as $key => $val) {
+                if ($key == 'name') {
+                    $this->data['popular'][$k]['trans'] = $this->translit($val);
+                }
+                $this->data['popular'][$k][$key] = $val;
+            }
+        }
         $this->script['city'] = $this->settings_m->get_set('city');
         $this->script['street_build'] = $this->settings_m->get_set('street/build');
         $this->script['phone1'] = $this->settings_m->get_set('phone1');
@@ -69,7 +78,7 @@ class User extends CI_Controller {
                 $this->data['phone'] = $this->input->post('company_phone');
                 $this->data['phone_more'] = $this->input->post('company_phone_more');
                 $this->data['country'] = $this->input->post('company_country');
-                $location_id = $this->input->post('location');
+                $location_id = $this->input->post('company_location');
                 $this->data['location'] = $this->user_model->get_location($location_id);
                 $city = $this->input->post('company_city');
                 $this->data['city'] = $this->user_model->get_city($city);
